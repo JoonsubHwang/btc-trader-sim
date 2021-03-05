@@ -5,7 +5,8 @@ function Trading(props) {
     const iUpdate = 100; // interval for updating 
     const [price, setPrice] = useState(0);
     const [balance, setBalance] = useState(props.balance);
-    const [ownedBTC, setOwnedBTC] = useState(0);
+    const [BTCOwned, setBTCOwned] = useState(1);
+    const [value, setValue] = useState(0);
 
 
     // effect
@@ -25,7 +26,10 @@ function Trading(props) {
     return (
         <div className='trading'>
             <h1>BTC ${price}</h1>
+
             <p> Balance: {balance}</p>
+
+            <p> BTC owned: {BTCOwned} (${value})</p>
         </div>
     );
 }
