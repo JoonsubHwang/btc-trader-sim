@@ -10,15 +10,19 @@ function Trading(props) {
     // effect
     useEffect(() => {
         const tUpdatePrice = setInterval(() => {
-            setPrice(++price);
+            setPrice(price + 1.0);
         }, iUpdatePrice);
+
+        return ()=> { 
+            clearInterval(tUpdatePrice);
+        }
     });
 
 
     // return
     return (
         <div className='trading'>
-            <h1>BTC {price}</h1>
+            <h1>BTC ${price}</h1>
         </div>
     );
 }
