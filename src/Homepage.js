@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Homepage() {
     return (
-        <div>
+        <div className='homepage'>
             <h1>BTC Trader Sim</h1>
             <Link to='/trading'> Trading </Link>
         </div>
