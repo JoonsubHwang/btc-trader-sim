@@ -10,8 +10,8 @@ function Chart(props) {
 
     // return
     return (
-        <div className='chart'>
-            <table className='chart-table'>
+        <div id='chart-main'>
+            <table id='chart-table'>
                 <tr>
                     <td>
                         <canvas id='price-chart'></canvas>
