@@ -4,6 +4,8 @@ function Chart(props) {
 
     const barUnitWidth = 10;
     const priceUnitHeight = 50;
+    const timeScale = 180;
+    const [priceScale, setPriceScale] = useState(500);
     const [timeUnit, setTimeUnit] = useState(15);
     const [priceUnit, setPriceUnit] = useState(50);
     const [barUnit, setBarUnit] = useState(1);
