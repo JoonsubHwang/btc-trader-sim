@@ -1,0 +1,9 @@
+:root {
+    --bg: rgb(20,20,30);
+    --fg: rgb(250, 250, 250);
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--chart-fg);
+}
