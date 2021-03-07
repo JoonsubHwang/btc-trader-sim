@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 
 function Chart(props) {
 
+    const yAxisWidth = 100;
+    const xAxisHeigth = 80;
     const barUnitWidth = 10;
     const priceUnitHeight = 50;
     const timeScale = 180;
