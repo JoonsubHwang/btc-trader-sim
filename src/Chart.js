@@ -2,10 +2,10 @@ import React, {useState, useEffect} from 'react';
 
 function Chart(props) {
 
-    const yAxisWidth = 100;
-    const xAxisHeigth = 80;
-    const barUnitWidth = 10;
-    const priceUnitHeight = 50;
+    const yAxisWidth = 40;
+    const xAxisHeigth = 30;
+    const barUnitWidth = 5;
+    const priceUnitHeight = 35;
     const timeScale = 180;
     const [priceScale, setPriceScale] = useState(500);
     const [timeUnit, setTimeUnit] = useState(15);
@@ -23,12 +23,14 @@ function Chart(props) {
                         </canvas>
                     </td>
                     <td>
-                        <canvas id='y-axis'></canvas>
+                        <canvas id='y-axis' 
+                                width={yAxisWidth} height={(priceScale / priceUnit) * priceUnitHeight}></canvas>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <canvas id='x-axis'></canvas>
+                        <canvas id='x-axis' 
+                                width={timeScale * barUnitWidth} height={xAxisHeigth}></canvas>
                     </td>
                 </tr>
             </table>
