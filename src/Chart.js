@@ -16,7 +16,9 @@ function Chart(props) {
             <table id='chart-table'>
                 <tr>
                     <td>
-                        <canvas id='price-chart'></canvas>
+                        <canvas id='price-chart' 
+                                width={timeScale * barUnitWidth} height={(priceScale / priceUnit) * priceUnitHeight}>
+                        </canvas>
                     </td>
                     <td>
                         <canvas id='y-axis'></canvas>
