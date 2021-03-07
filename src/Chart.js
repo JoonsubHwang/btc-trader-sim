@@ -1,51 +1,67 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, Component} from 'react';
 import './Chart.css';
 
-function Chart(props) {
+class Chart extends Component {
 
-    const yAxisWidth = 40;
-    const xAxisHeigth = 30;
-    const barUnitWidth = 5;
-    const priceUnitHeight = 35;
-    const timeScale = 180;
-    const [priceScale, setPriceScale] = useState(500);
-    const [timeUnit, setTimeUnit] = useState(15);
-    const [priceUnit, setPriceUnit] = useState(50);
-    const [barUnit, setBarUnit] = useState(1);
+    // constructor
+    constructor(props) {
+
+        super(props);
+
+        this.state = {
+            yAxisWidth: 40,
+            xAxisHeigth: 30,
+            barUnitWidth: 5,
+            priceUnitHeight: 35,
+            timeScale: 180,
+
+            priceScale: 500,
+            timeUnit: 15,
+            priceUnit: 50,
+            barUnit: 1
+        };
+    }
+
+
 
     // functions
 
-    function drawBg() {
+    drawBg() {
         const chart = document.querySelector('#price-chart');
         if (chart.getContext('2d')) {
             // chart.fillStyle = 'rgb(0, 0, 30)';
         }
     }
 
-    // return
-    return (
-        <div id='chart-main'>
-            <table id='chart-table'>
-                <tr>
-                    <td>
-                        <canvas id='price-chart' 
-                                width={timeScale * barUnitWidth} height={(priceScale / priceUnit) * priceUnitHeight}>
-                        </canvas>
-                    </td>
-                    <td>
-                        <canvas id='y-axis' 
-                                width={yAxisWidth} height={(priceScale / priceUnit) * priceUnitHeight}></canvas>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <canvas id='x-axis' 
-                                width={timeScale * barUnitWidth} height={xAxisHeigth}></canvas>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    );
-}
+
+    
+    // render
+    render() {
+
+        return (
+            <div id='chart-main'>
+                <table id='chart-table'>
+                    <tr>
+                        <td>
+                            <canvas id='price-chart' 
+                                    width={this.state.timeScale * this.state.barUnitWidth} height={(this.state.priceScale / this.state.priceUnit) * this.state.priceUnitHeight}>
+                            </canvas>
+                        </td>
+                        <td>
+                            <canvas id='y-axis' 
+                                    width={this.state.yAxisWidth} height={(this.state.priceScale / this.state.priceUnit) * this.state.priceUnitHeight}></canvas>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <canvas id='x-axis' 
+                                    width={this.state.timeScale * this.state.barUnitWidth} height={this.state.xAxisHeigth}></canvas>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        );
+    }
+};
 
 export default Chart;
