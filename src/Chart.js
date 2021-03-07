@@ -44,18 +44,22 @@ class Chart extends Component {
                     <tr>
                         <td>
                             <canvas id='price-chart' 
-                                    width={this.state.timeScale * this.state.barUnitWidth} height={(this.state.priceScale / this.state.priceUnit) * this.state.priceUnitHeight}>
+                                    width={this.timeScale * this.barUnitWidth} height={(this.state.priceScale / this.state.priceUnit) * this.priceUnitHeight}>
                             </canvas>
                         </td>
                         <td>
                             <canvas id='y-axis' 
-                                    width={this.state.yAxisWidth} height={(this.state.priceScale / this.state.priceUnit) * this.state.priceUnitHeight}></canvas>
+                                    width={this.yAxisWidth} height={(this.state.priceScale / this.state.priceUnit) * this.priceUnitHeight}></canvas>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <canvas id='x-axis' 
-                                    width={this.state.timeScale * this.state.barUnitWidth} height={this.state.xAxisHeigth}></canvas>
+                                    width={this.timeScale * this.barUnitWidth} height={this.xAxisHeigth}></canvas>
+                        </td>
+                        <td>
+                            <canvas id='leftover'
+                                    width={this.yAxisWidth} height={this.xAxisHeigth}></canvas>
                         </td>
                     </tr>
                 </table>
