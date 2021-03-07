@@ -12,6 +12,15 @@ function Chart(props) {
     const [priceUnit, setPriceUnit] = useState(50);
     const [barUnit, setBarUnit] = useState(1);
 
+    // functions
+
+    function drawBg() {
+        const chart = document.querySelector('#price-chart');
+        if (chart.getContext('2d')) {
+            // chart.fillStyle = 'rgb(0, 0, 30)';
+        }
+    }
+
     // return
     return (
         <div id='chart-main'>
