@@ -1,4 +1,4 @@
-import React, {useState, useEffect, Component} from 'react';
+import React, {Component} from 'react';
 import './Chart.css';
 
 class Chart extends Component {
@@ -8,13 +8,13 @@ class Chart extends Component {
 
         super(props);
 
-        this.state = {
-            yAxisWidth: 40,
-            xAxisHeigth: 30,
-            barUnitWidth: 5,
-            priceUnitHeight: 35,
-            timeScale: 180,
+        this.yAxisWidth = 40;
+        this.xAxisHeigth = 30;
+        this.barUnitWidth = 5;
+        this.priceUnitHeight = 35;
+        this.timeScale = 180;
 
+        this.state = {
             priceScale: 500,
             timeUnit: 15,
             priceUnit: 50,
@@ -34,7 +34,7 @@ class Chart extends Component {
     }
 
 
-    
+
     // render
     render() {
 
