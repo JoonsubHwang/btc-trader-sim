@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import Chart from './Chart';
 
 function Trading(props) {
 
@@ -31,6 +32,8 @@ function Trading(props) {
             <p> Balance: {balance}</p>
 
             <p> BTC owned: {BTCOwned} (${value})</p>
+
+            <Chart></Chart>
         </div>
     );
 }
