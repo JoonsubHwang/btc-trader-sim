@@ -25,7 +25,7 @@ function Trading(props) {
 
     // return
     return (
-        <div className='trading'>
+        <div id='trading-main'>
             <h1>BTC ${price}</h1>
 
             <p> Balance: {balance}</p>
