@@ -8,7 +8,7 @@ class Trading extends Component {
 
         super(props);
 
-        this.iUpdate = 100; // interval for updating 
+        this.iUpdate = 100; // interval for updating = 0.1s
 
         this.state = {
             price: 0,
@@ -23,7 +23,7 @@ class Trading extends Component {
     // effect hooks
 
     componentDidMount() {
-        this.tUpdate = setInterval(this.update, this.iUpdate); // doesn't work in IE9 or eariler
+        this.tUpdate = setInterval(this.update, this.iUpdate);
     }
 
     componentWillUnmount() {
@@ -34,7 +34,7 @@ class Trading extends Component {
 
     // functions
 
-    update= () => {
+    update = () => {
         
         this.setState({ 
             price: this.state.price + 1,
