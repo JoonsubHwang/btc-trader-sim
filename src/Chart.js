@@ -10,8 +10,22 @@ function Chart(props) {
 
     // return
     return (
-        <div className="chart">
-
+        <div className='chart'>
+            <table className='chart-table'>
+                <tr>
+                    <td>
+                        <canvas id='price-chart'></canvas>
+                    </td>
+                    <td>
+                        <canvas id='y-axis'></canvas>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <canvas id='x-axis'></canvas>
+                    </td>
+                </tr>
+            </table>
         </div>
     );
 }
