@@ -15,7 +15,7 @@ class Chart extends Component {
         this.timeScale = 180;
 
         this.state = {
-            priceScale: 500,
+            priceScale: 700,
             timeUnit: 15,
             priceUnit: 50,
             barUnit: 1
