@@ -1,41 +1,65 @@
-import React, {useState, useEffect} from 'react';
+import React, {Component} from 'react';
 import Chart from './Chart';
 
-function Trading(props) {
+class Trading extends Component {
 
-    const iUpdate = 100; // interval for updating 
-    const [price, setPrice] = useState(0);
-    const [balance, setBalance] = useState(props.balance);
-    const [BTCOwned, setBTCOwned] = useState(5);
-    const [value, setValue] = useState(0);
+    // constructor
+    constructor(props) {
 
+        super(props);
 
-    // effect
-    useEffect(() => {
+        this.iUpdate = 100; // interval for updating 
 
-        const tUpdate = setInterval(() => {
-            setPrice(price + 1.0);
-            setValue(BTCOwned * price);
-        }, iUpdate);
-
-        return ()=> { 
-            clearInterval(tUpdate);
+        this.state = {
+            price: 0,
+            balance: this.props.balance,
+            BTCOwned: 5,
+            valueOwning: 0
         }
-    });
+    }
 
 
-    // return
-    return (
-        <div id='trading-main'>
-            <h1>BTC ${price}</h1>
 
-            <p> Balance: {balance}</p>
+    // effect hooks
 
-            <p> BTC owned: {BTCOwned} (${value})</p>
+    componentDidMount() {
+        this.tUpdate = setInterval(this.update, this.iUpdate); // doesn't work in IE9 or eariler
+    }
 
-            <Chart></Chart>
-        </div>
-    );
+    componentWillUnmount() {
+        clearInterval(this.update);
+    }
+
+
+
+    // functions
+
+    update= () => {
+        
+        this.setState({ 
+            price: this.state.price + 1,
+            valueOwning: this.state.BTCOwned * this.state.price
+        });
+    }
+
+
+
+    // render
+    
+    render() {
+
+        return (
+            <div id='trading-main'>
+                <h1>BTC ${this.state.price}</h1>
+    
+                <p> Balance: {this.state.balance}</p>
+    
+                <p> BTC owned: {this.state.BTCOwned} (${this.state.valueOwning})</p>
+    
+                <Chart></Chart>
+            </div>
+        );
+    }
 }
 
 export default Trading;
