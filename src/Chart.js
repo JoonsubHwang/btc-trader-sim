@@ -12,7 +12,7 @@ class Chart extends Component {
         this.xAxisHeigth = 30;
         this.barUnitWidth = 5;
         this.priceUnitHeight = 35;
-        this.timeScale = 180;
+        this.timeRange = 180;
 
         this.orderBookLength = 10;
         this.maxOrderSize = 400;
@@ -54,7 +54,7 @@ class Chart extends Component {
                     <tr>
                         <td>
                             <canvas id='price-chart' 
-                                    width={this.timeScale * this.barUnitWidth} height={(this.state.priceScale / this.state.priceUnit) * this.priceUnitHeight}>
+                                    width={this.timeRange * this.barUnitWidth} height={(this.state.priceScale / this.state.priceUnit) * this.priceUnitHeight}>
                             </canvas>
                         </td>
                         <td>
@@ -65,7 +65,7 @@ class Chart extends Component {
                     <tr>
                         <td>
                             <canvas id='x-axis' 
-                                    width={this.timeScale * this.barUnitWidth} height={this.xAxisHeigth}></canvas>
+                                    width={this.timeRange * this.barUnitWidth} height={this.xAxisHeigth}></canvas>
                         </td>
                         <td>
                             <canvas id='leftover'
