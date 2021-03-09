@@ -26,8 +26,8 @@ class Chart extends Component {
             barUnit: 1,
 
             candles: [], // [ time, low, high, open, close, volume ]
-            minPrice: 0,
-            maxPrice: 0,
+            lowestCdl: 0,
+            highestCdl: 0,
             orderBook: [] // [ price, size, num-orders ]
         };
     }
