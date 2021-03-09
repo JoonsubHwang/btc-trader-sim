@@ -13,15 +13,21 @@ class Chart extends Component {
         this.barUnitWidth = 5;
         this.priceUnitHeight = 35;
         this.timeScale = 180;
+
         this.orderBookLength = 10;
         this.maxOrderSize = 400;
+
         this.gridColor = 'rgb(0, 0, 30)';
 
         this.state = {
             priceScale: 700,
             timeUnit: 15,
             priceUnit: 50,
-            barUnit: 1
+            barUnit: 1,
+            
+            candles: [],
+            minPrice: 0,
+            maxPrice: 0
         };
     }
 
