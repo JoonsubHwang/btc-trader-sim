@@ -24,10 +24,11 @@ class Chart extends Component {
             timeUnit: 15,
             priceUnit: 50,
             barUnit: 1,
-            
+
             candles: [],
             minPrice: 0,
-            maxPrice: 0
+            maxPrice: 0,
+            orderBook: []
         };
     }
 
