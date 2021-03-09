@@ -13,6 +13,7 @@ class Chart extends Component {
         this.barUnitWidth = 5;
         this.priceUnitHeight = 35;
         this.timeScale = 180;
+        this.gridColor = 'rgb(0, 0, 30)';
 
         this.state = {
             priceScale: 700,
@@ -29,7 +30,7 @@ class Chart extends Component {
     drawBg() {
         const chart = document.querySelector('#price-chart');
         if (chart.getContext('2d')) {
-            // chart.fillStyle = 'rgb(0, 0, 30)';
+            chart.fillStyle = this.gridColor;
         }
     }
 
