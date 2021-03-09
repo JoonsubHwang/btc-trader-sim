@@ -25,10 +25,10 @@ class Chart extends Component {
             priceUnit: 50,
             barUnit: 1,
 
-            candles: [],
+            candles: [], // [ time, low, high, open, close, volume ]
             minPrice: 0,
             maxPrice: 0,
-            orderBook: []
+            orderBook: [] // [ price, size, num-orders ]
         };
     }
 
