@@ -10,7 +10,7 @@ class Chart extends Component {
 
         this.yAxisWidth = 40;
         this.xAxisHeigth = 30;
-        this.barUnitWidth = 5;
+        this.candleWidth = 5;
         this.priceUnitHeight = 35;
         this.timeRange = 180;
 
