@@ -28,7 +28,9 @@ class Chart extends Component {
             candles: [], // [ time, low, high, open, close, volume ]
             lowestCdl: 0,
             highestCdl: 0,
-            orderBook: [] // [ price, size, num-orders ]
+            orderBook: [], // [ price, size, num-orders ]
+
+            ioc: false // immediate or cancel
         };
     }
 
