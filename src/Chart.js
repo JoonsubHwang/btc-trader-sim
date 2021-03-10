@@ -16,6 +16,7 @@ class Chart extends Component {
 
         this.orderBookLength = 10;
         this.maxOrderSize = 400;
+        this.smaSize = 10;
 
         this.gridColor = 'rgb(0, 0, 30)';
 
@@ -29,6 +30,7 @@ class Chart extends Component {
             lowestCdl: 0,
             highestCdl: 0,
             orderBook: [], // [ price, size, num-orders ]
+            showSMA: true,
 
             ioc: false // immediate or cancel
         };
