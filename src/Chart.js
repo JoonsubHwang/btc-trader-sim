@@ -11,6 +11,7 @@ class Chart extends Component {
         this.yAxisWidth = 40;
         this.xAxisHeigth = 30;
         this.candleWidth = 5;
+        this.timeUnitWidth = 5; // pixels per timeUnit
         this.priceUnitHeight = 35; // pixels per priceUnit
         this.timeRange = 180; // timeUnits
 
@@ -58,7 +59,7 @@ class Chart extends Component {
                     <tr>
                         <td>
                             <canvas id='price-chart' 
-                                    width={this.timeRange * this.barUnitWidth} height={(this.state.priceRange / this.state.priceUnit) * this.priceUnitHeight}>
+                                    width={this.timeRange * this.timeUnitWidth} height={(this.state.priceRange / this.state.priceUnit) * this.priceUnitHeight}>
                             </canvas>
                         </td>
                         <td>
@@ -69,7 +70,7 @@ class Chart extends Component {
                     <tr>
                         <td>
                             <canvas id='x-axis' 
-                                    width={this.timeRange * this.barUnitWidth} height={this.xAxisHeigth}></canvas>
+                                    width={this.timeRange * this.timeUnitWidth} height={this.xAxisHeigth}></canvas>
                         </td>
                         <td>
                             <canvas id='leftover'
