@@ -11,24 +11,24 @@ class Chart extends Component {
         this.yAxisWidth = 40;
         this.xAxisHeigth = 30;
         this.candleWidth = 5;
-        this.priceUnitHeight = 35;
-        this.timeRange = 180;
+        this.priceUnitHeight = 35; // pixels per dollar
+        this.timeRange = 180; // minutes
 
-        this.orderBookLength = 10;
-        this.maxOrderSize = 400;
-        this.smaSize = 10;
+        this.orderBookLength = 10; // number of prices
+        this.maxOrderSize = 400; // max number for each price
+        this.smaSize = 10; // simple moving average
 
         this.gridColor = 'rgb(0, 0, 30)';
 
         this.state = {
             priceScale: 700,
-            timeUnit: 15,
-            priceUnit: 50,
-            barUnit: 1,
+            timeUnit: 15, // minutes
+            priceUnit: 50, // dollars
+            barUnit: 1, // minutes
 
             candles: [], // [ time, low, high, open, close, volume ]
-            lowestCdl: 0,
-            highestCdl: 0,
+            lowestCdl: 0, // price
+            highestCdl: 0, // price
             orderBook: [], // [ price, size, num-orders ]
             showSMA: true,
 
