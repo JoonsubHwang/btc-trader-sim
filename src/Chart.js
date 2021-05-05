@@ -11,8 +11,8 @@ class Chart extends Component {
         this.yAxisWidth = 40;
         this.xAxisHeigth = 30;
         this.candleWidth = 5;
-        this.priceUnitHeight = 35; // pixels per dollar
-        this.timeRange = 180; // minutes
+        this.priceUnitHeight = 35; // pixels per priceUnit
+        this.timeRange = 180; // timeUnits
 
         this.orderBookLength = 10; // number of prices
         this.maxOrderSize = 400; // max number for each price
@@ -22,9 +22,9 @@ class Chart extends Component {
 
         this.state = {
             priceScale: 700,
-            timeUnit: 15, // minutes
+            timeUnit: 1, // minutes
             priceUnit: 50, // dollars
-            barUnit: 1, // minutes
+            barUnit: 1, // 
 
             candles: [], // [ time, low, high, open, close, volume ]
             lowestCdl: 0, // price
