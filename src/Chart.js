@@ -21,7 +21,7 @@ class Chart extends Component {
         this.gridColor = 'rgb(0, 0, 30)';
 
         this.state = {
-            priceScale: 700,
+            priceRange: 700,
             timeUnit: 1, // minutes
             priceUnit: 50, // dollars
             barUnit: 1, // 
@@ -58,12 +58,12 @@ class Chart extends Component {
                     <tr>
                         <td>
                             <canvas id='price-chart' 
-                                    width={this.timeRange * this.barUnitWidth} height={(this.state.priceScale / this.state.priceUnit) * this.priceUnitHeight}>
+                                    width={this.timeRange * this.barUnitWidth} height={(this.state.priceRange / this.state.priceUnit) * this.priceUnitHeight}>
                             </canvas>
                         </td>
                         <td>
                             <canvas id='y-axis' 
-                                    width={this.yAxisWidth} height={(this.state.priceScale / this.state.priceUnit) * this.priceUnitHeight}></canvas>
+                                    width={this.yAxisWidth} height={(this.state.priceRange / this.state.priceUnit) * this.priceUnitHeight}></canvas>
                         </td>
                     </tr>
                     <tr>
