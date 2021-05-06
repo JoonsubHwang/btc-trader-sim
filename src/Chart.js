@@ -4,7 +4,22 @@ import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import './Chart.css';
 
+function am4themes_dark(target) {
+
+    let white = 'rgb(250, 250, 250)';
+    let green = 'rgb(10, 180, 30)';
+    let red = 'rgb(200, 20, 0)';
+
+    if (target instanceof am4core.InterfaceColorSet) {
+        target.setFor('grid', am4core.color(white));
+        target.setFor('text', am4core.color(white));
+        target.setFor('positive', am4core.color(green));
+        target.setFor('negative', am4core.color(red));
+    }
+}
+
 am4core.useTheme(am4themes_animated);
+am4core.useTheme(am4themes_dark);
 
 class Chart extends Component {
 
@@ -44,6 +59,7 @@ class Chart extends Component {
     componentDidMount() {
 
         let chart = am4core.create("priceChart", am4charts.XYChart);
+        chart.paddingRight = 0;
 
         chart.dateFormatter.inputDateFormat = 'yyyy.MM.dd HH:mm:ss';
         chart.dateFormatter.dateFormat = 'HH:mm';
@@ -62,15 +78,12 @@ class Chart extends Component {
         series.dataFields.highValueY = "high";
 
         series.tooltipText = 
-            `Open: [bold]${series.dataFields.openValueY.value}[/]\n'
-            Low: [bold]${series.dataFields.lowValueY.value}[/]\n
-            High: [bold]${series.dataFields.highValueY.value}[/]\n
-            Close: [bold]${series.dataFields.valueY.value}[/]`;
-
-        series.dropFromOpenState.properties.fill = am4core.color('#992211');
-        series.riseFromOpenState.properties.stroke = am4core.color('#992211');
-        series.riseFromOpenState.properties.fill = am4core.color('#119922');
-        series.riseFromOpenState.properties.stroke = am4core.color('#119922');
+        'Open: ${openValueY.value}[/]\n' + 
+        'Close: ${valueY.value}[/]\n' +
+        'Low: ${lowValueY.value}[/]\n' + 
+        'High: ${highValueY.value}[/]';
+        series.columns.template.tooltipX = am4core.percent(50);
+        series.columns.template.tooltipY = am4core.percent(50);
 
         chart.cursor = new am4charts.XYCursor();
         chart.scrollbarX = new am4core.Scrollbar();
@@ -78,14 +91,14 @@ class Chart extends Component {
         chart.data = [
             {
                 'time': '2016.09.21 19:18:00',
-                'open': '136.65',
-                'high': '136.96',
+                'open': '236.65',
+                'high': '236.96',
                 'low': '134.15',
                 'close': '136.49'
             }, {
                 "time": "2016.09.21 19:19:00",
                 "open": "136.49",
-                "high": "135.95",
+                "high": "139.95",
                 "low": "131.50",
                 "close": "131.85"
             }, {
@@ -96,6 +109,9 @@ class Chart extends Component {
                 "close": "141.85"
             }
         ]
+
+        // let point = timeAxis.dateToPoint(lastTime);
+        // chart.cursor.triggerMove(point, soft, true);
 
         this.chart = chart;
     }
