@@ -42,7 +42,60 @@ class Chart extends Component {
     }
 
     componentDidMount() {
+
         let chart = am4core.create("priceChart", am4charts.XYChart);
+
+        chart.dateFormatter.inputDateFormat = 'yyyy.MM.dd HH:mm:ss';
+        chart.dateFormatter.dateFormat = 'HH:mm';
+
+        let timeAxis = chart.xAxes.push(new am4charts.DateAxis());
+        timeAxis.renderer.grid.template.location = 0;
+        timeAxis.renderer.minGridDistance = 50;
+
+        let priceAxis = chart.yAxes.push(new am4charts.ValueAxis());
+
+        let series = chart.series.push(new am4charts.CandlestickSeries());
+        series.dataFields.dateX = "time";
+        series.dataFields.valueY = "close";
+        series.dataFields.openValueY = "open";
+        series.dataFields.lowValueY = "low";
+        series.dataFields.highValueY = "high";
+
+        series.tooltipText = 
+            `Open: [bold]${series.dataFields.openValueY.value}[/]\n'
+            Low: [bold]${series.dataFields.lowValueY.value}[/]\n
+            High: [bold]${series.dataFields.highValueY.value}[/]\n
+            Close: [bold]${series.dataFields.valueY.value}[/]`;
+
+        series.dropFromOpenState.properties.fill = am4core.color('#992211');
+        series.riseFromOpenState.properties.stroke = am4core.color('#992211');
+        series.riseFromOpenState.properties.fill = am4core.color('#119922');
+        series.riseFromOpenState.properties.stroke = am4core.color('#119922');
+
+        chart.cursor = new am4charts.XYCursor();
+        chart.scrollbarX = new am4core.Scrollbar();
+
+        chart.data = [
+            {
+                'time': '2016.09.21 19:18:00',
+                'open': '136.65',
+                'high': '136.96',
+                'low': '134.15',
+                'close': '136.49'
+            }, {
+                "time": "2016.09.21 19:19:00",
+                "open": "136.49",
+                "high": "135.95",
+                "low": "131.50",
+                "close": "131.85"
+            }, {
+                "time": "2016.09.21 19:20:00",
+                "open": "131.85",
+                "high": "145.95",
+                "low": "130.50",
+                "close": "141.85"
+            }
+        ]
 
         this.chart = chart;
     }
@@ -52,18 +105,8 @@ class Chart extends Component {
             this.chart.dispose();
     }
 
-
-
-    // functions
-
-    drawBg() {
-    }
-
-
-
     // render
     render() {
-
         return (
             <div id='chart-main'>
                 <div id='priceChart' style={{ width: '80%', height: '500px' }}></div>       
