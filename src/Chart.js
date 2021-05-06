@@ -41,15 +41,22 @@ class Chart extends Component {
         };
     }
 
+    componentDidMount() {
+        let chart = am4core.create("priceChart", am4charts.XYChart);
+
+        this.chart = chart;
+    }
+
+    componentWillUnmount() {
+        if (this.chart)
+            this.chart.dispose();
+    }
+
 
 
     // functions
 
     drawBg() {
-        const chart = document.querySelector('#price-chart');
-        if (chart.getContext('2d')) {
-            chart.fillStyle = this.gridColor;
-        }
     }
 
 
@@ -59,36 +66,7 @@ class Chart extends Component {
 
         return (
             <div id='chart-main'>
-                <table id='chart-table'>
-                    <tr>
-                        <td>
-                            <canvas id='price-chart' 
-                                width={this.timeRange * this.candleWidth} 
-                                height={(this.state.priceRange / this.state.priceUnit) * this.priceUnitHeight}>
-                            </canvas>
-                        </td>
-                        <td>
-                            <canvas id='y-axis' 
-                                width={this.yAxisWidth} 
-                                height={(this.state.priceRange / this.state.priceUnit) * this.priceUnitHeight}>
-                            </canvas>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <canvas id='x-axis' 
-                                width={this.timeRange * this.candleWidth} 
-                                height={this.xAxisHeigth}>
-                            </canvas>
-                        </td>
-                        <td>
-                            <canvas id='leftover'
-                                width={this.yAxisWidth} 
-                                height={this.xAxisHeigth}>
-                            </canvas>
-                        </td>
-                    </tr>
-                </table>
+                <div id='priceChart' style={{ width: '80%', height: '500px' }}></div>       
             </div>
         );
     }   
