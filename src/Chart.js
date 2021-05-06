@@ -1,5 +1,10 @@
 import React, {Component} from 'react';
+import * as am4core from "@amcharts/amcharts4/core";
+import * as am4charts from "@amcharts/amcharts4/charts";
+import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import './Chart.css';
+
+am4core.useTheme(am4themes_animated);
 
 class Chart extends Component {
 
@@ -58,28 +63,35 @@ class Chart extends Component {
                     <tr>
                         <td>
                             <canvas id='price-chart' 
-                                    width={this.timeRange * this.candleWidth} height={(this.state.priceRange / this.state.priceUnit) * this.priceUnitHeight}>
+                                width={this.timeRange * this.candleWidth} 
+                                height={(this.state.priceRange / this.state.priceUnit) * this.priceUnitHeight}>
                             </canvas>
                         </td>
                         <td>
                             <canvas id='y-axis' 
-                                    width={this.yAxisWidth} height={(this.state.priceRange / this.state.priceUnit) * this.priceUnitHeight}></canvas>
+                                width={this.yAxisWidth} 
+                                height={(this.state.priceRange / this.state.priceUnit) * this.priceUnitHeight}>
+                            </canvas>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <canvas id='x-axis' 
-                                    width={this.timeRange * this.candleWidth} height={this.xAxisHeigth}></canvas>
+                                width={this.timeRange * this.candleWidth} 
+                                height={this.xAxisHeigth}>
+                            </canvas>
                         </td>
                         <td>
                             <canvas id='leftover'
-                                    width={this.yAxisWidth} height={this.xAxisHeigth}></canvas>
+                                width={this.yAxisWidth} 
+                                height={this.xAxisHeigth}>
+                            </canvas>
                         </td>
                     </tr>
                 </table>
             </div>
         );
-    }
+    }   
 };
 
 export default Chart;
