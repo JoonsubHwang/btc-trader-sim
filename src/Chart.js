@@ -59,7 +59,7 @@ class Chart extends Component {
     componentDidMount() {
 
         let chart = am4core.create("priceChart", am4charts.XYChart);
-        chart.paddingRight = 0;
+        chart.padding(0, 30, 10 ,30);
 
         chart.dateFormatter.inputDateFormat = 'yyyy.MM.dd HH:mm:ss';
         chart.dateFormatter.dateFormat = 'HH:mm';
@@ -78,10 +78,10 @@ class Chart extends Component {
         series.dataFields.highValueY = "high";
 
         series.tooltipText = 
-        'Open: ${openValueY.value}[/]\n' + 
-        'Close: ${valueY.value}[/]\n' +
-        'Low: ${lowValueY.value}[/]\n' + 
-        'High: ${highValueY.value}[/]';
+            'Open: ${openValueY.value}[/]\n' + 
+            'Close: ${valueY.value}[/]\n' +
+            'Low: ${lowValueY.value}[/]\n' + 
+            'High: ${highValueY.value}[/]';
         series.columns.template.tooltipX = am4core.percent(50);
         series.columns.template.tooltipY = am4core.percent(50);
 
@@ -125,7 +125,7 @@ class Chart extends Component {
     render() {
         return (
             <div id='chart-main'>
-                <div id='priceChart' style={{ width: '80%', height: '500px' }}></div>       
+                <div id='priceChart' style={{ width: '100%', height: '400px' }}></div>       
             </div>
         );
     }   
