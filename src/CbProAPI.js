@@ -1,24 +1,39 @@
 // functions to communicate with Coinbase Pro API
 
-const hour = 3600;
-const min = 60;
+const minute = 60;
+const locale = 'en-US';
+const endpoint = 'https://api.pro.coinbase.com';
+const productID = 'BTC-USD';
 
 export class CbProAPI {
 
-    endpoint = 'https://api.pro.coinbase.com';
-    productID = 'BTC-USD';
-
-    // returns 6-hour historic rates of BTC-USD
-    loadHistory = async (currentTime) => {
+    // returns 5-hour historic rates of BTC-USD
+    static async loadHistory() {
     
-        const path = this.endpoint + `/products/${this.productID}/candles?`;
+        const path = endpoint + `/products/${productID}/candles?granularity=${minute}`;
     
-        let res = await fetch(path + URLSearchParams({
-            start: currentTime - (6*hour),
-            end: currentTime,
-            granularity: min
-        }));
+        try {
 
-        return await res.json();
+            let res = await fetch(path);
+
+            // format object properties
+            let data = (await res.json()).map(rate => {
+                return {
+                    // Unix Timestamp to locale date string
+                    time: new Date(rate[0]*1000).toLocaleString(locale),
+                    low: rate[1],
+                    high: rate[2],
+                    open: rate[3],
+                    close: rate[4],
+                    volume: rate[5]
+                };
+            })
+
+            return data;
+        }
+        catch(err) {
+            console.error(err);
+            throw err;
+        }
     }
 }
