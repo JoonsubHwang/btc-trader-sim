@@ -6,6 +6,10 @@ import './Chart.css';
 import './CbProAPI';
 import { CbProAPI } from './CbProAPI';
 
+const chartHeight = '500px';
+const timeGridUnit = 100; // pixels
+const priceGridUnit = 30; // pixels
+
 function am4themes_dark(target) {
 
     let white = 'rgb(250, 250, 250)';
@@ -30,30 +34,14 @@ class Chart extends Component {
 
         super(props);
 
-        this.yAxisWidth = 40;
-        this.xAxisHeigth = 30;
-        this.candleWidth = 5; // pixels per timeUnit
-        this.priceUnitHeight = 35; // pixels per priceUnit
-        this.timeRange = 180; // timeUnits
-
         this.orderBookLength = 10; // number of prices
         this.maxOrderSize = 400; // max number for each price
         this.smaSize = 10; // simple moving average
 
-        this.gridColor = 'rgb(0, 0, 30)';
-
         this.state = {
-            priceRange: 700,
-            timeUnit: 1, // minutes
-            priceUnit: 50, // dollars
-            barUnit: 1, // 
 
-            candles: [], // [ time, low, high, open, close, volume ]
-            lowestCdl: 0, // price
-            highestCdl: 0, // price
             orderBook: [], // [ price, size, num-orders ]
             showSMA: true,
-
             ioc: false // immediate or cancel
         };
     }
@@ -68,9 +56,11 @@ class Chart extends Component {
 
         let timeAxis = chart.xAxes.push(new am4charts.DateAxis());
         timeAxis.renderer.grid.template.location = 0;
-        timeAxis.renderer.minGridDistance = 50;
+        timeAxis.renderer.minGridDistance = timeGridUnit;
+        timeAxis.baseInterval = { timeUnit: "minute", count: 1 };
 
         let priceAxis = chart.yAxes.push(new am4charts.ValueAxis());
+        priceAxis.renderer.minGridDistance = priceGridUnit;
 
         let series = chart.series.push(new am4charts.CandlestickSeries());
         series.dataFields.dateX = "time";
@@ -109,7 +99,7 @@ class Chart extends Component {
     render() {
         return (
             <div id='chart-main'>
-                <div id='priceChart' style={{ width: '100%', height: '400px' }}></div>     
+                <div id='priceChart' style={{ width: '100%', height: chartHeight }}></div>     
             </div>
         );
     }   
