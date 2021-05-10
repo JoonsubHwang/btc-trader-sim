@@ -49,6 +49,7 @@ class Chart extends Component {
     componentDidMount() {
 
         let chart = am4core.create("priceChart", am4charts.XYChart);
+        chart.responsive.enabled = true;
         chart.padding(0, 30, 10 ,30);
 
         chart.dateFormatter.inputDateFormat = 'MM/dd/yyyy, hh:mm:ss aa';
@@ -69,6 +70,14 @@ class Chart extends Component {
         series.dataFields.lowValueY = "low";
         series.dataFields.highValueY = "high";
 
+        CbProAPI.loadHistory()
+        .then(data => { 
+            chart.data = data; 
+            // let point = timeAxis.dateToPoint(data[0].time);
+            // chart.cursor.triggerMove(point, 'soft', true);
+        })
+        .catch(err => { console.error(err); });
+
         series.tooltipText = 
             'Open: ${openValueY.value}[/]\n' + 
             'Close: ${valueY.value}[/]\n' +
@@ -78,14 +87,11 @@ class Chart extends Component {
         series.columns.template.tooltipY = am4core.percent(50);
 
         chart.cursor = new am4charts.XYCursor();
+        chart.cursor.behavior = 'none';
+        chart.mouseWheelBehavior = 'panX'
         chart.scrollbarX = new am4core.Scrollbar();
-
-        CbProAPI.loadHistory()
-        .then(data => { console.log(data); chart.data = data; })
-        .catch(err => { console.error(err); });
-
-        // let point = timeAxis.dateToPoint(lastTime);
-        // chart.cursor.triggerMove(point, soft, true);
+        chart.scrollbarX.parent = chart.bottomAxesContainer;
+        chart.scrollbarX.thumb.minWidth = 50;
 
         this.chart = chart;
     }
