@@ -10,6 +10,7 @@ const chartHeight = '500px';
 const timeGridUnit = 100; // pixels
 const priceGridUnit = 30; // pixels
 
+// theme
 function am4themes_dark(target) {
 
     let white = 'rgb(250, 250, 250)';
@@ -34,10 +35,12 @@ class Chart extends Component {
 
         super(props);
 
+        // constants
         this.orderBookLength = 10; // number of prices
         this.maxOrderSize = 400; // max number for each price
         this.smaSize = 10; // simple moving average
 
+        // states
         this.state = {
 
             orderBook: [], // [ price, size, num-orders ]
@@ -48,13 +51,16 @@ class Chart extends Component {
 
     componentDidMount() {
 
+        // chart
         let chart = am4core.create("priceChart", am4charts.XYChart);
         chart.responsive.enabled = true;
         chart.padding(0, 30, 10 ,30);
 
+        // date format
         chart.dateFormatter.inputDateFormat = 'MM/dd/yyyy, hh:mm:ss aa';
         chart.dateFormatter.dateFormat = 'HH:mm';
 
+        // axes
         let timeAxis = chart.xAxes.push(new am4charts.DateAxis());
         timeAxis.renderer.grid.template.location = 0;
         timeAxis.renderer.minGridDistance = timeGridUnit;
@@ -63,6 +69,7 @@ class Chart extends Component {
         let priceAxis = chart.yAxes.push(new am4charts.ValueAxis());
         priceAxis.renderer.minGridDistance = priceGridUnit;
 
+        // data series
         let series = chart.series.push(new am4charts.CandlestickSeries());
         series.dataFields.dateX = "time";
         series.dataFields.valueY = "close";
@@ -70,6 +77,7 @@ class Chart extends Component {
         series.dataFields.lowValueY = "low";
         series.dataFields.highValueY = "high";
 
+        // initial data
         CbProAPI.loadHistory()
         .then(data => { 
             chart.data = data; 
@@ -78,6 +86,7 @@ class Chart extends Component {
         })
         .catch(err => { console.error(err); });
 
+        // tooltip
         series.tooltipText = 
             'Open: ${openValueY.value}[/]\n' + 
             'Close: ${valueY.value}[/]\n' +
@@ -86,6 +95,7 @@ class Chart extends Component {
         series.columns.template.tooltipX = am4core.percent(50);
         series.columns.template.tooltipY = am4core.percent(50);
 
+        // mouse cursor & wheel
         chart.cursor = new am4charts.XYCursor();
         chart.cursor.behavior = 'none';
         chart.mouseWheelBehavior = 'panX'
