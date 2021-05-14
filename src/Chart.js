@@ -6,10 +6,6 @@ import './Chart.css';
 import './CbProAPI';
 import { CbProAPI } from './CbProAPI';
 
-const chartHeight = '500px';
-const timeGridUnit = 100; // pixels
-const priceGridUnit = 30; // pixels
-
 // theme
 function am4themes_dark(target) {
 
@@ -40,6 +36,10 @@ class Chart extends Component {
         this.maxOrderSize = 400; // max number for each price
         this.smaSize = 10; // simple moving average
 
+        this.chartHeight = '500px';
+        this.timeGridUnit = 100; // pixels
+        this.priceGridUnit = 30; // pixels
+
         // states
         this.state = {
 
@@ -63,11 +63,11 @@ class Chart extends Component {
         // axes
         let timeAxis = chart.xAxes.push(new am4charts.DateAxis());
         timeAxis.renderer.grid.template.location = 0;
-        timeAxis.renderer.minGridDistance = timeGridUnit;
+        timeAxis.renderer.minGridDistance = this.timeGridUnit;
         timeAxis.baseInterval = { timeUnit: "minute", count: 1 };
 
         let priceAxis = chart.yAxes.push(new am4charts.ValueAxis());
-        priceAxis.renderer.minGridDistance = priceGridUnit;
+        priceAxis.renderer.minGridDistance = this.priceGridUnit;
 
         // data series
         let series = chart.series.push(new am4charts.CandlestickSeries());
@@ -81,6 +81,7 @@ class Chart extends Component {
         CbProAPI.loadHistory()
         .then(data => { 
             chart.data = data; 
+            console.log(data)
             // let point = timeAxis.dateToPoint(data[0].time);
             // chart.cursor.triggerMove(point, 'soft', true);
         })
@@ -115,7 +116,7 @@ class Chart extends Component {
     render() {
         return (
             <div id='chart-main'>
-                <div id='priceChart' style={{ width: '100%', height: chartHeight }}></div>     
+                <div id='priceChart' style={{ width: '100%', height: this.chartHeight }}></div>     
             </div>
         );
     }   
