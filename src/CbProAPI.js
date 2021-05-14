@@ -7,7 +7,7 @@ const productID = 'BTC-USD';
 
 export class CbProAPI {
 
-    // returns 5-hour historic rates of BTC-USD
+    // returns 1-hour historic rates of BTC-USD
     static async loadHistory() {
     
         const path = endpoint + `/products/${productID}/candles?granularity=${minute}`;
@@ -17,7 +17,7 @@ export class CbProAPI {
             let res = await fetch(path);
 
             // format object properties
-            let data = (await res.json()).map(rate => {
+            let data = (await res.json()).slice(60).map(rate => {
                 return {
                     // Unix Timestamp to locale date string
                     time: new Date(rate[0]*1000).toLocaleString(locale),
