@@ -4,20 +4,28 @@ const minute = 60;
 const locale = 'en-US';
 const endpoint = 'https://api.pro.coinbase.com';
 const productID = 'BTC-USD';
+const historyLength = 2; // hours
 
 export class CbProAPI {
 
-    // returns 1-hour historic rates of BTC-USD
+    // returns 2-hour historic rates of BTC-USD
     static async loadHistory() {
+
+        let currentTime = new Date();
+        let startTime = new Date(currentTime);
+        startTime.setHours(currentTime.getHours() - historyLength);
+        
+        currentTime = currentTime.toISOString();
+        startTime = startTime.toISOString();
     
-        const path = endpoint + `/products/${productID}/candles?granularity=${minute}`;
+        const path = endpoint + `/products/${productID}/candles?start=${startTime}&end=${currentTime}&granularity=${minute}`;
     
         try {
 
             let res = await fetch(path);
 
             // format object properties
-            let data = (await res.json()).slice(60).map(rate => {
+            let data = (await res.json()).map(rate => {
                 return {
                     // Unix Timestamp to locale date string
                     time: new Date(rate[0]*1000).toLocaleString(locale),
