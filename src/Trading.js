@@ -15,7 +15,9 @@ class Trading extends Component {
             price: 0,
             balance: this.props.balance,
             BTCOwned: 5,
-            valueOwning: 0
+            valueOwning: 0,
+            asks: [],
+            bids: []
         }
     }
 
@@ -41,6 +43,8 @@ class Trading extends Component {
         .then(orderBook => {
             this.setState({ 
                 price: orderBook.asks[0].price,
+                asks: orderBook.asks,
+                bids: orderBook.bids,
                 valueOwning: this.state.BTCOwned * this.state.price
             });
             console.log('time: ' + Date.now() + ' price: ' + this.state.price)
