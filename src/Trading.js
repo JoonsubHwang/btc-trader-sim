@@ -2,6 +2,10 @@ import React, {Component} from 'react';
 import Chart from './Chart';
 import { CbProAPI } from './CbProAPI';
 
+let white = 'rgb(250, 250, 250)';
+let green = 'rgb(10, 180, 30)';
+let red = 'rgb(200, 20, 0)';
+
 class Trading extends Component {
 
     // constructor
@@ -13,6 +17,7 @@ class Trading extends Component {
 
         this.state = {
             price: 0,
+            priceColor: white,
             balance: this.props.balance,
             BTCOwned: 5,
             valueOwning: 0,
@@ -41,13 +46,22 @@ class Trading extends Component {
 
         CbProAPI.loadOrderBook()
         .then(orderBook => {
+
+            // change color of price when changed
+            if (orderBook.asks[0].price > this.state.price)
+                this.setState({ priceColor: green });
+            else if (orderBook.asks[0].price < this.state.price)
+                this.setState({ priceColor: red });
+            else 
+                this.setState({ priceColor: white });
+
+            // store orderBook data
             this.setState({ 
                 price: orderBook.asks[0].price,
                 asks: orderBook.asks,
                 bids: orderBook.bids,
                 valueOwning: this.state.BTCOwned * this.state.price
             });
-            console.log('time: ' + Date.now() + ' price: ' + this.state.price)
         })
     }
 
@@ -60,7 +74,7 @@ class Trading extends Component {
         return (
             <div id='trading-main'>
 
-                <h1>BTC ${this.state.price}</h1>
+                <h1 style={{ color: this.state.priceColor }}>BTC ${this.state.price}</h1>
     
                 {/* <p> Balance: {this.state.balance}</p> */}
     
