@@ -13,7 +13,7 @@ class Trading extends Component {
 
         super(props);
 
-        this.iUpdate = 500; // interval for updating = 0.5s
+        this.iUpdate = 300; // interval for updating (ms)
 
         this.state = {
             price: 0,
@@ -74,7 +74,7 @@ class Trading extends Component {
         return (
             <div id='trading-main'>
 
-                <h1 style={{ color: this.state.priceColor }}>BTC ${this.state.price}</h1>
+                <h1 id='price' style={{ color: this.state.priceColor }}>BTC ${this.state.price}</h1>
     
                 {/* <p> Balance: {this.state.balance}</p> */}
     
