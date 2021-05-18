@@ -50,13 +50,17 @@ class Trading extends Component {
 
         return (
             <div id='trading-main'>
+
                 <h1>BTC ${this.state.price}</h1>
     
                 <p> Balance: {this.state.balance}</p>
     
                 <p> BTC owned: {this.state.BTCOwned} (${this.state.valueOwning})</p>
     
-                <Chart></Chart>
+                <div style={{ width: '70%', height: '70%' }}>
+                    <Chart></Chart>
+                </div>
+                
             </div>
         );
     }
