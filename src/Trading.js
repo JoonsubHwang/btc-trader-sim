@@ -9,7 +9,7 @@ class Trading extends Component {
 
         super(props);
 
-        this.iUpdate = 100; // interval for updating = 0.1s
+        this.iUpdate = 500; // interval for updating = 0.5s
 
         this.state = {
             price: 0,
