@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Chart from './Chart';
+import { CbProAPI } from './CbProAPI';
 
 class Trading extends Component {
 
@@ -35,11 +36,15 @@ class Trading extends Component {
     // functions
 
     update = () => {
-        
-        this.setState({ 
-            price: this.state.price + 1,
-            valueOwning: this.state.BTCOwned * this.state.price
-        });
+
+        CbProAPI.loadOrderBook()
+        .then(orderBook => {
+            this.setState({ 
+                price: orderBook.asks[0].price,
+                valueOwning: this.state.BTCOwned * this.state.price
+            });
+            console.log('time: ' + Date.now() + ' price: ' + this.state.price)
+        })
     }
 
 
