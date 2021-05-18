@@ -80,12 +80,11 @@ class Chart extends Component {
         // initial data
         CbProAPI.loadHistory()
         .then(data => { 
-            chart.data = data; 
-            console.log(data)
-            // let point = timeAxis.dateToPoint(data[0].time);
-            // chart.cursor.triggerMove(point, 'soft', true);
+            chart.data = data;
         })
-        .catch(err => { console.error(err); });
+        .catch(err => { 
+            console.error(err); 
+        });
 
         // tooltip
         series.tooltipText = 
@@ -100,9 +99,9 @@ class Chart extends Component {
         chart.cursor = new am4charts.XYCursor();
         chart.cursor.behavior = 'none';
         chart.mouseWheelBehavior = 'panX'
-        chart.scrollbarX = new am4core.Scrollbar();
-        chart.scrollbarX.parent = chart.bottomAxesContainer;
-        chart.scrollbarX.thumb.minWidth = 50;
+        // chart.scrollbarX = new am4core.Scrollbar();
+        // chart.scrollbarX.parent = chart.bottomAxesContainer;
+        // chart.scrollbarX.thumb.minWidth = 50;
 
         this.chart = chart;
     }
