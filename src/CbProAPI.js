@@ -44,4 +44,37 @@ export class CbProAPI {
             throw err;
         }
     }
+
+    // returns aggregated order book of BTC-SUD's top 50 bids
+    static async loadOrderBook() {
+
+        const path = endpoint + `/products/${productID}/book?level=2`;
+
+        try {
+
+            let res = await fetch(path);
+
+            // format object properties
+            let data = (await res.json());
+
+            return {
+                asks: data.asks.map(ask => {
+                    return {
+                        price: ask[0],
+                        size: ask[1]
+                    }
+                }),
+                bids: data.asks.map(bid => {
+                    return {
+                        price: bid[0],
+                        size: bid[1]
+                    };
+                })
+            }
+        }
+        catch(err) {
+            console.error(err);
+            throw err;
+        }
+    }
 }
