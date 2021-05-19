@@ -9,9 +9,9 @@ import { CbProAPI } from './CbProAPI';
 // theme
 function am4themes_dark(target) {
 
-    let white = 'rgb(250, 250, 250)';
-    let green = 'rgb(10, 180, 30)';
-    let red = 'rgb(200, 20, 0)';
+    const white = 'rgb(250, 250, 250)';
+    const green = 'rgb(10, 180, 30)';
+    const red = 'rgb(200, 20, 0)';
 
     if (target instanceof am4core.InterfaceColorSet) {
         target.setFor('grid', am4core.color(white));

@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import Chart from './Chart';
 import { CbProAPI } from './CbProAPI';
 
-let white = 'rgb(250, 250, 250)';
-let green = 'rgb(10, 180, 30)';
-let red = 'rgb(200, 20, 0)';
+const white = 'rgb(250, 250, 250)';
+const green = 'rgb(10, 180, 30)';
+const red = 'rgb(200, 20, 0)';
 
 class Trading extends Component {
 
@@ -13,7 +13,7 @@ class Trading extends Component {
 
         super(props);
 
-        this.iUpdate = 300; // interval for updating (ms)
+        this.iUpdate = 500; // interval for updating (ms)
 
         this.state = {
             price: 0,
