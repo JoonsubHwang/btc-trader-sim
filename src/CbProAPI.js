@@ -45,7 +45,7 @@ export class CbProAPI {
         }
     }
 
-    // returns aggregated order book of BTC-SUD's top 50 bids
+    // returns aggregated order book of BTC-USD's top 50 bids
     static async loadOrderBook() {
 
         const path = endpoint + `/products/${productID}/book?level=2`;
