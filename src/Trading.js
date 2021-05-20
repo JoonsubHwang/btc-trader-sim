@@ -81,7 +81,7 @@ class Trading extends Component {
                 {/* <p> BTC owned: {this.state.BTCOwned} (${this.state.valueOwning})</p> */}
     
                 <div style={{ width: '80%', height: '50%' }}>
-                    <Chart></Chart>
+                    <Chart price={this.state.price}></Chart>
                 </div>
                 
             </div>

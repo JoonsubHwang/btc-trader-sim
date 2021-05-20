@@ -111,6 +111,25 @@ class Chart extends Component {
             this.chart.dispose();
     }
 
+    componentDidUpdate(oldProps) {
+
+        // update last candle when price changes
+        if (oldProps.price != this.props.price) {
+
+            // update close
+            this.chart.data[0].close = this.props.price;
+
+            // update low and high
+            if (this.props.price < this.chart.data[0].low)
+                this.chart.data[0].low = this.props.price;
+            else if (this.props.price > this.chart.data[0].high)
+                this.chart.data[0].high = this.props.price;
+
+            // redraw
+            this.chart.invalidateRawData();
+        }
+    }
+
     // render
     render() {
         return (
