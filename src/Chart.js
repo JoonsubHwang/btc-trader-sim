@@ -6,6 +6,8 @@ import './Chart.css';
 import './CbProAPI';
 import { CbProAPI } from './CbProAPI';
 
+const locale = 'en-US';
+
 // theme
 function am4themes_dark(target) {
 
@@ -113,20 +115,52 @@ class Chart extends Component {
 
     componentDidUpdate(oldProps) {
 
-        // update last candle when price changes
-        if (oldProps.price != this.props.price) {
+        let currentTime = new Date();
 
-            // update close
-            this.chart.data[0].close = this.props.price;
-
-            // update low and high
-            if (this.props.price < this.chart.data[0].low)
-                this.chart.data[0].low = this.props.price;
-            else if (this.props.price > this.chart.data[0].high)
-                this.chart.data[0].high = this.props.price;
-
+        // add new candle every minute
+        if (currentTime.getSeconds() == 0) {
+            console.log(currentTime.getSeconds() + ':' +currentTime.getMilliseconds())
+            this.chart.data.unshift({
+                time: currentTime.toLocaleString(locale),
+                low: this.props.price,
+                high: this.props.price,
+                open: this.props.price,
+                close: this.props.price,
+                volume: 0
+            });
+            // remove the oldest candle
+            this.chart.data.pop();
             // redraw
-            this.chart.invalidateRawData();
+            this.chart.invalidateData();
+        }
+        else {
+            
+            // update current candle when price changes
+            if (oldProps.price != this.props.price) {
+
+                // update close
+                this.chart.data[0].close = this.props.price;
+
+                // update low and high
+                if (this.props.price < this.chart.data[0].low)
+                    this.chart.data[0].low = this.props.price;
+                else if (this.props.price > this.chart.data[0].high)
+                    this.chart.data[0].high = this.props.price;
+
+                // redraw
+                this.chart.invalidateRawData();
+            }
+
+            // update last minute's candle at 30 seconds (to get the volume)
+            if (currentTime.getSeconds() == 30) {
+                console.log(currentTime.getSeconds() + ':' +currentTime.getMilliseconds())
+                CbProAPI.loadCandle()
+                .then(candle => {
+                    this.chart.data[1] = candle;
+                    // redraw
+                    this.chart.invalidateRawData();
+                })
+            }
         }
     }
 
