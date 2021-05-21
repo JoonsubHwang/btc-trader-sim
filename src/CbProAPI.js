@@ -45,6 +45,44 @@ export class CbProAPI {
         }
     }
 
+    // returns single 1-minute candle of BTC-USD (1 minute ago)
+    static async loadCandle() {
+
+        let endTime = new Date();
+        let startTime = new Date(endTime);
+        startTime.setMinutes(endTime.getMinutes() - 2);
+        endTime.setMinutes(endTime.getMinutes() - 1);
+        
+        endTime = endTime.toISOString();
+        startTime = startTime.toISOString();
+    
+        const path = endpoint + `/products/${productID}/candles?start=${startTime}&end=${endTime}&granularity=${minute}`;
+    
+        try {
+
+            let res = await fetch(path);
+
+            // format object properties
+            let data = (await res.json()).map(rate => {
+                return {
+                    // Unix Timestamp to locale date string
+                    time: new Date(rate[0]*1000).toLocaleString(locale),
+                    low: rate[1],
+                    high: rate[2],
+                    open: rate[3],
+                    close: rate[4],
+                    volume: rate[5]
+                };
+            })
+
+            return data[0];
+        }
+        catch(err) {
+            console.error(err);
+            throw err;
+        }
+    }
+
     // returns aggregated order book of BTC-USD's top 50 bids
     static async loadOrderBook() {
 
