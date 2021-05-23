@@ -33,8 +33,12 @@ class Chart extends Component {
 
         super(props);
 
+        // constants
         // this.orderBookLength = 10; // number of prices
         // this.maxOrderSize = 400; // max number for each price
+
+        this.timeGridUnit = 100; // pixels
+        this.priceGridUnit = 30; // pixels
 
         // states
         this.state = {
