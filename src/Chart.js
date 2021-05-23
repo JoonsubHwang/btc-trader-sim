@@ -10,12 +10,25 @@ import { CbProAPI } from './CbProAPI';
 function am4themes_dark(target) {
 
     const white = 'rgb(250, 250, 250)';
+    const black = 'rgb(20,20,30)';
     const green = 'rgb(10, 180, 30)';
     const red = 'rgb(200, 20, 0)';
+    const cyan = 'rgb(100, 240, 240)';
 
     if (target instanceof am4core.InterfaceColorSet) {
+        
+        target.setFor('background', am4core.color(white));
+        target.setFor('alternativeBackground', am4core.color(cyan));
+        target.setFor('alternativeText', am4core.color(black));
+
+        target.setFor('secondaryButton', am4core.color(black));
+        target.setFor('secondaryButtonStroke', am4core.color(white));
+        target.setFor('secondaryButtonHover', am4core.color(black));
+        target.setFor('secondaryButtonActive', am4core.color(black));
+
         target.setFor('grid', am4core.color(white));
         target.setFor('text', am4core.color(white));
+
         target.setFor('positive', am4core.color(green));
         target.setFor('negative', am4core.color(red));
     }
@@ -30,10 +43,10 @@ class Chart extends Component {
 
         super(props);
 
-        // constants
         // this.orderBookLength = 10; // number of prices
         // this.maxOrderSize = 400; // max number for each price
 
+        // constants
         this.timeGridUnit = 100; // pixels
         this.priceGridUnit = 30; // pixels
         this.scrollbarMinWidth = 50; // pixels
