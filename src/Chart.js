@@ -57,7 +57,6 @@ class Chart extends Component {
         chart.padding(0, 30, 10 ,30);
 
         // date format
-        chart.dateFormatter.inputDateFormat = 'MM/dd/yyyy, hh:mm:ss aa';
         chart.dateFormatter.dateFormat = 'HH:mm';
 
         // axes
@@ -117,9 +116,8 @@ class Chart extends Component {
 
         // add new candle every minute
         if (currentTime.getSeconds() == 0) {
-            console.log(currentTime.getSeconds() + ':' +currentTime.getMilliseconds())
             this.chart.data.unshift({
-                time: currentTime.toLocaleString(locale),
+                time: currentTime,
                 low: this.props.price,
                 high: this.props.price,
                 open: this.props.price,
@@ -151,7 +149,6 @@ class Chart extends Component {
 
             // update last minute's candle at 30 seconds (to get the volume)
             if (currentTime.getSeconds() == 30) {
-                console.log(currentTime.getSeconds() + ':' +currentTime.getMilliseconds())
                 CbProAPI.loadCandle()
                 .then(candle => {
                     this.chart.data[1] = candle;
