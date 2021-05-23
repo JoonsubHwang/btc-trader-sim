@@ -33,14 +33,8 @@ class Chart extends Component {
 
         super(props);
 
-        // constants
-        this.orderBookLength = 10; // number of prices
-        this.maxOrderSize = 400; // max number for each price
-        this.smaSize = 10; // simple moving average
-
-        this.chartHeight = '500px';
-        this.timeGridUnit = 100; // pixels
-        this.priceGridUnit = 30; // pixels
+        // this.orderBookLength = 10; // number of prices
+        // this.maxOrderSize = 400; // max number for each price
 
         // states
         this.state = {
@@ -168,7 +162,7 @@ class Chart extends Component {
     render() {
         return (
             <div id='chart-main'>
-                <div id='priceChart' style={{ width: '100%', height: this.chartHeight }}></div>     
+                <div id='priceChart'></div>     
             </div>
         );
     }   
