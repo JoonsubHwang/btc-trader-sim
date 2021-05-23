@@ -6,8 +6,6 @@ import './Chart.css';
 import './CbProAPI';
 import { CbProAPI } from './CbProAPI';
 
-const locale = 'en-US';
-
 // theme
 function am4themes_dark(target) {
 
@@ -98,8 +96,9 @@ class Chart extends Component {
 
         // mouse cursor & wheel
         chart.cursor = new am4charts.XYCursor();
-        chart.cursor.behavior = 'none';
-        chart.mouseWheelBehavior = 'panX'
+        chart.cursor.behavior = 'selectY';
+
+        // scrollbar
         chart.scrollbarX = new am4core.Scrollbar();
         chart.scrollbarX.parent = chart.bottomAxesContainer;
         chart.scrollbarX.thumb.minWidth = this.scrollbarMinWidth;
