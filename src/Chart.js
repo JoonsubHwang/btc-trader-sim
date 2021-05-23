@@ -92,8 +92,8 @@ class Chart extends Component {
         series.tooltipText = 
             'Open: ${openValueY.value}[/]\n' + 
             'Close: ${valueY.value}[/]\n' +
-            'Low: ${lowValueY.value}[/]\n' + 
-            'High: ${highValueY.value}[/]';
+            'Low: \u00A0\u00A0${lowValueY.value}[/]\n' + 
+            'High: \u00A0${highValueY.value}[/]';
         series.columns.template.tooltipX = am4core.percent(50);
         series.columns.template.tooltipY = am4core.percent(50);
 
