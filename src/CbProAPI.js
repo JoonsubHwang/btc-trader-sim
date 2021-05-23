@@ -25,7 +25,12 @@ export class CbProAPI {
             let res = await fetch(path);
 
             // format object properties
-            let data = (await res.json()).map(rate => {
+            let data = await res.json();
+
+            if (!data || data.length === 0)
+                throw `Failed to fetch candles from ${path}`;
+                
+            data = data.map(rate => {
                 return {
                     // Unix Timestamp to local date
                     time: new Date(new Date(rate[0]*1000).toLocaleString(locale)),
@@ -63,7 +68,12 @@ export class CbProAPI {
             let res = await fetch(path);
 
             // format object properties
-            let data = (await res.json()).map(rate => {
+            let data = await res.json();
+
+            if (!data || data.length === 0)
+                throw `Failed to fetch a candle from ${path}`;
+            
+            data = data.map(rate => {
                 return {
                     // Unix Timestamp to local date 
                     time: new Date(new Date(rate[0]*1000).toLocaleString(locale)),
