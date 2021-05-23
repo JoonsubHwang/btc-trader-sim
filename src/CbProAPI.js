@@ -27,8 +27,8 @@ export class CbProAPI {
             // format object properties
             let data = (await res.json()).map(rate => {
                 return {
-                    // Unix Timestamp to locale date string
-                    time: new Date(rate[0]*1000).toLocaleString(locale),
+                    // Unix Timestamp to local date
+                    time: new Date(new Date(rate[0]*1000).toLocaleString(locale)),
                     low: rate[1],
                     high: rate[2],
                     open: rate[3],
@@ -65,8 +65,8 @@ export class CbProAPI {
             // format object properties
             let data = (await res.json()).map(rate => {
                 return {
-                    // Unix Timestamp to locale date string
-                    time: new Date(rate[0]*1000).toLocaleString(locale),
+                    // Unix Timestamp to local date 
+                    time: new Date(new Date(rate[0]*1000).toLocaleString(locale)),
                     low: rate[1],
                     high: rate[2],
                     open: rate[3],
