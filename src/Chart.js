@@ -134,7 +134,7 @@ class Chart extends Component {
         let currentTime = new Date();
 
         // add new candle every minute
-        if (currentTime.getSeconds() == 0) {
+        if (currentTime.getSeconds() === 0) {
             this.chart.data.unshift({
                 time: currentTime,
                 low: this.props.price,
@@ -151,7 +151,7 @@ class Chart extends Component {
         else {
             
             // update current candle when price changes
-            if (oldProps.price != this.props.price) {
+            if (oldProps.price !== this.props.price) {
 
                 // update close
                 this.chart.data[0].close = this.props.price;
@@ -167,7 +167,7 @@ class Chart extends Component {
             }
 
             // update last minute's candle at 30 seconds (to get the volume)
-            if (currentTime.getSeconds() == 30) {
+            if (currentTime.getSeconds() === 30) {
                 CbProAPI.loadCandle()
                 .then(candle => {
                     this.chart.data[1] = candle;
