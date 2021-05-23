@@ -39,6 +39,8 @@ class Chart extends Component {
 
         this.timeGridUnit = 100; // pixels
         this.priceGridUnit = 30; // pixels
+        this.scrollbarMinWidth = 50; // pixels
+        this.preZoomLevel = 0.5; // 50%
 
         // states
         this.state = {
@@ -98,9 +100,16 @@ class Chart extends Component {
         chart.cursor = new am4charts.XYCursor();
         chart.cursor.behavior = 'none';
         chart.mouseWheelBehavior = 'panX'
-        // chart.scrollbarX = new am4core.Scrollbar();
-        // chart.scrollbarX.parent = chart.bottomAxesContainer;
-        // chart.scrollbarX.thumb.minWidth = 50;
+        chart.scrollbarX = new am4core.Scrollbar();
+        chart.scrollbarX.parent = chart.bottomAxesContainer;
+        chart.scrollbarX.thumb.minWidth = this.scrollbarMinWidth;
+
+        // pre-zoom
+        chart.events.on('ready', () => {
+            timeAxis.start = this.preZoomLevel;
+            timeAxis.end = 1;
+            timeAxis.keepSelection = true;
+        })
 
         this.chart = chart;
     }
