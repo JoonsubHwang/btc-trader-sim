@@ -21,7 +21,6 @@ function am4themes_dark(target) {
     }
 }
 
-am4core.useTheme(am4themes_animated);
 am4core.useTheme(am4themes_dark);
 
 class Chart extends Component {
