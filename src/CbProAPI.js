@@ -28,7 +28,7 @@ export class CbProAPI {
             let data = await res.json();
 
             if (!data || data.length === 0)
-                throw `Failed to fetch candles from ${path}`;
+                throw new Error(`Failed to fetch candles from ${path}`);
                 
             data = data.map(rate => {
                 return {
@@ -71,7 +71,7 @@ export class CbProAPI {
             let data = await res.json();
 
             if (!data || data.length === 0)
-                throw `Failed to fetch a candle from ${path}`;
+                throw new Error(`Failed to fetch a candle from ${path}`);
             
             data = data.map(rate => {
                 return {
