@@ -5,5 +5,10 @@
 
 body {
     background-color: var(--bg);
-    color: var(--chart-fg);
+    color: var(--fg);
+}
+
+div {
+    width: 100%;
+    height: 100%;
 }
