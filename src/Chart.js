@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
-import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import './Chart.css';
 import './CbProAPI';
 import { CbProAPI } from './CbProAPI';
@@ -13,24 +12,24 @@ function am4themes_dark(target) {
     const black = 'rgb(20,20,30)';
     const green = 'rgb(10, 180, 30)';
     const red = 'rgb(200, 20, 0)';
-    const cyan = 'rgb(100, 240, 240)';
+    const cyan = 'rgb(100, 220, 220)';
 
     if (target instanceof am4core.InterfaceColorSet) {
         
-        target.setFor('background', am4core.color(white));
-        target.setFor('alternativeBackground', am4core.color(cyan));
-        target.setFor('alternativeText', am4core.color(black));
+        target.setFor('background',             am4core.color(white));
+        target.setFor('alternativeBackground',  am4core.color(cyan));
+        target.setFor('alternativeText',        am4core.color(black));
 
-        target.setFor('secondaryButton', am4core.color(black));
-        target.setFor('secondaryButtonStroke', am4core.color(white));
-        target.setFor('secondaryButtonHover', am4core.color(black));
-        target.setFor('secondaryButtonActive', am4core.color(black));
+        target.setFor('secondaryButton',        am4core.color(black));
+        target.setFor('secondaryButtonHover',   am4core.color(black));
+        target.setFor('secondaryButtonActive',  am4core.color(black));
+        target.setFor('secondaryButtonText',  am4core.color(white));
 
-        target.setFor('grid', am4core.color(white));
-        target.setFor('text', am4core.color(white));
+        target.setFor('grid',       am4core.color(white));
+        target.setFor('text',       am4core.color(white));
 
-        target.setFor('positive', am4core.color(green));
-        target.setFor('negative', am4core.color(red));
+        target.setFor('positive',   am4core.color(green));
+        target.setFor('negative',   am4core.color(red));
     }
 }
 
