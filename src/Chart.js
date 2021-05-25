@@ -5,25 +5,31 @@ import './Chart.css';
 import './CbProAPI';
 import { CbProAPI } from './CbProAPI';
 
+// colors
+const white = 'rgb(250, 250, 250)';
+const black = 'rgb(0, 0, 0)';
+const navy = 'rgb(20, 20, 30)';
+const green = 'rgb(10, 180, 30)';
+const red = 'rgb(200, 20, 0)';
+const cyan = 'rgb(100, 220, 220)';
+
 // theme
 function am4themes_dark(target) {
 
-    const white = 'rgb(250, 250, 250)';
-    const black = 'rgb(20,20,30)';
-    const green = 'rgb(10, 180, 30)';
-    const red = 'rgb(200, 20, 0)';
-    const cyan = 'rgb(100, 220, 220)';
-
     if (target instanceof am4core.InterfaceColorSet) {
         
-        target.setFor('background',             am4core.color(white));
+        target.setFor('background',             am4core.color(black));
         target.setFor('alternativeBackground',  am4core.color(cyan));
-        target.setFor('alternativeText',        am4core.color(black));
 
-        target.setFor('secondaryButton',        am4core.color(black));
-        target.setFor('secondaryButtonHover',   am4core.color(black));
-        target.setFor('secondaryButtonActive',  am4core.color(black));
-        target.setFor('secondaryButtonText',  am4core.color(white));
+        target.setFor('primaryButton',        am4core.color(navy));
+        target.setFor('primaryButtonHover',   am4core.color(navy));
+        target.setFor('primaryButtonActive',  am4core.color(navy));
+        target.setFor('primaryButtonStroke',  am4core.color(cyan));
+
+        target.setFor('secondaryButton',        am4core.color(navy));
+        target.setFor('secondaryButtonHover',   am4core.color(navy));
+        target.setFor('secondaryButtonActive',  am4core.color(navy));
+        target.setFor('secondaryButtonStroke',  am4core.color(cyan));
 
         target.setFor('grid',       am4core.color(white));
         target.setFor('text',       am4core.color(white));
@@ -66,7 +72,6 @@ class Chart extends Component {
         let chart = am4core.create("priceChart", am4charts.XYChart);
         chart.responsive.enabled = true;
         chart.padding(0, 30, 10 ,30);
-
         // date format
         chart.dateFormatter.dateFormat = 'HH:mm';
 
@@ -78,6 +83,18 @@ class Chart extends Component {
 
         let priceAxis = chart.yAxes.push(new am4charts.ValueAxis());
         priceAxis.renderer.minGridDistance = this.priceGridUnit;
+
+        // axis tooltips
+        let timeTooltip = timeAxis.tooltip;
+        timeTooltip.background.fill = am4core.color(navy);
+        timeTooltip.background.pointerLength = 0;
+        timeTooltip.background.cornerRadius = 4;
+        timeTooltip.dy = 5;
+
+        let priceTooltip = priceAxis.tooltip;
+        priceTooltip.background.fill = am4core.color(navy);
+        priceTooltip.background.pointerLength = 0;
+        priceTooltip.background.cornerRadius = 4;
 
         // data series
         let series = chart.series.push(new am4charts.CandlestickSeries());
@@ -105,7 +122,7 @@ class Chart extends Component {
         series.columns.template.tooltipX = am4core.percent(50);
         series.columns.template.tooltipY = am4core.percent(50);
 
-        // mouse cursor & wheel
+        // mouse cursor
         chart.cursor = new am4charts.XYCursor();
         chart.cursor.behavior = 'selectY';
 
@@ -113,6 +130,16 @@ class Chart extends Component {
         chart.scrollbarX = new am4core.Scrollbar();
         chart.scrollbarX.parent = chart.bottomAxesContainer;
         chart.scrollbarX.thumb.minWidth = this.scrollbarMinWidth;
+
+        // theme
+        chart.background.show();
+        chart.zoomOutButton.icon.stroke = cyan;
+        chart.cursor.lineX.strokeOpacity = 1;
+        chart.cursor.lineX.strokeDasharray = [];
+        chart.cursor.lineX.strokeWidth = 1;
+        chart.cursor.lineY.strokeOpacity = 1;
+        chart.cursor.lineY.strokeDasharray = [];
+        chart.cursor.lineY.strokeWidth = 1;
 
         // pre-zoom
         chart.events.on('ready', () => {
