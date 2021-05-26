@@ -74,6 +74,7 @@ class Trading extends Component {
         return (
             <div id='trading-main' className='container'>
 
+                {/* pricePanel */}
                 <div id='pricePanel' className='container'>
                     
                     <h1 id='price' style={{ color: this.state.priceColor }}>BTC-USD ${this.state.price}</h1>
@@ -84,8 +85,14 @@ class Trading extends Component {
     
                 {/* <p> BTC owned: {this.state.BTCOwned} (${this.state.valueOwning})</p> */}
     
+                {/* chartPanel */}
                 <div id='chartPanel' className='container framed'>
                     <Chart price={this.state.price}></Chart>
+                </div>
+
+                {/* txnPanel (transaction) */}
+                <div id='txnPanel' className='container framed'>
+
                 </div>
                 
             </div>
