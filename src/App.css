@@ -13,6 +13,10 @@ div {
     height: 100%;
 }
 
+h1, h2, h3, h4 {
+    margin: 0;
+}
+
 .container {
     margin: 2vh 3vw;
 }
