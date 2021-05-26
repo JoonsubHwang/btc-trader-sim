@@ -137,8 +137,8 @@ class Chart extends Component {
             'Close: ${valueY.value}[/]\n' +
             'Low: \u00A0\u00A0${lowValueY.value}[/]\n' + 
             'High: \u00A0${highValueY.value}[/]';
-        priceSeries.columns.template.tooltipX = am4core.percent(50);
-        priceSeries.columns.template.tooltipY = am4core.percent(50);
+        priceSeries.columns.template.tooltipX = am4core.percent(0);
+        priceSeries.columns.template.tooltipY = am4core.percent(100);
 
         
         // mouse cursor
