@@ -52,7 +52,7 @@ class Chart extends Component {
         // this.maxOrderSize = 400; // max number for each price
 
         // constants
-        this.timeGridUnit = 100; // pixels
+        this.timeGridUnit = 50; // pixels
         this.priceGridUnit = 30; // pixels
         this.scrollbarMinWidth = 50; // pixels
         this.preZoomLevel = 0.5; // 50%
