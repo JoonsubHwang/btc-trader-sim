@@ -84,6 +84,8 @@ class Chart extends Component {
         let priceAxis = chart.yAxes.push(new am4charts.ValueAxis());
         priceAxis.renderer.minGridDistance = this.priceGridUnit;
 
+        let volumeAxis = chart.yAxes.push(new am4charts.ValueAxis());
+
         // axis tooltips
         let timeTooltip = timeAxis.tooltip;
         timeTooltip.background.fill = am4core.color(navy);
@@ -107,6 +109,7 @@ class Chart extends Component {
         let volumeSeries = chart.series.push(new am4charts.ColumnSeries());
         volumeSeries.dataFields.dateX = 'time';
         volumeSeries.dataFields.valueY = 'volume';
+        volumeSeries.yAxis = volumeAxis;
 
         // initial data
         CbProAPI.loadHistory()
