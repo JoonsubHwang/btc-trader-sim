@@ -71,7 +71,7 @@ class Chart extends Component {
         // chart
         let chart = am4core.create("priceChart", am4charts.XYChart);
         chart.responsive.enabled = true;
-        chart.padding(0, 30, 10 ,30);
+        chart.padding(30, 40, 10 ,30);
         // date format
         chart.dateFormatter.dateFormat = 'HH:mm';
 
@@ -130,6 +130,7 @@ class Chart extends Component {
         chart.scrollbarX = new am4core.Scrollbar();
         chart.scrollbarX.parent = chart.bottomAxesContainer;
         chart.scrollbarX.thumb.minWidth = this.scrollbarMinWidth;
+        chart.zoomOutButton.align = "left";
 
         // theme
         chart.background.show();
