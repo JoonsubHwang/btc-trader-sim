@@ -96,13 +96,17 @@ class Chart extends Component {
         priceTooltip.background.pointerLength = 0;
         priceTooltip.background.cornerRadius = 4;
 
-        // data series
+        // data serieses
         let priceSeries = chart.series.push(new am4charts.CandlestickSeries());
-        priceSeries.dataFields.dateX = "time";
-        priceSeries.dataFields.valueY = "close";
-        priceSeries.dataFields.openValueY = "open";
-        priceSeries.dataFields.lowValueY = "low";
-        priceSeries.dataFields.highValueY = "high";
+        priceSeries.dataFields.dateX = 'time';
+        priceSeries.dataFields.valueY = 'close';
+        priceSeries.dataFields.openValueY = 'open';
+        priceSeries.dataFields.lowValueY = 'low';
+        priceSeries.dataFields.highValueY = 'high';
+
+        let volumeSeries = chart.series.push(new am4charts.ColumnSeries());
+        volumeSeries.dataFields.dateX = 'time';
+        volumeSeries.dataFields.valueY = 'volume';
 
         // initial data
         CbProAPI.loadHistory()
