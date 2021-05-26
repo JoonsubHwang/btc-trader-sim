@@ -69,13 +69,18 @@ class Chart extends Component {
     componentDidMount() {
 
         // chart
+
         let chart = am4core.create("priceChart", am4charts.XYChart);
         chart.responsive.enabled = true;
         chart.padding(30, 40, 10 ,30);
         // date format
         chart.dateFormatter.dateFormat = 'HH:mm';
 
+
         // axes
+
+        chart.leftAxesContainer.layout = 'vertical' // separates axes vertically
+
         let timeAxis = chart.xAxes.push(new am4charts.DateAxis());
         timeAxis.renderer.grid.template.location = 0;
         timeAxis.renderer.minGridDistance = this.timeGridUnit;
@@ -86,7 +91,9 @@ class Chart extends Component {
 
         let volumeAxis = chart.yAxes.push(new am4charts.ValueAxis());
 
+
         // axis tooltips
+
         let timeTooltip = timeAxis.tooltip;
         timeTooltip.background.fill = am4core.color(navy);
         timeTooltip.background.pointerLength = 0;
@@ -98,7 +105,9 @@ class Chart extends Component {
         priceTooltip.background.pointerLength = 0;
         priceTooltip.background.cornerRadius = 4;
 
+        
         // data serieses
+
         let priceSeries = chart.series.push(new am4charts.CandlestickSeries());
         priceSeries.dataFields.dateX = 'time';
         priceSeries.dataFields.valueY = 'close';
@@ -111,6 +120,7 @@ class Chart extends Component {
         volumeSeries.dataFields.valueY = 'volume';
         volumeSeries.yAxis = volumeAxis;
 
+
         // initial data
         CbProAPI.loadHistory()
         .then(data => { 
@@ -119,6 +129,7 @@ class Chart extends Component {
         .catch(err => { 
             console.error(err); 
         });
+
 
         // tooltip
         priceSeries.tooltipText = 
@@ -129,9 +140,11 @@ class Chart extends Component {
         priceSeries.columns.template.tooltipX = am4core.percent(50);
         priceSeries.columns.template.tooltipY = am4core.percent(50);
 
+        
         // mouse cursor
         chart.cursor = new am4charts.XYCursor();
         chart.cursor.behavior = 'selectY';
+
 
         // scrollbar
         let scrollbarX = new am4core.Scrollbar();
@@ -139,6 +152,7 @@ class Chart extends Component {
         scrollbarX.thumb.minWidth = this.scrollbarMinWidth;
         chart.scrollbarX = scrollbarX;
         chart.zoomOutButton.align = "left";
+
 
         // theme
         chart.background.show();
@@ -150,6 +164,7 @@ class Chart extends Component {
         chart.cursor.lineY.strokeDasharray = [];
         chart.cursor.lineY.strokeWidth = 1;
 
+        
         // pre-zoom
         chart.events.on('ready', () => {
             timeAxis.start = this.preZoomLevel;
