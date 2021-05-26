@@ -97,12 +97,12 @@ class Chart extends Component {
         priceTooltip.background.cornerRadius = 4;
 
         // data series
-        let series = chart.series.push(new am4charts.CandlestickSeries());
-        series.dataFields.dateX = "time";
-        series.dataFields.valueY = "close";
-        series.dataFields.openValueY = "open";
-        series.dataFields.lowValueY = "low";
-        series.dataFields.highValueY = "high";
+        let priceSeries = chart.series.push(new am4charts.CandlestickSeries());
+        priceSeries.dataFields.dateX = "time";
+        priceSeries.dataFields.valueY = "close";
+        priceSeries.dataFields.openValueY = "open";
+        priceSeries.dataFields.lowValueY = "low";
+        priceSeries.dataFields.highValueY = "high";
 
         // initial data
         CbProAPI.loadHistory()
@@ -114,13 +114,13 @@ class Chart extends Component {
         });
 
         // tooltip
-        series.tooltipText = 
+        priceSeries.tooltipText = 
             'Open: ${openValueY.value}[/]\n' + 
             'Close: ${valueY.value}[/]\n' +
             'Low: \u00A0\u00A0${lowValueY.value}[/]\n' + 
             'High: \u00A0${highValueY.value}[/]';
-        series.columns.template.tooltipX = am4core.percent(50);
-        series.columns.template.tooltipY = am4core.percent(50);
+        priceSeries.columns.template.tooltipX = am4core.percent(50);
+        priceSeries.columns.template.tooltipY = am4core.percent(50);
 
         // mouse cursor
         chart.cursor = new am4charts.XYCursor();
