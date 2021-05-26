@@ -24,3 +24,8 @@ h1, h2, h3, h4 {
 .framed {
     border: 1px solid var(--fg);
 }
+
+#pricePanel {
+    width: 60vw;
+    height: 5vh;
+}
