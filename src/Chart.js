@@ -134,9 +134,10 @@ class Chart extends Component {
         chart.cursor.behavior = 'selectY';
 
         // scrollbar
-        chart.scrollbarX = new am4core.Scrollbar();
-        chart.scrollbarX.parent = chart.bottomAxesContainer;
-        chart.scrollbarX.thumb.minWidth = this.scrollbarMinWidth;
+        let scrollbarX = new am4core.Scrollbar();
+        scrollbarX.parent = chart.bottomAxesContainer;
+        scrollbarX.thumb.minWidth = this.scrollbarMinWidth;
+        chart.scrollbarX = scrollbarX;
         chart.zoomOutButton.align = "left";
 
         // theme
