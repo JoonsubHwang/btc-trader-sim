@@ -223,7 +223,7 @@ class Chart extends Component {
                 .then(candle => {
                     this.chart.data[1] = candle;
                     // redraw
-                    this.chart.invalidateRawData();
+                    this.chart.invalidateData();
                 })
             }
         }
