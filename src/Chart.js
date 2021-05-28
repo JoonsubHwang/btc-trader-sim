@@ -40,6 +40,7 @@ function am4themes_dark(target) {
 }
 
 am4core.useTheme(am4themes_dark);
+am4core.options.onlyShowOnViewport = true; // optimization: draw only visible part first
 
 class Chart extends Component {
 
