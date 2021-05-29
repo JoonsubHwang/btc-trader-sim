@@ -73,9 +73,8 @@ class Chart extends Component {
 
         let chart = am4core.create("priceChart", am4charts.XYChart);
         chart.responsive.enabled = true;
-        chart.padding(30, 40, 10 ,30);
-        // date format
-        chart.dateFormatter.dateFormat = 'HH:mm';
+        chart.padding(30, 40, 10 ,30); // padding (pixels)
+        chart.dateFormatter.dateFormat = 'HH:mm'; // date format
 
 
         // axes
@@ -186,7 +185,9 @@ class Chart extends Component {
         let currentTime = new Date();
 
         // add new candle every minute
-        if (currentTime.getSeconds() === 0) {
+        if ((currentTime.getSeconds() === 0) && (currentTime.getMinutes() !== this.chart.data[0].time.getMinutes())) {
+
+            // add new candle
             this.chart.data.unshift({
                 time: currentTime,
                 low: this.props.price,
@@ -195,8 +196,10 @@ class Chart extends Component {
                 close: this.props.price,
                 volume: 0
             });
+
             // remove the oldest candle
             this.chart.data.pop();
+            
             // redraw
             this.chart.invalidateData();
         }
@@ -220,11 +223,15 @@ class Chart extends Component {
 
             // update last minute's candle at 30 seconds (to get the volume)
             if (currentTime.getSeconds() === 30) {
+
                 CbProAPI.loadCandle()
                 .then(candle => {
-                    this.chart.data[1] = candle;
-                    // redraw
-                    this.chart.invalidateData();
+                    if (this.chart.data[1].volume !== candle.volume) { // only once
+                        // update volume
+                        this.chart.data[1].volume = candle.volume;
+                        // redraw
+                        this.chart.invalidateRawData();
+                    }
                 })
             }
         }
