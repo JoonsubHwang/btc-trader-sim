@@ -138,14 +138,14 @@ class Chart extends Component {
         // series tooltip
 
         priceSeries.tooltipText = 
-            'Open: ${openValueY.value}\n' + 
-            'Close: ${valueY.value}\n' +
-            'Low: \u00A0\u00A0${lowValueY.value}\n' + 
-            'High: \u00A0${highValueY.value}';
+            'Open: ${openValueY.value.formatNumber(\'#.00\')}\n' + 
+            'Close: ${valueY.value.formatNumber(\'#.00\')}\n' +
+            'Low: \u00A0\u00A0${lowValueY.value.formatNumber(\'#.00\')}\n' + 
+            'High: \u00A0${highValueY.value.formatNumber(\'#.00\')}';
         priceSeries.columns.template.tooltipX = am4core.percent(0);
         priceSeries.columns.template.tooltipY = am4core.percent(100);
 
-        volumeSeries.tooltipText = 'Volume: ${highValueY.value}K'
+        volumeSeries.tooltipText = 'Volume: ${highValueY.value.formatNumber(\'#.#\')}K';
 
         
         // mouse cursor
