@@ -85,11 +85,14 @@ class Chart extends Component {
         timeAxis.renderer.grid.template.location = 0;
         timeAxis.renderer.minGridDistance = this.timeGridUnit;
         timeAxis.baseInterval = { timeUnit: "minute", count: 1 };
+        timeAxis.align = "right";
 
         let priceAxis = chart.yAxes.push(new am4charts.ValueAxis());
         priceAxis.renderer.minGridDistance = this.priceGridUnit;
+        priceAxis.align = "right";
 
         let volumeAxis = chart.yAxes.push(new am4charts.ValueAxis());
+        volumeAxis.align = "right";
 
 
         // axis tooltips
@@ -121,7 +124,7 @@ class Chart extends Component {
         volumeSeries.dataFields.valueY = 'valueVolume';
         volumeSeries.yAxis = volumeAxis;
 
-
+        
         // initial data
         CbProAPI.loadHistory()
         .then(data => { 
