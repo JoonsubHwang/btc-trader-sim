@@ -40,6 +40,7 @@ export class CbProAPI {
                     close: rate[4],
                     openVolume: rate[4] > rate[3] ? 0 : rate[5],
                     valueVolume: rate[4] > rate[3] ? rate[5] : 0,
+                    highVolume: rate[5]
                 };
             })
 
@@ -84,6 +85,7 @@ export class CbProAPI {
                     close: rate[4],
                     openVolume: rate[4] > rate[3] ? 0 : rate[5],
                     valueVolume: rate[4] > rate[3] ? rate[5] : 0,
+                    highVolume: rate[5]
                 };
             })
 
