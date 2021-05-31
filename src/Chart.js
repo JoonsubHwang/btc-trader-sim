@@ -115,9 +115,10 @@ class Chart extends Component {
         priceSeries.dataFields.lowValueY = 'low';
         priceSeries.dataFields.highValueY = 'high';
 
-        let volumeSeries = chart.series.push(new am4charts.ColumnSeries());
+        let volumeSeries = chart.series.push(new am4charts.CandlestickSeries());
         volumeSeries.dataFields.dateX = 'time';
-        volumeSeries.dataFields.valueY = 'volume';
+        volumeSeries.dataFields.openValueY = 'openVolume';
+        volumeSeries.dataFields.valueY = 'valueVolume';
         volumeSeries.yAxis = volumeAxis;
 
 
