@@ -55,7 +55,7 @@ class Chart extends Component {
         // constants
         this.timeGridUnit = 50; // pixels
         this.priceGridUnit = 30; // pixels
-        this.volAxisHeight = 30; // pixels
+        this.volAxisHeight = 60; // pixels
         this.scrollbarMinWidth = 50; // pixels
         this.preZoomLevel = 0.5; // 50%
 
