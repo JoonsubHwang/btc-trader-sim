@@ -55,6 +55,8 @@ class Chart extends Component {
         // constants
         this.timeGridUnit = 50; // pixels
         this.priceGridUnit = 30; // pixels
+        this.volAxisHeight = 30; // pixels
+        this.volAxisMarginTop = 20;
         this.scrollbarMinWidth = 50; // pixels
         this.preZoomLevel = 0.5; // 50%
 
@@ -92,6 +94,9 @@ class Chart extends Component {
 
         let volumeAxis = chart.yAxes.push(new am4charts.ValueAxis());
         volumeAxis.align = "right";
+        volumeAxis.height = this.volAxisHeight;
+        volumeAxis.marginTop = this.volAxisMarginTop;
+        volumeAxis.valign = 'bottom'
 
 
         // axis tooltips
