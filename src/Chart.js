@@ -62,9 +62,9 @@ class Chart extends Component {
         // states
         this.state = {
 
-            orderBook: [], // [ price, size, num-orders ]
+            timeUnit: 5,
             showSMA: true,
-            ioc: false // immediate or cancel
+            // ioc: false // immediate or cancel
         };
     }
 
@@ -85,7 +85,7 @@ class Chart extends Component {
         let timeAxis = chart.xAxes.push(new am4charts.DateAxis());
         timeAxis.renderer.grid.template.location = 0;
         timeAxis.renderer.minGridDistance = this.timeGridUnit;
-        timeAxis.baseInterval = { timeUnit: "minute", count: 1 };
+        timeAxis.baseInterval = { timeUnit: "minute", count: this.state.timeUnit };
 
         let priceAxis = chart.yAxes.push(new am4charts.ValueAxis());
         priceAxis.renderer.minGridDistance = this.priceGridUnit;
