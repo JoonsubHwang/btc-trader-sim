@@ -62,7 +62,7 @@ class Chart extends Component {
         // states
         this.state = {
 
-            timeUnit: 5,
+            timeUnit: 1, // minutes
             showSMA: true,
             // ioc: false // immediate or cancel
         };
