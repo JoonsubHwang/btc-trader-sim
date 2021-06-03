@@ -56,6 +56,7 @@ class Chart extends Component {
         this.timeGridUnit = 50; // pixels
         this.priceGridUnit = 30; // pixels
         this.volAxisHeight = 60; // pixels
+        this.volSeriesOpacity = 0.5; // 50%
         this.scrollbarMinWidth = 100; // pixels
         this.scrlbarMarginBottom = 20; // pixels
         this.tooltipDx = -5; // pixels
@@ -151,6 +152,7 @@ class Chart extends Component {
         volumeSeries.dataFields.highValueY = 'highVolume';
         volumeSeries.yAxis = volumeAxis;
         volumeSeries.clustered = false;
+        volumeSeries.opacity = this.volSeriesOpacity;
 
 
 
