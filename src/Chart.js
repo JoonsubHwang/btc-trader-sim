@@ -86,15 +86,14 @@ class Chart extends Component {
         let timeAxis = chart.xAxes.push(new am4charts.DateAxis());
         timeAxis.renderer.grid.template.location = 0;
         timeAxis.renderer.minGridDistance = this.timeGridUnit;
-        timeAxis.baseInterval = { timeUnit: "minute", count: this.state.timeUnit };
+        timeAxis.baseInterval = { timeUnit: 'minute', count: this.state.timeUnit };
 
         let priceAxis = chart.yAxes.push(new am4charts.ValueAxis());
         priceAxis.renderer.minGridDistance = this.priceGridUnit;
-        priceAxis.align = "right";
 
         let volumeAxis = chart.yAxes.push(new am4charts.ValueAxis());
         volumeAxis.height = this.volAxisHeight;
-        volumeAxis.valign = 'bottom'
+        volumeAxis.valign = 'bottom';
         volumeAxis.renderer.labels.template.disabled = true;
 
 
