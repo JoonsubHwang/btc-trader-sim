@@ -172,8 +172,10 @@ class Chart extends Component {
             'High: \u00A0${highValueY.value.formatNumber(\'#.00\')}';
         priceSeries.columns.template.tooltipX = am4core.percent(0);
         priceSeries.columns.template.tooltipY = am4core.percent(100);
+        priceSeries.tooltip.pointerOrientation = 'right';
 
         volumeSeries.tooltipText = 'Volume: ${highValueY.value.formatNumber(\'#.#\')}K';
+        volumeSeries.tooltip.pointerOrientation = 'right';
 
         
         // mouse cursor
