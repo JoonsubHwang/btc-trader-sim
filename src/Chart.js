@@ -120,6 +120,29 @@ class Chart extends Component {
         priceSeries.dataFields.lowValueY = 'low';
         priceSeries.dataFields.highValueY = 'high';
 
+        // data grouping func
+        priceSeries.adapter.add('groupDataItem', function(grpCandle) {
+            
+            const candles = grpCandle.dataItem.groupDataItems;
+            grpCandle.valueY = candles[candles.length-1].valueY; // last close
+            
+            let low = candles[0].lowValueY;
+            let high = candles[0].highValueY;
+
+            for (const candle in candles) {
+                if (candle.lowValueY < low) 
+                    low = candle.lowValueY; // lowest low
+                if (candle.highValueY > high) 
+                    high = candle.highValueY; // highest high
+            }
+            grpCandle.lowValueY = low;
+            grpCandle.highValueY = high;
+
+            console.log(grpCandle)
+
+            return grpCandle;
+        })
+
         let volumeSeries = chart.series.push(new am4charts.CandlestickSeries());
         volumeSeries.dataFields.dateX = 'time';
         volumeSeries.dataFields.openValueY = 'openVolume';
