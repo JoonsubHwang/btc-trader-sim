@@ -57,7 +57,8 @@ class Chart extends Component {
         this.priceGridUnit = 30; // pixels
         this.volAxisHeight = 60; // pixels
         this.scrollbarMinWidth = 100; // pixels
-        this.scrlbarMarginBottom = 20;
+        this.scrlbarMarginBottom = 20; // pixels
+        this.tooltipDx = -5; // pixels
         this.preZoomLevel = 0.5; // 50%
 
         // states
@@ -170,12 +171,13 @@ class Chart extends Component {
             'Close: ${valueY.value.formatNumber(\'#.00\')}\n' +
             'Low: \u00A0\u00A0${lowValueY.value.formatNumber(\'#.00\')}\n' + 
             'High: \u00A0${highValueY.value.formatNumber(\'#.00\')}';
-        priceSeries.columns.template.tooltipX = am4core.percent(0);
         priceSeries.columns.template.tooltipY = am4core.percent(100);
         priceSeries.tooltip.pointerOrientation = 'right';
+        priceSeries.tooltip.dx = this.tooltipDx;
 
         volumeSeries.tooltipText = 'Volume: ${highValueY.value.formatNumber(\'#.#\')}K';
         volumeSeries.tooltip.pointerOrientation = 'right';
+        volumeSeries.tooltip.dx = this.tooltipDx;
 
         
         // mouse cursor
