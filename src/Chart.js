@@ -56,7 +56,7 @@ class Chart extends Component {
         this.timeGridUnit = 50; // pixels
         this.priceGridUnit = 30; // pixels
         this.volAxisHeight = 60; // pixels
-        this.scrollbarMinWidth = 50; // pixels
+        this.scrollbarMinWidth = 100; // pixels
         this.scrlbarMarginBottom = 20;
         this.preZoomLevel = 0.5; // 50%
 
@@ -93,7 +93,6 @@ class Chart extends Component {
 
         let volumeAxis = chart.yAxes.push(new am4charts.ValueAxis());
         volumeAxis.height = this.volAxisHeight;
-        volumeAxis.valign = 'bottom';
         volumeAxis.renderer.labels.template.disabled = true;
 
 
@@ -183,6 +182,7 @@ class Chart extends Component {
         let scrollbarX = new am4core.Scrollbar();
         scrollbarX.parent = chart.bottomAxesContainer;
         scrollbarX.thumb.minWidth = this.scrollbarMinWidth;
+        scrollbarX.thumb.draggable = false;
         scrollbarX.marginBottom = this.scrlbarMarginBottom;
         chart.scrollbarX = scrollbarX;
         chart.zoomOutButton.align = "left";
