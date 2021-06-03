@@ -118,6 +118,7 @@ class Chart extends Component {
         priceSeries.dataFields.openValueY = 'open';
         priceSeries.dataFields.lowValueY = 'low';
         priceSeries.dataFields.highValueY = 'high';
+        priceSeries.clustered = false;
 
         // data grouping func
         priceSeries.adapter.add('groupDataItem', function(grpCandle) {
@@ -148,6 +149,8 @@ class Chart extends Component {
         volumeSeries.dataFields.valueY = 'valueVolume';
         volumeSeries.dataFields.highValueY = 'highVolume';
         volumeSeries.yAxis = volumeAxis;
+        volumeSeries.clustered = false;
+
 
 
         // initial data
