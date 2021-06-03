@@ -57,6 +57,7 @@ class Chart extends Component {
         this.priceGridUnit = 30; // pixels
         this.volAxisHeight = 60; // pixels
         this.scrollbarMinWidth = 50; // pixels
+        this.scrlbarMarginBottom = 20;
         this.preZoomLevel = 0.5; // 50%
 
         // states
@@ -74,7 +75,7 @@ class Chart extends Component {
 
         let chart = am4core.create("priceChart", am4charts.XYChart);
         chart.responsive.enabled = true;
-        chart.padding(30, 40, 10 ,30); // padding (pixels)
+        chart.padding(10, 40, 0, 20); // padding (pixels)
         chart.dateFormatter.dateFormat = 'HH:mm'; // date format
 
 
@@ -183,6 +184,7 @@ class Chart extends Component {
         let scrollbarX = new am4core.Scrollbar();
         scrollbarX.parent = chart.bottomAxesContainer;
         scrollbarX.thumb.minWidth = this.scrollbarMinWidth;
+        scrollbarX.marginBottom = this.scrlbarMarginBottom;
         chart.scrollbarX = scrollbarX;
         chart.zoomOutButton.align = "left";
 
