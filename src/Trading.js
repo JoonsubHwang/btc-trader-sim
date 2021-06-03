@@ -3,8 +3,8 @@ import Chart from './Chart';
 import { CbProAPI } from './CbProAPI';
 
 const white = 'rgb(250, 250, 250)';
-const green = 'rgb(10, 180, 30)';
-const red = 'rgb(200, 20, 0)';
+const green = 'rgb(20, 180, 140)';
+const red = 'rgb(250, 70, 90)';
 
 class Trading extends Component {
 
