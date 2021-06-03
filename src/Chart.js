@@ -60,6 +60,7 @@ class Chart extends Component {
         this.scrollbarMinWidth = 100; // pixels
         this.scrlbarMarginBottom = 20; // pixels
         this.tooltipDx = -5; // pixels
+        this.tooltipFontSize = 14;
         this.preZoomLevel = 0.5; // 50%
 
         // states
@@ -169,17 +170,22 @@ class Chart extends Component {
         // series tooltip
 
         priceSeries.tooltipText = 
-            'Open: ${openValueY.value.formatNumber(\'#.00\')}\n' + 
-            'Close: ${valueY.value.formatNumber(\'#.00\')}\n' +
-            'Low: \u00A0\u00A0${lowValueY.value.formatNumber(\'#.00\')}\n' + 
-            'High: \u00A0${highValueY.value.formatNumber(\'#.00\')}';
+            'Open ${openValueY.value.formatNumber(\'#.00\')}\n' + 
+            'Close ${valueY.value.formatNumber(\'#.00\')}\n' +
+            'Low \u00A0\u00A0${lowValueY.value.formatNumber(\'#.00\')}\n' + 
+            'High \u00A0${highValueY.value.formatNumber(\'#.00\')}';
         priceSeries.columns.template.tooltipY = am4core.percent(100);
         priceSeries.tooltip.pointerOrientation = 'right';
         priceSeries.tooltip.dx = this.tooltipDx;
+        priceSeries.tooltip.background.strokeOpacity = 0;
+        priceSeries.tooltip.fontSize = this.tooltipFontSize;
 
-        volumeSeries.tooltipText = 'Volume: ${highValueY.value.formatNumber(\'#.#\')}K';
+        volumeSeries.tooltipText = 'Vol. ${highValueY.value.formatNumber(\'#.#\')}K';
         volumeSeries.tooltip.pointerOrientation = 'right';
         volumeSeries.tooltip.dx = this.tooltipDx;
+        volumeSeries.tooltip.background.fillOpacity = 0;
+        volumeSeries.tooltip.background.strokeOpacity = 0;
+        volumeSeries.tooltip.fontSize = this.tooltipFontSize;
 
         
         // mouse cursor
