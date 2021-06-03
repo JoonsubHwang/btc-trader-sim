@@ -9,7 +9,7 @@ import { CbProAPI } from './CbProAPI';
 const white = 'rgb(250, 250, 250)';
 const black = 'rgb(0, 0, 0)';
 const navy = 'rgb(20, 20, 30)';
-const green = 'rgb(20, 180, 140)';
+const blue = 'rgb(20, 180, 200)';
 const red = 'rgb(250, 70, 90)';
 const cyan = 'rgb(100, 220, 220)';
 
@@ -34,7 +34,7 @@ function am4themes_dark(target) {
         target.setFor('grid',       am4core.color(white));
         target.setFor('text',       am4core.color(white));
 
-        target.setFor('positive',   am4core.color(green));
+        target.setFor('positive',   am4core.color(blue));
         target.setFor('negative',   am4core.color(red));
     }
 }

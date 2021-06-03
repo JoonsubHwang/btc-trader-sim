@@ -3,7 +3,7 @@ import Chart from './Chart';
 import { CbProAPI } from './CbProAPI';
 
 const white = 'rgb(250, 250, 250)';
-const green = 'rgb(20, 180, 140)';
+const blue = 'rgb(20, 180, 200)';
 const red = 'rgb(250, 70, 90)';
 
 class Trading extends Component {
@@ -49,7 +49,7 @@ class Trading extends Component {
 
             // change color of price when changed
             if (orderBook.asks[0].price > this.state.price)
-                this.setState({ priceColor: green });
+                this.setState({ priceColor: blue });
             else if (orderBook.asks[0].price < this.state.price)
                 this.setState({ priceColor: red });
             else 
