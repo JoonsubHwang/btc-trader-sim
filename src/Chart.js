@@ -182,13 +182,13 @@ class Chart extends Component {
 
 
         // scrollbar
-        let scrollbarX = new am4core.Scrollbar();
-        scrollbarX.parent = chart.bottomAxesContainer;
-        scrollbarX.thumb.minWidth = this.scrollbarMinWidth;
-        scrollbarX.thumb.draggable = false;
-        scrollbarX.marginBottom = this.scrlbarMarginBottom;
-        chart.scrollbarX = scrollbarX;
-        chart.zoomOutButton.align = "left";
+        // let scrollbarX = new am4core.Scrollbar();
+        // scrollbarX.parent = chart.bottomAxesContainer;
+        // scrollbarX.thumb.minWidth = this.scrollbarMinWidth;
+        // scrollbarX.thumb.draggable = false;
+        // scrollbarX.marginBottom = this.scrlbarMarginBottom;
+        // chart.scrollbarX = scrollbarX;
+        // chart.zoomOutButton.align = "left";
 
 
         // theme
@@ -203,11 +203,11 @@ class Chart extends Component {
 
         
         // pre-zoom
-        chart.events.on('ready', () => {
-            timeAxis.start = this.preZoomLevel;
-            timeAxis.end = 1;
-            timeAxis.keepSelection = true;
-        })
+        // chart.events.on('ready', () => {
+        //     timeAxis.start = this.preZoomLevel;
+        //     timeAxis.end = 1;
+        //     timeAxis.keepSelection = true;
+        // })
 
         this.chart = chart;
     }
