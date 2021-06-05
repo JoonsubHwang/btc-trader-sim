@@ -12,10 +12,6 @@
     display: grid;
     grid-template-columns: var(--chartWidth) auto;
     grid-template-rows: var(--pricePanelHeight) var(--chartHeigth) auto;
-    grid-template-areas: 
-        'price-panel price-panel'
-        'chart-panel ordBook-panel'
-        'txn-panel   balance-panel';
 }
 
 #price-panel {
