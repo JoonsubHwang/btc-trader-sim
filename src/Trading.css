@@ -12,6 +12,8 @@
     display: grid;
     grid-template-columns: var(--chartWidth) auto;
     grid-template-rows: var(--pricePanelHeight) var(--chartHeigth) auto;
+    column-gap: .5rem;
+    row-gap: .5rem;
 }
 
 #price-panel {
