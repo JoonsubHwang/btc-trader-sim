@@ -73,20 +73,24 @@ class Trading extends Component {
         return (
             <div id='trading-main' className='container'>
 
-                {/* pricePanel */}
-                <div id='pricePanel' className='container'>
-                    
-                    <h1 id='price' style={{ color: this.state.priceColor }}>BTC-USD ${this.state.price}</h1>
-    
-                </div>
-    
-                {/* chartPanel */}
-                <div id='chartPanel' className='container framed'>
-                    <Chart price={this.state.price}></Chart>
-                </div>
+                <div id='trading-grid'>
 
-                {/* txnPanel (transaction) */}
-                <div id='txnPanel' className='container framed'>
+                    {/* price-panel */}
+                    <div id='price-panel' className='container'>
+                        
+                        <h1 id='price' style={{ color: this.state.priceColor }}>BTC-USD ${this.state.price}</h1>
+        
+                    </div>
+        
+                    {/* chart-panel */}
+                    <div id='chart-panel' className='container framed'>
+                        <Chart price={this.state.price}></Chart>
+                    </div>
+
+                    {/* txn-panel (transaction) */}
+                    <div id='txn-panel' className='container framed'>
+
+                    </div>
 
                 </div>
                 

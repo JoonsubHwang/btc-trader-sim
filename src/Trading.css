@@ -3,18 +3,27 @@
     --chartHeigth: 60vh;
 }
 
-#pricePanel {
-    width: var(--chartWidth);
-    height: 5vh;
+#trading-grid {
+    display: grid;
+    grid-template-columns: var(--chartWidth) auto;
+    grid-template-rows: 5vh var(--chartHeigth) auto;
+    grid-template-areas: 
+        'price-panel price-panel'
+        'chart-panel ordBook-panel'
+        'txn-panel   balance-panel';
 }
 
-#chartPanel { 
-    width: var(--chartWidth); 
-    height: var(--chartHeigth);
-    padding-bottom: 5px;
+#price-panel {
+    grid-column: 1 / span 2;
+    grid-row: 1;
 }
 
-#txnPanel {
-    width: var(--chartWidth); 
-    height: 20vh;
+#chart-panel { 
+    grid-column: 1;
+    grid-row: 2;
+}
+
+#txn-panel {
+    grid-column: 1;
+    grid-row: 3;
 }
