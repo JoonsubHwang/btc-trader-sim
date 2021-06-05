@@ -3,6 +3,10 @@
     --chartHeigth: 60vh;
 }
 
+#trading-main {
+    height: 98vh;
+}
+
 #trading-grid {
     display: grid;
     grid-template-columns: var(--chartWidth) auto;
