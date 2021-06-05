@@ -103,8 +103,8 @@ class Trading extends Component {
                     </div>
 
                     {/* balance-panel */}
-                    <div id='balance-panel'>
-                        
+                    <div id='balance-panel' className='container framed'>
+
                     </div>
 
                 </div>
