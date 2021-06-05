@@ -31,7 +31,7 @@ class Trading extends Component {
 
     componentDidMount() {
         // set update timer
-        this.tUpdate = setInterval(this.update, this.iUpdate);
+        // this.tUpdate = setInterval(this.update, this.iUpdate);
     }
 
     componentWillUnmount() {
@@ -81,15 +81,30 @@ class Trading extends Component {
                         <h1 id='price' style={{ color: this.state.priceColor }}>BTC-USD ${this.state.price}</h1>
         
                     </div>
+
+                    {/* menu-panel */}
+                    <div id='menu-panel'>
+
+                    </div>
         
                     {/* chart-panel */}
                     <div id='chart-panel' className='container framed'>
                         <Chart price={this.state.price}></Chart>
                     </div>
 
+                    {/* ordBook-panel */}
+                    <div id='ordBook-panel' className='container framed'>
+
+                    </div>
+
                     {/* txn-panel (transaction) */}
                     <div id='txn-panel' className='container framed'>
 
+                    </div>
+
+                    {/* balance-panel */}
+                    <div id='balance-panel'>
+                        
                     </div>
 
                 </div>
