@@ -78,7 +78,7 @@ class Chart extends Component {
 
         let chart = am4core.create("priceChart", am4charts.XYChart);
         chart.responsive.enabled = true;
-        chart.padding(10, 40, 0, 20); // padding (pixels)
+        chart.padding(20, 40, 0, 20); // padding (pixels)
         chart.dateFormatter.dateFormat = 'HH:mm'; // date format
 
 
@@ -123,7 +123,7 @@ class Chart extends Component {
         priceSeries.dataFields.highValueY = 'high';
         priceSeries.clustered = false;
 
-        // data grouping func
+        // data-grouping func
         priceSeries.adapter.add('groupDataItem', function(grpCandle) {
             
             const candles = grpCandle.dataItem.groupDataItems;
