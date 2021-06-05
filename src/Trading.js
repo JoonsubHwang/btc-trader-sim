@@ -29,9 +29,8 @@ class Trading extends Component {
 
 
 
-    // effect hooks
-
     componentDidMount() {
+        // set update timer
         this.tUpdate = setInterval(this.update, this.iUpdate);
     }
 
@@ -41,8 +40,7 @@ class Trading extends Component {
 
 
 
-    // functions
-
+    // update
     update = () => {
 
         CbProAPI.loadOrderBook()
@@ -81,10 +79,6 @@ class Trading extends Component {
                     <h1 id='price' style={{ color: this.state.priceColor }}>BTC-USD ${this.state.price}</h1>
     
                 </div>
-    
-                {/* <p> Balance: {this.state.balance}</p> */}
-    
-                {/* <p> BTC owned: {this.state.BTCOwned} (${this.state.valueOwning})</p> */}
     
                 {/* chartPanel */}
                 <div id='chartPanel' className='container framed'>
