@@ -27,19 +27,3 @@ h1, h2, h3, h4 {
     border: 1px solid var(--fg);
     border-radius: 8px;
 }
-
-#pricePanel {
-    width: var(--chartWidth);
-    height: 5vh;
-}
-
-#chartPanel { 
-    width: var(--chartWidth); 
-    height: var(--chartHeigth);
-    padding-bottom: 5px;
-}
-
-#txnPanel {
-    width: var(--chartWidth); 
-    height: 20vh;
-}

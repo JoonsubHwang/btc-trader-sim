@@ -1,0 +1,15 @@
+#pricePanel {
+    width: var(--chartWidth);
+    height: 5vh;
+}
+
+#chartPanel { 
+    width: var(--chartWidth); 
+    height: var(--chartHeigth);
+    padding-bottom: 5px;
+}
+
+#txnPanel {
+    width: var(--chartWidth); 
+    height: 20vh;
+}
