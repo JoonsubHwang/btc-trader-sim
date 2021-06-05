@@ -77,7 +77,7 @@ class Chart extends Component {
 
         let chart = am4core.create("priceChart", am4charts.XYChart);
         chart.responsive.enabled = true;
-        chart.padding(20, 40, 0, 20); // padding (pixels)
+        chart.padding(15, 15, 0, 0); // padding (pixels)
         chart.dateFormatter.dateFormat = 'HH:mm'; // date format
 
 
