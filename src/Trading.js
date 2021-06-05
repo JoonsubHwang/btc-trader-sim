@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Chart from './Chart';
 import { CbProAPI } from './CbProAPI';
+import './Trading.css';
 
 const white = 'rgb(250, 250, 250)';
 const green = 'rgb(20, 180, 140)';
