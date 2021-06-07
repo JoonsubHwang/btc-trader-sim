@@ -19,9 +19,8 @@ class Trading extends Component {
         this.state = {
             price: 0,
             priceColor: white,
-            balance: this.props.balance,
-            BTCOwned: 5,
-            valueOwning: 0,
+            cash: this.props.startCash,
+            BTCWallet: 5,
             asks: [],
             bids: []
         }
@@ -31,7 +30,7 @@ class Trading extends Component {
 
     componentDidMount() {
         // set update timer
-        // this.tUpdate = setInterval(this.update, this.iUpdate);
+        this.tUpdate = setInterval(this.update, this.iUpdate);
     }
 
     componentWillUnmount() {
@@ -59,7 +58,6 @@ class Trading extends Component {
                 price: orderBook.asks[0].price,
                 asks: orderBook.asks,
                 bids: orderBook.bids,
-                valueOwning: this.state.BTCOwned * this.state.price
             });
         })
     }
