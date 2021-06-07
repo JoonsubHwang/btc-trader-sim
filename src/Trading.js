@@ -19,7 +19,7 @@ class Trading extends Component {
         this.state = {
             price: 0,
             priceColor: white,
-            cash: this.props.startCash,
+            cash: 1000,
             BTCWallet: 5,
             asks: [],
             bids: []
@@ -101,8 +101,19 @@ class Trading extends Component {
                     </div>
 
                     {/* balance-panel */}
-                    <div id='balance-panel' className='container framed'>
+                    <div className='container framed'>
+                        <div id='balance-panel'>
 
+                            <h4 id='balance-heading'>Balance</h4>
+                            
+                            <div id='balance-grid'>
+                                <p className='name'>Cash</p>
+                                <p className='value'>{this.state.cash} USD</p>
+                                <p className='name'>BTC Wallet</p>
+                                <p className='value'>{this.state.BTCWallet} BTC (≈${(this.state.BTCWallet * this.state.price).toFixed(0)})</p>
+                            </div>
+                            
+                        </div>
                     </div>
 
                 </div>
