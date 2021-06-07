@@ -64,6 +64,7 @@
     grid-template-rows: 50% 50%;
     row-gap: .5rem;
     padding: 0 1rem;
+    height: 70%;
 }
 
 #balance-grid > * {
