@@ -1,3 +1,7 @@
 #chart-main {
     height: 97%;
 }
+
+#price-chart {
+    height: 100%;
+}
