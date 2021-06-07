@@ -68,7 +68,7 @@
 }
 
 #balance-grid > * {
-    place-self: stretch;
+    place-self: center;
 }
 
 .value {
