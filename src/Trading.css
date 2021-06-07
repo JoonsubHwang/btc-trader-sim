@@ -21,6 +21,10 @@
     grid-column: 1;
 }
 
+#price-heading {
+    font-size: x-large;
+}
+
 #menu-panel {
     grid-row: 1;
     grid-column: 2;
