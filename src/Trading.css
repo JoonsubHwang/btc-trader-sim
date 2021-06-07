@@ -51,7 +51,7 @@
 }
 
 #balance-heading {
-
+    text-align: center;
 }
 
 #balance-grid {
@@ -63,4 +63,8 @@
 
 #balance-grid > * {
     place-self: stretch;
+}
+
+.value {
+    text-align: right;
 }
