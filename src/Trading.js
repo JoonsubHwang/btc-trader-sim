@@ -76,7 +76,7 @@ class Trading extends Component {
                     {/* price-panel */}
                     <div id='price-panel'>
                         
-                        <h1 id='price' style={{ color: this.state.priceColor }}>BTC-USD ${this.state.price}</h1>
+                        <h1 id='price-heading' style={{ color: this.state.priceColor }}>BTC-USD ${this.state.price}</h1>
         
                     </div>
 
@@ -112,7 +112,7 @@ class Trading extends Component {
                                 <p className='name'>BTC Wallet</p>
                                 <p className='value'>{this.state.BTCWallet} BTC (≈${(this.state.BTCWallet * this.state.price).toFixed(0)})</p>
                             </div>
-                            
+
                         </div>
                     </div>
 
