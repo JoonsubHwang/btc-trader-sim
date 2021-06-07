@@ -8,6 +8,10 @@ body {
     color: var(--fg);
 }
 
+* {
+    margin: 0;
+}
+
 div {
 }
 
