@@ -71,6 +71,10 @@
     place-self: center;
 }
 
+.name {
+    text-align: center;
+}
+
 .value {
     text-align: right;
 }
