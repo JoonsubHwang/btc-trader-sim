@@ -1,21 +1,46 @@
 :root {
-    --pricePanelHeight: 1.2rem;
+    --pricePanelHeight: 2.5rem;
     --chartWidth: 75%;
-    --chartHeigth: 60%;
+    --chartHeight: 60%;
+    font-size: 16px;
+}
+@media (max-width: 900px) {
+    :root { 
+        --chartHeight: 35%;
+        --ordBookHeight: 20%;
+        font-size: 14px; 
+    }
+}
+@media (max-width: 400px) {
+    :root { 
+        font-size: 12px;
+    }
 }
 
 #trading-main {
     height: 98vh;
+    min-width: 300px;
     max-width: 1000px;
+    min-height: 600px;
     margin: auto;
+}
+@media (max-width: 900px) {
+    #trading-main {
+        max-width: 600px;
+    }
 }
 
 #trading-grid {
     display: grid;
     grid-template-columns: var(--chartWidth) auto;
-    grid-template-rows: var(--pricePanelHeight) var(--chartHeigth) auto;
+    grid-template-rows: var(--pricePanelHeight) var(--chartHeight) auto;
     column-gap: .5rem;
     row-gap: .5rem;
+}
+@media (max-width: 900px) {
+    #trading-grid {
+        grid-template-rows: var(--pricePanelHeight) var(--chartHeight) var(--ordBookHeight) var(--ordBookHeight) auto;
+    }
 }
 
 #price-panel {
@@ -24,7 +49,7 @@
 }
 
 #price-heading {
-    font-size: var(--pricePanelHeight);
+    font-size: calc(var(--pricePanelHeight) * 0.7);
 }
 
 #menu-panel {
@@ -36,20 +61,44 @@
     grid-row: 2;
     grid-column: 1;
 }
+@media (max-width: 900px) {
+    #chart-panel {
+        grid-row: 2;
+        grid-column: 1 / span 2;
+    }
+}
 
 #ordBook-panel {
     grid-row: 2;
     grid-column: 2;
+}
+@media (max-width: 900px) {
+    #ordBook-panel {
+        grid-row: 4;
+        grid-column: 1 / span 2;
+    }
 }
 
 #txn-panel {
     grid-row: 3;
     grid-column: 1;
 }
+@media (max-width: 900px) {
+    #txn-panel {
+        grid-row: 3;
+        grid-column: 1 / span 2;
+    }
+}
 
 #balance-panel {
     grid-row: 3;
     grid-column: 2;
+}
+@media (max-width: 900px) {
+    #balance-panel {
+        grid-row: 5;
+        grid-column: 1 / span 2;
+    }
 }
 
 #balance-panel > * {
@@ -64,8 +113,9 @@
     display: grid;
     grid-template-columns: 30% auto;
     row-gap: .5rem;
-    padding: 0 1rem;
-    height: 70%;
+    max-width: 170px;
+    height: calc(100% - 4.5rem);
+    margin: auto;
 }
 
 #balance-grid > * {
