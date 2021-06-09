@@ -61,7 +61,6 @@
 #balance-grid {
     display: grid;
     grid-template-columns: 30% auto;
-    grid-template-rows: 50% 50%;
     row-gap: .5rem;
     padding: 0 1rem;
     height: 60%;
