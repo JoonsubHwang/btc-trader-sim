@@ -54,7 +54,7 @@ class Chart extends Component {
         // constants
         this.timeGridUnit = 50; // pixels
         this.priceGridUnit = 30; // pixels
-        this.volAxisHeight = am4core.percent(20);
+        this.volAxisHeight = am4core.percent(15);
         this.volSeriesOpacity = 0.5; // 50%
         this.scrollbarMinWidth = 100; // pixels
         this.scrlbarMarginBottom = 20; // pixels
