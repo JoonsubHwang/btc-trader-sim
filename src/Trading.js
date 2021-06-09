@@ -101,24 +101,22 @@ class Trading extends Component {
                     </div>
 
                     {/* balance-panel */}
-                    <div className='container framed'>
-                        <div id='balance-panel'>
+                    <div id='balance-panel' className='container framed'>
 
-                            <h4 id='balance-heading'>Balance</h4>
-                            
-                            <div id='balance-grid'>
-                                <p className='name'>Total</p>
-                                <p className='value'>{(this.state.cash + (this.state.BTCWallet * this.state.price)).toFixed(2)} USD</p>
-                                <p className='name'>Cash</p>
-                                <p className='value'>{this.state.cash} USD</p>
-                                <p className='name'>BTC Wallet</p>
-                                <div>
-                                    <p className='value'>{this.state.BTCWallet} BTC</p>
-                                    <p className='value'>(≈ ${(this.state.BTCWallet * this.state.price).toFixed(0)})</p>
-                                </div>
+                        <h4 id='balance-heading'>Balance</h4>
+                        
+                        <div id='balance-grid'>
+                            <p className='name'>Total</p>
+                            <p className='value'>{(this.state.cash + (this.state.BTCWallet * this.state.price)).toFixed(2)} USD</p>
+                            <p className='name'>Cash</p>
+                            <p className='value'>{this.state.cash} USD</p>
+                            <p className='name'>BTC Wallet</p>
+                            <div>
+                                <p className='value'>{this.state.BTCWallet} BTC</p>
+                                <p className='value'>(≈ ${(this.state.BTCWallet * this.state.price).toFixed(0)})</p>
                             </div>
-
                         </div>
+
                     </div>
 
                 </div>
