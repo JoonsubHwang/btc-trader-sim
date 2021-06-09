@@ -96,7 +96,7 @@ class Chart extends Component {
         let volumeAxis = chart.yAxes.push(new am4charts.ValueAxis());
         volumeAxis.height = this.volAxisHeight;
         volumeAxis.renderer.labels.template.disabled = true;
-
+        volumeAxis.valign = 'bottom';
 
         // axis tooltips
 
