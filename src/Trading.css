@@ -6,6 +6,8 @@
 
 #trading-main {
     height: 98vh;
+    max-width: 1000px;
+    margin: auto;
 }
 
 #trading-grid {
