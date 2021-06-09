@@ -67,7 +67,7 @@
 }
 
 #balance-grid > * {
-    place-self: center;
+    align-self: center;
 }
 
 .name {
