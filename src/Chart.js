@@ -23,12 +23,11 @@ function am4themes_dark(target) {
         target.setFor('primaryButton',        am4core.color(black));
         target.setFor('primaryButtonHover',   am4core.color(black));
         target.setFor('primaryButtonActive',  am4core.color(black));
-        target.setFor('primaryButtonStroke',  am4core.color(purple));
 
         target.setFor('secondaryButton',        am4core.color(black));
         target.setFor('secondaryButtonHover',   am4core.color(black));
         target.setFor('secondaryButtonActive',  am4core.color(black));
-        target.setFor('secondaryButtonStroke',  am4core.color(purple));
+        target.setFor('secondaryButtonStroke',  am4core.color(white));
 
         target.setFor('grid',       am4core.color(white));
         target.setFor('text',       am4core.color(grey));
