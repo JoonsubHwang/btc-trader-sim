@@ -123,6 +123,10 @@
     #balance-grid {
         max-width: 250px;
     }
+    #BTCWallet-grid {
+        display: grid;
+        grid-template-columns: 30% auto;
+    }
 }
 
 #balance-grid > * {
