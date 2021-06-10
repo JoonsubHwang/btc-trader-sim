@@ -114,7 +114,7 @@
     display: grid;
     grid-template-columns: 30% auto;
     row-gap: .5rem;
-    max-width: 170px;
+    max-width: 200px;
     height: calc(100% - 4.5rem);
     margin: auto;
 }
