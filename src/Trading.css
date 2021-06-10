@@ -135,6 +135,7 @@
 
 .name {
     text-align: center;
+    color: var(--fg-darker);
 }
 
 .value {
