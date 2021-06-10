@@ -20,7 +20,7 @@ class Trading extends Component {
             price: 0,
             priceColor: white,
             cash: 1000,
-            BTCWallet: 5,
+            BTCWallet: 50.1231,
             asks: [],
             bids: []
         }
