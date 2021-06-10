@@ -121,11 +121,11 @@
 
 @media (max-width: 900px) {
     #balance-grid {
-        max-width: 250px;
+        max-width: 300px;
     }
     #BTCWallet-grid {
         display: grid;
-        grid-template-columns: 30% auto;
+        grid-template-columns: auto auto;
     }
 }
 
