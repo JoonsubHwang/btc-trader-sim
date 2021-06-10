@@ -55,8 +55,6 @@ class Chart extends Component {
         this.priceGridUnit = 30; // pixels
         this.volAxisHeight = am4core.percent(15);
         this.volSeriesOpacity = 0.5; // 50%
-        this.scrollbarMinWidth = 100; // pixels
-        this.scrlbarMarginBottom = 20; // pixels
         this.tooltipDx = -5; // pixels
         this.tooltipFontSize = 14;
         this.preZoomLevel = 0.5; // 50%
@@ -191,33 +189,14 @@ class Chart extends Component {
         chart.cursor.behavior = 'selectY';
 
 
-        // scrollbar
-        let scrollbarX = new am4core.Scrollbar();
-        scrollbarX.parent = chart.bottomAxesContainer;
-        scrollbarX.thumb.minWidth = this.scrollbarMinWidth;
-        scrollbarX.thumb.draggable = false;
-        scrollbarX.marginBottom = this.scrlbarMarginBottom;
-        chart.scrollbarX = scrollbarX;
-        chart.zoomOutButton.align = "left";
-
-
         // theme
         chart.background.show();
-        chart.zoomOutButton.icon.stroke = purple;
         chart.cursor.lineX.strokeOpacity = 1;
         chart.cursor.lineX.strokeDasharray = [];
         chart.cursor.lineX.strokeWidth = 1;
         chart.cursor.lineY.strokeOpacity = 1;
         chart.cursor.lineY.strokeDasharray = [];
         chart.cursor.lineY.strokeWidth = 1;
-
-        
-        // pre-zoom
-        // chart.events.on('ready', () => {
-        //     timeAxis.start = this.preZoomLevel;
-        //     timeAxis.end = 1;
-        //     timeAxis.keepSelection = true;
-        // })
 
         this.chart = chart;
     }
