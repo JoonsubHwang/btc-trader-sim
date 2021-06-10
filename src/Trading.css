@@ -119,6 +119,12 @@
     margin: auto;
 }
 
+@media (max-width: 900px) {
+    #balance-grid {
+        max-width: 250px;
+    }
+}
+
 #balance-grid > * {
     align-self: center;
 }
