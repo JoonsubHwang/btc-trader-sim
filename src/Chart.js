@@ -98,12 +98,14 @@ class Chart extends Component {
         // axis tooltips
 
         let timeTooltip = timeAxis.tooltip;
+        timeTooltip.background.stroke = purple;
         timeTooltip.background.fill = am4core.color(black);
         timeTooltip.background.pointerLength = 0;
         timeTooltip.background.cornerRadius = 4;
         timeTooltip.dy = 5;
 
         let priceTooltip = priceAxis.tooltip;
+        priceTooltip.background.stroke = purple;
         priceTooltip.background.fill = am4core.color(black);
         priceTooltip.background.pointerLength = 0;
         priceTooltip.background.cornerRadius = 4;
