@@ -10,7 +10,7 @@ const grey = 'rgb(120, 120, 120)';
 const black = 'rgb(0, 0, 0)';
 const green = 'rgb(20, 180, 140)';
 const red = 'rgb(250, 70, 90)';
-const bgPurple = 'rgb(100, 220, 220)';
+const bgYellow = 'rgb(255, 237, 130)';
 
 // theme
 function am4themes_dark(target) {
@@ -18,7 +18,7 @@ function am4themes_dark(target) {
     if (target instanceof am4core.InterfaceColorSet) {
         
         target.setFor('background',             am4core.color(black));
-        target.setFor('alternativeBackground',  am4core.color(bgPurple));
+        target.setFor('alternativeBackground',  am4core.color(bgYellow));
 
         target.setFor('primaryButton',        am4core.color(black));
         target.setFor('primaryButtonHover',   am4core.color(black));
