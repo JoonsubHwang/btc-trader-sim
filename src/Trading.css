@@ -3,6 +3,10 @@
     --chartWidth: 75%;
     --chartHeight: 60%;
     font-size: 16px;
+
+    --white: rgb(250, 250, 250);
+    --green: rgb(20, 180, 140);
+    --red: rgb(250, 70, 90);
 }
 @media (max-width: 900px) {
     :root { 
@@ -50,6 +54,18 @@
 
 #price-heading {
     font-size: calc(var(--pricePanelHeight) * 0.7);
+}
+
+.white {
+    color: var(--white);
+}
+
+.green {
+    color: var(--green);
+}
+
+.red {
+    color: var(--red);
 }
 
 #menu-panel {

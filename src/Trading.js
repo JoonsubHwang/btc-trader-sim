@@ -3,10 +3,6 @@ import Chart from './Chart';
 import { CbProAPI } from './CbProAPI';
 import './Trading.css';
 
-const white = 'rgb(250, 250, 250)';
-const green = 'rgb(20, 180, 140)';
-const red = 'rgb(250, 70, 90)';
-
 class Trading extends Component {
 
     // constructor
@@ -18,7 +14,7 @@ class Trading extends Component {
 
         this.state = {
             price: 0,
-            priceColor: white,
+            priceColor: 'white',
             cash: 1000,
             BTCWallet: 50.1231,
             asks: [],
@@ -47,11 +43,11 @@ class Trading extends Component {
 
             // change color of price when changed
             if (orderBook.asks[0].price > this.state.price)
-                this.setState({ priceColor: green });
+                this.setState({ priceColor: 'green' });
             else if (orderBook.asks[0].price < this.state.price)
-                this.setState({ priceColor: red });
+                this.setState({ priceColor: 'red' });
             else 
-                this.setState({ priceColor: white });
+                this.setState({ priceColor: 'white' });
 
             // store orderBook data
             this.setState({ 
@@ -76,7 +72,7 @@ class Trading extends Component {
                     {/* price-panel */}
                     <div id='price-panel'>
                         
-                        <h1 id='price-heading' style={{ color: this.state.priceColor }}>BTC-USD ${this.state.price}</h1>
+                        <h1 id='price-heading' className={this.state.priceColor}>BTC-USD ${this.state.price}</h1>
         
                     </div>
 
