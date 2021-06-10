@@ -17,17 +17,17 @@ function am4themes_dark(target) {
     if (target instanceof am4core.InterfaceColorSet) {
         
         target.setFor('background',             am4core.color(black));
-        target.setFor('alternativeBackground',  am4core.color(cyan));
+        target.setFor('alternativeBackground',  am4core.color(purple));
 
         target.setFor('primaryButton',        am4core.color(black));
         target.setFor('primaryButtonHover',   am4core.color(black));
         target.setFor('primaryButtonActive',  am4core.color(black));
-        target.setFor('primaryButtonStroke',  am4core.color(cyan));
+        target.setFor('primaryButtonStroke',  am4core.color(purple));
 
         target.setFor('secondaryButton',        am4core.color(black));
         target.setFor('secondaryButtonHover',   am4core.color(black));
         target.setFor('secondaryButtonActive',  am4core.color(black));
-        target.setFor('secondaryButtonStroke',  am4core.color(cyan));
+        target.setFor('secondaryButtonStroke',  am4core.color(purple));
 
         target.setFor('grid',       am4core.color(white));
         target.setFor('text',       am4core.color(white));
@@ -203,7 +203,7 @@ class Chart extends Component {
 
         // theme
         chart.background.show();
-        chart.zoomOutButton.icon.stroke = cyan;
+        chart.zoomOutButton.icon.stroke = purple;
         chart.cursor.lineX.strokeOpacity = 1;
         chart.cursor.lineX.strokeDasharray = [];
         chart.cursor.lineX.strokeWidth = 1;
