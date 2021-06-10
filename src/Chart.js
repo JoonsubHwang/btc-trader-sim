@@ -6,6 +6,7 @@ import { CbProAPI } from './CbProAPI';
 
 // colors
 const white = 'rgb(250, 250, 250)';
+const grey = 'rgb(120, 120, 120)';
 const black = 'rgb(0, 0, 0)';
 const green = 'rgb(20, 180, 140)';
 const red = 'rgb(250, 70, 90)';
@@ -30,7 +31,7 @@ function am4themes_dark(target) {
         target.setFor('secondaryButtonStroke',  am4core.color(purple));
 
         target.setFor('grid',       am4core.color(white));
-        target.setFor('text',       am4core.color(white));
+        target.setFor('text',       am4core.color(grey));
 
         target.setFor('positive',   am4core.color(green));
         target.setFor('negative',   am4core.color(red));
