@@ -9,7 +9,7 @@ const white = 'rgb(250, 250, 250)';
 const black = 'rgb(0, 0, 0)';
 const green = 'rgb(20, 180, 140)';
 const red = 'rgb(250, 70, 90)';
-const cyan = 'rgb(100, 220, 220)';
+const purple = 'rgb(159, 123, 212)';
 
 // theme
 function am4themes_dark(target) {
