@@ -107,6 +107,7 @@
 
 #balance-heading {
     text-align: center;
+    color: var(--theme);
 }
 
 #balance-grid {
