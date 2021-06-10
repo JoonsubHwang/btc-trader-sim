@@ -10,8 +10,7 @@ const grey = 'rgb(120, 120, 120)';
 const black = 'rgb(0, 0, 0)';
 const green = 'rgb(20, 180, 140)';
 const red = 'rgb(250, 70, 90)';
-const purple = 'rgb(159, 123, 212)';
-const bgPurple = 'rgb(190, 110, 255)';
+const bgPurple = 'rgb(100, 220, 220)';
 
 // theme
 function am4themes_dark(target) {
@@ -99,14 +98,14 @@ class Chart extends Component {
         // axis tooltips
 
         let timeTooltip = timeAxis.tooltip;
-        timeTooltip.background.stroke = purple;
+        timeTooltip.background.stroke = white;
         timeTooltip.background.fill = am4core.color(black);
         timeTooltip.background.pointerLength = 0;
         timeTooltip.background.cornerRadius = 4;
         timeTooltip.dy = 5;
 
         let priceTooltip = priceAxis.tooltip;
-        priceTooltip.background.stroke = purple;
+        priceTooltip.background.stroke = white;
         priceTooltip.background.fill = am4core.color(black);
         priceTooltip.background.pointerLength = 0;
         priceTooltip.background.cornerRadius = 4;
