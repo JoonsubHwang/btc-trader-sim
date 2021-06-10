@@ -123,7 +123,7 @@
 
 #balance-heading {
     text-align: center;
-    color: var(--theme);
+    color: var(--accent);
 }
 
 #balance-grid {
