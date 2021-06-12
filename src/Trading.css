@@ -131,6 +131,23 @@
     }
 }
 
+#buy-button, #sell-button {
+    background-color: var(--bg);
+    border-radius: 8px;
+}
+
+#buy-button {
+    color: var(--green);
+    border-color: var(--green);
+    margin: .3rem .3rem .15rem .3rem;
+}
+
+#sell-button {
+    color: var(--red);
+    border-color: var(--red);
+    margin: .15rem .3rem .3rem .3rem;
+}
+
 
 
 /* balance-panel */
