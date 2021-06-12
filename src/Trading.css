@@ -145,8 +145,8 @@
 }
 
 #sell-button {
-    color: var(--red);
-    border-color: var(--red);
+    color: var(--fg-darker);
+    border-color: var(--fg-darker);
     margin: .15rem .3rem .3rem .3rem;
 }
 
