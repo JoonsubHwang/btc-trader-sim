@@ -72,7 +72,7 @@ class Trading extends Component {
                     {/* price-panel */}
                     <div id='price-panel'>
                         
-                        <h1 id='price-heading' className={this.state.priceColor}>BTC-USD ${this.state.price}</h1>
+                        <h1 id='price-heading'>BTC-USD <span className={this.state.priceColor}>${this.state.price}</span></h1>
         
                     </div>
 
