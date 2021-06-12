@@ -134,6 +134,8 @@
 #buy-button, #sell-button {
     background-color: var(--bg);
     border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 #buy-button {
