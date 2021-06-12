@@ -94,6 +94,16 @@ class Trading extends Component {
                     {/* txn-panel (transaction) */}
                     <div id='txn-panel' className='container framed'>
 
+                        <button id='buy-button'></button>
+                        <div id='buy-section'>
+
+                        </div>
+
+                        <button id='sell-button'></button>
+                        <div id='sell-section'>
+                            
+                        </div>
+
                     </div>
 
                     {/* balance-panel */}
