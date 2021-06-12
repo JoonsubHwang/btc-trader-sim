@@ -136,6 +136,8 @@
     border-radius: 8px;
     font-size: 1rem;
     font-weight: 500;
+
+    /* TODO: add animation for clicking */
 }
 
 #buy-button {
@@ -150,13 +152,9 @@
     margin: .15rem .3rem .3rem .3rem;
 }
 
-#buy-section, #sell-section {
+#order-section {
     grid-row: 1 / span 2;
     grid-column: 2;
-}
-
-#sell-section {
-    display: none;
 }
 
 

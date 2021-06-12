@@ -95,14 +95,11 @@ class Trading extends Component {
                     <div id='txn-panel' className='container framed'>
 
                         <button id='buy-button'>BUY</button>
-                        <div id='buy-section'>
+                        <div id='order-section'>bs
 
                         </div>
 
                         <button id='sell-button'>SELL</button>
-                        <div id='sell-section'>
-
-                        </div>
 
                     </div>
 
