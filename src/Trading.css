@@ -119,6 +119,10 @@
 #txn-panel {
     grid-row: 3;
     grid-column: 1;
+
+    /* grid */
+    display: grid;
+    grid-template-columns: 20% auto;
 }
 @media (max-width: 900px) {
     #txn-panel {
