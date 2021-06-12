@@ -58,6 +58,7 @@
 
 #price-heading {
     font-size: calc(var(--pricePanelHeight) * 0.7);
+    color: var(--accent);
 }
 
 .white {
