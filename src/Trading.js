@@ -22,8 +22,6 @@ class Trading extends Component {
             priceColor: 'white',
             cash: 1000,
             BTCWallet: 50.1231,
-            asks: [],
-            bids: [],
             buy: true, // false = sell
             orderPrice: this.price,
             orderType: this.orderTypes.LIMIT_ORDER,
@@ -49,6 +47,7 @@ class Trading extends Component {
     // update
     update = () => {
 
+        // TODO: loadTick instead of OrderBook
         CbProAPI.loadOrderBook()
         .then(orderBook => {
 
@@ -63,8 +62,6 @@ class Trading extends Component {
             // store orderBook data
             this.setState({ 
                 price: orderBook.asks[0].price,
-                asks: orderBook.asks,
-                bids: orderBook.bids,
             });
         })
     }
@@ -95,11 +92,6 @@ class Trading extends Component {
                     {/* chart-panel */}
                     <div id='chart-panel' className='container framed'>
                         <Chart price={this.state.price}></Chart>
-                    </div>
-
-                    {/* ordBook-panel */}
-                    <div id='ordBook-panel' className='container framed'>
-
                     </div>
 
                     {/* txn-panel (transaction) */}

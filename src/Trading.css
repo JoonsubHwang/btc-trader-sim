@@ -1,6 +1,6 @@
 :root {
     --pricePanelHeight: 2.5rem;
-    --chartWidth: 75%;
+    --txnWidth: 75%;
     --chartHeight: 60%;
     font-size: 16px;
 
@@ -10,8 +10,8 @@
 }
 @media (max-width: 900px) {
     :root { 
-        --chartHeight: 35%;
-        --ordBookHeight: 20%;
+        --chartHeight: 40%;
+        --txnHeight: 30%;
         font-size: 14px; 
     }
 }
@@ -36,14 +36,14 @@
 
 #trading-grid {
     display: grid;
-    grid-template-columns: var(--chartWidth) auto;
+    grid-template-columns: var(--txnWidth) auto;
     grid-template-rows: var(--pricePanelHeight) var(--chartHeight) auto;
     column-gap: .5rem;
     row-gap: .5rem;
 }
 @media (max-width: 900px) {
     #trading-grid {
-        grid-template-rows: var(--pricePanelHeight) var(--chartHeight) var(--ordBookHeight) var(--ordBookHeight) auto;
+        grid-template-rows: var(--pricePanelHeight) var(--chartHeight) var(--txnHeight) auto;
     }
 }
 
@@ -88,26 +88,11 @@
 
 #chart-panel { 
     grid-row: 2;
-    grid-column: 1;
+    grid-column: 1 / span 2;
 }
 @media (max-width: 900px) {
     #chart-panel {
         grid-row: 2;
-        grid-column: 1 / span 2;
-    }
-}
-
-
-
-/* ordBook-panel */
-
-#ordBook-panel {
-    grid-row: 2;
-    grid-column: 2;
-}
-@media (max-width: 900px) {
-    #ordBook-panel {
-        grid-row: 4;
         grid-column: 1 / span 2;
     }
 }
@@ -185,7 +170,7 @@
 }
 @media (max-width: 900px) {
     #balance-panel {
-        grid-row: 5;
+        grid-row: 4;
         grid-column: 1 / span 2;
     }
 }
