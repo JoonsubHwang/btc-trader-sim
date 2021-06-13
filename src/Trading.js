@@ -11,6 +11,11 @@ class Trading extends Component {
         super(props);
 
         this.iUpdate = 500; // interval for updating (ms)
+        this.orderTypes = {
+            LIMIT_ORDER: 'Limit Order',
+            MARKET_ORDER: 'Market Order',
+            STOP_MARKET: 'Stop Market'
+        }
 
         this.state = {
             price: 0,
@@ -18,7 +23,13 @@ class Trading extends Component {
             cash: 1000,
             BTCWallet: 50.1231,
             asks: [],
-            bids: []
+            bids: [],
+            buy: true, // false = sell
+            orderPrice: this.price,
+            orderType: this.orderTypes.LIMIT_ORDER,
+            IOC: false, // immedate or cancel
+            orderAmountBTC: 0,
+            orderAmountUSD: 0
         }
     }
 
