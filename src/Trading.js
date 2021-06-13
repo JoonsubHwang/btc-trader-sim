@@ -110,6 +110,22 @@ class Trading extends Component {
 
                         <form id='order-form'>
 
+                            <label for='orderType'>Order Type</label>
+                            <div id='orderTypes'>
+                                <div>
+                                    <input type='radio' name='limitOrder' value={this.orderTypes.LIMIT_ORDER}></input>
+                                    <label for='limitOrder'>{this.orderTypes.LIMIT_ORDER}</label>
+                                </div>
+                                <div>
+                                    <input type='radio' name='marketOrder' value={this.orderTypes.MARKET_ORDER}></input>
+                                    <label for='marketOrder'>{this.orderTypes.MARKET_ORDER}</label>
+                                </div>
+                                <div>
+                                    <input type='radio' name='stopMarket' value={this.orderTypes.STOP_MARKET}></input>
+                                    <label for='stopMarket'>{this.orderTypes.STOP_MARKET}</label>
+                                </div>
+                            </div>
+
                         </form>
 
                     </div>

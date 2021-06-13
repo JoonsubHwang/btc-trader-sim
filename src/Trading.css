@@ -161,6 +161,20 @@
     grid-template-columns: 30% auto;
 }
 
+#order-form > label {
+    place-self: center left
+}
+
+#orderTypes {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    align-items: center;
+}
+
+#orderTypes > div > input {
+    margin: .2rem;
+}
+
 
 
 /* balance-panel */
