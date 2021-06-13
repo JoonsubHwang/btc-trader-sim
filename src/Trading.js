@@ -108,9 +108,9 @@ class Trading extends Component {
                         <button id='buy-button'>BUY</button>
                         <button id='sell-button'>SELL</button>
 
-                        <div id='order-form'>bs
+                        <form id='order-form'>
 
-                        </div>
+                        </form>
 
                     </div>
 
