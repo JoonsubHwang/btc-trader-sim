@@ -144,6 +144,9 @@
     /* grid */
     display: grid;
     grid-template-columns: 30% auto;
+
+    width: calc(100% - 1rem);
+    margin: 0 .5rem;
 }
 
 #order-form > label {
