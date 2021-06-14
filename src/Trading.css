@@ -150,13 +150,16 @@
 }
 
 #order-form > label {
-    place-self: center left
+    place-self: center left;
 }
 
 #orderTypes {
     display: grid;
     grid-template-columns: auto auto auto;
-    align-items: center;
+}
+
+#orderTypes > div {
+    place-self: center;
 }
 
 #orderTypes > div > input {
