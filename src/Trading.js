@@ -118,6 +118,12 @@ class Trading extends Component {
                                 </div>
                             </div>
 
+                            <label for='orderPrice'>Price</label>
+                            <div>
+                                <input type='number' name='orderPrice' value={this.state.orderPrice} step='100'></input>
+                                <label> USD</label>
+                            </div>
+
                         </form>
 
                     </div>
