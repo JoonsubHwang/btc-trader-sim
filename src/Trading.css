@@ -166,6 +166,15 @@
     margin-right: .4rem;
 }
 
+#orderAmount-grid {
+    display: grid;
+    grid-template-columns: auto 4rem;
+}
+
+#orderAmount-grid > * {
+    place-self: center right;
+}
+
 
 
 /* balance-panel */

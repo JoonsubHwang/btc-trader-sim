@@ -20,11 +20,11 @@ class Trading extends Component {
         this.state = {
             price: 0,
             priceColor: 'white',
-            cash: 1000,
-            BTCWallet: 50.1231,
+            cash: 1000, // TODO: temporary value
+            BTCWallet: 50.1231, // TODO: temporary value
             buy: true, // false = sell
-            orderPrice: this.price,
-            orderType: this.orderTypes.LIMIT_ORDER,
+            orderPrice: 0,
+            orderType: null,
             IOC: false, // immedate or cancel
             orderAmountBTC: 0,
             orderAmountUSD: 0
@@ -120,7 +120,17 @@ class Trading extends Component {
 
                             <label for='orderPrice'>Price</label>
                             <div>
-                                <input type='number' name='orderPrice' value={this.state.orderPrice} step='100'></input>
+                                {/* TODO: set value in a function instead */}
+                                <input type='number' name='orderPrice' value={Math.round(this.state.price / 10) * 10} step='100'></input>
+                                <label> USD</label>
+                            </div>
+
+                            <label for='orderAmount'>Amount</label>
+                            <div id='orderAmount-grid'>
+                                {/* TODO: set value in a function instead */}
+                                <input type='number' name='orderAmount' value={(this.state.cash / 2 / this.state.price).toFixed(3)} step={((this.state.cash + (this.state.price * this.state.BTCWallet)) / 10 / this.state.price).toFixed(3)}></input>
+                                <label> BTC</label>
+                                <label>= {this.state.orderPrice * this.state.orderAmountBTC}</label>
                                 <label> USD</label>
                             </div>
 
