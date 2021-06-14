@@ -172,7 +172,7 @@
 }
 
 #orderAmount-grid > * {
-    place-self: center right;
+    align-self: center;
 }
 
 
