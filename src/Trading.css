@@ -183,19 +183,11 @@
     }
 }
 
-#orderPrice-grid {
+#orderPrice-grid, #orderAmount-grid {
     display: grid;
     grid-template-columns: auto 4rem;
     align-items: center;
-}
-
-#orderAmount-grid {
-    display: grid;
-    grid-template-columns: auto 4rem;
-}
-
-#orderAmount-grid > * {
-    align-self: center;
+    margin-left: 1rem;
 }
 
 #order-btn {
