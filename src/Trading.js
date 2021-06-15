@@ -102,20 +102,11 @@ class Trading extends Component {
 
                         <form id='order-form'>
 
-                            <label for='orderType'>Order Type</label>
+                            <label>Order Type</label>
                             <div id='orderTypes'>
-                                <div>
-                                    <input type='radio' name='orderType' value={this.orderTypes.LIMIT_ORDER}></input>
-                                    <label for='limitOrder'>{this.orderTypes.LIMIT_ORDER}</label>
-                                </div>
-                                <div>
-                                    <input type='radio' name='orderType' value={this.orderTypes.MARKET_ORDER}></input>
-                                    <label for='marketOrder'>{this.orderTypes.MARKET_ORDER}</label>
-                                </div>
-                                <div>
-                                    <input type='radio' name='orderType' value={this.orderTypes.STOP_MARKET}></input>
-                                    <label for='stopMarket'>{this.orderTypes.STOP_MARKET}</label>
-                                </div>
+                                <button id='limitOrder' className='orderType-btn'>{this.orderTypes.LIMIT_ORDER}</button>
+                                <button id='marketOrder' className='orderType-btn'>{this.orderTypes.MARKET_ORDER}</button>
+                                <button id='stopMarket' className='orderType-btn'>{this.orderTypes.STOP_MARKET}</button>
                             </div>
 
                             <label for='orderPrice'>Price</label>
@@ -125,7 +116,7 @@ class Trading extends Component {
                                 <label className='name'> USD</label>
                             </div>
 
-                            <label for='orderAmount'>Amount</label>
+                            <label for='order   Amount'>Amount</label>
                             <div id='orderAmount-grid'>
                                 {/* TODO: set value in a function instead */}
                                 <input className='value' type='number' name='orderAmount' value={(this.state.cash / 2 / this.state.price).toFixed(3)} step={((this.state.cash + (this.state.price * this.state.BTCWallet)) / 10 / this.state.price).toFixed(3)}></input>

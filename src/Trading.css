@@ -159,14 +159,28 @@
 #orderTypes {
     display: grid;
     grid-template-columns: auto auto auto;
+    column-gap: .5rem;
+    place-items: center;
 }
 
 #orderTypes > div {
     place-self: center;
 }
 
-#orderTypes > div > input {
-    margin-right: .4rem;
+.orderType-btn {
+    height: fit-content;
+    min-height: 2.5rem;
+
+    background-color: var(--bg);
+    color: var(--fg);
+    border-color: var(--fg);
+    border-radius: 8px;
+}
+
+@media (min-width: 501px) {
+    .orderType-btn {
+        min-width: 7rem;
+    }
 }
 
 #orderPrice-grid {
