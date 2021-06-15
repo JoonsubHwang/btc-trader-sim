@@ -191,7 +191,6 @@
 
 .orderType-btn.selected {
     color: var(--fg);
-    background-color: var(--theme);
     border-color: var(--theme);
 }
 
