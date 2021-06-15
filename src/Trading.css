@@ -156,7 +156,7 @@
     place-self: center left;
 }
 
-#orderTypes {
+#orderTypes-grid {
     display: grid;
     grid-template-columns: auto auto auto;
     column-gap: .5rem;
@@ -165,10 +165,6 @@
     max-width: 350px;
     justify-self: right;
     margin-right: 3%;
-}
-
-#orderTypes > div {
-    place-self: center;
 }
 
 .orderType-btn {
