@@ -144,7 +144,7 @@
     /* grid */
     display: grid;
     grid-template-columns: 30% auto;
-    grid-template-rows: 20% 20% 30% auto;
+    grid-template-rows: auto 20% 30% 15%;
 
     width: calc(100% - 1rem);
     margin: .5rem;
