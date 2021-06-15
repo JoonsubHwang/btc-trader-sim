@@ -147,8 +147,8 @@
     grid-template-rows: auto 15% 30% 15%;
     row-gap: .8rem;
 
-    width: calc(100% - 1rem);
-    height: calc(100% - 2rem);
+    width: 93%;
+    height: 90%;
     margin: auto;
 }
 
