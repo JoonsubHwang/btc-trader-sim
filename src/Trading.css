@@ -125,16 +125,27 @@
     /* TODO: add animation for clicking */
 }
 
+#buy-button, #sell-button {
+    color: var(--fg-darker);
+    border-color: var(--fg-darker);
+}
+
 #buy-button {
-    color: var(--green);
-    border-color: var(--green);
     margin: .3rem .3rem .15rem .3rem;
 }
 
+#buy-button.selected {
+    color: var(--green);
+    border-color: var(--green);
+}
+
 #sell-button {
-    color: var(--fg-darker);
-    border-color: var(--fg-darker);
     margin: .15rem .3rem .3rem .3rem;
+}
+
+#sell-button.selected {
+    color: var(--red);
+    border-color: var(--red);
 }
 
 #order-form {
