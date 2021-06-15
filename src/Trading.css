@@ -145,7 +145,7 @@
     display: grid;
     grid-template-columns: 6rem auto;
     grid-template-rows: auto 15% 30% 15%;
-    row-gap: .4rem;
+    row-gap: .8rem;
 
     width: calc(100% - 1rem);
     margin: .5rem;
