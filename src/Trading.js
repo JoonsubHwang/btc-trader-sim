@@ -121,8 +121,8 @@ class Trading extends Component {
                             <label for='orderPrice'>Price</label>
                             <div id='orderPrice-grid'>
                                 {/* TODO: set value in a function instead */}
-                                <input type='number' name='orderPrice' value={Math.round(this.state.price / 10) * 10} step='100'></input>
-                                <label> USD</label>
+                                <input className='value' type='number' name='orderPrice' value={Math.round(this.state.price / 10) * 10} step='100'></input>
+                                <label className='name'> USD</label>
                             </div>
 
                             <label for='orderAmount'>Amount</label>
