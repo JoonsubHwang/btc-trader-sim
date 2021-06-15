@@ -116,7 +116,7 @@ class Trading extends Component {
                                 <label className='name'> USD</label>
                             </div>
 
-                            <label for='order   Amount'>Amount</label>
+                            <label for='orderAmount'>Amount</label>
                             <div id='orderAmount-grid'>
                                 {/* TODO: set value in a function instead */}
                                 <input className='value' type='number' name='orderAmount' value={(this.state.cash / 2 / this.state.price).toFixed(3)} step={((this.state.cash + (this.state.price * this.state.BTCWallet)) / 10 / this.state.price).toFixed(3)}></input>
