@@ -175,6 +175,15 @@
     align-self: center;
 }
 
+#order-btn {
+    grid-column: 1 / span 2;
+    background-color: var(--accent);
+    color: var(--fg);
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+}
+
 
 
 /* balance-panel */
