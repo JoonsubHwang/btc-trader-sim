@@ -168,6 +168,12 @@
     margin-right: .4rem;
 }
 
+#orderPrice-grid {
+    display: grid;
+    grid-template-columns: auto 4rem;
+    align-items: center;
+}
+
 #orderAmount-grid {
     display: grid;
     grid-template-columns: auto 4rem;
