@@ -12,9 +12,9 @@ class Trading extends Component {
 
         this.iUpdate = 500; // interval for updating (ms)
         this.orderTypes = {
-            LIMIT_ORDER: 'Limit Order',
-            MARKET_ORDER: 'Market Order',
-            STOP_MARKET: 'Stop Market'
+            LIMIT_ORDER: 'Limit order',
+            MARKET_ORDER: 'Market order',
+            STOP_MARKET: 'Stop market'
         }
 
         this.state = {
