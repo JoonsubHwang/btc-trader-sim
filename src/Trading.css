@@ -184,12 +184,13 @@
     min-height: 2.5rem;
 
     background-color: var(--bg);
-    color: var(--fg);
-    border-color: var(--fg);
+    color: var(--fg-darker);
+    border-color: var(--fg-darker);
     border-radius: 8px;
 }
 
 .orderType-btn.selected {
+    color: var(--fg);
     background-color: var(--theme);
     border-color: var(--theme);
 }
