@@ -147,7 +147,7 @@
     grid-template-rows: 20% 20% 30% auto;
 
     width: calc(100% - 1rem);
-    margin: 0 .5rem;
+    margin: .5rem;
 }
 
 #order-form > label {
