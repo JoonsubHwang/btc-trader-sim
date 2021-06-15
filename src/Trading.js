@@ -97,7 +97,7 @@ class Trading extends Component {
                     {/* txn-panel (transaction) */}
                     <div id='txn-panel' className='container framed'>
 
-                        <button id='buy-button'>BUY</button>
+                        <button id='buy-button' className='selected'>BUY</button>
                         <button id='sell-button'>SELL</button>
 
                         <form id='order-form'>
