@@ -45,21 +45,20 @@ class Trading extends Component {
     // update
     update = () => {
 
-        // TODO: loadTick instead of OrderBook
-        CbProAPI.loadOrderBook()
-        .then(orderBook => {
+        CbProAPI.loadNewPrice()
+        .then(newPrice => {
 
-            // change color of price when changed
-            if (orderBook.asks[0].price > this.state.price)
+            // change color of price when it's changed
+            if (newPrice > this.state.price)
                 this.setState({ priceColor: 'green' });
-            else if (orderBook.asks[0].price < this.state.price)
+            else if (newPrice < this.state.price)
                 this.setState({ priceColor: 'red' });
             else 
                 this.setState({ priceColor: 'white' });
 
-            // store orderBook data
+            // store new price
             this.setState({ 
-                price: orderBook.asks[0].price,
+                price: newPrice,
             });
         })
     }

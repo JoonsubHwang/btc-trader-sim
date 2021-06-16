@@ -97,32 +97,16 @@ export class CbProAPI {
         }
     }
 
-    // returns aggregated order book of BTC-USD's top 50 bids
-    static async loadOrderBook() {
+    // returns the last price
+    static async loadNewPrice() {
 
-        const path = endpoint + `/products/${productID}/book?level=2`;
+        const path = endpoint + `/products/${productID}/ticker`;
 
         try {
-
             let res = await fetch(path);
-
-            // format object properties
             let data = (await res.json());
 
-            return {
-                asks: data.asks.map(ask => {
-                    return {
-                        price: ask[0],
-                        size: ask[1]
-                    }
-                }),
-                bids: data.asks.map(bid => {
-                    return {
-                        price: bid[0],
-                        size: bid[1]
-                    };
-                })
-            }
+            return data.price;
         }
         catch(err) {
             console.error(err);
