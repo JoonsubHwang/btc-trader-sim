@@ -121,7 +121,7 @@ class Trading extends Component {
                                 {/* TODO: set value in a function instead */}
                                 <input className='value' type='number' name='orderAmount' value={(this.state.cash / 2 / this.state.price).toFixed(3)} step={((this.state.cash + (this.state.price * this.state.BTCWallet)) / 10 / this.state.price).toFixed(3)}></input>
                                 <label className='name'> BTC</label>
-                                <label className='value'>= {this.state.orderPrice * this.state.orderAmountBTC}</label>
+                                <label className='value'>= {(this.state.orderPrice * this.state.orderAmountBTC).toFixed(2)}</label>
                                 <label className='name'> USD</label>
                             </div>
 
