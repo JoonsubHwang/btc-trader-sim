@@ -116,7 +116,8 @@
     }
 }
 
-#buy-btn, #sell-btn {
+#buy-btn, 
+#sell-btn {
     background-color: var(--bg);
     border-radius: 8px;
     font-size: 1rem;
@@ -204,7 +205,8 @@
     }
 }
 
-#orderPrice-grid, #orderAmount-grid {
+#orderPrice-grid, 
+#orderAmount-grid {
     display: grid;
     grid-template-columns: auto 4rem;
     align-items: center;
