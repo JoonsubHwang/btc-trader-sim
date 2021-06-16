@@ -131,7 +131,6 @@
     padding: 0;
     border: 1px solid;
     font-size: 1.2rem;
-    font-weight: 600;
 }
 
 #buy-button {
@@ -229,7 +228,6 @@ input[type=number] {
     background-color: var(--accent);
     color: var(--fg);
     font-size: 1rem;
-    font-weight: 600;
     border: none;
     border-radius: 5px;
 }
