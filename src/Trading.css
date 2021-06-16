@@ -261,7 +261,7 @@ input[type=number] {
 
 #balance-grid {
     display: grid;
-    grid-template-columns: 30% auto;
+    grid-template-columns: 25% auto;
     row-gap: .5rem;
     max-width: 200px;
     height: calc(100% - 4.5rem);
