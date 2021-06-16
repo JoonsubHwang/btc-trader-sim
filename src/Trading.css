@@ -215,6 +215,7 @@ input[type=number] {
     width: 100%;
     max-width: 300px;
     justify-self: right;
+    padding: 5px;
 }
 
 #order-btn {
