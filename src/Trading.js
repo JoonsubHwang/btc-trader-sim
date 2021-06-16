@@ -78,6 +78,10 @@ class Trading extends Component {
         this.setState({ buy: !this.state.buy });
     }
 
+    setOrderPrice = (event) => {
+        this.setState({ orderPrice: event.target.value });
+    }
+
 
 
     // render
@@ -135,7 +139,8 @@ class Trading extends Component {
 
                             <label htmlFor='orderPrice'>Price</label>
                             <div id='orderPrice-grid'>
-                                <input className='value' type='number' name='orderPrice' step={this.priceStep} defaultValue='0' min='0'></input>
+                                <input className='value' type='number' name='orderPrice' step={this.priceStep} defaultValue='0' min='0' 
+                                    onChange={this.setOrderPrice}></input>
                                 <p className='name'> USD</p>
                             </div>
 
