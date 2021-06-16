@@ -125,7 +125,7 @@ class Trading extends Component {
                                 <label className='name'> USD</label>
                             </div>
 
-                            <button id='order-btn'>Post Order</button>
+                            <button id='order-btn'>Make Order</button>
 
                         </form>
 
