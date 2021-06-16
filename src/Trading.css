@@ -129,7 +129,7 @@
     color: var(--fg-darker);
     border-color: var(--fg-darker);
     padding: 0;
-    border-style: solid;
+    border: 1px solid;
     font-size: 1.2rem;
     font-weight: 600;
 }
