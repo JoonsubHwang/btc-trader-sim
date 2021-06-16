@@ -104,9 +104,9 @@ class Trading extends Component {
 
                             <label>Order Type</label>
                             <div id='orderTypes-grid'>
-                                <button id='limitOrder-btn' className='orderType-btn selected'>{this.orderTypes.LIMIT_ORDER}</button>
-                                <button id='marketOrder-btn' className='orderType-btn'>{this.orderTypes.MARKET_ORDER}</button>
-                                <button id='stopMarket-btn' className='orderType-btn'>{this.orderTypes.STOP_MARKET}</button>
+                                <button className='orderType-btn selected' value={this.orderTypes.LIMIT_ORDER}>{this.orderTypes.LIMIT_ORDER}</button>
+                                <button className='orderType-btn' value={this.orderTypes.MARKET_ORDER}>{this.orderTypes.MARKET_ORDER}</button>
+                                <button className='orderType-btn' value={this.orderTypes.STOP_MARKET}>{this.orderTypes.STOP_MARKET}</button>
                             </div>
 
                             <label for='orderPrice'>Price</label>
