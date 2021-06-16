@@ -110,6 +110,8 @@ class Chart extends Component {
         priceTooltip.background.pointerLength = 0;
         priceTooltip.background.cornerRadius = 4;
 
+        volumeAxis.tooltip = null;
+
         
         // data serieses
 
