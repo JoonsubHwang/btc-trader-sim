@@ -82,6 +82,10 @@ class Trading extends Component {
         this.setState({ orderPrice: event.target.value });
     }
 
+    setOrderAmount = (event) => {
+        this.setState({ orderAmountBTC: event.target.value });
+    }
+
 
 
     // render
@@ -148,7 +152,7 @@ class Trading extends Component {
                             <div id='orderAmount-grid'>
                                 <input className='value' type='number' name='orderAmount' 
                                     step={((this.state.cash + (this.state.price * this.state.BTCWallet)) / this.state.price * 0.1).toFixed(3)} 
-                                    defaultValue='0' min='0'></input>
+                                    defaultValue='0' min='0' onChange={this.setOrderAmount}></input>
                                 <p className='name'> BTC</p>
                                 <p className='value'>= {(this.state.orderPrice * this.state.orderAmountBTC).toFixed(2)}</p>
                                 <p className='name'> USD</p>
