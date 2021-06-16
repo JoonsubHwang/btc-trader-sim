@@ -71,6 +71,11 @@ class Trading extends Component {
         this.setState({ orderType: event.target.innerHTML });
     }
 
+    switchBuySell = (event) => {
+        event.preventDefault();
+        this.setState({ buy: !this.state.buy });
+    }
+
 
 
     // render
@@ -102,8 +107,8 @@ class Trading extends Component {
                     {/* txn-panel (transaction) */}
                     <div id='txn-panel' className='container framed'>
 
-                        <button id='buy-btn'  className={this.state.buy ? 'selected' : ''}>BUY</button>
-                        <button id='sell-btn' className={this.state.buy ? '' : 'selected'}>SELL</button>
+                        <button id='buy-btn'  className={this.state.buy ? 'selected' : ''} onClick={this.switchBuySell}>BUY</button>
+                        <button id='sell-btn' className={this.state.buy ? '' : 'selected'} onClick={this.switchBuySell}>SELL</button>
 
                         <form id='order-form'>
 
