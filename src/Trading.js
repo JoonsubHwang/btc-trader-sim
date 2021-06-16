@@ -27,8 +27,7 @@ class Trading extends Component {
             orderPrice: 0,
             orderType: this.orderTypes.LIMIT_ORDER,
             IOC: false, // immedate or cancel
-            orderAmountBTC: 0,
-            orderAmountUSD: 0
+            orderAmountBTC: 0
         }
     }
 
