@@ -24,7 +24,7 @@ class Trading extends Component {
             BTCWallet: 50.1231, // TODO: temporary value
             buy: true, // false = sell
             orderPrice: 0,
-            orderType: null,
+            orderType: this.orderTypes.LIMIT_ORDER,
             IOC: false, // immedate or cancel
             orderAmountBTC: 0,
             orderAmountUSD: 0
@@ -66,6 +66,11 @@ class Trading extends Component {
         })
     }
 
+    setOrderType = (event) => {
+        event.preventDefault();
+        this.setState({ orderType: event.target.innerHTML });
+    }
+
 
 
     // render
@@ -103,23 +108,35 @@ class Trading extends Component {
                         <form id='order-form'>
 
                             <label>Order Type</label>
+                            
                             <div id='orderTypes-grid'>
-                                <button className='orderType-btn selected' value={this.orderTypes.LIMIT_ORDER}>{this.orderTypes.LIMIT_ORDER}</button>
-                                <button className='orderType-btn' value={this.orderTypes.MARKET_ORDER}>{this.orderTypes.MARKET_ORDER}</button>
-                                <button className='orderType-btn' value={this.orderTypes.STOP_MARKET}>{this.orderTypes.STOP_MARKET}</button>
+                                <button className={this.state.orderType === this.orderTypes.LIMIT_ORDER  ? 'orderType-btn selected' : 'orderType-btn'} 
+                                        onClick={this.setOrderType}>
+                                            {this.orderTypes.LIMIT_ORDER}
+                                </button>
+                                
+                                <button className={this.state.orderType === this.orderTypes.MARKET_ORDER ? 'orderType-btn selected' : 'orderType-btn'} 
+                                        onClick={this.setOrderType}>
+                                            {this.orderTypes.MARKET_ORDER}
+                                </button>
+
+                                <button className={this.state.orderType === this.orderTypes.STOP_MARKET  ? 'orderType-btn selected' : 'orderType-btn'} 
+                                        onClick={this.setOrderType}>
+                                            {this.orderTypes.STOP_MARKET}
+                                </button>
                             </div>
 
                             <label for='orderPrice'>Price</label>
                             <div id='orderPrice-grid'>
                                 {/* TODO: set value in a function instead */}
-                                <input className='value' type='number' name='orderPrice' value={Math.round(this.state.price / 10) * 10} step='100'></input>
+                                <input className='value' type='number' name='orderPrice' step='100'></input>
                                 <p className='name'> USD</p>
                             </div>
 
                             <label for='orderAmount'>Amount</label>
                             <div id='orderAmount-grid'>
                                 {/* TODO: set value in a function instead */}
-                                <input className='value' type='number' name='orderAmount' value={(this.state.cash / 2 / this.state.price).toFixed(3)} step={((this.state.cash + (this.state.price * this.state.BTCWallet)) / 10 / this.state.price).toFixed(3)}></input>
+                                <input className='value' type='number' name='orderAmount' step={((this.state.cash + (this.state.price * this.state.BTCWallet)) / 10 / this.state.price).toFixed(3)}></input>
                                 <p className='name'> BTC</p>
                                 <p className='value'>= {(this.state.orderPrice * this.state.orderAmountBTC).toFixed(2)}</p>
                                 <p className='name'> USD</p>
