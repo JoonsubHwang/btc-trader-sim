@@ -11,7 +11,7 @@
 @media (max-width: 900px) {
     :root { 
         --chartHeight: 40%;
-        --txnHeight: 30%;
+        --txnHeight: 35%;
         font-size: 14px; 
     }
 }
