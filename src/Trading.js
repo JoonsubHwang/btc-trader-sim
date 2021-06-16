@@ -31,8 +31,6 @@ class Trading extends Component {
         }
     }
 
-
-
     componentDidMount() {
         // set update timer
         this.tUpdate = setInterval(this.update, this.iUpdate);
@@ -65,6 +63,9 @@ class Trading extends Component {
             });
         })
     }
+
+
+    // event handlers
 
     setOrderType = (event) => {
         event.preventDefault();
@@ -116,25 +117,24 @@ class Trading extends Component {
 
                             <div id='orderTypes-grid'>
                                 <button className={this.state.orderType === this.orderTypes.LIMIT_ORDER  ? 'orderType-btn selected' : 'orderType-btn'} 
-                                        onClick={this.setOrderType}>
-                                            {this.orderTypes.LIMIT_ORDER}
+                                    onClick={this.setOrderType}>
+                                        {this.orderTypes.LIMIT_ORDER}
                                 </button>
                                 
                                 <button className={this.state.orderType === this.orderTypes.MARKET_ORDER ? 'orderType-btn selected' : 'orderType-btn'} 
-                                        onClick={this.setOrderType}>
-                                            {this.orderTypes.MARKET_ORDER}
+                                    onClick={this.setOrderType}>
+                                        {this.orderTypes.MARKET_ORDER}
                                 </button>
 
                                 <button className={this.state.orderType === this.orderTypes.STOP_MARKET  ? 'orderType-btn selected' : 'orderType-btn'} 
-                                        onClick={this.setOrderType}>
-                                            {this.orderTypes.STOP_MARKET}
+                                    onClick={this.setOrderType}>
+                                        {this.orderTypes.STOP_MARKET}
                                 </button>
                             </div>
 
                             <label for='orderPrice'>Price</label>
                             <div id='orderPrice-grid'>
-                                {/* TODO: set value in a function instead */}
-                                <input className='value' type='number' name='orderPrice' step='100'></input>
+                                <input className='value' type='number' name='orderPrice' step='100' defaultValue='0'></input>
                                 <p className='name'> USD</p>
                             </div>
 
