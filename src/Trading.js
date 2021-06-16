@@ -113,16 +113,16 @@ class Trading extends Component {
                             <div id='orderPrice-grid'>
                                 {/* TODO: set value in a function instead */}
                                 <input className='value' type='number' name='orderPrice' value={Math.round(this.state.price / 10) * 10} step='100'></input>
-                                <label className='name'> USD</label>
+                                <p className='name'> USD</p>
                             </div>
 
                             <label for='orderAmount'>Amount</label>
                             <div id='orderAmount-grid'>
                                 {/* TODO: set value in a function instead */}
                                 <input className='value' type='number' name='orderAmount' value={(this.state.cash / 2 / this.state.price).toFixed(3)} step={((this.state.cash + (this.state.price * this.state.BTCWallet)) / 10 / this.state.price).toFixed(3)}></input>
-                                <label className='name'> BTC</label>
-                                <label className='value'>= {(this.state.orderPrice * this.state.orderAmountBTC).toFixed(2)}</label>
-                                <label className='name'> USD</label>
+                                <p className='name'> BTC</p>
+                                <p className='value'>= {(this.state.orderPrice * this.state.orderAmountBTC).toFixed(2)}</p>
+                                <p className='name'> USD</p>
                             </div>
 
                             <button id='order-btn'>Make Order</button>
