@@ -135,7 +135,7 @@ class Trading extends Component {
 
                             <label htmlFor='orderPrice'>Price</label>
                             <div id='orderPrice-grid'>
-                                <input className='value' type='number' name='orderPrice' step={this.priceStep} defaultValue='0'></input>
+                                <input className='value' type='number' name='orderPrice' step={this.priceStep} defaultValue='0' min='0'></input>
                                 <p className='name'> USD</p>
                             </div>
 
