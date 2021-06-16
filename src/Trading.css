@@ -209,6 +209,10 @@
     margin-left: 1rem;
 }
 
+#orderAmount-grid {
+    margin-bottom: .5rem;
+}
+
 input[type=number] {
     border-radius: 3px;
     border: none;
