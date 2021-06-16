@@ -16,6 +16,7 @@ class Trading extends Component {
             MARKET_ORDER: 'Market order',
             STOP_MARKET: 'Stop market'
         }
+        this.priceStep = 100; // dolalrs
 
         this.state = {
             price: 0,
@@ -134,7 +135,7 @@ class Trading extends Component {
 
                             <label for='orderPrice'>Price</label>
                             <div id='orderPrice-grid'>
-                                <input className='value' type='number' name='orderPrice' step='100' defaultValue='0'></input>
+                                <input className='value' type='number' name='orderPrice' step={this.priceStep} defaultValue='0'></input>
                                 <p className='name'> USD</p>
                             </div>
 
