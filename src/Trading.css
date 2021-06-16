@@ -221,6 +221,7 @@ input[type=number] {
     grid-column: 1 / span 2;
     background-color: var(--accent);
     color: var(--fg);
+    font-size: 1rem;
     font-weight: 600;
     border: none;
     border-radius: 5px;
