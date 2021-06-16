@@ -133,13 +133,13 @@ class Trading extends Component {
                                 </button>
                             </div>
 
-                            <label for='orderPrice'>Price</label>
+                            <label htmlFor='orderPrice'>Price</label>
                             <div id='orderPrice-grid'>
                                 <input className='value' type='number' name='orderPrice' step={this.priceStep} defaultValue='0'></input>
                                 <p className='name'> USD</p>
                             </div>
 
-                            <label for='orderAmount'>Amount</label>
+                            <label htmlFor='orderAmount'>Amount</label>
                             <div id='orderAmount-grid'>
                                 {/* TODO: set value in a function instead */}
                                 <input className='value' type='number' name='orderAmount' step={((this.state.cash + (this.state.price * this.state.BTCWallet)) / 10 / this.state.price).toFixed(3)}></input>
