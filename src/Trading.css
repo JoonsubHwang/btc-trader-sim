@@ -128,6 +128,8 @@
 #buy-button, #sell-button {
     color: var(--fg-darker);
     border-color: var(--fg-darker);
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
 #buy-button {
