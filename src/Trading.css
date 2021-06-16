@@ -190,6 +190,7 @@
     color: var(--fg-darker);
     border-color: var(--fg-darker);
     border-radius: 8px;
+    border: 1px solid;
 }
 
 .orderType-btn.selected {
