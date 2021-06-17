@@ -141,7 +141,7 @@ class Trading extends Component {
                             <div id='orderPrice-grid'>
                                 {this.state.orderType === this.orderTypes.MARKET_ORDER ?
                                     <p id='marketPrice'>Market Price</p>
-                                    : <input className='value' type='number' name='orderPrice' step={this.priceStep} defaultValue='0' min='0' 
+                                    : <input className='value' type='number' name='orderPrice' step={this.priceStep} value={this.state.orderPrice} min='0' 
                                         onChange={this.setOrderPrice}></input>}
                                 <p className='name'> USD</p>
                             </div>
