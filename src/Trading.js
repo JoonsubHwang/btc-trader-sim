@@ -168,8 +168,8 @@ class Trading extends Component {
                         <h2 id='balance-heading'>Balance</h2>
                         
                         <div id='balance-grid'>
-                            <p className='name'>Total</p>
-                            <p className='value'>{(this.state.cash + (this.state.BTCWallet * this.state.price)).toFixed(0)} USD</p>
+                            <p className='name total'>Total</p>
+                            <p className='value total'>{(this.state.cash + (this.state.BTCWallet * this.state.price)).toFixed(0)} USD</p>
                             <p className='name'>Cash</p>
                             <p className='value'>{this.state.cash.toFixed(0)} USD</p>
                             <p className='name'>BTC Wallet</p>
