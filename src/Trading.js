@@ -149,8 +149,10 @@ class Trading extends Component {
                             <label htmlFor='orderAmount'>Amount</label>
                             <div id='orderAmount-grid'>
                                 <input className='value' type='number' name='orderAmount' 
-                                    step={(this.state.cash * 0.1 / this.state.orderPrice).toFixed(4)} 
-                                    value={this.state.orderAmount} min='0' max={this.state.cash / this.state.orderPrice} onChange={this.setOrderAmount}></input>
+                                    step={((this.state.buy ? (this.state.cash / this.state.orderPrice) : this.state.BTCWallet) * 0.1).toFixed(4)} 
+                                    value={this.state.orderAmount} min='0' 
+                                    max={this.state.buy ? this.state.cash / this.state.orderPrice : this.state.BTCWallet} 
+                                    onChange={this.setOrderAmount}></input>
                                 <p className='name'> BTC</p>
                                 <p className='value'>≈ {((this.state.orderType === this.orderTypes.MARKET_ORDER ? this.state.price : this.state.orderPrice) 
                                                             * this.state.orderAmount).toFixed(2)}</p>
