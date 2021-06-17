@@ -27,7 +27,7 @@ class Trading extends Component {
             orderPrice: 0,
             orderType: this.orderTypes.LIMIT_ORDER,
             IOC: false, // immedate or cancel
-            orderAmountBTC: 0
+            orderAmount: 0 //  BTC
         }
     }
 
@@ -150,10 +150,10 @@ class Trading extends Component {
                             <div id='orderAmount-grid'>
                                 <input className='value' type='number' name='orderAmount' 
                                     step={(this.state.cash * 0.1 / this.state.orderPrice).toFixed(4)} 
-                                    value={this.state.orderAmountBTC} min='0' max={this.state.cash / this.state.orderPrice} onChange={this.setOrderAmount}></input>
+                                    value={this.state.orderAmount} min='0' max={this.state.cash / this.state.orderPrice} onChange={this.setOrderAmount}></input>
                                 <p className='name'> BTC</p>
                                 <p className='value'>≈ {((this.state.orderType === this.orderTypes.MARKET_ORDER ? this.state.price : this.state.orderPrice) 
-                                                            * this.state.orderAmountBTC).toFixed(2)}</p>
+                                                            * this.state.orderAmount).toFixed(2)}</p>
                                 <p className='name'> USD</p>
                             </div>
 
