@@ -81,7 +81,7 @@ class Trading extends Component {
     }
 
     setOrderAmount = (event) => {
-        this.setState({ orderAmountBTC: event.target.value });
+        this.setState({ orderAmount: event.target.value });
     }
 
 
