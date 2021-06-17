@@ -10,6 +10,7 @@ class Trading extends Component {
 
         super(props);
 
+        // constants
         this.iUpdate = 500; // interval for updating (ms)
         this.orderTypes = {
             LIMIT_ORDER: 'Limit order',
@@ -68,7 +69,11 @@ class Trading extends Component {
 
     setOrderType = (event) => {
         event.preventDefault();
+        
         this.setState({ orderType: event.target.innerHTML });
+
+        if(event.target.innerHTML === this.orderTypes.MARKET_ORDER)
+            this.state.orderPrice = this.state.price
     }
 
     switchBuySell = (event) => {
