@@ -97,9 +97,7 @@ class Trading extends Component {
 
                     {/* price-panel */}
                     <div id='price-panel'>
-                        
                         <h1 id='price-heading'>BTC-USD <span className={this.state.priceColor}>${Number(this.state.price).toFixed(2)}</span></h1>
-        
                     </div>
 
                     {/* menu-panel */}
@@ -141,8 +139,10 @@ class Trading extends Component {
 
                             <label htmlFor='orderPrice'>Price</label>
                             <div id='orderPrice-grid'>
-                                <input className='value' type='number' name='orderPrice' step={this.priceStep} defaultValue='0' min='0' 
-                                    onChange={this.setOrderPrice}></input>
+                                {this.state.orderType === this.orderTypes.MARKET_ORDER ?
+                                <p id='marketPrice'>Market Price</p>
+                                : <input className='value' type='number' name='orderPrice' step={this.priceStep} defaultValue='0' min='0' 
+                                onChange={this.setOrderPrice}></input>}
                                 <p className='name'> USD</p>
                             </div>
 
