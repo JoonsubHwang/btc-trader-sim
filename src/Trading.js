@@ -69,7 +69,7 @@ class Trading extends Component {
 
     setOrderType = (event) => {
         event.preventDefault();
-        
+
         this.setState({ orderType: event.target.innerHTML });
 
         if(event.target.innerHTML === this.orderTypes.MARKET_ORDER)
@@ -87,6 +87,34 @@ class Trading extends Component {
 
     setOrderAmount = (event) => {
         this.setState({ orderAmount: event.target.value });
+    }
+
+    submitOrder = (event) => {
+
+        event.preventDefault();
+
+        if (this.state.orderType === this.orderTypes.MARKET_ORDER)
+            this.state.orderPrice = this.state.price;
+
+        let req = {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({
+                buy: this.state.buy,
+                orderType: this.state.orderType,
+                price: this.state.orderPrice,
+                amount: this.state.orderAmount
+            })
+        }
+
+        fetch('submit-order', req)
+        .then(res => {
+            // TODO: handle redirect?
+            // TODO: handle reject (invalid order)
+        })
+        .catch(err => {
+            console.log(err);
+        })
     }
 
 
@@ -164,7 +192,7 @@ class Trading extends Component {
                                 <p className='name'> USD</p>
                             </div>
 
-                            <button id='order-btn'>Make Order</button>
+                            <button id='order-btn' onClick={this.submitOrder}>Make Order</button>
 
                         </form>
 
