@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Chart from './Chart';
+import { Menu } from '@material-ui/icons';
 import { CbProAPI } from './CbProAPI';
 import './Trading.css';
 
@@ -135,6 +136,11 @@ class Trading extends Component {
 
                     {/* menu-panel */}
                     <div id='menu-panel'>
+
+                        <div id='menu-grid'>
+                            <button id='orders-btn'>Orders</button>
+                            <Menu id='menu-btn'></Menu>
+                        </div>
 
                     </div>
         

@@ -1,7 +1,7 @@
 :root {
     --pricePanelHeight: 2.5rem;
     --chartHeight: 60%;
-    --txnWidth: 75%;
+    --txnWidth: 70%;
     font-size: 16px;
 
     --white: rgb(250, 250, 250);
@@ -70,11 +70,32 @@
 
 
 
-/* meni-panel */
+/* menu-panel */
 
 #menu-panel {
     grid-row: 1;
     grid-column: 2;
+}
+
+#menu-grid {
+    display: grid;
+    grid-template-columns: auto 3rem;
+    place-items: center;
+}
+
+#orders-btn {
+    grid-column: 1;
+    font-size: 1.2rem;
+    color: var(--accent);
+    background-color: var(--bg);
+    border: 1px solid var(--accent);
+    border-radius: .6rem;
+    padding: .4rem .8rem;
+}
+
+#menu-btn {
+    grid-column: 2;
+    font-size: 2rem;
 }
 
 
