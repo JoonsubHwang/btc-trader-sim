@@ -39,7 +39,7 @@ class Trading extends Component {
     }
 
     componentWillUnmount() {
-        clearInterval(this.update);
+        clearInterval(this.tUpdate);
     }
 
 
