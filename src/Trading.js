@@ -63,6 +63,9 @@ class Trading extends Component {
                 price: newPrice,
             });
         })
+        .catch(err => {
+            console.error(err);
+        })
     }
 
 
