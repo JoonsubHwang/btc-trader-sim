@@ -256,12 +256,21 @@ class Chart extends Component {
 
                 CbProAPI.loadCandle()
                 .then(candle => {
-                    if (this.chart.data[1].volume !== candle.volume) { // only once
+                    if ((this.chart.data[1].openVolume !== candle.openVolume) || (this.chart.data[1].valueVolume !== candle.valueVolume)) {
+                        console.log(this.chart.data[1])
+                        console.log(candle)
                         // update volume
-                        this.chart.data[1].volume = candle.volume;
+                        this.chart.data[1].openVolume =  candle.openVolume;
+                        this.chart.data[1].valueVolume = candle.valueVolume;
+                        this.chart.data[1].highVolume = candle.highVolume;
                         // redraw
                         this.chart.invalidateRawData();
+                        console.log(this.chart.data[1])
+
                     }
+                })
+                .catch(err => {
+                    console.error('[Client] ' + err);
                 })
             }
         }
