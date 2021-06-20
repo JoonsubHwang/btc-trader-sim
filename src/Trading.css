@@ -157,7 +157,7 @@
 #buy-btn, 
 #sell-btn {
     background-color: var(--bg);
-    border-radius: 8px;
+    border-radius: .3rem;
     font-size: 1rem;
     font-weight: 500;
 
@@ -228,7 +228,7 @@
     background-color: var(--bg);
     color: var(--fg-darker);
     border-color: var(--fg-darker);
-    border-radius: 8px;
+    border-radius: .3rem;
     border: 1px solid;
 }
 
@@ -275,7 +275,7 @@
 }
 
 input[type=number] {
-    border-radius: 3px;
+    border-radius: .2rem;
     border: none;
     width: 100%;
     max-width: 300px;
@@ -289,7 +289,7 @@ input[type=number] {
     color: var(--fg);
     font-size: 1rem;
     border: none;
-    border-radius: 5px;
+    border-radius: .3rem;
 }
 
 
