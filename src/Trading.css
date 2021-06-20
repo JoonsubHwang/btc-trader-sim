@@ -94,6 +94,10 @@
     padding: .4rem .8rem;
 }
 
+#orders-btn:hover {
+    color: var(--accent);
+}
+
 #dropdown-menu {
     position: relative;
     display: inline-block;
