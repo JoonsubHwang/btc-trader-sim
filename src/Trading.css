@@ -89,7 +89,7 @@
     font-size: 1.1rem;
     color: var(--fg);
     background-color: var(--bg);
-    border: 1px solid var(--fg);
+    border: none;
     border-radius: .3rem;
     padding: .4rem .8rem;
 }
