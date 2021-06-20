@@ -304,7 +304,7 @@ input[type=number] {
     grid-column: 1 / span 2;
     background-color: var(--accent);
     color: var(--bg);
-    font-size: 1rem;
+    font-size: 1.1rem;
     border: none;
     border-radius: .3rem;
 }
