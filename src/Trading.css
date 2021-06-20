@@ -86,11 +86,11 @@
 
 #orders-btn {
     grid-column: 1;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--accent);
     background-color: var(--bg);
     border: 1px solid var(--accent);
-    border-radius: .6rem;
+    border-radius: .3rem;
     padding: .4rem .8rem;
 }
 
