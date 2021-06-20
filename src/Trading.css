@@ -81,7 +81,7 @@
 #menu-grid {
     display: grid;
     grid-template-columns: auto 3rem;
-    place-items: center;
+    place-items: center right;
 }
 
 #orders-btn {
