@@ -122,6 +122,11 @@ class Trading extends Component {
         })
     }
 
+    toggleDropdown = (event) => {
+        event.preventDefault();
+        document.querySelector('#menu-list').classList.toggle('visible');
+    }
+
 
 
     // render
@@ -144,7 +149,7 @@ class Trading extends Component {
                         <div id='menu-grid'>
                             <button id='orders-btn'>My Orders</button>
                             <div id='dropdown-menu'>
-                                <Menu id='menu-btn'></Menu>
+                                <Menu id='menu-btn' onClick={this.toggleDropdown}></Menu>
                                 <div id='menu-list'>
                                     <Link to='/'>Home</Link>
                                     <button>Sign In / Sign Out</button>
