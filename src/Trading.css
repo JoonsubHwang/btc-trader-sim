@@ -1,7 +1,7 @@
 :root {
     --pricePanelHeight: 2.5rem;
     --chartHeight: 60%;
-    --txnWidth: 70%;
+    --txnWidth: 70%; /* price width */
     font-size: 16px;
 
     --white: rgb(250, 250, 250);
@@ -12,6 +12,7 @@
     :root { 
         --chartHeight: 40%;
         --txnHeight: 35%;
+        --txnWidth: 60%; /* price width */
         font-size: 14px; 
     }
 }
