@@ -87,9 +87,9 @@
 #orders-btn {
     grid-column: 1;
     font-size: 1.1rem;
-    color: var(--accent);
+    color: var(--fg);
     background-color: var(--bg);
-    border: 1px solid var(--accent);
+    border: 1px solid var(--fg);
     border-radius: .3rem;
     padding: .4rem .8rem;
 }
@@ -107,6 +107,10 @@
     grid-column: 2;
     font-size: 2rem;
     color: var(--fg);
+}
+
+#menu-btn:hover {
+    color: var(--accent);
 }
 
 #menu-list {
