@@ -112,12 +112,29 @@
 #menu-list {
     display: none;
     position: absolute;
-    min-width: 200px;
+    min-width: 8rem;
     z-index: 1;
+
+    background-color: var(--bg);
+    border: 1px solid var(--fg-darker);
+    border-radius: .4rem;
 }
 
-#menu-list > Link,button {
+#menu-list > a,
+#menu-list > button {
     display: block;
+    margin: .8rem;
+    padding: 0;
+
+    background: none;
+    border: none;
+    color: var(--fg);
+    text-decoration: none;
+}
+
+#menu-list > a:hover,
+#menu-list > button:hover {
+    color: var(--accent);
 }
 
 
