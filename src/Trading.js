@@ -3,6 +3,7 @@ import Chart from './Chart';
 import { Menu } from '@material-ui/icons';
 import { CbProAPI } from './CbProAPI';
 import './Trading.css';
+import { Link } from 'react-router-dom';
 
 class Trading extends Component {
 
@@ -141,8 +142,15 @@ class Trading extends Component {
                     <div id='menu-panel'>
 
                         <div id='menu-grid'>
-                            <button id='orders-btn'>Orders</button>
-                            <Menu id='menu-btn'></Menu>
+                            <button id='orders-btn'>My Orders</button>
+                            <div id='dropdown-menu'>
+                                <Menu id='menu-btn'></Menu>
+                                <div id='menu-list'>
+                                    <Link to='/'>Home</Link>
+                                    <button>Sign In / Sign Out</button>
+                                    <button>Sign Up</button>
+                                </div>
+                            </div>
                         </div>
 
                     </div>

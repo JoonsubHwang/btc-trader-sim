@@ -93,10 +93,26 @@
     padding: .4rem .8rem;
 }
 
+#dropdown-menu {
+    position: relative;
+    display: inline-block;
+}
+
 #menu-btn {
     grid-column: 2;
     font-size: 2rem;
     color: var(--fg);
+}
+
+#menu-list {
+    display: none;
+    position: absolute;
+    min-width: 200px;
+    z-index: 1;
+}
+
+#menu-list > Link,button {
+    display: block;
 }
 
 
