@@ -7,7 +7,7 @@ import { CbProAPI } from './CbProAPI';
 // colors
 const white = 'rgb(250, 250, 250)';
 const grey = 'rgb(120, 120, 120)';
-const black = 'rgb(0, 0, 0)';
+const bg = 'rgb(20, 20, 40)';
 const green = 'rgb(20, 180, 140)';
 const red = 'rgb(250, 70, 90)';
 const bgYellow = 'rgb(255, 237, 130)';
@@ -17,16 +17,16 @@ function am4themes_dark(target) {
 
     if (target instanceof am4core.InterfaceColorSet) {
         
-        target.setFor('background',             am4core.color(black));
+        target.setFor('background',             am4core.color(bg));
         target.setFor('alternativeBackground',  am4core.color(bgYellow));
 
-        target.setFor('primaryButton',        am4core.color(black));
-        target.setFor('primaryButtonHover',   am4core.color(black));
-        target.setFor('primaryButtonActive',  am4core.color(black));
+        target.setFor('primaryButton',        am4core.color(bg));
+        target.setFor('primaryButtonHover',   am4core.color(bg));
+        target.setFor('primaryButtonActive',  am4core.color(bg));
 
-        target.setFor('secondaryButton',        am4core.color(black));
-        target.setFor('secondaryButtonHover',   am4core.color(black));
-        target.setFor('secondaryButtonActive',  am4core.color(black));
+        target.setFor('secondaryButton',        am4core.color(bg));
+        target.setFor('secondaryButtonHover',   am4core.color(bg));
+        target.setFor('secondaryButtonActive',  am4core.color(bg));
         target.setFor('secondaryButtonStroke',  am4core.color(white));
 
         target.setFor('grid',       am4core.color(white));
@@ -99,14 +99,14 @@ class Chart extends Component {
 
         let timeTooltip = timeAxis.tooltip;
         timeTooltip.background.stroke = white;
-        timeTooltip.background.fill = am4core.color(black);
+        timeTooltip.background.fill = am4core.color(bg);
         timeTooltip.background.pointerLength = 0;
         timeTooltip.background.cornerRadius = 4;
         timeTooltip.dy = 5;
 
         let priceTooltip = priceAxis.tooltip;
         priceTooltip.background.stroke = white;
-        priceTooltip.background.fill = am4core.color(black);
+        priceTooltip.background.fill = am4core.color(bg);
         priceTooltip.background.pointerLength = 0;
         priceTooltip.background.cornerRadius = 4;
 
