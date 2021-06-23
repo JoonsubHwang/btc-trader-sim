@@ -313,11 +313,18 @@ input[type=number] {
 
 #order-btn {
     grid-column: 1 / span 2;
-    background-color: var(--accent);
     color: var(--bg);
     font-size: 1.2rem;
     border: none;
     border-radius: .3rem;
+}
+
+#order-btn.green {
+    background-color: var(--green);
+}
+
+#order-btn.red {
+    background-color: var(--red);
 }
 
 
