@@ -252,6 +252,7 @@
 .orderType-btn {
     height: fit-content;
     min-height: 2.5rem;
+    font-size: 1rem;
 
     background-color: var(--bg);
     color: var(--fg-darker);
