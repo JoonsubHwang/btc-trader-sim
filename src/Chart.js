@@ -10,7 +10,7 @@ const grey = 'rgb(120, 120, 120)';
 const bg = 'rgb(20, 20, 40)';
 const green = 'rgb(20, 180, 140)';
 const red = 'rgb(250, 70, 90)';
-const bgYellow = 'rgb(255, 237, 130)';
+const bgYellow = 'rgb(255, 255, 0)';
 
 // theme
 function am4themes_dark(target) {
