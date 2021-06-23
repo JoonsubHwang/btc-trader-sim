@@ -193,7 +193,7 @@
 #buy-btn {
     color: var(--green);
     border-color: var(--green);
-    margin: .4rem .4rem .2rem .4rem;
+    margin-bottom: .3rem;
 }
 
 #buy-btn.selected {
@@ -204,7 +204,7 @@
 #sell-btn {
     color: var(--red);
     border-color: var(--red);
-    margin: .2rem .4rem .4rem .4rem;
+    margin-top: .3rem;
 }
 
 #sell-btn.selected {
