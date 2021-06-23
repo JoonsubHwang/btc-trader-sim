@@ -11,7 +11,7 @@
     :root { 
         --chartHeight: 40%;
         --txnHeight: 35%;
-        --txnWidth: 60%; /* price width */
+        --txnWidth: 65%; /* price width */
         font-size: 14px; 
     }
 }
@@ -74,7 +74,7 @@
 
 #menu-grid {
     display: grid;
-    grid-template-columns: auto 3rem;
+    grid-template-columns: auto 2.5rem;
     place-items: center right;
 }
 
