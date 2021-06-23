@@ -55,11 +55,11 @@
     color: var(--accent);
 }
 
-.green {
+#price-heading .green {
     color: var(--green);
 }
 
-.red {
+#price-heading .red {
     color: var(--red);
 }
 
