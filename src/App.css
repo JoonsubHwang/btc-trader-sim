@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?Montserrat:wght@300');
 
 :root {
-    --bg: rgb(20, 20, 40);
-    --bg-dark: rgb(10, 10, 25);
+    --bg: rgb(15, 17, 35);
+    --bg-dark: rgb(10, 10, 20);
     --fg: rgb(180, 180, 180);
     --fg-darker: rgb(120, 120, 120);
     --accent: rgb(196, 177, 32);
