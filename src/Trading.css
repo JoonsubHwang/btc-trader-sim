@@ -109,7 +109,7 @@
 }
 
 #menu-btn:hover {
-    color: var(--accent);
+    fill: var(--accent);
 }
 
 #menu-list {
