@@ -188,30 +188,27 @@
 
 #buy-btn, #sell-btn {
     padding: 0;
-    border: 1px solid;
+    border: 1px solid var(--fg-darker);
     font-size: 1.2rem;
+    color: var(--fg-darker);
 }
 
 #buy-btn {
-    color: var(--green);
-    border-color: var(--green);
     margin-bottom: .3rem;
 }
 
 #buy-btn.selected {
-    color: var(--bg);
-    background-color: var(--green);
+    color: var(--green);
+    border-color: var(--green);
 }
 
 #sell-btn {
-    color: var(--red);
-    border-color: var(--red);
     margin-top: .3rem;
 }
 
 #sell-btn.selected {
-    color: var(--bg);
-    background-color: var(--red);
+    color: var(--red);
+    border-color: var(--red);
 }
 
 #order-form {
