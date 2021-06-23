@@ -95,6 +95,7 @@
 #dropdown-menu {
     position: relative;
     display: inline-block;
+    grid-column: 2;
 }
 
 .visible {
@@ -102,7 +103,6 @@
 }
 
 #menu-btn {
-    grid-column: 2;
     font-size: 2rem;
 }
 
