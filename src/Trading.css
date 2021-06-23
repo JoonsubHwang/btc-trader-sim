@@ -1,5 +1,5 @@
 :root {
-    --pricePanelHeight: 2.5rem;
+    --pricePanelHeight: 2rem;
     --chartHeight: 60%;
     --txnWidth: 70%; /* price width */
     font-size: 16px;
@@ -51,7 +51,7 @@
 }
 
 #price-heading {
-    font-size: calc(var(--pricePanelHeight) * 0.7);
+    font-size: --pricePanelHeight;
     color: var(--accent);
 }
 
