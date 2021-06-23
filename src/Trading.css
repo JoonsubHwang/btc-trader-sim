@@ -33,8 +33,7 @@
     display: grid;
     grid-template-columns: var(--txnWidth) auto;
     grid-template-rows: var(--pricePanelHeight) var(--chartHeight) auto;
-    column-gap: .5rem;
-    row-gap: .5rem;
+    gap: 1rem;
 }
 @media (max-width: 900px) {
     #trading-grid {
@@ -287,6 +286,7 @@
 
 .value {
     text-align: right;
+    font-family: 'Unica One', cursive;
 }
 
 #orderAmount-grid > p.value {
