@@ -260,7 +260,7 @@
 
 .orderType-btn.selected {
     color: var(--fg);
-    border-color: var(--theme);
+    border-color: var(--accent);
 }
 
 @media (min-width: 501px) {
