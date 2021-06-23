@@ -179,7 +179,7 @@
 #buy-btn, 
 #sell-btn {
     background-color: var(--bg);
-    border-radius: .3rem;
+    border-radius: .5rem;
     font-size: 1rem;
     font-weight: 500;
 
