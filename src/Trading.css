@@ -301,7 +301,6 @@ input[type=number] {
 #order-btn {
     grid-column: 1 / span 2;
     color: var(--bg);
-    font-size: 1.2rem;
     border: none;
     border-radius: .3rem;
 }
