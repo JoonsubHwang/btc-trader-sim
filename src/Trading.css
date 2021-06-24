@@ -2,7 +2,6 @@
     --pricePanelHeight: 2rem;
     --chartHeight: 60%;
     --txnWidth: 70%; /* price width */
-    font-size: 16px;
 
     --green: rgb(20, 180, 140);
     --red: rgb(250, 70, 90);
@@ -12,12 +11,6 @@
         --chartHeight: 40%;
         --txnHeight: 35%;
         --txnWidth: 65%; /* price width */
-        font-size: 14px; 
-    }
-}
-@media (max-width: 400px) {
-    :root { 
-        font-size: 12px;
     }
 }
 
