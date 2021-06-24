@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?Montserrat:wght@300');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani&display=swap');
 
 :root {
     --bg: rgb(15, 17, 35);
@@ -18,7 +18,7 @@ body {
     margin: 0;
     color: var(--fg);
 
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Rajdhani', sans-serif;
 }
 
 h1, h2, h3, h4 {
