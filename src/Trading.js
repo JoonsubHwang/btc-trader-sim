@@ -224,7 +224,7 @@ class Trading extends Component {
                     {/* balance-panel */}
                     <div id='balance-panel' className='container framed'>
 
-                        <h2 id='balance-heading'>Balance</h2>
+                        <h2 id='balance-heading' className='large'>Balance</h2>
                         
                         <div id='balance-grid'>
                             <p className='name'>Total</p>
