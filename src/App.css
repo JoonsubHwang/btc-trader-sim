@@ -39,6 +39,14 @@ h1, h2, h3, h4 {
     font-weight: normal;
 }
 
+.large {
+    font-size: 1.5rem;
+}
+
+.medium {
+    font-size: 1.2rem;
+}
+
 .container > * {
     margin: 1%;
 }
