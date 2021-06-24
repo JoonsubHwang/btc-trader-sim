@@ -44,7 +44,7 @@
 }
 
 #price-heading {
-    font-size: --pricePanelHeight;
+    font-size: var(--pricePanelHeight);
     color: var(--accent);
 }
 
