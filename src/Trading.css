@@ -176,17 +176,13 @@
 #sell-btn {
     background-color: var(--bg);
     border-radius: .5rem;
-    font-size: 1rem;
     font-weight: 500;
 
-    /* TODO: add animation for clicking */
-}
-
-#buy-btn, #sell-btn {
     padding: 0;
     border: 1px solid var(--fg-darker);
-    font-size: 1.2rem;
     color: var(--fg-darker);
+
+    /* TODO: add animation for clicking */
 }
 
 #buy-btn {
