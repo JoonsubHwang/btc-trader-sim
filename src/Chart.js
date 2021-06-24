@@ -5,8 +5,8 @@ import './Chart.css';
 import { CbProAPI } from './CbProAPI';
 
 // colors
-const white = 'rgb(250, 250, 250)';
-const grey = 'rgb(120, 120, 120)';
+const fg = 'rgb(230, 230, 230)';
+const fg-darker = 'rgb(150, 150, 150)';
 const bg = 'rgb(12, 26, 41)';
 const green = 'rgb(20, 180, 140)';
 const red = 'rgb(250, 70, 90)';
@@ -27,10 +27,10 @@ function am4themes_dark(target) {
         target.setFor('secondaryButton',        am4core.color(bg));
         target.setFor('secondaryButtonHover',   am4core.color(bg));
         target.setFor('secondaryButtonActive',  am4core.color(bg));
-        target.setFor('secondaryButtonStroke',  am4core.color(white));
+        target.setFor('secondaryButtonStroke',  am4core.color(fg));
 
-        target.setFor('grid',       am4core.color(white));
-        target.setFor('text',       am4core.color(grey));
+        target.setFor('grid',       am4core.color(fg));
+        target.setFor('text',       am4core.color(fg-darker));
 
         target.setFor('positive',   am4core.color(green));
         target.setFor('negative',   am4core.color(red));
@@ -98,14 +98,14 @@ class Chart extends Component {
         // axis tooltips
 
         let timeTooltip = timeAxis.tooltip;
-        timeTooltip.background.stroke = white;
+        timeTooltip.background.stroke = fg;
         timeTooltip.background.fill = am4core.color(bg);
         timeTooltip.background.pointerLength = 0;
         timeTooltip.background.cornerRadius = 4;
         timeTooltip.dy = 5;
 
         let priceTooltip = priceAxis.tooltip;
-        priceTooltip.background.stroke = white;
+        priceTooltip.background.stroke = fg;
         priceTooltip.background.fill = am4core.color(bg);
         priceTooltip.background.pointerLength = 0;
         priceTooltip.background.cornerRadius = 4;
