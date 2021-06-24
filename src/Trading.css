@@ -310,16 +310,30 @@ input[type=number] {
 
 #order-btn {
     grid-column: 1 / span 2;
-    color: var(--bg);
-    border: none;
+    border: 1px solid;
     border-radius: .3rem;
+    background-color: var(--bg);
+}
+
+#order-btn:hover {
+    color: var(--bg) !important;
 }
 
 #order-btn.green {
+    color: var(--green);
+    border-color: var(--green);
+}
+
+#order-btn.green:hover {
     background-color: var(--green);
 }
 
 #order-btn.red {
+    color: var(--red);
+    border-color: var(--red);
+}
+
+#order-btn.red:hover {
     background-color: var(--red);
 }
 
