@@ -368,7 +368,3 @@ input[type=number] {
 #balance-grid > * {
     align-self: center;
 }
-
-#balance-grid > .total {
-    font-size: 1.2rem;
-}
