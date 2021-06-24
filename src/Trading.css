@@ -287,10 +287,6 @@
     text-align: right;
 }
 
-#orderAmount-grid > p.value {
-    font-size: 1.2rem;
-}
-
 input[type=number] {
     width: 100%;
     max-width: 300px;
