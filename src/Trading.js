@@ -168,8 +168,8 @@ class Trading extends Component {
                     {/* txn-panel (transaction) */}
                     <div id='txn-panel' className='container framed'>
 
-                        <button id='buy-btn'  className={this.state.buy ? 'selected' : ''} onClick={this.switchBuySell}>BUY</button>
-                        <button id='sell-btn' className={this.state.buy ? '' : 'selected'} onClick={this.switchBuySell}>SELL</button>
+                        <button id='buy-btn'  className={'medium ' + (this.state.buy ? 'selected' : '')} onClick={this.switchBuySell}>BUY</button>
+                        <button id='sell-btn' className={'medium ' + (this.state.buy ? '' : 'selected')} onClick={this.switchBuySell}>SELL</button>
 
                         <form id='order-form'>
 
