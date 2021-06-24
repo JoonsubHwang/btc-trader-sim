@@ -185,6 +185,12 @@
     /* TODO: add animation for clicking */
 }
 
+#buy-btn:hover, 
+#sell-btn:hover {
+    color: var(--fg);
+    border-color: var(--fg);
+}
+
 #buy-btn {
     margin-bottom: .3rem;
 }
@@ -245,9 +251,13 @@
 
     background-color: var(--bg);
     color: var(--fg-darker);
-    border-color: var(--fg-darker);
     border-radius: .3rem;
-    border: 1px solid;
+    border: 1px solid var(--fg-darker);
+}
+
+.orderType-btn:hover {
+    color: var(--fg);
+    border-color: var(--fg);
 }
 
 .orderType-btn.selected {
