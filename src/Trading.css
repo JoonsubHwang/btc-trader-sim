@@ -44,8 +44,12 @@
 }
 
 #price-heading {
-    font-size: var(--pricePanelHeight);
     color: var(--accent);
+}
+
+#price-heading,
+#price-heading > span {
+    font-size: var(--pricePanelHeight);
 }
 
 #price-heading .green {
