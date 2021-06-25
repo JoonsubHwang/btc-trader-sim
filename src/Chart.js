@@ -7,7 +7,7 @@ import { CbProAPI } from './CbProAPI';
 // colors
 const fg = 'rgb(230, 230, 230)';
 const fgDarker = 'rgb(150, 150, 150)';
-const bg = 'rgb(12, 26, 41)';
+const bg = 'rgb(19, 15, 41)';
 const green = 'rgb(20, 180, 140)';
 const red = 'rgb(250, 70, 90)';
 const bgYellow = 'rgb(255, 255, 0)';
