@@ -173,51 +173,50 @@ class Trading extends Component {
 
                         <form id='order-form'>
 
-                            <label>Order Type</label>
+                            <label>Amount</label>
 
-                            <div id='orderTypes-grid'>
-                                <button className={this.state.orderType === this.orderTypes.LIMIT_ORDER  ? 'orderType-btn selected' : 'orderType-btn'} 
-                                    onClick={this.setOrderType}>
-                                        {this.orderTypes.LIMIT_ORDER}
-                                </button>
-                                
-                                <button className={this.state.orderType === this.orderTypes.MARKET_ORDER ? 'orderType-btn selected' : 'orderType-btn'} 
-                                    onClick={this.setOrderType}>
-                                        {this.orderTypes.MARKET_ORDER}
-                                </button>
+                            <button className={'orderType-btn' + (this.state.orderType === this.orderTypes.LIMIT_ORDER  ? ' selected' : '')} 
+                                onClick={this.setOrderType}>
+                                    {this.orderTypes.LIMIT_ORDER}
+                            </button>
+                            
+                            <button className={'orderType-btn' + (this.state.orderType === this.orderTypes.LIMIT_ORDER  ? ' selected' : '')} 
+                                onClick={this.setOrderType}>
+                                    {this.orderTypes.MARKET_ORDER}
+                            </button>
 
-                                <button className={this.state.orderType === this.orderTypes.STOP_MARKET  ? 'orderType-btn selected' : 'orderType-btn'} 
-                                    onClick={this.setOrderType}>
-                                        {this.orderTypes.STOP_MARKET}
-                                </button>
-                            </div>
+                            <button className={'orderType-btn' + (this.state.orderType === this.orderTypes.LIMIT_ORDER  ? ' selected' : '')} 
+                                onClick={this.setOrderType}>
+                                    {this.orderTypes.STOP_MARKET}
+                            </button>
 
                             <label htmlFor='orderPrice'>Price</label>
-                            <div id='orderPrice-grid'>
-                                {this.state.orderType === this.orderTypes.MARKET_ORDER ?
-                                    <p id='marketPrice'>Market Price</p>
-                                    : <input className='value' type='number' name='orderPrice' step={this.priceStep} value={this.state.orderPrice} min='0' 
-                                        onChange={this.setOrderPrice}></input>}
-                                <p className='name'> USD</p>
-                            </div>
+
+                            {this.state.orderType === this.orderTypes.MARKET_ORDER ?
+                                <p id='marketPrice' className='value'>Market Price</p>
+                                : <input className='value' type='number' name='orderPrice' step={this.priceStep} value={this.state.orderPrice} min='0' 
+                                    onChange={this.setOrderPrice}></input>}
+
+                            <p className='name'> USD</p>
 
                             <label htmlFor='orderAmount'>Amount</label>
-                            <div id='orderAmount-grid'>
-                                <input className='value' type='number' name='orderAmount' 
-                                    step={((this.state.buy ? (this.state.cash / this.state.orderPrice) : this.state.BTCWallet) * 0.1).toFixed(4)} 
-                                    value={this.state.orderAmount} min='0' 
-                                    max={this.state.buy ? this.state.cash / this.state.orderPrice : this.state.BTCWallet} 
-                                    onChange={this.setOrderAmount}></input>
-                                <p className='name'> BTC</p>
-                                <p className='value'>≈ {((this.state.orderType === this.orderTypes.MARKET_ORDER ? this.state.price : this.state.orderPrice) 
-                                                            * this.state.orderAmount).toFixed(2)}</p>
-                                <p className='name'> USD</p>
-                            </div>
 
-                            <button id='order-btn' onClick={this.submitOrder}
-                            className={this.state.buy ? 'green' : 'red'}>Make Order</button>
+                            <input className='value' type='number' name='orderAmount' 
+                                step={((this.state.buy ? (this.state.cash / this.state.orderPrice) : this.state.BTCWallet) * 0.1).toFixed(4)} 
+                                value={this.state.orderAmount} min='0' 
+                                max={this.state.buy ? this.state.cash / this.state.orderPrice : this.state.BTCWallet} 
+                                onChange={this.setOrderAmount}></input>
+
+                            <p className='name'> BTC</p>
+
+                            <p id='amountUSD' className='value'>≈ {((this.state.orderType === this.orderTypes.MARKET_ORDER ? this.state.price : this.state.orderPrice) 
+                                                                    * this.state.orderAmount).toFixed(2)}</p>
+
+                            <p id='amountUSDUnit' className='name'> USD</p>
 
                         </form>
+
+                        <button id='order-btn' onClick={this.submitOrder} className={this.state.buy ? 'green' : 'red'}>Make Order</button>
 
                     </div>
 
