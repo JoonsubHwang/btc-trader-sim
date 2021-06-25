@@ -185,6 +185,7 @@ class Trading extends Component {
 
                             <label htmlFor='orderPrice'>Price</label>
 
+                            {/* order price */}
                             {this.state.orderType === this.orderTypes.MARKET_ORDER ?
                                 <p id='marketPrice' className='value'>Market Price</p>
                                 : <input className='value' type='number' name='orderPrice' step={this.priceStep} value={this.state.orderPrice} min='0' 
@@ -194,6 +195,7 @@ class Trading extends Component {
 
                             <label htmlFor='orderAmount'>Amount</label>
 
+                            {/* order amount */}
                             <input className='value' type='number' name='orderAmount' 
                                 step={((this.state.buy ? (this.state.cash / this.state.orderPrice) : this.state.BTCWallet) * 0.1).toFixed(4)} 
                                 value={this.state.orderAmount} min='0' 
@@ -202,11 +204,13 @@ class Trading extends Component {
 
                             <p className='name'> BTC</p>
 
+                            {/* order amount in USD */}
                             <p id='amountUSD' className='value'>≈ {((this.state.orderType === this.orderTypes.MARKET_ORDER ? this.state.price : this.state.orderPrice) 
                                                                     * this.state.orderAmount).toFixed(2)}</p>
 
                             <p id='amountUSDUnit' className='name'> USD</p>
 
+                            {/* order button */}
                             <button id='order-btn' onClick={this.submitOrder} className={this.state.buy ? 'green' : 'red'}>Make Order</button>
 
                         </form>
