@@ -264,6 +264,10 @@
     color: var(--fg-darker);
 }
 
+#order-form > .name {
+    text-align: left;
+}
+
 .value {
     text-align: right;
 }
