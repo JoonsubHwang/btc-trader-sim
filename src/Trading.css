@@ -273,6 +273,7 @@
 }
 
 #order-form > .value {
+    box-sizing: border-box;
     grid-column: span 2;
 }
 
