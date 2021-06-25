@@ -210,7 +210,7 @@
     display: grid;
     grid-template-columns: 4rem repeat(3, calc((100% - 4rem - (.5rem * 3)) / 3));
     grid-template-rows: 2rem 2rem 2rem .3rem 2rem;
-    gap: 1rem .5rem;
+    gap: calc((96% - 8.3rem) / 4) .5rem;
 
     width: 98%;
     height: 96%;
