@@ -169,6 +169,9 @@
     #txn-panel {
         grid-row: 3;
         grid-column: 1 / span 2;
+        
+        padding: .4rem;
+
         grid-template-columns: repeat(2, calc((100% - .4rem) / 2));
         grid-template-rows: 2.5rem auto;
         gap: 1rem .4rem;
@@ -206,15 +209,15 @@
     grid-row: 1 / span 2;
     grid-column: 2;
 
+    width: 98%;
+    height: 96%;
+    margin: auto;
+
     /* grid */
     display: grid;
     grid-template-columns: 4rem repeat(3, calc((100% - 4rem - (.5rem * 3)) / 3));
     grid-template-rows: 2rem 2rem 2rem .3rem 2rem;
     gap: calc((96% - 8.3rem) / 4) .5rem;
-
-    width: 98%;
-    height: 96%;
-    margin: auto;
 }
 @media (max-width: 900px) {
     #order-form {
