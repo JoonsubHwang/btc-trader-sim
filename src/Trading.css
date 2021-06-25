@@ -6,7 +6,7 @@
     --green: rgb(0, 133, 78);
     --red: rgb(179, 52, 67);
 }
-@media (max-width: 900px) {
+@media (max-width: 900px)  and (orientation: portrait){
     :root { 
         --chartHeight: 40%;
         --txnHeight: 35%;
@@ -28,7 +28,7 @@
     grid-template-rows: var(--pricePanelHeight) var(--chartHeight) auto;
     gap: 1rem;
 }
-@media (max-width: 900px) {
+@media (max-width: 900px)  and (orientation: portrait){
     #trading-grid {
         grid-template-rows: var(--pricePanelHeight) var(--chartHeight) var(--txnHeight) auto;
     }
@@ -142,7 +142,7 @@
     grid-row: 2;
     grid-column: 1 / span 2;
 }
-@media (max-width: 900px) {
+@media (max-width: 900px)  and (orientation: portrait){
     #chart-panel {
         grid-row: 2;
         grid-column: 1 / span 2;
@@ -165,7 +165,7 @@
     grid-template-rows: repeat(2, calc((100% - .4rem) / 2));
     gap: .4rem .8rem;
 }
-@media (max-width: 900px) {
+@media (max-width: 900px)  and (orientation: portrait){
     #txn-panel {
         grid-row: 3;
         grid-column: 1 / span 2;
@@ -219,7 +219,7 @@
     grid-template-rows: 2rem 2rem 2rem .3rem 2rem;
     gap: calc((96% - 8.3rem) / 4) .5rem;
 }
-@media (max-width: 900px) {
+@media (max-width: 900px)  and (orientation: portrait){
     #order-form {
         grid-row: 2;
         grid-column: 1 / span 2;
@@ -342,7 +342,7 @@ input[type=number] {
 
     padding: .6rem;
 }
-@media (max-width: 900px) {
+@media (max-width: 900px)  and (orientation: portrait){
     #balance-panel {
         grid-row: 4;
         grid-column: 1 / span 2;
@@ -367,7 +367,7 @@ input[type=number] {
     margin: auto;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 900px)  and (orientation: portrait){
     #balance-grid {
         max-width: 300px;
     }
