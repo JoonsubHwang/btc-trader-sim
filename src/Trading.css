@@ -162,6 +162,8 @@
     /* grid */
     display: grid;
     grid-template-columns: 14% auto;
+    grid-template-rows: repeat(2, calc((100% - .4rem) / 2));
+    gap: .4rem .8rem;
 }
 @media (max-width: 900px) {
     #txn-panel {
@@ -181,8 +183,6 @@
     padding: 0;
     border: 1px solid var(--fg-darker);
     color: var(--fg-darker);
-
-    /* TODO: add animation for clicking */
 }
 
 #buy-btn:hover, 
@@ -191,17 +191,9 @@
     border-color: var(--fg);
 }
 
-#buy-btn {
-    margin-bottom: .3rem;
-}
-
 #buy-btn.selected {
     color: var(--green);
     border-color: var(--green);
-}
-
-#sell-btn {
-    margin-top: .3rem;
 }
 
 #sell-btn.selected {
@@ -221,7 +213,7 @@
 
     width: 96%;
     height: 90%;
-    margin: auto 0 auto 3%;
+    margin: auto;
 }
 @media (max-width: 900px) {
     #order-form {
@@ -302,6 +294,7 @@ input[type=number] {
 
 #order-btn {
     grid-column: 1 / span 2;
+    margin-top: .8rem;
     border: 1px solid;
     border-radius: .3rem;
     background-color: var(--bg);
