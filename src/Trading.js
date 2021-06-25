@@ -175,20 +175,13 @@ class Trading extends Component {
 
                             <label>Amount</label>
 
-                            <button className={'orderType-btn' + (this.state.orderType === this.orderTypes.LIMIT_ORDER  ? ' selected' : '')} 
-                                onClick={this.setOrderType}>
-                                    {this.orderTypes.LIMIT_ORDER}
-                            </button>
-                            
-                            <button className={'orderType-btn' + (this.state.orderType === this.orderTypes.LIMIT_ORDER  ? ' selected' : '')} 
-                                onClick={this.setOrderType}>
-                                    {this.orderTypes.MARKET_ORDER}
-                            </button>
-
-                            <button className={'orderType-btn' + (this.state.orderType === this.orderTypes.LIMIT_ORDER  ? ' selected' : '')} 
-                                onClick={this.setOrderType}>
-                                    {this.orderTypes.STOP_MARKET}
-                            </button>
+                            {/* 3 order type buttons */}
+                            {Object.values(this.orderTypes).map(orderType => 
+                                <button className={'orderType-btn' + (this.state.orderType === orderType  ? ' selected' : '')} 
+                                    onClick={this.setOrderType}>
+                                    {orderType}
+                                </button>
+                            )}
 
                             <label htmlFor='orderPrice'>Price</label>
 
