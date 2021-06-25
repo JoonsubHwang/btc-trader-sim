@@ -214,9 +214,9 @@ class Trading extends Component {
 
                             <p id='amountUSDUnit' className='name'> USD</p>
 
-                        </form>
+                            <button id='order-btn' onClick={this.submitOrder} className={this.state.buy ? 'green' : 'red'}>Make Order</button>
 
-                        <button id='order-btn' onClick={this.submitOrder} className={this.state.buy ? 'green' : 'red'}>Make Order</button>
+                        </form>
 
                     </div>
 
