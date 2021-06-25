@@ -170,7 +170,7 @@
         grid-row: 3;
         grid-column: 1 / span 2;
         grid-template-columns: repeat(2, calc((100% - .4rem) / 2));
-        grid-template-rows: 2.5rem auto 2.5rem;
+        grid-template-rows: 2.5rem auto;
         gap: 1rem .4rem;
     }
 }
