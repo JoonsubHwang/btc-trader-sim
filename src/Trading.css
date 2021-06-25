@@ -208,11 +208,11 @@
     /* grid */
     display: grid;
     grid-template-columns: 4rem repeat(3, calc((100% - 4rem - (.5rem * 3)) / 3));
-    grid-template-rows: auto 2rem 2rem .3rem 2rem;
-    gap: .8rem .5rem;
+    grid-template-rows: 2rem 2rem 2rem .3rem 2rem;
+    gap: 1rem .5rem;
 
     width: 96%;
-    height: 90%;
+    height: 96%;
     margin: auto;
 }
 @media (max-width: 900px) {
@@ -300,7 +300,6 @@ input[type=number] {
 
 #order-btn {
     grid-column: 1 / span 4;
-    margin-top: .6rem;
     height: 2rem;
     border: 1px solid;
     border-radius: .3rem;
