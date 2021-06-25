@@ -208,7 +208,7 @@
     /* grid */
     display: grid;
     grid-template-columns: 4rem repeat(3, calc((100% - 4rem - (.5rem * 3)) / 3));
-    grid-template-rows: auto 2rem 2rem .3rem;
+    grid-template-rows: auto 2rem 2rem .3rem 2rem;
     gap: .8rem .5rem;
 
     width: 96%;
@@ -293,7 +293,7 @@ input[type=number] {
 }
 
 #order-btn {
-    grid-column: 1 / span 2;
+    grid-column: 1 / span 4;
     margin-top: .8rem;
     border: 1px solid;
     border-radius: .3rem;
