@@ -227,11 +227,8 @@ class Trading extends Component {
                             <p className='value'>{(this.state.cash + (this.state.BTCWallet * this.state.price)).toFixed(0)} USD</p>
                             <p className='name'>Cash</p>
                             <p className='value'>{this.state.cash.toFixed(0)} USD</p>
-                            <p className='name'>BTC Wallet</p>
-                            <div id='BTCWallet-grid'>
-                                <p className='value'>{this.state.BTCWallet} BTC</p>
-                                <p className='value'>≈ {(this.state.BTCWallet * this.state.price).toFixed(0)} USD</p>
-                            </div>
+                            <p className='name'>BTC</p>
+                            <p className='value'>{this.state.BTCWallet} BTC</p>
                         </div>
 
                     </div>
