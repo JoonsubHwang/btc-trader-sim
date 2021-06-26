@@ -158,7 +158,7 @@ class Chart extends Component {
             chart.data = data;
         })
         .catch(err => { 
-            console.error(err); 
+            console.error('[Client] ' + err); 
         });
 
 
@@ -225,7 +225,7 @@ class Chart extends Component {
             // remove the oldest candle
             this.chart.data.pop();
             
-            // redraw
+            // update chart
             this.chart.invalidateData();
         }
         else {
@@ -242,15 +242,17 @@ class Chart extends Component {
                 else if (this.props.price > this.chart.data[0].high)
                     this.chart.data[0].high = this.props.price;
 
-                // redraw
+                // update chart
                 this.chart.invalidateRawData();
             }
 
             // update last minute's candle at 30 seconds (to get the volume)
             if (currentTime.getSeconds() === 30) {
 
+                // request last minute's candle
                 CbProAPI.loadCandle()
                 .then(candle => {
+                    // if it differs from chart data
                     if ((this.chart.data[1].openVolume !== candle.openVolume) || (this.chart.data[1].valueVolume !== candle.valueVolume)) {
                         // update volume
                         this.chart.data[1].openVolume =  candle.openVolume;
