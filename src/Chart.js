@@ -253,7 +253,7 @@ class Chart extends Component {
                 CbProAPI.loadCandle()
                 .then(candle => {
                     // if it differs from chart data
-                    if ((this.chart.data[1].openVolume !== candle.openVolume) || (this.chart.data[1].valueVolume !== candle.valueVolume)) {
+                    if ((this.chart.data[1].highVolume !== candle.highVolume)) {
                         // update volume
                         this.chart.data[1].openVolume =  candle.openVolume;
                         this.chart.data[1].valueVolume = candle.valueVolume;
