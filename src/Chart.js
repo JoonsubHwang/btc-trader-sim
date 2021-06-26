@@ -47,9 +47,6 @@ class Chart extends Component {
 
         super(props);
 
-        // this.orderBookLength = 10; // number of prices
-        // this.maxOrderSize = 400; // max number for each price
-
         // constants
         this.timeGridUnit = 50; // pixels
         this.priceGridUnit = 30; // pixels
@@ -61,10 +58,8 @@ class Chart extends Component {
 
         // states
         this.state = {
-
             timeUnit: 1, // minutes
-            showSMA: true,
-            // ioc: false // immediate or cancel
+            showSMA: true
         };
     }
 
@@ -157,7 +152,7 @@ class Chart extends Component {
 
 
 
-        // initial data
+        // load initial data
         CbProAPI.loadHistory()
         .then(data => { 
             chart.data = data;
@@ -167,7 +162,7 @@ class Chart extends Component {
         });
 
 
-        // series tooltip
+        // series tooltips
 
         priceSeries.tooltipText = 
             'Open ${openValueY.value.formatNumber(\'#.00\')}\n' + 
@@ -188,7 +183,7 @@ class Chart extends Component {
         volumeSeries.tooltip.fontSize = this.tooltipFontSize;
 
         
-        // mouse cursor
+        // cursor
         chart.cursor = new am4charts.XYCursor();
         chart.cursor.behavior = 'selectY';
 
@@ -215,7 +210,7 @@ class Chart extends Component {
         let currentTime = new Date();
 
         // add new candle every minute
-        if ((currentTime.getSeconds() === 0) && (currentTime.getMinutes() !== this.chart.data[0].time.getMinutes())) {
+        if (currentTime.getMinutes() !== this.chart.data[0].time.getMinutes()) {
 
             // add new candle
             this.chart.data.unshift({
