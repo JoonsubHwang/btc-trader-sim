@@ -84,7 +84,7 @@
 }
 
 #orders-btn:hover {
-    color: var(--accent);
+    color: var(--theme);
 }
 
 #dropdown-menu {
@@ -104,7 +104,7 @@
 }
 
 #menu-btn:hover {
-    fill: var(--accent);
+    fill: var(--theme);
 }
 
 #menu-list {
@@ -133,7 +133,7 @@
 
 #menu-list > a:hover,
 #menu-list > button:hover {
-    color: var(--accent);
+    color: var(--theme);
 }
 
 
