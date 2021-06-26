@@ -116,7 +116,7 @@
     z-index: 1;
 
     background-color: var(--bg);
-    border: 1px solid var(--fg-darker);
+    border: 1px solid var(--fg);
     border-radius: .4rem;
 }
 
