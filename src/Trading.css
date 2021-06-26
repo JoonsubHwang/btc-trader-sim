@@ -307,33 +307,24 @@ input[type=number] {
     height: 2rem;
     border: 1px solid;
     border-radius: .3rem;
+
+    background-color: var(--bg);
 }
 
 #order-btn:hover {
-    color: var(--bg);
+    color: var(--theme) !important;
 }
 
 #order-btn.green {
-    background-color: var(--green);
-    color: var(--bg);
+    color: var(--green);
     border-color: var(--green);
 }
 
-#order-btn.green:hover {
-    background-color: var(--bg);
-    color: var(--green);
-}
-
 #order-btn.red {
-    background-color: var(--red);
-    color: var(--bg);
+    color: var(--red);
     border-color: var(--red);
 }
 
-#order-btn.red:hover {
-    background-color: var(--bg);
-    color: var(--red);
-}
 
 
 
