@@ -21,6 +21,11 @@
     min-height: 600px;
     margin: auto;
 }
+@media (min-width: 3000px) {
+    #trading-main {
+        max-width: 2000px;
+    }
+}
 
 #trading-grid {
     display: grid;
@@ -360,7 +365,11 @@ input[type=number] {
     height: calc(100% - 4.5rem);
     margin: auto;
 }
-
+@media (min-width: 3000px) {
+    #balance-grid {
+        max-width: 360px;
+    }
+}
 @media (max-width: 900px)  and (orientation: portrait){
     #balance-grid {
         max-width: 300px;
