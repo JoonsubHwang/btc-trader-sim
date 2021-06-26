@@ -128,11 +128,13 @@
 #menu-list > a,
 #menu-list > button {
     display: block;
-    margin: .8rem;
+    margin: .5rem auto;
     padding: 0;
 
     background: none;
     border: none;
+
+    text-align: center;
     text-decoration: none;
 }
 
