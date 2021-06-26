@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani&display=swap');
 
 :root {
-    --bg: rgb(24, 24, 41);
+    --bg: rgb(20, 20, 36);
     --bg-dark: rgb(5, 10, 20);
     --fg: rgb(230, 230, 230);
     --fg-darker: rgb(150, 150, 150);
     --accent: rgb(196, 177, 32);
-    --theme: rgb(66, 71, 145);
+    --theme: rgb(17, 76, 194);
 
     font-size: 18px;
 }
