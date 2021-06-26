@@ -50,6 +50,7 @@
 
 #price-heading {
     color: var(--accent);
+    line-height: var(--pricePanelHeight);
 }
 
 #price-heading,
