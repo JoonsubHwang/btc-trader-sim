@@ -28,7 +28,7 @@ export class CbProAPI {
             let data = await res.json();
 
             if (!data || data.length === 0)
-                throw new Error(`Failed to fetch candles from ${path}`);
+                throw new Error(`Failed to fetch candles from ${path}.`);
                 
             data = data.map(rate => {
                 return {
@@ -47,8 +47,8 @@ export class CbProAPI {
             return data;
         }
         catch(err) {
-            console.error(err);
-            throw err;
+            console.error('[CbProAPI] ' + err);
+            throw new Error(`Error: Failed to load price history from ${path}.`);
         }
     }
 
@@ -91,7 +91,7 @@ export class CbProAPI {
         }
         catch(err) {
             console.error('[CbProAPI] ' + err);
-            throw String('Error: Failed to load a candle from CbProAPI.');
+            throw new Error(`Error: Failed to load a candle from ${path}.`);
         }
     }
 
@@ -107,8 +107,8 @@ export class CbProAPI {
             return data.price;
         }
         catch(err) {
-            console.error(err);
-            throw err;
+            console.error('[CbProAPI] ' + err);
+            throw new Error(`Error: Failed to load the price from ${path}.`);
         }
     }
 }
