@@ -10,7 +10,7 @@
     :root { 
         --chartHeight: 40%;
         --txnHeight: 35%;
-        --txnWidth: 65%; /* price width */
+        --txnWidth: 16rem; /* price width */
     }
 }
 
