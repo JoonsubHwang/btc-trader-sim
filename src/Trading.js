@@ -152,7 +152,7 @@ class Trading extends Component {
                                 <Menu id='menu-btn' onClick={this.toggleDropdown}></Menu>
                                 <div id='menu-list'>
                                     <Link to='/'>Home</Link>
-                                    <button>Sign In / Sign Out</button>
+                                    <button>Sign Out</button>
                                     <button>Sign Up</button>
                                 </div>
                             </div>
