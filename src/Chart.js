@@ -210,7 +210,7 @@ class Chart extends Component {
         let currentTime = new Date();
 
         // add new candle every minute
-        if (currentTime.getMinutes() !== this.chart.data[0].time.getMinutes()) {
+        if ((this.props.price !== undefined) && (currentTime.getMinutes() !== this.chart.data[0].time.getMinutes())) {
 
             // add new candle
             this.chart.data.unshift({
