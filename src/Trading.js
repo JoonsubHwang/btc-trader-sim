@@ -22,7 +22,7 @@ class Trading extends Component {
         this.priceStep = 100; // dolalrs
 
         this.state = {
-            price: 0,
+            price: undefined,
             priceColor: 'white',
             cash: 1000, // TODO: temporary value
             BTCWallet: 50.1231, // TODO: temporary value
