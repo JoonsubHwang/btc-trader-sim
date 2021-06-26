@@ -251,7 +251,6 @@ class Chart extends Component {
                 // request last minute's candle
                 CbProAPI.loadCandle()
                 .then(candle => {
-                    console.log(this.chart.data[1].highVolume + ' !== ' + candle.highVolume)
                     // if it differs from chart data
                     if ((this.chart.data[1].highVolume !== candle.highVolume)) {
                         // update volume
