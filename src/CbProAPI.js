@@ -71,7 +71,7 @@ export class CbProAPI {
 
             let data = await res.json();
 
-            if (!data || data[0].length != 6)
+            if (!data || data[0].length !== 6)
                 throw new Error(`Failed to fetch a candle from ${path}. (data[0].length: ` +data[0].length + `)`);
             
             // format object properties
@@ -91,7 +91,7 @@ export class CbProAPI {
         }
         catch(err) {
             console.error('[CbProAPI] ' + err);
-            throw 'Error: Failed to load a candle from CbProAPI.';
+            throw String('Error: Failed to load a candle from CbProAPI.');
         }
     }
 
