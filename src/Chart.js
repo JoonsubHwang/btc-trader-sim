@@ -218,18 +218,17 @@ class Chart extends Component {
                 low: this.props.price,
                 high: this.props.price,
                 open: this.props.price,
-                close: this.props.price,
-                volume: 0
+                close: this.props.price
+                // no volume
             });
 
             // remove the oldest candle
             this.chart.data.pop();
-            
+
             // update chart
             this.chart.invalidateData();
         }
         else {
-            
             // update current candle when price changes
             if (oldProps.price !== this.props.price) {
 
@@ -252,6 +251,7 @@ class Chart extends Component {
                 // request last minute's candle
                 CbProAPI.loadCandle()
                 .then(candle => {
+                    console.log(this.chart.data[1].highVolume + ' !== ' + candle.highVolume)
                     // if it differs from chart data
                     if ((this.chart.data[1].highVolume !== candle.highVolume)) {
                         // update volume
