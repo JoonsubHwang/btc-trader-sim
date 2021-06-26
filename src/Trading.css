@@ -117,7 +117,7 @@
     top: calc(var(--pricePanelHeight) + .4rem);
     right: 0;
     display: none;
-    min-width: 8rem;
+    min-width: 6rem;
     z-index: 1;
 
     background-color: var(--bg);
