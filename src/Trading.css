@@ -284,9 +284,10 @@ input[type=number] {
     text-align: right;
     padding: 3px;
 
-    color: var(--bg);
+    background-color: var(--bg-dark);
+    color: var(--fg);
     border-radius: .2rem;
-    border: none;
+    border: 1px solid var(--fg-darker);
 }
 
 #amountUSD {
