@@ -167,7 +167,7 @@ class Trading extends Component {
 
                     </div>
                     
-                    <SignIn></SignIn>
+                    <SignIn toggleSignInPopup={this.toggleSignInPopup}></SignIn>
         
                     {/* chart-panel */}
                     <div id='chart-panel' className='container framed'>
