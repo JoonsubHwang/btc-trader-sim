@@ -1,0 +1,83 @@
+/* background */
+#signin-main {
+    --signin-width: 25rem;
+    --signin-height: 23rem;
+
+    /* display: none; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#signin-popup {
+    /* display: none; */
+    position: absolute;
+    z-index: 2;
+    top: calc((100% - var(--signin-height)) / 2);
+    left: calc((100% - var(--signin-width)) / 2);
+    width: var(--signin-width);
+    height: var(--signin-height);
+    border: 1px solid var(--theme);
+}
+
+#close-btn {
+    margin: .5rem;
+    margin-bottom: -2rem;
+    float: right;
+}
+
+#signin-grid {
+    margin: 1.5rem;
+    width: calc(100% - 3rem);
+    height: calc(100% - 3rem);
+
+    display: grid;
+    grid-template-columns: 5rem auto;
+    grid-template-rows: 3rem 1.7rem 1.7rem 2rem 3rem;
+    gap: 2rem .5rem;
+}
+
+#signin-heading {
+    grid-column: span 2;
+
+    width: 6rem;
+    margin: .5rem auto;
+    text-align: center;
+
+    color: var(--accent);
+}
+
+#signin-btn {
+    grid-column: span 2;
+
+    background-color: var(--bg);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: .3rem;
+}
+
+#signin-btn:hover {
+    background-color: var(--accent);
+    color: var(--bg);
+}
+
+#forgotLinks {
+    grid-column: span 2;
+    text-align: center;
+}
+
+#forgotLinks > a {
+    margin: auto;
+    display: inline-block;
+    width: 100%;
+    height: 1rem;
+}
+
+#forgotLinks > a:first-child {
+    margin-bottom: 1rem;
+}

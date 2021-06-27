@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Chart from './Chart';
+import SignIn from './SignIn';
 import { Menu } from '@material-ui/icons';
 import { CbProAPI } from './CbProAPI';
 import './Trading.css';
@@ -159,6 +160,8 @@ class Trading extends Component {
                         </div>
 
                     </div>
+                    
+                    <SignIn></SignIn>
         
                     {/* chart-panel */}
                     <div id='chart-panel' className='container framed'>
