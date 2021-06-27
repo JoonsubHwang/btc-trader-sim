@@ -30,6 +30,10 @@
     float: right;
 }
 
+#close-btn:hover {
+    fill: var(--theme);
+}
+
 #signin-grid {
     margin: 1.5rem;
     width: calc(100% - 3rem);
