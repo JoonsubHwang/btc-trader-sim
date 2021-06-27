@@ -8,21 +8,21 @@
     --accent: rgb(196, 177, 32);
     --theme: rgb(17, 76, 194);
 
-    font-size: 18px;
+    font-size: 14px;
 }
 @media (min-width: 3000px) {
     :root {
-        font-size: 36px;
+        font-size: 32px;
     }
 }
 @media (max-width: 1200px) {
     :root { 
-        font-size: 16px; 
+        font-size: 14px; 
     }
 }
 @media (max-width: 400px) {
     :root { 
-        font-size: 14px;
+        font-size: 12px;
     }
 }
 
