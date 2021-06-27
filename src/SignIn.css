@@ -3,7 +3,7 @@
     --signin-width: 25rem;
     --signin-height: 23rem;
 
-    /* display: none; */
+    display: none;
     position: absolute;
     top: 0;
     left: 0;
@@ -15,7 +15,6 @@
 }
 
 #signin-popup {
-    /* display: none; */
     position: absolute;
     z-index: 2;
     top: calc((100% - var(--signin-height)) / 2);

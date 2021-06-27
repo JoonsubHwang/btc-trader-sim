@@ -128,6 +128,12 @@ class Trading extends Component {
         document.querySelector('#menu-list').classList.toggle('visible');
     }
 
+    toggleSignInPopup = (event) => {
+        event.preventDefault();
+        document.querySelector('#signin-main').classList.toggle('visible');
+        console.log(document.querySelector('#signin-main').classList)
+    }
+
 
 
     // render
@@ -153,7 +159,7 @@ class Trading extends Component {
                                 <Menu id='menu-btn' onClick={this.toggleDropdown}></Menu>
                                 <div id='menu-list'>
                                     <Link to='/'>Home</Link>
-                                    <button>Sign Out</button>
+                                    <button onClick={this.toggleSignInPopup}>Sign In</button>
                                     <button>Sign Up</button>
                                 </div>
                             </div>
