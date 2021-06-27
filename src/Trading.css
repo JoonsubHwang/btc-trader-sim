@@ -139,7 +139,6 @@
     text-decoration: none;
 }
 
-#menu-list > a:hover,
 #menu-list > button:hover {
     color: var(--theme);
 }
