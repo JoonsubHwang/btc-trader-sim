@@ -52,6 +52,15 @@ h1, h2, h3, h4 {
     font-weight: normal;
 }
 
+input {
+    background-color: var(--bg-dark);
+    color: var(--fg);
+    border-radius: .2rem;
+    border: 1px solid var(--fg-darker);
+    line-height: 1.2rem;
+    padding: .4rem;
+}
+
 .small {
     font-size: .8rem;
 }

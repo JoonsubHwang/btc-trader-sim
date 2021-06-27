@@ -290,12 +290,6 @@
 input[type=number] {
     width: 100%;
     text-align: right;
-    padding: 3px;
-
-    background-color: var(--bg-dark);
-    color: var(--fg);
-    border-radius: .2rem;
-    border: 1px solid var(--fg-darker);
 }
 
 #amountUSD {
