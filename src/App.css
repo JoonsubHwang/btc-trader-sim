@@ -61,6 +61,11 @@ input {
     padding: .4rem;
 }
 
+input:focus {
+    outline: none;
+    border-color: var(--theme);
+}
+
 .small {
     font-size: .8rem;
 }
