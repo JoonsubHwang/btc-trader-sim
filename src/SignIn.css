@@ -1,7 +1,7 @@
 /* background */
 #signin-main {
     --signin-width: 25rem;
-    --signin-height: 23rem;
+    --signin-height: 21rem;
 
     display: none;
     position: absolute;
@@ -41,7 +41,7 @@
 
     display: grid;
     grid-template-columns: 5rem auto;
-    grid-template-rows: 3rem 1.7rem 1.7rem 2rem 3rem;
+    grid-template-rows: 3rem 1.7rem 1.7rem 2rem 1rem;
     gap: 2rem .5rem;
 }
 
@@ -69,18 +69,7 @@
     color: var(--bg);
 }
 
-#forgotLinks {
+#signin-grid > a {
     grid-column: span 2;
     text-align: center;
-}
-
-#forgotLinks > a {
-    margin: auto;
-    display: inline-block;
-    width: 100%;
-    height: 1rem;
-}
-
-#forgotLinks > a:first-child {
-    margin-bottom: 1rem;
 }

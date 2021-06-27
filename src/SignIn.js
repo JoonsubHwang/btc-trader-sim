@@ -20,20 +20,17 @@ export default class SignIn extends Component {
 
                         <p id='signin-heading' className='large'>Sign In</p>
 
-                        <p>Username</p>
+                        <p>E-mail</p>
 
-                        <input type='text'></input>
+                        <input name='email' type='text'></input>
 
                         <p>Password</p>
 
-                        <input type='text'></input>
+                        <input name='password' type='text'></input>
 
                         <button id='signin-btn'>Sign In</button>
 
-                        <div id='forgotLinks'>
-                            <Link className='small' to='/not-implemented'>Forgot username?</Link>
-                            <Link className='small' to='/not-implemented'>Forgot password?</Link>
-                        </div>
+                        <Link className='small' to='/not-implemented'>Forgot password?</Link>
 
                     </div>
                 </div>
