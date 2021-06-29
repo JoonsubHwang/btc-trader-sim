@@ -183,7 +183,7 @@ class Trading extends Component {
                             {/* 3 order type buttons */}
                             {Object.values(this.orderTypes).map(orderType => 
                                 <button className={'orderType-btn' + (this.state.orderType === orderType  ? ' selected' : '')} 
-                                    onClick={this.setOrderType}>
+                                    onClick={this.setOrderType} key={orderType}>
                                     {orderType}
                                 </button>
                             )}
