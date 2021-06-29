@@ -72,4 +72,5 @@
 #signin-grid > a {
     grid-column: span 2;
     text-align: center;
+    font-style: italic;
 }
