@@ -10,34 +10,39 @@ export default class SignIn extends Component {
         event.preventDefault();
 
         const form = document.querySelector('#signin-form');
+        let validity = true;
 
         form.querySelectorAll('input').forEach(input => {
-            input.checkValidity();
-            input.reportValidity();
-            console.log(input)
+            if (!input.checkValidity()) {
+                validity = false;
+                input.reportValidity();
+            }
         });
 
-        const formData = new FormData(form);
+        if (validity) {
 
-        let req = {
-            method: 'POST',
-            headers: { 'content-type': 'application/json' },
-            body: JSON.stringify({
-                email: formData.get('email'),
-                password: formData.get('password')
-            }) 
+            const formData = new FormData(form);
+
+            let req = {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify({
+                    email: formData.get('email'),
+                    password: formData.get('password')
+                }) 
+            }
+
+            fetch('signin', req)
+            .then(res => {
+                if (res.redirected)
+                    window.location.href = res.url;
+                else
+                    alert(JSON.stringify(res));
+            })
+            .catch(err => {
+                alert(err);
+            })
         }
-
-        fetch('signin', req)
-        .then(res => {
-            if (res.redirected)
-                window.location.href = res.url;
-            else
-                alert(req.json());
-        })
-        .catch(err => {
-            alert(err);
-        })
     }
 
     render () {
@@ -53,11 +58,11 @@ export default class SignIn extends Component {
 
                         <p>E-mail</p>
 
-                        <input name='email' type='text' pattern='.+\@.+\..+' required={true}></input>
+                        <input name='email' type='text' pattern='.+@.+\..+' required={true} placeholder='username@domain.com'></input>
 
                         <p>Password</p>
 
-                        <input name='password' type='text' pattern='8{.}.*' required={true}></input>
+                        <input name='password' type='text' minLength={8} required={true}></input>
 
                         <button id='signin-btn' onClick={this.submitSignIn}>Sign In</button>
 
