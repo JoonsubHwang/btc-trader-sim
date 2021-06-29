@@ -77,9 +77,6 @@ class Trading extends Component {
         event.preventDefault();
 
         this.setState({ orderType: event.target.innerHTML });
-
-        if(event.target.innerHTML === this.orderTypes.MARKET_ORDER)
-            this.setState(this.state.orderPrice, this.state.price);
     }
 
     setBuyOrSell = (event) => {
