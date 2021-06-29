@@ -16,7 +16,7 @@ export default class SignIn extends Component {
 
                     <Close id='close-btn' onClick={this.props.toggleSignInPopup}></Close>
 
-                    <form id='signin-grid'>
+                    <form id='signin-form'>
 
                         <p id='signin-heading' className='large'>Sign In</p>
 
