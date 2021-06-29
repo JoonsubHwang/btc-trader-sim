@@ -131,7 +131,6 @@ class Trading extends Component {
     toggleSignInPopup = (event) => {
         event.preventDefault();
         document.querySelector('#signin-main').classList.toggle('visible');
-        console.log(document.querySelector('#signin-main').classList)
     }
 
 
