@@ -79,7 +79,7 @@ class Trading extends Component {
         this.setState({ orderType: event.target.innerHTML });
 
         if(event.target.innerHTML === this.orderTypes.MARKET_ORDER)
-            this.state.orderPrice = this.state.price
+            this.setState(this.state.orderPrice, this.state.price);
     }
 
     setBuyOrSell = (event) => {
@@ -100,7 +100,7 @@ class Trading extends Component {
         event.preventDefault();
 
         if (this.state.orderType === this.orderTypes.MARKET_ORDER)
-            this.state.orderPrice = this.state.price;
+            this.setState(this.state.orderPrice, this.state.price);
 
         let req = {
             method: 'POST',
