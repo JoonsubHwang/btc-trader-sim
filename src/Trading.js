@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
+import { Menu } from '@material-ui/icons';
+import { Link } from 'react-router-dom';
 import Chart from './Chart';
 import SignIn from './SignIn';
-import { Menu } from '@material-ui/icons';
 import { CbProAPI } from './CbProAPI';
+import orderTypes from './orderTypes.js';
 import './Trading.css';
-import { Link } from 'react-router-dom';
 
 class Trading extends Component {
 
@@ -15,11 +16,6 @@ class Trading extends Component {
 
         // constants
         this.iUpdate = 500; // interval for updating (ms)
-        this.orderTypes = {
-            LIMIT_ORDER: 'Limit order',
-            MARKET_ORDER: 'Market order',
-            STOP_MARKET: 'Stop market'
-        }
         this.priceStep = 100; // dolalrs
 
         this.state = {
@@ -29,7 +25,7 @@ class Trading extends Component {
             BTCWallet: 50.1231, // TODO: temporary value
             buy: true, // false = sell
             orderPrice: 0,
-            orderType: this.orderTypes.LIMIT_ORDER,
+            orderType: orderTypes.LIMIT_ORDER,
             IOC: false, // immedate or cancel
             orderAmount: 0 //  BTC
         }
@@ -96,7 +92,7 @@ class Trading extends Component {
 
         event.preventDefault();
 
-        if (this.state.orderType === this.orderTypes.MARKET_ORDER)
+        if (this.state.orderType === orderTypes.MARKET_ORDER)
             this.setState(this.state.orderPrice, this.state.price);
 
         let req = {
@@ -181,7 +177,7 @@ class Trading extends Component {
                             <label>Amount</label>
 
                             {/* 3 order type buttons */}
-                            {Object.values(this.orderTypes).map(orderType => 
+                            {Object.values(orderTypes).map(orderType => 
                                 <button className={'orderType-btn' + (this.state.orderType === orderType  ? ' selected' : '')} 
                                     onClick={this.setOrderType} key={orderType}>
                                     {orderType}
@@ -191,7 +187,7 @@ class Trading extends Component {
                             <label htmlFor='orderPrice'>Price</label>
 
                             {/* order price */}
-                            {this.state.orderType === this.orderTypes.MARKET_ORDER ?
+                            {this.state.orderType === orderTypes.MARKET_ORDER ?
                                 <p id='marketPrice' className='value'>Market Price</p>
                                 : <input className='value' type='number' name='orderPrice' step={this.priceStep} value={this.state.orderPrice} min='0' 
                                     onChange={this.setOrderPrice}></input>}
@@ -210,7 +206,7 @@ class Trading extends Component {
                             <p className='name'> BTC</p>
 
                             {/* order amount in USD */}
-                            <p id='amountUSD' className='value'>≈ {((this.state.orderType === this.orderTypes.MARKET_ORDER ? this.state.price : this.state.orderPrice) 
+                            <p id='amountUSD' className='value'>≈ {((this.state.orderType === orderTypes.MARKET_ORDER ? this.state.price : this.state.orderPrice) 
                                                                     * this.state.orderAmount).toFixed(2)}</p>
 
                             <p id='amountUSDUnit' className='name'> USD</p>
