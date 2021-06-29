@@ -16,7 +16,7 @@ export default class SignIn extends Component {
 
                     <Close id='close-btn' onClick={this.props.toggleSignInPopup}></Close>
 
-                    <div id='signin-grid'>
+                    <form id='signin-grid'>
 
                         <p id='signin-heading' className='large'>Sign In</p>
 
@@ -32,7 +32,7 @@ export default class SignIn extends Component {
 
                         <Link className='small' to='/not-implemented'>Forgot password?</Link>
 
-                    </div>
+                    </form>
                 </div>
             </div>
         )
