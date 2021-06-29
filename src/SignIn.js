@@ -62,7 +62,7 @@ export default class SignIn extends Component {
 
                         <p>Password</p>
 
-                        <input name='password' type='text' minLength={8} required={true}></input>
+                        <input name='password' type='password' minLength={8} required={true}></input>
 
                         <button id='signin-btn' onClick={this.submitSignIn}>Sign In</button>
 
