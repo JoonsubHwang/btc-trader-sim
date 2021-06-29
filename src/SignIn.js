@@ -22,11 +22,11 @@ export default class SignIn extends Component {
 
                         <p>E-mail</p>
 
-                        <input name='email' type='text'></input>
+                        <input name='email' type='text' pattern='.+\@.+\..+' required='true'></input>
 
                         <p>Password</p>
 
-                        <input name='password' type='text'></input>
+                        <input name='password' type='text' pattern='8{.}.*' required='true'></input>
 
                         <button id='signin-btn'>Sign In</button>
 
