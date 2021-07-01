@@ -11,12 +11,8 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <Switch>
-            <Route exact path='/' render={() => (
-              <Homepage></Homepage>
-            )} />
-            <Route exact path='/trading' render={() => (
-              <Trading></Trading>
-            )} />
+            <Route exact path='/' component={Homepage}/>
+            <Route exact path='/trading' component={Trading} />
             <Route render={() => (
                 <p>not found</p> // <NotFound />
             )}/>
