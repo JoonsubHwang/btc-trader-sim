@@ -56,8 +56,11 @@ function signIn(email) {
 
 
 
-// on server start
+// server start
 
-app.listen(HTTP_PORT, () => {
-    console.log('listening on port: ' + HTTP_PORT);
+dataService.connect().then(() => {
+    console.log('Connected to database.')
+    app.listen(HTTP_PORT, () => {
+        console.log('Listening on port: ' + HTTP_PORT);
+    });
 });
