@@ -17,16 +17,6 @@ exports.connect = async () => {
     })
 },
 
-exports.findAccount = async (email) => {
-    try {
-        // TODO: apply hashing
-        return await Accounts.findOne({ email: email }).lean().exec();
-    } catch (err) {
-        console.error('[data-service] Failed to find the account. ' + err);
-        throw new Error('Failed to find the account.');
-    }
-},
-
 exports.validateSignIn = async (signInData) => {
 
     let invalid = {};
@@ -35,7 +25,7 @@ exports.validateSignIn = async (signInData) => {
 
         if (signInData.email) { // TODO: apply hashing
 
-            const account = await Accounts.findOne({ email: email }).lean().exec();
+            const account = await Accounts.findOne({ email: signInData.email }).lean().exec();
 
             if (account) {
                 if (account.password === signInData.password) // TODO: apply hashing
