@@ -30,30 +30,36 @@ module.exports = (connStr) => {
 
         validateSignIn: async (signInData) => {
 
-            let incorrect = {};
+            let invalid = {};
 
-            if (signInData.email) {
+            try {
 
-                const account = await findAccount(signInData.email);
+                if (signInData.email) { // TODO: apply hashing
 
-                if (account) {
-                    // TODO: apply hashing
-                    if (account.password === signInData.password)
-                        return; // only successful sign in
+                    const account = await findAccount(signInData.email);
+    
+                    if (account) {
+                        if (account.password === signInData.password) // TODO: apply hashing
+                            return undefined; // only successful sign in
+                        else
+                            invalid.password = 'Password is incorrect.';
+                    }
                     else
-                        incorrect.password = 'Password is incorrect.';
+                        invalid.email = 'Account does not exist.';
+    
                 }
-                else
-                    incorrect.email = 'Account does not exist.';
+                else 
+                    invalid.email = 'Please enter the email.';
 
+            } catch (err) {
+                console.error('[data-service]: Failed to validate sign in data. ' + err);
+                throw new Error('Failed to validate sign in data.');
             }
-            else 
-                incorrect.email = 'Please enter the email.';
 
             if (!signInData.password)
-                incorrect.password = 'Please enter the password';
+                invalid.password = 'Please enter the password';
 
-            return incorrect;
+            return invalid;
         }
 
     }
