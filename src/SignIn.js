@@ -30,18 +30,26 @@ export default class SignIn extends Component {
                     email: formData.get('email'),
                     password: formData.get('password')
                 }) 
-            }
+            };
 
-            fetch('signin', req)
+            fetch('/sign-in', req)
             .then(res => {
                 if (res.redirected)
                     window.location.href = res.url;
-                else
-                    alert(JSON.stringify(res));
+                else {
+                    res.json().then(incorrect => {
+                        if (incorrect.error)
+                            alert(incorrect.error);
+                        else {
+                            // TODO: display better
+                            alert(incorrect.email + '\n' +incorrect.password);
+                        }
+                    })
+                }
             })
             .catch(err => {
-                alert(err);
-            })
+                console.error(err);
+            });
         }
     }
 
