@@ -27,18 +27,18 @@ app.post('/sign-in', (req, res) => {
 
     const signInData = req.body;
     dataService.validateSignIn(signInData)
-        .then(invalid => {
-            if (invalid)
-                res.send(invalid);
-            else {
-                signIn(signInData.email);
-                res.redirect('back');
-            }
-        })
-        .catch(err => {
-            console.error('[server] Failed to sign in. ' + err);
-            res.send({ error: 'Server had a problem signing in.' });
-        });
+    .then(invalid => {
+        if (invalid)
+            res.send(invalid);
+        else {
+            signIn(signInData.email);
+            res.redirect('back');
+        }
+    })
+    .catch(err => {
+        console.error('[server] Failed to sign in. ' + err);
+        res.send({ error: 'Server had a problem signing in.' });
+    });
 
 });
 
@@ -58,9 +58,13 @@ function signIn(email) {
 
 // server start
 
-dataService.connect().then(() => {
-    console.log('Connected to database.')
+dataService.connectToDB()
+.then(() => {
+    console.log('Connected to database.');
     app.listen(HTTP_PORT, () => {
         console.log('Listening on port: ' + HTTP_PORT);
     });
+})
+.catch(err => {
+    console.error('[server] Failed to connect to the database. ' + err);
 });
