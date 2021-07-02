@@ -66,11 +66,11 @@ export default class SignIn extends Component {
 
                         <p>E-mail</p>
 
-                        <input name='email' type='text' pattern='.+@.+\..+' required={true} placeholder='username@domain.com'></input>
+                        <input name='email' type='email' required={true} placeholder='username@domain.com'></input>
 
                         <p>Password</p>
 
-                        <input name='password' type='password' minLength={8} required={true}></input>
+                        <input name='password' type='password' minLength={8} required={true} placeholder='8_characters_at_min'></input>
 
                         <button id='signin-btn' onClick={this.submitSignIn}>Sign In</button>
 
