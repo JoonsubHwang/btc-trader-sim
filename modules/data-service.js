@@ -1,21 +1,25 @@
 const mongoose = require('mongoose');
 const accountSchema = require('./accountSchema.js');
 
-const connStr = '';
+const connStr = ``;
 let Accounts;
 
 
 
-exports.connect = async () => {
+exports.connectToDB = async () => {
+
     let db = mongoose.createConnection(connStr, { useNewUrlParser: true, useUnifiedTopology: true });
-    db.on('error', () => {
-        throw new Error('[data-service] Failed to connect to the database');
+
+    db.on('error', err => {
+        console.error('[data-service] Failed to connect to the database. ' + err);
+        throw new Error('Failed to connect to the database.');
     });
+    
     db.once('open', () => {
         Accounts = db.model('Accounts', accountSchema);
         return;
-    })
-},
+    });
+};
 
 exports.validateSignIn = async (signInData) => {
 
@@ -49,5 +53,5 @@ exports.validateSignIn = async (signInData) => {
         invalid.password = 'Please enter the password';
 
     return invalid;
-}
+};
 
