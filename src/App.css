@@ -61,9 +61,14 @@ input {
     padding: .4rem;
 }
 
-input:focus {
+input[type]:focus {
     outline: none;
-    border-color: var(--theme);
+    border-color: var(--theme) !important;
+}
+
+input:invalid,
+:out-of-range {
+    border-color: var(--red);
 }
 
 .small {
