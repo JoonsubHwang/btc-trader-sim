@@ -19,7 +19,7 @@ app.use(express.json()); // json parser
 
 // routes
 
-app.get('/', (req, res) => {
+app.use((req, res) => { // all GET routes handled by React
     res.sendFile(path.join(__dirname + '/../build/index.html'));
 });
 
