@@ -1,14 +1,15 @@
 const mongoose = require('mongoose');
 const accountSchema = require('./accountSchema.js');
+require('dotenv').config();
 
-const connStr = ``;
+
+
 let Accounts;
-
 
 
 exports.connectToDB = async () => {
 
-    let db = mongoose.createConnection(connStr, { useNewUrlParser: true, useUnifiedTopology: true });
+    let db = mongoose.createConnection(process.env.CONN_STR, { useNewUrlParser: true, useUnifiedTopology: true });
 
     db.on('error', err => {
         console.error('[data-service] Failed to connect to the database. ' + err);
