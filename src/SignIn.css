@@ -45,6 +45,10 @@
     gap: 2rem .5rem;
 }
 
+#signin-form > input:valid {
+    border-color: var(--green) !important;
+}
+
 #signin-heading {
     grid-column: span 2;
 
