@@ -24,26 +24,23 @@ exports.connectToDB = async () => {
 
 exports.validateSignIn = async (signInData) => {
 
-    let invalid = {};
+    let result = {};
 
     try {
 
         if (signInData.email) { // TODO: apply hashing
 
-            const account = await Accounts.findOne({ email: signInData.email }).lean().exec();
+            result.account = await Accounts.findOne({ email: signInData.email }).lean().exec();
 
-            if (account) {
-                if (account.password === signInData.password) // TODO: apply hashing
-                    return undefined; // only successful sign in
-                else
-                    invalid.password = 'Password is incorrect.';
+            if (result.account) {
+                if (result.account.password !== signInData.password) // TODO: apply hashing
+                    result.invalid.password = 'Password is incorrect.';
             }
             else
-                invalid.email = 'Account does not exist.';
-
+                result.invalid.email = 'Account does not exist.';
         }
         else 
-            invalid.email = 'Please enter the email.';
+            result.invalid.email = 'Please enter the email.';
 
     } catch (err) {
         console.error('[data-service] Failed to validate sign in data. ' + err);
@@ -51,8 +48,8 @@ exports.validateSignIn = async (signInData) => {
     }
 
     if (!signInData.password)
-        invalid.password = 'Please enter the password';
+        result.invalid.password = 'Please enter the password';
 
-    return invalid;
+    return result;
 };
 
