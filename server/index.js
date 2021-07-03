@@ -19,10 +19,6 @@ app.use(express.json()); // json parser
 
 // routes
 
-app.use((req, res) => { // all GET routes handled by React
-    res.sendFile(path.join(__dirname + '/../build/index.html'));
-});
-
 app.post('/sign-in', (req, res) => {
 
     const signInData = req.body;
@@ -40,6 +36,10 @@ app.post('/sign-in', (req, res) => {
         res.send({ error: 'Server had a problem signing in.' });
     });
 
+});
+
+app.use((req, res) => { // all GET routes handled by React
+    res.sendFile(path.join(__dirname + '/../build/index.html'));
 });
 
 
