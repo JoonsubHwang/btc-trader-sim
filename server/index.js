@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const sessions = require('client-sessions');
 const dataService = require('../modules/data-service');
 
 
@@ -14,6 +15,12 @@ const HTTP_PORT = process.env.PORT || 8080;
 app.use(express.static(path.join(__dirname + '/../build'))); // public folder
 app.use(express.json()); // json parser
 
+app.use(sessions({
+    cookieName: "session", // key name added to requests
+    secret: process.env.SESS_SECRET,
+    duration: 15 * (60 * 1000),
+    activeDuration: 5 * (60 * 1000) // time extended by each request
+}));
 
 
 
@@ -48,9 +55,11 @@ app.use((req, res) => { // all GET routes handled by React
 
 // helpers
 
-function signIn(email) {
-    // TODO: save email to session
-    console.log('[debug]: Signed in with ' + email);
+function signIn(req, account) {
+    req.session.user = {
+        email: account.email,
+        name: account.name
+    };
 }
 
 
