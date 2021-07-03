@@ -9,6 +9,7 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.3",
+    "client-sessions": "^0.8.0",
     "css-what": "^5.0.1",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
