@@ -17,7 +17,7 @@ exports.connectToDB = async () => {
     });
     
     db.once('open', () => {
-        Accounts = db.model('Accounts', accountSchema);
+        Accounts = db.model('accounts', accountSchema);
         return;
     });
 };
