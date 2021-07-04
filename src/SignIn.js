@@ -37,12 +37,12 @@ export default class SignIn extends Component {
                 if (res.redirected)
                     window.location.href = res.url;
                 else {
-                    res.json().then(incorrect => {
-                        if (incorrect.error)
-                            alert(incorrect.error);
+                    res.json().then(res => {
+                        if (res.error)
+                            alert(res.error);
                         else {
                             // TODO: display better
-                            alert(incorrect.email + '\n' +incorrect.password);
+                            alert(res.email + '\n' +res.password);
                         }
                     })
                 }
