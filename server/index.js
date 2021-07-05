@@ -31,11 +31,11 @@ app.post('/sign-in', (req, res) => {
     const signInData = req.body;
     dataService.validateSignIn(signInData)
     .then(result => {
-        if (result.incorrect)
-            res.send(result.incorrect);
+        if (result.invalid)
+            res.send({ invalid: result.invalid });
         else {
             signIn(req, result.account);
-            res.redirect('back');
+            res.send({ email: result.account.email });
         }
     })
     .catch(err => {

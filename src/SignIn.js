@@ -33,19 +33,18 @@ export default class SignIn extends Component {
             };
 
             fetch('/sign-in', req)
+            .then(res => res.json())
             .then(res => {
-                if (res.redirected)
-                    window.location.href = res.url;
-                else {
-                    res.json().then(res => {
-                        if (res.error)
-                            alert(res.error);
-                        else {
-                            // TODO: display better
-                            alert(res.email + '\n' +res.password);
-                        }
-                    })
+                if (res.email) {
+                    // TODO: sign in
+                    window.location.reload();
                 }
+                else if (res.invalid) {
+                    // TODO: display better
+                    alert(res.invalid.email + '\n' +res.invalid.password);
+                }
+                else
+                    alert(res.error); // TODO: display better
             })
             .catch(err => {
                 console.error(err);

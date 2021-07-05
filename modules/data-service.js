@@ -24,7 +24,7 @@ exports.connectToDB = async () => {
 
 exports.validateSignIn = async (signInData) => {
 
-    let result = {};
+    let result = { invalid: {} };
 
     try {
 
@@ -33,7 +33,9 @@ exports.validateSignIn = async (signInData) => {
             result.account = await Accounts.findOne({ email: signInData.email }).lean().exec();
 
             if (result.account) {
-                if (result.account.password !== signInData.password) // TODO: apply hashing
+                if (result.account.password == signInData.password) // TODO: apply hashing
+                    result.invalid = undefined;
+                else
                     result.invalid.password = 'Password is incorrect.';
             }
             else
