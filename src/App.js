@@ -1,10 +1,24 @@
-import './App.css';
 import { Route, Switch } from 'react-router-dom';
+import React from 'react';
 import Homepage from './Homepage';
 import Trading from './Trading';
-import { Component } from 'react';
+import './App.css';
 
-class App extends Component {
+
+
+class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      email: null // if signed in
+    }
+  }
+
+  setEmail = (email) => {
+    this.setState({ email: email });
+  }
 
   render() {
     return (
@@ -12,7 +26,9 @@ class App extends Component {
         <header className="App-header">
           <Switch>
             <Route exact path='/' component={Homepage}/>
-            <Route exact path='/trading' component={Trading} />
+            <Route exact path='/trading'>
+              <Trading email={this.state.email} setEmail={this.setEmail}></Trading>
+            </Route>
             <Route render={() => (
                 <p>not found</p> // <NotFound />
             )}/>
