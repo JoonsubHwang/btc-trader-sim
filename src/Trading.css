@@ -382,3 +382,27 @@ input[type=number] {
 #balance-grid > * {
     align-self: center;
 }
+
+#balance-panel-alt {
+    display: grid;
+    padding: 20% 20%;
+    place-items: center;
+}
+
+#balance-panel-alt > button {
+    display: block;
+    margin: auto;
+    padding: .3rem;
+    width: 100%;
+
+    border: 1px solid var(--theme);
+    border-radius: .3rem;
+    background-color: var(--theme);
+    color: var(--fg);
+
+    text-align: center;
+}
+
+#balance-panel-alt > button:hover {
+    background-color: var(--bg);
+}
