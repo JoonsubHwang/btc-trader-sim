@@ -40,7 +40,7 @@ app.post('/sign-in', (req, res) => {
     })
     .catch(err => {
         console.error('[server] Failed to sign in. ' + err);
-        res.send({ error: 'Server had a problem signing in.' });
+        res.status(500).send({ error: 'Server had a problem signing in.' });
     });
 
 });
