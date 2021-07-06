@@ -45,6 +45,16 @@ app.post('/sign-in', (req, res) => {
 
 });
 
+app.post('/sign-out', (req, res) => {
+    try {
+        signOut(req);
+        res.send();
+    } catch (err) {
+        console.error('[server] Failed to sign out. ' + err);
+        res.status(500).send({ error: 'Server had a problem signing out.' });
+    }
+});
+
 app.use((req, res) => { // all GET routes handled by React
     res.sendFile(path.join(__dirname + '/../build/index.html'));
 });
@@ -60,6 +70,10 @@ function signIn(req, account) {
         email: account.email,
         name: account.name
     };
+}
+
+function signOut(req) {
+    req.session.user = undefined;
 }
 
 
