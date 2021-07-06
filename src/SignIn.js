@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Close } from '@material-ui/icons';
 import './SignIn.css';
 
-export default class SignIn extends Component {
+export default class SignIn extends React.Component {
 
-    submitSignIn(event) {
+    submitSignIn = (event) => {
 
         event.preventDefault();
 
@@ -34,17 +34,17 @@ export default class SignIn extends Component {
 
             fetch('/sign-in', req)
             .then(res => res.json())
-            .then(res => {
-                if (res.email) {
-                    // TODO: sign in
-                    window.location.reload();
+            .then(result => {
+                if (result.email) {
+                    this.props.setEmail(result.email);
+                    this.props.toggleSignInPopup();
                 }
-                else if (res.invalid) {
+                else if (result.invalid) {
                     // TODO: display better
-                    alert(res.invalid.email + '\n' +res.invalid.password);
+                    alert(result.invalid.email + '\n' +result.invalid.password);
                 }
                 else
-                    alert(res.error); // TODO: display better
+                    alert(result.error); // TODO: display better
             })
             .catch(err => {
                 console.error(err);
