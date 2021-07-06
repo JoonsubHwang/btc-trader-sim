@@ -44,26 +44,7 @@ class Trading extends React.Component {
 
     // update
     update = () => {
-
-        CbProAPI.loadNewPrice()
-        .then(newPrice => {
-
-            // change color of price when it's changed
-            if (newPrice > this.state.price)
-                this.setState({ priceColor: 'green' });
-            else if (newPrice < this.state.price)
-                this.setState({ priceColor: 'red' });
-            else 
-                this.setState({ priceColor: 'white' });
-
-            // store new price
-            this.setState({ 
-                price: newPrice,
-            });
-        })
-        .catch(err => {
-            console.error(err);
-        })
+        this.updatePrice();
     }
 
 
@@ -122,6 +103,32 @@ class Trading extends React.Component {
 
     toggleSignInPopup = () => {
         document.querySelector('#signin-main').classList.toggle('visible');
+    }
+
+
+
+    // helpers
+    updatePrice = () => {
+        CbProAPI.loadNewPrice()
+        .then(newPrice => {
+
+            // change color of price when it's changed
+            if (newPrice > this.state.price)
+                this.setState({ priceColor: 'green' });
+            else if (newPrice < this.state.price)
+                this.setState({ priceColor: 'red' });
+            else 
+                this.setState({ priceColor: 'white' });
+
+            // store new price
+            this.setState({ 
+                price: newPrice,
+            });
+        })
+        .catch(err => {
+            // TODO: use popup
+            console.error(err);
+        });
     }
 
 
