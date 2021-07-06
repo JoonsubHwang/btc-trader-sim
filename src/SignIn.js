@@ -37,6 +37,8 @@ export default class SignIn extends React.Component {
             .then(result => {
                 if (result.email) {
                     this.props.setEmail(result.email);
+                    // TODO: call loadName from Trading
+                    // TODO: call loadBalance from Trading
                     this.props.toggleSignInPopup();
                 }
                 else if (result.invalid) {

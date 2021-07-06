@@ -120,7 +120,6 @@ class Trading extends React.Component {
         document.querySelector('#menu-list').classList.toggle('visible');
     }
 
-    // TODO: move this to App.js
     toggleSignInPopup = () => {
         document.querySelector('#signin-main').classList.toggle('visible');
     }
