@@ -25,8 +25,7 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
           <Switch>
-            <Route exact path='/' component={Homepage}/>
-            <Route exact path='/trading'>
+            <Route exact path='/'>
               <Trading email={this.state.email} setEmail={this.setEmail}></Trading>
             </Route>
             <Route render={() => (
