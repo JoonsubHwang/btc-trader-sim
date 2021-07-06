@@ -60,11 +60,11 @@ export default class SignIn extends React.Component {
                 }
                 // on server error
                 else {
-                    alert(result.error); // TODO: display better
+                    throw new Error(result.error);
                 }
             })
             .catch(err => {
-                console.error(err);
+                alert(err); // TODO: display better
             });
         }
     }
