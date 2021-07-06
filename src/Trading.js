@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { Menu } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 import Chart from './Chart';
@@ -7,7 +7,7 @@ import { CbProAPI } from './CbProAPI';
 import orderTypes from './orderTypes.js';
 import './Trading.css';
 
-class Trading extends Component {
+class Trading extends React.Component {
 
     // constructor
     constructor(props) {
@@ -21,8 +21,8 @@ class Trading extends Component {
         this.state = {
             price: undefined,
             priceColor: 'white',
-            cash: 1000, // TODO: temporary value
-            BTCWallet: 50.1231, // TODO: temporary value
+            cash: 0,
+            BTCWallet: 0,
             buy: true, // false = sell
             orderPrice: 0,
             orderType: orderTypes.LIMIT_ORDER,
@@ -31,12 +31,12 @@ class Trading extends Component {
         }
     }
 
-    componentDidMount() {
+    componentDidMount = () => {
         // set update timer
         this.tUpdate = setInterval(this.update, this.iUpdate);
     }
 
-    componentWillUnmount() {
+    componentWillUnmount = () => {
         clearInterval(this.tUpdate);
     }
 
@@ -112,18 +112,16 @@ class Trading extends Component {
             // TODO: handle reject (invalid order)
         })
         .catch(err => {
-            console.log(err);
+            console.error(err);
         })
     }
 
-    toggleDropdown = (event) => {
-        event.preventDefault();
+    toggleDropdown = () => {
         document.querySelector('#menu-list').classList.toggle('visible');
     }
 
     // TODO: move this to App.js
-    toggleSignInPopup = (event) => {
-        event.preventDefault();
+    toggleSignInPopup = () => {
         document.querySelector('#signin-main').classList.toggle('visible');
     }
 
@@ -147,20 +145,31 @@ class Trading extends Component {
                     <div id='menu-panel'>
 
                         <div id='menu-grid'>
-                            <button id='orders-btn'>My Orders</button>
+                            
+                            {this.props.email ?
+                                <button id='orders-btn'>Orders</button>
+                                : <div/>}
+                            
                             <div id='dropdown-menu'>
                                 <Menu id='menu-btn' onClick={this.toggleDropdown}></Menu>
-                                <div id='menu-list'>
-                                    <Link to='/'>Home</Link>
-                                    <button onClick={this.toggleSignInPopup}>Sign In</button>
-                                    <button>Sign Up</button>
-                                </div>
+                                {this.props.email ?
+                                    <div id='menu-list'>
+                                        <p>{this.props.email}</p> {/* TODO: load and display name */}
+                                        <button>Sign Out</button>
+                                        <Link to='/'>Home</Link>
+                                    </div>
+                                    : 
+                                    <div id='menu-list'>
+                                        <button onClick={this.toggleSignInPopup}>Sign In</button>
+                                        <button>Sign Up</button>
+                                        <Link to='/'>Home</Link>
+                                    </div>}
                             </div>
                         </div>
 
                     </div>
                     
-                    <SignIn toggleSignInPopup={this.toggleSignInPopup}></SignIn>
+                    <SignIn setEmail={this.props.setEmail} toggleSignInPopup={this.toggleSignInPopup}></SignIn>
         
                     {/* chart-panel */}
                     <div id='chart-panel' className='container framed'>
