@@ -263,20 +263,24 @@ class Trading extends React.Component {
                     </div>
 
                     {/* balance-panel */}
-                    <div id='balance-panel' className='container framed'>
-
-                        <h2 id='balance-heading' className='large'>Balance</h2>
-                        
-                        <div id='balance-grid'>
-                            <p className='name'>Total</p>
-                            <p className='value'>{(this.state.cash + (this.state.BTCWallet * this.state.price)).toFixed(0)} USD</p>
-                            <p className='name'>Cash</p>
-                            <p className='value'>{this.state.cash.toFixed(0)} USD</p>
-                            <p className='name'>BTC</p>
-                            <p className='value'>{this.state.BTCWallet} BTC</p>
+                    {this.state.email ?
+                    // signed in
+                        <div id='balance-panel' className='container framed'>
+                            <h2 id='balance-heading' className='large'>Balance</h2>
+                            <div id='balance-grid'>
+                                <p className='name'>Total</p>
+                                <p className='value'>{(this.state.cash + (this.state.BTCWallet * this.state.price)).toFixed(0)} USD</p>
+                                <p className='name'>Cash</p>
+                                <p className='value'>{this.state.cash.toFixed(0)} USD</p>
+                                <p className='name'>BTC</p>
+                                <p className='value'>{this.state.BTCWallet} BTC</p>
+                            </div>
                         </div>
-
-                    </div>
+                    // not signed in
+                    :   <div id='balance-panel-alt' className='container framed'>
+                            <button onClick={this.toggleSignInPopup} type='button'>Sign In</button>
+                            <button type='button'>Sign Up</button>
+                        </div>}
 
                 </div>
                 
