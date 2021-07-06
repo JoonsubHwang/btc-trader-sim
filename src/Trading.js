@@ -19,16 +19,21 @@ class Trading extends React.Component {
         this.priceStep = 100; // dolalrs
 
         this.state = {
+            // account
             email: null, // present if signed in
-            price: undefined,
-            priceColor: 'white',
             cash: 0,
             BTCWallet: 0,
+            orderList: {},
+
+            // price
+            price: undefined,
+            priceColor: 'white',
+
+            // order
             buy: true, // false = sell
             orderPrice: 0,
             orderType: orderTypes.LIMIT_ORDER,
-            IOC: false, // immedate or cancel
-            orderAmount: 0 //  BTC
+            orderAmount: 0 // BTC
         }
     }
 
@@ -144,9 +149,8 @@ class Trading extends React.Component {
             // on error
             if (res.bodyUsed) {
                 res.json()
-                .then(res => {
-                    throw new Error(res.error);
-                })
+                .then(res => 
+                    { throw new Error(res.error); });
             }
             // on success
             else
