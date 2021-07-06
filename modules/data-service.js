@@ -1,10 +1,12 @@
 const mongoose = require('mongoose');
 const accountSchema = require('./accountSchema.js');
+const balanceSchema = require('./balanceSchema');
+const orderlistSchema = require('./orderlistSchema');
 require('dotenv').config();
 
 
 
-let Accounts;
+let Accounts, Balances, Orderlists;
 
 
 exports.connectToDB = async () => {
@@ -18,6 +20,8 @@ exports.connectToDB = async () => {
     
     db.once('open', () => {
         Accounts = db.model('accounts', accountSchema);
+        Balances = db.model('balances', balanceSchema);
+        Orderlists = db.model('orderlists', orderlistSchema);
         return;
     });
 };
