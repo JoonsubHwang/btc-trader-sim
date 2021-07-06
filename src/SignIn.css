@@ -70,7 +70,6 @@
 
 #signin-btn:hover {
     background-color: var(--bg);
-    color: var(--theme);
 }
 
 #signin-form > a {
