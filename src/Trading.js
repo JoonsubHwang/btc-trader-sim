@@ -42,9 +42,36 @@ class Trading extends React.Component {
 
 
 
-    // update
+    // update (main loop)
     update = () => {
         this.updatePrice();
+    }
+
+
+
+    // helpers
+
+    updatePrice = () => {
+        CbProAPI.loadNewPrice()
+        .then(newPrice => {
+
+            // change color of price when it's changed
+            if (newPrice > this.state.price)
+                this.setState({ priceColor: 'green' });
+            else if (newPrice < this.state.price)
+                this.setState({ priceColor: 'red' });
+            else 
+                this.setState({ priceColor: 'white' });
+
+            // store new price
+            this.setState({ 
+                price: newPrice,
+            });
+        })
+        .catch(err => {
+            // TODO: use popup
+            alert(err);
+        });
     }
 
 
@@ -105,30 +132,20 @@ class Trading extends React.Component {
         document.querySelector('#signin-main').classList.toggle('visible');
     }
 
+    signOut = () => {
 
-
-    // helpers
-    updatePrice = () => {
-        CbProAPI.loadNewPrice()
-        .then(newPrice => {
-
-            // change color of price when it's changed
-            if (newPrice > this.state.price)
-                this.setState({ priceColor: 'green' });
-            else if (newPrice < this.state.price)
-                this.setState({ priceColor: 'red' });
-            else 
-                this.setState({ priceColor: 'white' });
-
-            // store new price
-            this.setState({ 
-                price: newPrice,
-            });
+        fetch('/sign-out', { method: 'POST' })
+        .then(res => res.json())
+        .then(res => {
+            if (res.error)
+                throw new Error(res.error);
+            else
+                this.setEmail('');
         })
         .catch(err => {
-            // TODO: use popup
-            console.error(err);
-        });
+            alert(err); // TODO: use popup
+        })
+
     }
 
 
@@ -161,7 +178,7 @@ class Trading extends React.Component {
                                 {this.props.email ?
                                     <div id='menu-list'>
                                         <p>{this.props.email}</p> {/* TODO: display name instead */}
-                                        <button>Sign Out</button>
+                                        <button onClick={this.signOut}>Sign Out</button>
                                     </div>
                                     : 
                                     <div id='menu-list'>
