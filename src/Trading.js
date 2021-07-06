@@ -19,6 +19,7 @@ class Trading extends React.Component {
         this.priceStep = 100; // dolalrs
 
         this.state = {
+            email: null, // present if signed in
             price: undefined,
             priceColor: 'white',
             cash: 0,
@@ -72,6 +73,10 @@ class Trading extends React.Component {
             // TODO: use popup
             alert(err);
         });
+    }
+
+    setEmail = (email) => {
+      this.setState({ email: email });
     }
 
 
@@ -169,28 +174,28 @@ class Trading extends React.Component {
 
                         <div id='menu-grid'>
                             
-                            {this.props.email ?
+                            {this.state.email ?
                                 <button id='orders-btn'>Orders</button>
                                 : <div/>}
                             
                             <div id='dropdown-menu'>
                                 <Menu id='menu-btn' onClick={this.toggleDropdown}></Menu>
-                                {this.props.email ?
+                                {this.state.email ?
                                     <div id='menu-list'>
-                                        <p>{this.props.email}</p> {/* TODO: display name instead */}
-                                        <button onClick={this.signOut}>Sign Out</button>
+                                        <p>{this.state.email}</p> {/* TODO: display name instead */}
+                                        <button onClick={this.signOut} type='button'>Sign Out</button>
                                     </div>
                                     : 
                                     <div id='menu-list'>
-                                        <button onClick={this.toggleSignInPopup}>Sign In</button>
-                                        <button>Sign Up</button>
+                                        <button onClick={this.toggleSignInPopup} type='button'>Sign In</button>
+                                        <button type='button'>Sign Up</button>
                                     </div>}
                             </div>
                         </div>
 
                     </div>
                     
-                    <SignIn setEmail={this.props.setEmail} toggleSignInPopup={this.toggleSignInPopup}></SignIn>
+                    <SignIn setEmail={this.setEmail} toggleSignInPopup={this.toggleSignInPopup}></SignIn>
         
                     {/* chart-panel */}
                     <div id='chart-panel' className='container framed'>
