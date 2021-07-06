@@ -62,15 +62,15 @@
 #signin-btn {
     grid-column: span 2;
 
-    background-color: var(--bg);
-    color: var(--accent);
-    border: 1px solid var(--accent);
+    border: 1px solid var(--theme);
     border-radius: .3rem;
+    background-color: var(--theme);
+    color: var(--fg);
 }
 
 #signin-btn:hover {
-    background-color: var(--accent);
-    color: var(--bg);
+    background-color: var(--bg);
+    color: var(--theme);
 }
 
 #signin-form > a {
