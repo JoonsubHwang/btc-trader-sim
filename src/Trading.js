@@ -140,17 +140,21 @@ class Trading extends React.Component {
     signOut = () => {
 
         fetch('/sign-out', { method: 'POST' })
-        .then(res => res.json())
         .then(res => {
-            if (res.error)
-                throw new Error(res.error);
+            // on error
+            if (res.bodyUsed) {
+                res.json()
+                .then(res => {
+                    throw new Error(res.error);
+                })
+            }
+            // on success
             else
                 this.setEmail('');
         })
         .catch(err => {
             alert(err); // TODO: use popup
-        })
-
+        });
     }
 
 
