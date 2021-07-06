@@ -35,18 +35,33 @@ export default class SignIn extends React.Component {
             fetch('/sign-in', req)
             .then(res => res.json())
             .then(result => {
+                // on successful sign in
                 if (result.email) {
                     this.props.setEmail(result.email);
                     // TODO: call loadName from Trading
                     // TODO: call loadBalance from Trading
                     this.props.toggleSignInPopup();
                 }
+                // on sign in fail
                 else if (result.invalid) {
                     // TODO: display better
-                    alert(result.invalid.email + '\n' +result.invalid.password);
+                    if (result.invalid.email) {
+                        let emailFld = document.getElementsByName('email')[0];
+                        emailFld.setCustomValidity(result.invalid.email);
+                        emailFld.reportValidity();
+                        emailFld.setCustomValidity(''); // TODO: remove and set onChange=check-again
+                    }
+                    if (result.invalid.password) {
+                        let passwordFld = document.getElementsByName('password')[0];
+                        passwordFld.setCustomValidity(result.invalid.password);
+                        passwordFld.reportValidity();
+                        passwordFld.setCustomValidity(''); // TODO: remove and set onChange=check-again
+                    }
                 }
-                else
+                // on server error
+                else {
                     alert(result.error); // TODO: display better
+                }
             })
             .catch(err => {
                 console.error(err);
