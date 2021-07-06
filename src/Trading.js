@@ -153,15 +153,13 @@ class Trading extends React.Component {
                                 <Menu id='menu-btn' onClick={this.toggleDropdown}></Menu>
                                 {this.props.email ?
                                     <div id='menu-list'>
-                                        <p>{this.props.email}</p> {/* TODO: load and display name */}
+                                        <p>{this.props.email}</p> {/* TODO: display name instead */}
                                         <button>Sign Out</button>
-                                        <Link to='/'>Home</Link>
                                     </div>
                                     : 
                                     <div id='menu-list'>
                                         <button onClick={this.toggleSignInPopup}>Sign In</button>
                                         <button>Sign Up</button>
-                                        <Link to='/'>Home</Link>
                                     </div>}
                             </div>
                         </div>
