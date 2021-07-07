@@ -87,7 +87,7 @@
     background-color: var(--theme);
     border: 1px solid var(--theme);
     border-radius: .3rem;
-    padding: .3rem 1rem;
+    padding: .2rem .8rem .1rem;
 }
 
 #orders-btn:hover {
