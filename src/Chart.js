@@ -64,117 +64,10 @@ class Chart extends Component {
     }
 
     componentDidMount() {
-
-        // chart
-
-        let chart = am4core.create("priceChart", am4charts.XYChart);
-        chart.responsive.enabled = true;
-        chart.padding(15, 15, 0, 0); // padding (pixels)
-        chart.dateFormatter.dateFormat = 'HH:mm'; // date format
-
-
-        // axes
-
-        chart.leftAxesContainer.layout = 'vertical' // separates axes vertically
-
-        let timeAxis = chart.xAxes.push(new am4charts.DateAxis());
-        timeAxis.renderer.grid.template.location = 0;
-        timeAxis.renderer.minGridDistance = this.timeGridUnit;
-        timeAxis.baseInterval = { timeUnit: 'minute', count: this.state.timeUnit };
-
-        let priceAxis = chart.yAxes.push(new am4charts.ValueAxis());
-        priceAxis.renderer.minGridDistance = this.priceGridUnit;
-
-        let volumeAxis = chart.yAxes.push(new am4charts.ValueAxis());
-        volumeAxis.height = this.volAxisHeight;
-        volumeAxis.renderer.labels.template.disabled = true;
-        volumeAxis.valign = 'bottom';
-
-        // axis tooltips
-
-        let timeTooltip = timeAxis.tooltip;
-        timeTooltip.background.stroke = fg;
-        timeTooltip.background.fill = am4core.color(bg);
-        timeTooltip.background.pointerLength = 0;
-        timeTooltip.background.cornerRadius = 4;
-        timeTooltip.dy = 5;
-
-        let priceTooltip = priceAxis.tooltip;
-        priceTooltip.background.stroke = fg;
-        priceTooltip.background.fill = am4core.color(bg);
-        priceTooltip.background.pointerLength = 0;
-        priceTooltip.background.cornerRadius = 4;
-
-        volumeAxis.tooltip = null;
-
-        
-        // data serieses
-
-        let priceSeries = chart.series.push(new am4charts.CandlestickSeries());
-        priceSeries.dataFields.dateX = 'time';
-        priceSeries.dataFields.valueY = 'close';
-        priceSeries.dataFields.openValueY = 'open';
-        priceSeries.dataFields.lowValueY = 'low';
-        priceSeries.dataFields.highValueY = 'high';
-        priceSeries.clustered = false;
-
-        let volumeSeries = chart.series.push(new am4charts.CandlestickSeries());
-        volumeSeries.dataFields.dateX = 'time';
-        volumeSeries.dataFields.openValueY = 'openVolume';
-        volumeSeries.dataFields.valueY = 'valueVolume';
-        volumeSeries.dataFields.highValueY = 'highVolume';
-        volumeSeries.yAxis = volumeAxis;
-        volumeSeries.clustered = false;
-        volumeSeries.opacity = this.volSeriesOpacity;
-
-
-
-        // load initial data
-        CbProAPI.loadHistory()
-        .then(data => { 
-            chart.data = data;
-        })
-        .catch(err => { 
-            console.error('[Client] ' + err); 
-        });
-
-
-        // series tooltips
-
-        priceSeries.tooltipText = 
-            'Open ${openValueY.value.formatNumber(\'#.00\')}\n' + 
-            'Close ${valueY.value.formatNumber(\'#.00\')}\n' +
-            'Low \u00A0\u00A0${lowValueY.value.formatNumber(\'#.00\')}\n' + 
-            'High \u00A0${highValueY.value.formatNumber(\'#.00\')}';
-        priceSeries.columns.template.tooltipY = am4core.percent(100);
-        priceSeries.tooltip.pointerOrientation = 'right';
-        priceSeries.tooltip.dx = this.tooltipDx;
-        priceSeries.tooltip.background.strokeOpacity = 0;
-        priceSeries.tooltip.fontSize = this.tooltipFontSize;
-
-        volumeSeries.tooltipText = 'Vol. ${highValueY.value.formatNumber(\'#.#\')}K';
-        volumeSeries.tooltip.pointerOrientation = 'right';
-        volumeSeries.tooltip.dx = this.tooltipDx;
-        volumeSeries.tooltip.background.fillOpacity = 0;
-        volumeSeries.tooltip.background.strokeOpacity = 0;
-        volumeSeries.tooltip.fontSize = this.tooltipFontSize;
-
-        
-        // cursor
-        chart.cursor = new am4charts.XYCursor();
-        chart.cursor.behavior = 'selectY';
-
-
-        // theme
-        chart.background.show();
-        chart.cursor.lineX.strokeOpacity = 1;
-        chart.cursor.lineX.strokeDasharray = [];
-        chart.cursor.lineX.strokeWidth = 1;
-        chart.cursor.lineY.strokeOpacity = 1;
-        chart.cursor.lineY.strokeDasharray = [];
-        chart.cursor.lineY.strokeWidth = 1;
-
-        this.chart = chart;
+        this.setupChart();
+        this.loadInitialData();
+        this.setupAxes();
+        this.setupDataSerieses();        
     }
 
     componentWillUnmount() {
@@ -243,6 +136,122 @@ class Chart extends Component {
                 })
             }
         }
+    }
+
+    setupChart() {
+
+        this.chart = am4core.create("priceChart", am4charts.XYChart);
+        this.chart.responsive.enabled = true;
+        this.chart.padding(15, 15, 0, 0); // padding (pixels)
+        this.chart.dateFormatter.dateFormat = 'HH:mm'; // date format
+
+        // cursor
+        this.chart.cursor = new am4charts.XYCursor();
+        this.chart.cursor.behavior = 'selectY';
+
+        // theme
+        this.chart.background.show();
+        this.chart.cursor.lineX.strokeOpacity = 1;
+        this.chart.cursor.lineX.strokeDasharray = [];
+        this.chart.cursor.lineX.strokeWidth = 1;
+        this.chart.cursor.lineY.strokeOpacity = 1;
+        this.chart.cursor.lineY.strokeDasharray = [];
+        this.chart.cursor.lineY.strokeWidth = 1;
+    }
+
+    loadInitialData() {
+        // load initial data (history candles)
+        CbProAPI.loadHistory()
+        .then(data => { 
+            this.chart.data = data;
+        })
+        .catch(err => { 
+            console.error('[Client] ' + err); 
+        });
+    }
+
+    setupAxes() {
+
+        this.chart.leftAxesContainer.layout = 'vertical' // separates axes vertically
+
+
+        // axes
+
+        let timeAxis = this.chart.xAxes.push(new am4charts.DateAxis());
+        timeAxis.renderer.grid.template.location = 0;
+        timeAxis.renderer.minGridDistance = this.timeGridUnit;
+        timeAxis.baseInterval = { timeUnit: 'minute', count: this.state.timeUnit };
+
+        let priceAxis = this.chart.yAxes.push(new am4charts.ValueAxis());
+        priceAxis.renderer.minGridDistance = this.priceGridUnit;
+
+        this.volumeAxis = this.chart.yAxes.push(new am4charts.ValueAxis());
+        this.volumeAxis.height = this.volAxisHeight;
+        this.volumeAxis.renderer.labels.template.disabled = true;
+        this.volumeAxis.valign = 'bottom'; 
+        
+        
+        // axis tooltips
+
+        let timeTooltip = timeAxis.tooltip;
+        timeTooltip.background.stroke = fg;
+        timeTooltip.background.fill = am4core.color(bg);
+        timeTooltip.background.pointerLength = 0;
+        timeTooltip.background.cornerRadius = 4;
+        timeTooltip.dy = 5;
+
+        let priceTooltip = priceAxis.tooltip;
+        priceTooltip.background.stroke = fg;
+        priceTooltip.background.fill = am4core.color(bg);
+        priceTooltip.background.pointerLength = 0;
+        priceTooltip.background.cornerRadius = 4;
+
+        this.volumeAxis.tooltip = null;
+
+    }
+
+    setupDataSerieses() {
+
+        // data serieses
+
+        let priceSeries = this.chart.series.push(new am4charts.CandlestickSeries());
+        priceSeries.dataFields.dateX = 'time';
+        priceSeries.dataFields.valueY = 'close';
+        priceSeries.dataFields.openValueY = 'open';
+        priceSeries.dataFields.lowValueY = 'low';
+        priceSeries.dataFields.highValueY = 'high';
+        priceSeries.clustered = false;
+
+        let volumeSeries = this.chart.series.push(new am4charts.CandlestickSeries());
+        volumeSeries.dataFields.dateX = 'time';
+        volumeSeries.dataFields.openValueY = 'openVolume';
+        volumeSeries.dataFields.valueY = 'valueVolume';
+        volumeSeries.dataFields.highValueY = 'highVolume';
+        console.log(this.volumeAxis);
+        volumeSeries.yAxis = this.volumeAxis; // volumeAxis
+        volumeSeries.clustered = false;
+        volumeSeries.opacity = this.volSeriesOpacity;
+
+
+        // series tooltips
+
+        priceSeries.tooltipText = 
+            'Open ${openValueY.value.formatNumber(\'#.00\')}\n' + 
+            'Close ${valueY.value.formatNumber(\'#.00\')}\n' +
+            'Low \u00A0\u00A0${lowValueY.value.formatNumber(\'#.00\')}\n' + 
+            'High \u00A0${highValueY.value.formatNumber(\'#.00\')}';
+        priceSeries.columns.template.tooltipY = am4core.percent(100);
+        priceSeries.tooltip.pointerOrientation = 'right';
+        priceSeries.tooltip.dx = this.tooltipDx;
+        priceSeries.tooltip.background.strokeOpacity = 0;
+        priceSeries.tooltip.fontSize = this.tooltipFontSize;
+
+        volumeSeries.tooltipText = 'Vol. ${highValueY.value.formatNumber(\'#.#\')}K';
+        volumeSeries.tooltip.pointerOrientation = 'right';
+        volumeSeries.tooltip.dx = this.tooltipDx;
+        volumeSeries.tooltip.background.fillOpacity = 0;
+        volumeSeries.tooltip.background.strokeOpacity = 0;
+        volumeSeries.tooltip.fontSize = this.tooltipFontSize;
     }
 
     // render
