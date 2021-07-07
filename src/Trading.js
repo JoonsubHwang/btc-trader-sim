@@ -1,5 +1,6 @@
 import React from 'react';
 import { Menu } from '@material-ui/icons';
+
 import Chart from './Chart';
 import SignIn from './SignIn';
 import { CbProAPI } from './CbProAPI';
@@ -53,8 +54,10 @@ class Trading extends React.Component {
 
     // update (main loop)
     update = () => {
+        this.loadEmail();
         this.updatePrice();
-        // this.updateAccountData();
+        if (this.state.email)
+            this.updateAccountData();
     }
 
 
@@ -87,6 +90,24 @@ class Trading extends React.Component {
       this.setState({ email: email });
     }
 
+    // TODO: need async return?
+    // load email if signed in
+    loadEmail = () => {
+
+        fetch('/email-signed-in', { method: 'GET' }).then(res => {
+
+            if (res.bodyUsed)
+                res.json().then(res => {
+                    this.setEmail(res.email);
+                });
+            // else: not signed in
+
+        }).catch(err => {
+            // TODO: use popup
+            alert(err);
+        });
+    };
+
     // update balance and orderlist
     updateAccountData = () => {
 
@@ -96,26 +117,24 @@ class Trading extends React.Component {
             body: JSON.stringify({ cash: this.state.balance.cash })
         };
 
-        try {
-            fetch('/account-updates', req).then(res => {
-                if (res.bodyUsed) {
-                    res.json().then(res => {
-                        if (res.error)
-                            throw new Error(res.error);
-                        else { // received updates
-                            // update
-                            this.setState( { balance: res.balance });
-                            this.setState( { orderlist: res.orderlist });
-                        }
-                    });
-                }
-                // else: no update
-            });
-        } catch (err) {
+        fetch('/account-updates', req).then(res => {
+            if (res.bodyUsed) {
+                res.json().then(res => {
+                    if (res.error)
+                        throw new Error(res.error);
+                    else { // received updates
+                        // update
+                        this.setState( { balance: res.balance });
+                        this.setState( { orderlist: res.orderlist });
+                    }
+                });
+            }
+            // else: no update
+        }).catch( err => {
             // TODO: use popup
             alert(err);
-        }
-    }
+        });
+    };
 
 
 
@@ -125,20 +144,20 @@ class Trading extends React.Component {
         event.preventDefault();
 
         this.setState({ orderType: event.target.innerHTML });
-    }
+    };
 
     setBuyOrSell = (event) => {
         event.preventDefault();
         this.setState({ buy: (event.target.id === 'buy-btn') });
-    }
+    };
 
     setOrderPrice = (event) => {
         this.setState({ orderPrice: event.target.value });
-    }
+    };
 
     setOrderAmount = (event) => {
         this.setState({ orderAmount: event.target.value });
-    }
+    };
 
     submitOrder = (event) => {
 
@@ -165,15 +184,15 @@ class Trading extends React.Component {
         .catch(err => {
             console.error(err);
         })
-    }
+    };
 
     toggleDropdown = () => {
         document.querySelector('#menu-list').classList.toggle('visible');
-    }
+    };
 
     toggleSignInPopup = () => {
         document.querySelector('#signin-main').classList.toggle('visible');
-    }
+    };
 
     signOut = () => {
 
@@ -190,7 +209,7 @@ class Trading extends React.Component {
         .catch(err => {
             alert(err); // TODO: use popup
         });
-    }
+    };
 
 
 
@@ -317,7 +336,7 @@ class Trading extends React.Component {
                 
             </div>
         );
-    }
-}
+    };
+};
 
 export default Trading;
