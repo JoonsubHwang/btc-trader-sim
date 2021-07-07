@@ -343,14 +343,16 @@ input[type=number] {
 
 /* balance-panel */
 
-#balance-panel {
+#balance-panel,
+#balance-panel-alt {
     grid-row: 3;
     grid-column: 2;
 
     padding: .6rem;
 }
 @media (max-width: 900px)  and (orientation: portrait){
-    #balance-panel {
+    #balance-panel,
+    #balance-panel-alt {
         grid-row: 4;
         grid-column: 1 / span 2;
     }
@@ -394,8 +396,13 @@ input[type=number] {
 
 #balance-panel-alt {
     display: grid;
-    padding: 20% 20%;
+    padding: 20%;
     place-items: center;
+}
+@media (max-width: 900px)  and (orientation: portrait){
+    #balance-panel-alt {
+        padding: 5% 20%;
+    }
 }
 
 #balance-panel-alt > button {
