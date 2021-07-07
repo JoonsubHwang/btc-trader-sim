@@ -1,6 +1,5 @@
 import React from 'react';
 import { Menu } from '@material-ui/icons';
-import { Link } from 'react-router-dom';
 import Chart from './Chart';
 import SignIn from './SignIn';
 import { CbProAPI } from './CbProAPI';
@@ -21,9 +20,11 @@ class Trading extends React.Component {
         this.state = {
             // account
             email: null, // present if signed in
-            cash: 0,
-            BTCWallet: 0,
-            orderList: {},
+            balance: {
+                cash: 0,
+                btc: 0
+            },
+            orderlist: {},
 
             // price
             price: undefined,
@@ -38,6 +39,8 @@ class Trading extends React.Component {
     }
 
     componentDidMount = () => {
+        // load data
+        this.update();
         // set update timer
         this.tUpdate = setInterval(this.update, this.iUpdate);
     }
@@ -51,6 +54,7 @@ class Trading extends React.Component {
     // update (main loop)
     update = () => {
         this.updatePrice();
+        // this.updateAccountData();
     }
 
 
@@ -58,8 +62,7 @@ class Trading extends React.Component {
     // helpers
 
     updatePrice = () => {
-        CbProAPI.loadNewPrice()
-        .then(newPrice => {
+        CbProAPI.loadNewPrice().then(newPrice => {
 
             // change color of price when it's changed
             if (newPrice > this.state.price)
@@ -83,6 +86,37 @@ class Trading extends React.Component {
     setEmail = (email) => {
       this.setState({ email: email });
     }
+
+    // update balance and orderlist
+    updateAccountData = () => {
+
+        const req = {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({ cash: this.state.balance.cash })
+        };
+
+        try {
+            fetch('/account-updates', req).then(res => {
+                if (res.bodyUsed) {
+                    res.json().then(res => {
+                        if (res.error)
+                            throw new Error(res.error);
+                        else { // received updates
+                            // update
+                            this.setState( { balance: res.balance });
+                            this.setState( { orderlist: res.orderlist });
+                        }
+                    });
+                }
+                // else: no update
+            });
+        } catch (err) {
+            // TODO: use popup
+            alert(err);
+        }
+    }
+
 
 
     // event handlers
@@ -124,8 +158,7 @@ class Trading extends React.Component {
             })
         }
 
-        fetch('submit-order', req)
-        .then(res => {
+        fetch('submit-order', req).then(res => {
             // TODO: handle redirect?
             // TODO: handle reject (invalid order)
         })
@@ -144,17 +177,15 @@ class Trading extends React.Component {
 
     signOut = () => {
 
-        fetch('/sign-out', { method: 'POST' })
-        .then(res => {
+        fetch('/sign-out', { method: 'POST' }).then(res => {
             // on error
             if (res.bodyUsed) {
-                res.json()
-                .then(res => 
+                res.json().then(res => 
                     { throw new Error(res.error); });
             }
             // on success
             else
-                this.setEmail('');
+                this.setEmail(null); // TODO: change to null
         })
         .catch(err => {
             alert(err); // TODO: use popup
@@ -242,9 +273,9 @@ class Trading extends React.Component {
 
                             {/* order amount */}
                             <input className='value' type='number' name='orderAmount' 
-                                step={((this.state.buy ? (this.state.cash / this.state.orderPrice) : this.state.BTCWallet) * 0.1).toFixed(4)} 
+                                step={((this.state.buy ? (this.state.balance.cash / this.state.orderPrice) : this.state.balance.btc) * 0.1).toFixed(4)} 
                                 value={this.state.orderAmount} min='0' 
-                                max={this.state.buy ? this.state.cash / this.state.orderPrice : this.state.BTCWallet} 
+                                max={this.state.buy ? this.state.balance.cash / this.state.orderPrice : this.state.balance.btc} 
                                 onChange={this.setOrderAmount}></input>
 
                             <p className='name'> BTC</p>
@@ -269,11 +300,11 @@ class Trading extends React.Component {
                             <h2 id='balance-heading' className='large'>Balance</h2>
                             <div id='balance-grid'>
                                 <p className='name'>Total</p>
-                                <p className='value'>{(this.state.cash + (this.state.BTCWallet * this.state.price)).toFixed(0)} USD</p>
+                                <p className='value'>{(this.state.balance.cash + (this.state.balance.btc * this.state.price)).toFixed(0)} USD</p>
                                 <p className='name'>Cash</p>
-                                <p className='value'>{this.state.cash.toFixed(0)} USD</p>
+                                <p className='value'>{this.state.balance.cash.toFixed(0)} USD</p>
                                 <p className='name'>BTC</p>
-                                <p className='value'>{this.state.BTCWallet} BTC</p>
+                                <p className='value'>{this.state.balance.btc} BTC</p>
                             </div>
                         </div>
                     // not signed in
