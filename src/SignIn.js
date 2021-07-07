@@ -59,6 +59,7 @@ export default class SignIn extends React.Component {
                     }
                 }
                 // on server error
+                // TODO: check status code?
                 else {
                     throw new Error(result.error);
                 }
