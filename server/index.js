@@ -55,6 +55,13 @@ app.post('/sign-out', (req, res) => {
     }
 });
 
+app.get('/email-signed-in', (req, res) => {
+    if (req.session.user)
+        res.send({ email: req.session.user.email });
+    else
+        res.send();
+});
+
 app.post('/account-updates', (req, res) => {
     
     const cashOld = req.body.cash;
