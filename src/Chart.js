@@ -79,62 +79,67 @@ class Chart extends Component {
 
         let currentTime = new Date();
 
-        // add new candle every minute
-        if ((this.props.price !== undefined) && this.chart.data[0] && (currentTime.getMinutes() !== this.chart.data[0].time.getMinutes())) {
+        try {
+            // add new candle every minute
+            if ((this.props.price !== undefined) && this.chart.data[0] && (currentTime.getMinutes() !== this.chart.data[0].time.getMinutes())) {
 
-            // add new candle
-            this.chart.data.unshift({
-                time: currentTime,
-                low: this.props.price,
-                high: this.props.price,
-                open: this.props.price,
-                close: this.props.price
-                // no volume
-            });
+                // add new candle
+                this.chart.data.unshift({
+                    time: currentTime,
+                    low: this.props.price,
+                    high: this.props.price,
+                    open: this.props.price,
+                    close: this.props.price
+                    // no volume
+                });
 
-            // remove the oldest candle
-            this.chart.data.pop();
-
-            // update chart
-            this.chart.invalidateData();
-        }
-        else {
-            // update current candle when price changes
-            if (oldProps.price !== this.props.price) {
-
-                // update close
-                this.chart.data[0].close = this.props.price;
-
-                // update low and high
-                if (this.props.price < this.chart.data[0].low)
-                    this.chart.data[0].low = this.props.price;
-                else if (this.props.price > this.chart.data[0].high)
-                    this.chart.data[0].high = this.props.price;
+                // remove the oldest candle
+                this.chart.data.pop();
 
                 // update chart
-                this.chart.invalidateRawData();
+                this.chart.invalidateData();
             }
+            else {
+                // update current candle when price changes
+                if (oldProps.price !== this.props.price) {
 
-            // update last minute's candle at 30 seconds (to get the volume)
-            if (currentTime.getSeconds() === 30) {
+                    // update close
+                    this.chart.data[0].close = this.props.price;
 
-                // request last minute's candle
-                CbProAPI.loadCandle()
-                .then(candle => {
-                    // if it differs from chart data
-                    if ((this.chart.data[1].highVolume !== candle.highVolume)) {
-                        // update volume
-                        this.chart.data[1].openVolume =  candle.openVolume;
-                        this.chart.data[1].valueVolume = candle.valueVolume;
-                        this.chart.data[1].highVolume = candle.highVolume;
-                        // redraw
-                        this.chart.invalidateRawData();
-                    }
-                })
-                .catch(err => {
-                    console.error('[Client] ' + err);
-                })
+                    // update low and high
+                    if (this.props.price < this.chart.data[0].low)
+                        this.chart.data[0].low = this.props.price;
+                    else if (this.props.price > this.chart.data[0].high)
+                        this.chart.data[0].high = this.props.price;
+
+                    // update chart
+                    this.chart.invalidateRawData();
+                }
+
+                // update last minute's candle at 30 seconds (to get the volume)
+                if (currentTime.getSeconds() === 30) {
+
+                    // request last minute's candle
+                    CbProAPI.loadCandle()
+                    .then(candle => {
+                        // if it differs from chart data
+                        if ((this.chart.data[1].highVolume !== candle.highVolume)) {
+                            // update volume
+                            this.chart.data[1].openVolume =  candle.openVolume;
+                            this.chart.data[1].valueVolume = candle.valueVolume;
+                            this.chart.data[1].highVolume = candle.highVolume;
+                            // redraw
+                            this.chart.invalidateRawData();
+                        }
+                    })
+                    .catch(err => {
+                        console.error('[Client] ' + err);
+                    })
+                }
             }
+                
+        } catch (err) {
+            alert(err); // TODO: use popup
         }
     }
 
@@ -227,7 +232,6 @@ class Chart extends Component {
         volumeSeries.dataFields.openValueY = 'openVolume';
         volumeSeries.dataFields.valueY = 'valueVolume';
         volumeSeries.dataFields.highValueY = 'highVolume';
-        console.log(this.volumeAxis);
         volumeSeries.yAxis = this.volumeAxis; // volumeAxis
         volumeSeries.clustered = false;
         volumeSeries.opacity = this.volSeriesOpacity;
