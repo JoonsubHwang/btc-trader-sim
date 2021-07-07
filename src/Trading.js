@@ -54,7 +54,7 @@ class Trading extends React.Component {
 
     // update (main loop)
     update = () => {
-        this.loadEmail();
+        this.checkSignedIn();
         this.updatePrice();
         if (this.state.email)
             this.updateAccountData();
@@ -90,9 +90,8 @@ class Trading extends React.Component {
       this.setState({ email: email });
     }
 
-    // TODO: need async return?
     // load email if signed in
-    loadEmail = () => {
+    checkSignedIn = () => {
 
         fetch('/email-signed-in', { method: 'GET' }).then(res => {
 
