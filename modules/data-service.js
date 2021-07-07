@@ -59,3 +59,25 @@ exports.validateSignIn = async (signInData) => {
     return result;
 };
 
+exports.loadBalance = async (email) => {
+
+    try {
+        return await Balances.findOne({ email: signInData.email }).lean().exec();
+
+    } catch (err) {
+        console.error('[data-service] Failed to load balance. ' + err);
+        throw new Error('Failed to load balance of ' + email);
+    }
+};
+
+exports.loadOrderlist = async (email) => {
+
+    try {
+        return await Orderlists.findOne({ email: signInData.email }).lean().exec();
+        
+    } catch (err) {
+        console.error('[data-service] Failed to load orderlist ' + err);
+        throw new Error('Failed to load orderlist of ' + email);
+    }
+};
+
