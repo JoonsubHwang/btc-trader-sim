@@ -79,6 +79,7 @@
     display: grid;
     grid-template-columns: auto 2.5rem;
     place-items: center right;
+    column-gap: .3rem;
 }
 
 #orders-btn {
@@ -86,7 +87,7 @@
     background-color: var(--theme);
     border: 1px solid var(--theme);
     border-radius: .3rem;
-    padding: .4rem .8rem;
+    padding: .3rem 1rem;
 }
 
 #orders-btn:hover {
