@@ -55,6 +55,32 @@ app.post('/sign-out', (req, res) => {
     }
 });
 
+app.post('/account-updates', (req, res) => {
+    
+    const cashOld = req.body.cash;
+    const email = req.session.user.email;
+
+    dataService.loadBalance(email)
+    .then(balance => {
+        // if there's a change
+        if (balance.cash !== cashOld)
+            dataService.loadOrderlist(email)
+            .then(orderlist => {
+                res.send({
+                    balance: balance,
+                    orderlist: orderlist
+                });
+            });
+        // if there's no change
+        else
+            res.send();
+    })
+    .catch(err => {
+        console.error('[server] Failed to load account updates. ' + err);
+        res.status(500).send({ error: 'Server had a problem loading account updates.' });
+    });
+});
+
 app.use((req, res) => { // all GET routes handled by React
     res.sendFile(path.join(__dirname + '/../build/index.html'));
 });
