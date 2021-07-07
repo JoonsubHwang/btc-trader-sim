@@ -83,14 +83,14 @@
 
 #orders-btn {
     grid-column: 1;
-    background: none;
-    border: none;
+    background-color: var(--theme);
+    border: 1px solid var(--theme);
     border-radius: .3rem;
     padding: .4rem .8rem;
 }
 
 #orders-btn:hover {
-    color: var(--theme);
+    background-color: var(--bg-dark);
 }
 
 #dropdown-menu {
@@ -194,27 +194,36 @@
 #sell-btn {
     background-color: var(--bg);
     border-radius: .5rem;
+
     font-weight: 500;
-
     padding: 0;
-    border: 1px solid var(--fg-darker);
-    color: var(--fg-darker);
 }
 
-#buy-btn:hover, 
-#sell-btn:hover {
-    color: var(--fg);
-    border-color: var(--fg);
-}
-
-#buy-btn.selected {
+#buy-btn {
     color: var(--green);
     border-color: var(--green);
 }
 
-#sell-btn.selected {
+#sell-btn {
     color: var(--red);
     border-color: var(--red);
+}
+
+#buy-btn.selected,
+#sell-btn.selected,
+#buy-btn:hover,
+#sell-btn:hover {
+    color: var(--fg);
+}
+
+#buy-btn.selected,
+#buy-btn:hover {
+    background-color: var(--green);
+} 
+
+#sell-btn.selected,
+#sell-btn:hover {
+    background-color: var(--red);
 }
 
 #order-form {
@@ -262,7 +271,7 @@
 
 .orderType-btn.selected {
     color: var(--fg);
-    border-color: var(--theme);
+    border-color: var(--accent);
 }
 
 #marketPrice {
@@ -312,21 +321,21 @@ input[type=number] {
     border: 1px solid;
     border-radius: .3rem;
 
-    background-color: var(--bg);
-}
-
-#order-btn:hover {
-    color: var(--theme) !important;
+    color: var(--fg);
 }
 
 #order-btn.green {
-    color: var(--green);
     border-color: var(--green);
+    background-color: var(--green);
 }
 
 #order-btn.red {
-    color: var(--red);
     border-color: var(--red);
+    background-color: var(--red);
+}
+
+#order-btn:hover {
+    background-color: var(--bg);
 }
 
 
