@@ -193,38 +193,31 @@
 
 #buy-btn, 
 #sell-btn {
-    background-color: var(--bg);
+    background: none;
     border-radius: .5rem;
 
     font-weight: 500;
     padding: 0;
+
+    border: 1px solid var(--fg-darker);
+    color: var(--fg-darker);
 }
 
-#buy-btn {
+#buy-btn.selected,
+#buy-btn.selected:hover {
     color: var(--green);
     border-color: var(--green);
 }
 
-#sell-btn {
+#sell-btn.selected,
+#sell-btn.selected:hover {
     color: var(--red);
     border-color: var(--red);
 }
 
-#buy-btn.selected,
-#sell-btn.selected,
 #buy-btn:hover,
 #sell-btn:hover {
-    color: var(--fg);
-}
-
-#buy-btn.selected,
-#buy-btn:hover {
-    background-color: var(--green);
-} 
-
-#sell-btn.selected,
-#sell-btn:hover {
-    background-color: var(--red);
+    border-color: var(--fg);
 }
 
 #order-form {
