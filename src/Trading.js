@@ -110,7 +110,10 @@ class Trading extends React.Component {
                     // store email
                     { this.setEmail(res.email); });
 
-            // else: not signed in
+            // if not signed in
+            else {
+                this.setEmail(null);
+            }
 
         }).catch(err => {
             console.error('Error checking sign in. (' + err + ')');
