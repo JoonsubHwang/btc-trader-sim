@@ -117,7 +117,7 @@ class Trading extends React.Component {
         };
 
         fetch('/account-updates', req)
-        .then(res => res.json())
+        .then(res => res.status === 204 ? res : res.json())
         .then(res => {
             // if updates are received
             if (res.balance) {
