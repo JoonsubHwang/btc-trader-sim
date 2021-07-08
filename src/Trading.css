@@ -330,12 +330,11 @@ input[type=number] {
 }
 
 #amountUSD {
-    margin-top: -.3rem;
     grid-column: 2 / span 2 !important;
+    margin-left: auto;
 }
 
 #amountUSDUnit {
-    margin-top: -.3rem;
     grid-column: 4;
 }
 
