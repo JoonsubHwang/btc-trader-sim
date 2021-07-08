@@ -190,7 +190,7 @@ class Trading extends React.Component {
     signOut = () => {
 
         fetch('/sign-out', { method: 'POST' })
-        .then(res => res.json())
+        .then(res => res.status === 500 ? res.json() : res)
         .then(res => {
             
             // on server error
