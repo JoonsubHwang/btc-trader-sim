@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani&display=swap');
 
 :root {
-    --bg: rgb(20, 20, 36);
-    --bg-dark: rgb(5, 10, 20);
+    --bg: rgb(26, 28, 31);
     --fg: rgb(230, 230, 230);
     --fg-darker: rgb(150, 150, 150);
     --accent: rgb(196, 177, 32);
@@ -27,7 +26,7 @@
 }
 
 body {
-    background-color: var(--bg-dark);
+    background-color: var(--bg);
     color: var(--fg);
 }
 
@@ -53,7 +52,7 @@ h1, h2, h3, h4 {
 }
 
 input {
-    background-color: var(--bg-dark);
+    background-color: var(--bg);
     color: var(--fg);
     border-radius: .2rem;
     border: 1px solid var(--fg-darker);
@@ -95,8 +94,4 @@ input:invalid,
 .framed {
     border-radius: .5rem;
     background-color: var(--bg);
-}
-
-.blurred {
-    filter: blur(4px);
 }
