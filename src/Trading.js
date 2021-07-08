@@ -272,13 +272,15 @@ class Trading extends React.Component {
 
                             <label>Type</label>
 
-                            {/* 3 order type buttons */}
-                            {Object.values(orderTypes).map(orderType => 
-                                <button className={'orderType-btn' + (this.state.orderType === orderType  ? ' selected' : '')} 
-                                    onClick={this.setOrderType} key={orderType}>
-                                    {orderType}
-                                </button>
-                            )}
+                            <div id='orderTypes-grid'>
+                                {/* 3 order type buttons */}
+                                {Object.values(orderTypes).map(orderType => 
+                                    <button className={'orderType-btn' + (this.state.orderType === orderType  ? ' selected' : '')} 
+                                        onClick={this.setOrderType} key={orderType}>
+                                        {orderType}
+                                    </button>
+                                )}
+                            </div>
 
                             <label htmlFor='orderPrice'>Price</label>
 
