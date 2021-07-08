@@ -97,12 +97,12 @@ input:placeholder-shown {
 
 input[type]:focus {
     outline: none;
-    border-color: var(--theme);
+    border: 1px solid var(--theme);
 }
 
 input:invalid,
 :out-of-range {
-    border-color: var(--red);
+    border: 1px solid var(--red);
 }
 
 .small {

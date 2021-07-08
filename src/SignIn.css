@@ -49,7 +49,7 @@
 }
 
 #signin-form > input:valid {
-    border-color: var(--green) !important;
+    border: 1px solid var(--green) !important;
 }
 
 #signin-heading {
