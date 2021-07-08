@@ -54,6 +54,11 @@ h1, h2, h3, h4 {
 }
 
 input {
+    box-shadow: inset -2px -2px 5px 1px var(--bg-highlight),
+                inset 2px 2px 5px 1px var(--bg-shadow);
+}
+
+input {
     line-height: 1.2rem;
     padding: .4rem;
 
