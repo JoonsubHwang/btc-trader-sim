@@ -32,7 +32,6 @@ class Trading extends React.Component {
             priceColor: 'white',
 
             // order
-            buy: true, // false = sell
             orderPrice: 0,
             orderType: orderTypes.LIMIT_ORDER,
             orderAmount: 0 // BTC
@@ -144,11 +143,6 @@ class Trading extends React.Component {
         event.preventDefault();
 
         this.setState({ orderType: event.target.innerHTML });
-    };
-
-    setBuyOrSell = (event) => {
-        event.preventDefault();
-        this.setState({ buy: (event.target.id === 'buy-btn') });
     };
 
     setOrderPrice = (event) => {
@@ -265,8 +259,8 @@ class Trading extends React.Component {
                     {/* txn-panel (transaction) */}
                     <div id='txn-panel' className='container framed'>
 
-                        <button id='buy-btn'  className={'medium ' + (this.state.buy ? 'selected' : '')} onClick={this.setBuyOrSell}>BUY</button>
-                        <button id='sell-btn' className={'medium ' + (this.state.buy ? '' : 'selected')} onClick={this.setBuyOrSell}>SELL</button>
+                        {/* <button id='buy-btn'  className={'medium ' + (this.state.buy ? 'selected' : '')} onClick={this.setBuyOrSell}>BUY</button>
+                        <button id='sell-btn' className={'medium ' + (this.state.buy ? '' : 'selected')} onClick={this.setBuyOrSell}>SELL</button> */}
 
                         <form id='order-form'>
 
