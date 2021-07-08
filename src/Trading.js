@@ -270,7 +270,7 @@ class Trading extends React.Component {
 
                         <form id='order-form'>
 
-                            <label>Amount</label>
+                            <label>Type</label>
 
                             {/* 3 order type buttons */}
                             {Object.values(orderTypes).map(orderType => 
