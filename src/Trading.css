@@ -31,7 +31,7 @@
     display: grid;
     grid-template-columns: var(--txnWidth) auto;
     grid-template-rows: var(--pricePanelHeight) var(--chartHeight) auto;
-    gap: 1rem;
+    gap: 2rem;
 }
 @media (max-width: 900px)  and (orientation: portrait){
     #trading-grid {
