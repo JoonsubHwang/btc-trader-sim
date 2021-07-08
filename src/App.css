@@ -53,9 +53,14 @@ h1, h2, h3, h4 {
     font-weight: normal;
 }
 
+button {
+    box-shadow: -2px -2px 3px 1px var(--bg-highlight),
+                 2px  2px 3px 1px var(--bg-shadow);
+}
+
 input {
     box-shadow: inset -2px -2px 5px 1px var(--bg-highlight),
-                inset 2px 2px 5px 1px var(--bg-shadow);
+                inset  2px  2px 5px 1px var(--bg-shadow);
 }
 
 input {
