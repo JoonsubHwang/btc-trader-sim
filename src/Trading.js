@@ -113,21 +113,20 @@ class Trading extends React.Component {
             body: JSON.stringify({ cash: this.state.balance.cash })
         };
 
-        fetch('/account-updates', req).then(res => {
-
-            // on server error
-            if (res.status === 500)
-                res.json().then(res => 
-                    { console.error('Error updating account data. (' + res.error + ')'); });
-            
+        fetch('/account-updates', req)
+        .then(res => res.json())
+        .then(res => {
+            // if response isn't empty
             // if updates are received
-            else if (res.status !== 204) {
-                res.json().then(res => {
-                    // update data 
-                    this.setState( { balance: res.balance });
-                    this.setState( { orderlist: res.orderlist });
-                });
+            if (res.balance) {
+                // update data 
+                this.setState( { balance: res.balance });
+                this.setState( { orderlist: res.orderlist });
             }
+            // on server error
+            else if (res.error)
+                throw new Error(res.error);
+
             // else: no update
 
         }).catch(err => {
@@ -195,13 +194,13 @@ class Trading extends React.Component {
 
     signOut = () => {
 
-        fetch('/sign-out', { method: 'POST' }).then(res => {
+        fetch('/sign-out', { method: 'POST' })
+        .then(res => {
             
             // on server error
-            if (res.status === 500) {
-                res.json().then(res => 
-                    { alert(res.error); });
-            }
+            if (res.error)
+                throw new Error(res.error);
+
             // on success
             else
                 this.setEmail(null); // TODO: change to null
