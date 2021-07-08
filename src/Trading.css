@@ -265,7 +265,7 @@
     grid-template-columns: repeat(3, calc((100% - (2 * var(--gap))) / 3));
     place-items: center;
 
-    border-radius: .3rem;
+    border-radius: 2rem;
     box-shadow: inset -2px -2px 5px 1px var(--bg-highlight),
                 inset  2px  2px 5px 1px var(--bg-shadow);
 }
