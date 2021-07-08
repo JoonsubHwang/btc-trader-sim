@@ -273,7 +273,7 @@
 .orderType-btn {
     min-height: 2rem;
     width: 100%;
-    max-width: calc(var(--text-width) + 2rem);
+    max-width: calc(var(--text-width) + 3rem);
 
     border-radius: .3rem;
     background: none;
