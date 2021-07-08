@@ -290,7 +290,7 @@ class Trading extends React.Component {
                                 onChange={this.setOrderAmount}></input>
 
                             <div id='orderAmountUSD-grid'>
-                                <p className='name'> BTC</p>
+                                <p id='amountUnit' className='name'> BTC</p>
 
                                 {/* order amount in USD */}
                                 <p id='amountUSD' className='value'>≈ {((this.state.orderType === orderTypes.MARKET_ORDER ? this.state.price : this.state.orderPrice) 
