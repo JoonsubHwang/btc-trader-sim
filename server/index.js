@@ -59,7 +59,7 @@ app.get('/email-signed-in', (req, res) => {
     if (req.session.user)
         res.send({ email: req.session.user.email });
     else
-        res.send();
+        res.status(204).send();
 });
 
 app.post('/account-updates', (req, res) => {
@@ -80,7 +80,7 @@ app.post('/account-updates', (req, res) => {
             });
         // if there's no change
         else
-            res.send();
+            res.status(204).send();
     })
     .catch(err => {
         console.error('[server] Failed to load account updates. ' + err);
