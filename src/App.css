@@ -2,6 +2,8 @@
 
 :root {
     --bg: rgb(26, 28, 31);
+    --bg-highlight: rgb(42, 45, 50);
+    --bg-shadow: rgb(8, 9, 10);
     --fg: rgb(230, 230, 230);
     --fg-darker: rgb(150, 150, 150);
     --accent: rgb(196, 177, 32);
@@ -94,4 +96,6 @@ input:invalid,
 .framed {
     border-radius: .5rem;
     background-color: var(--bg);
+    box-shadow: inset -5px -5px 10px 1px var(--bg-highlight), 
+                inset  5px  5px 10px 1px var(--bg-shadow);
 }
