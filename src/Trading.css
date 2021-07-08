@@ -274,7 +274,7 @@
 
 .orderType-btn.selected {
     color: var(--fg);
-    border-color: var(--accent);
+    border-color: var(--theme);
 }
 
 #marketPrice {
