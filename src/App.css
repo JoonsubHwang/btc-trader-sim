@@ -62,9 +62,14 @@ input {
     padding: .4rem;
 }
 
+/* empty input */
+input:placeholder-shown {
+    border: none;
+}
+
 input[type]:focus {
     outline: none;
-    border-color: var(--theme) !important;
+    border-color: var(--theme);
 }
 
 input:invalid,
