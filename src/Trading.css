@@ -231,14 +231,14 @@
     grid-column: 2;
 
     width: 98%;
-    height: 96%;
+    height: 100%;
     margin: auto;
 
     /* grid */
     display: grid;
     grid-template-columns: 4rem repeat(3, calc((100% - 4rem - (.5rem * 3)) / 3));
     grid-template-rows: 2rem 2rem 2rem 2rem;
-    gap: calc((96% - 8.3rem) / 4) .5rem;
+    gap: calc((100% - 8rem) / 3) .5rem;
 }
 @media (max-width: 900px)  and (orientation: portrait){
     #order-form {
