@@ -329,6 +329,10 @@ input[type=number] {
     place-items: center;
 }
 
+#amountUnit {
+    margin-right: auto;
+}
+
 #amountUSD {
     grid-column: 2 / span 2 !important;
     margin-left: auto;
