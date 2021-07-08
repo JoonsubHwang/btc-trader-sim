@@ -139,7 +139,7 @@ class Chart extends Component {
             }
                 
         } catch (err) {
-            alert(err); // TODO: use popup
+            console.error('Error while updating chart data. (' + err + ')');
         }
     }
 
