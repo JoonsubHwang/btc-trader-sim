@@ -267,23 +267,43 @@
     justify-self: left;
 }
 
-.orderType-btn {
-    min-height: 2rem;
-    background-color: var(--bg);
-    color: var(--fg-darker);
+#orderTypes-grid {
+    --text-width: 8rem;
+    --gap: 2rem;
+
+    grid-column: span 3;
+    width: 100%;
+
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns: repeat(3, calc((100% - (2 * var(--gap))) / 3));
+    place-items: center;
 
     border-radius: .3rem;
-    border: 1px solid var(--fg-darker);
+    box-shadow: inset -2px -2px 5px 1px var(--bg-highlight),
+                inset  2px  2px 5px 1px var(--bg-shadow);
+}
+
+.orderType-btn {
+    min-height: 2rem;
+    width: 100%;
+    max-width: calc(var(--text-width) + 2rem);
+
+    border-radius: .3rem;
+    background: none;
+    color: var(--fg-darker);
+
+    box-shadow: none;
 }
 
 .orderType-btn:hover {
     color: var(--fg);
-    border-color: var(--fg);
 }
 
 .orderType-btn.selected {
+    background-color: var(--bg);
     color: var(--fg);
-    border-color: var(--theme);
+    box-shadow: 2px  2px 5px 1px var(--bg-shadow);
 }
 
 #marketPrice {
