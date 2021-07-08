@@ -94,9 +94,12 @@ class Trading extends React.Component {
 
         fetch('/email-signed-in', { method: 'GET' }).then(res => {
 
+            // if signed in
             if (res.status !== 204)
                 res.json().then(res => 
+                    // store email
                     { this.setEmail(res.email); });
+
             // else: not signed in
 
         }).catch(err => {
@@ -116,7 +119,6 @@ class Trading extends React.Component {
         fetch('/account-updates', req)
         .then(res => res.json())
         .then(res => {
-            // if response isn't empty
             // if updates are received
             if (res.balance) {
                 // update data 
@@ -195,6 +197,7 @@ class Trading extends React.Component {
     signOut = () => {
 
         fetch('/sign-out', { method: 'POST' })
+        .then(res => res.json())
         .then(res => {
             
             // on server error
