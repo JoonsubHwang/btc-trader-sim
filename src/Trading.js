@@ -28,7 +28,7 @@ class Trading extends React.Component {
             orderlist: {},
 
             // price
-            price: undefined,
+            price: 0,
             priceColor: 'white',
 
             // order
@@ -85,7 +85,18 @@ class Trading extends React.Component {
     }
 
     setEmail = (email) => {
-      this.setState({ email: email });
+
+        this.setState({ email: email });
+
+        if (email === null) {
+            this.setState({
+                balance: {
+                    cash: 0,
+                    BTC: 0
+                },
+                orderlist: {}
+            });
+        }
     }
 
     // load email if signed in
@@ -199,7 +210,7 @@ class Trading extends React.Component {
 
             // on success
             else
-                this.setEmail(null); // TODO: change to null
+                this.setEmail(null);
         })
         .catch(err => {
             alert(err); // TODO: use popup
