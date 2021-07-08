@@ -23,7 +23,7 @@ class Trading extends React.Component {
             email: null, // present if signed in
             balance: {
                 cash: 0,
-                btc: 0
+                BTC: 0
             },
             orderlist: {},
 
@@ -81,8 +81,7 @@ class Trading extends React.Component {
             });
         })
         .catch(err => {
-            // TODO: use popup
-            alert(err);
+            console.error('Error updating price. (' + err + ')');
         });
     }
 
@@ -95,15 +94,13 @@ class Trading extends React.Component {
 
         fetch('/email-signed-in', { method: 'GET' }).then(res => {
 
-            if (res.bodyUsed)
-                res.json().then(res => {
-                    this.setEmail(res.email);
-                });
+            if (res.status !== 204)
+                res.json().then(res => 
+                    { this.setEmail(res.email); });
             // else: not signed in
 
         }).catch(err => {
-            // TODO: use popup
-            alert(err);
+            console.error('Error checking sign in. (' + err + ')');
         });
     };
 
@@ -117,21 +114,24 @@ class Trading extends React.Component {
         };
 
         fetch('/account-updates', req).then(res => {
-            if (res.bodyUsed) {
+
+            // on server error
+            if (res.status === 500)
+                res.json().then(res => 
+                    { console.error('Error updating account data. (' + res.error + ')'); });
+            
+            // if updates are received
+            else if (res.status !== 204) {
                 res.json().then(res => {
-                    if (res.error)
-                        throw new Error(res.error);
-                    else { // received updates
-                        // update
-                        this.setState( { balance: res.balance });
-                        this.setState( { orderlist: res.orderlist });
-                    }
+                    // update data 
+                    this.setState( { balance: res.balance });
+                    this.setState( { orderlist: res.orderlist });
                 });
             }
             // else: no update
-        }).catch( err => {
-            // TODO: use popup
-            alert(err);
+
+        }).catch(err => {
+            console.error('Error updating account data. (' + err.message + ')');
         });
     };
 
@@ -196,10 +196,11 @@ class Trading extends React.Component {
     signOut = () => {
 
         fetch('/sign-out', { method: 'POST' }).then(res => {
-            // on error
-            if (res.bodyUsed) {
+            
+            // on server error
+            if (res.status === 500) {
                 res.json().then(res => 
-                    { throw new Error(res.error); });
+                    { alert(res.error); });
             }
             // on success
             else
@@ -291,9 +292,9 @@ class Trading extends React.Component {
 
                             {/* order amount */}
                             <input className='value' type='number' name='orderAmount' 
-                                step={((this.state.buy ? (this.state.balance.cash / this.state.orderPrice) : this.state.balance.btc) * 0.1).toFixed(4)} 
+                                step={((this.state.buy ? (this.state.balance.cash / this.state.orderPrice) : this.state.balance.BTC) * 0.1).toFixed(4)} 
                                 value={this.state.orderAmount} min='0' 
-                                max={this.state.buy ? this.state.balance.cash / this.state.orderPrice : this.state.balance.btc} 
+                                max={this.state.buy ? this.state.balance.cash / this.state.orderPrice : this.state.balance.BTC} 
                                 onChange={this.setOrderAmount}></input>
 
                             <p className='name'> BTC</p>
@@ -318,11 +319,11 @@ class Trading extends React.Component {
                             <h2 id='balance-heading' className='large'>Balance</h2>
                             <div id='balance-grid'>
                                 <p className='name'>Total</p>
-                                <p className='value'>{(this.state.balance.cash + (this.state.balance.btc * this.state.price)).toFixed(0)} USD</p>
+                                <p className='value'>{(this.state.balance.cash + (this.state.balance.BTC * this.state.price)).toFixed(0)} USD</p>
                                 <p className='name'>Cash</p>
                                 <p className='value'>{this.state.balance.cash.toFixed(0)} USD</p>
                                 <p className='name'>BTC</p>
-                                <p className='value'>{this.state.balance.btc} BTC</p>
+                                <p className='value'>{this.state.balance.BTC} BTC</p>
                             </div>
                         </div>
                     // not signed in
