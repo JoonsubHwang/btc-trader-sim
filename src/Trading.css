@@ -290,6 +290,7 @@
     background-color: var(--bg);
     color: var(--fg);
     box-shadow: 2px  2px 5px 1px var(--bg-shadow);
+    border: 1px solid var(--fg-darker);
 }
 
 #marketPrice {
