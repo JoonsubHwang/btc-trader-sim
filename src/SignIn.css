@@ -21,7 +21,7 @@
     left: calc((100% - var(--signin-width)) / 2);
     width: var(--signin-width);
     height: var(--signin-height);
-    border: 1px solid var(--theme);
+    box-shadow: none;
 }
 
 #close-btn {
