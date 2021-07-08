@@ -96,6 +96,6 @@ input:invalid,
 .framed {
     border-radius: .5rem;
     background-color: var(--bg);
-    box-shadow: inset -5px -5px 10px 1px var(--bg-highlight), 
-                inset  5px  5px 10px 1px var(--bg-shadow);
+    box-shadow: -5px -5px 10px 1px var(--bg-highlight), 
+                 5px  5px 10px 1px var(--bg-shadow);
 }
