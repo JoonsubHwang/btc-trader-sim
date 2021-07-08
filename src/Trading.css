@@ -84,13 +84,14 @@
 
 #orders-btn {
     grid-column: 1;
-    background-color: var(--theme);
-    border: 1px solid var(--theme);
+    background-color: var(--bg);
+    border: 1px solid var(--accent);
     border-radius: .3rem;
     padding: .2rem .8rem .1rem;
 }
 
 #orders-btn:hover {
+    border-color: var(--theme);
     background-color: var(--bg-dark);
 }
 
