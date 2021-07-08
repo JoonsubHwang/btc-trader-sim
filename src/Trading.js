@@ -289,13 +289,15 @@ class Trading extends React.Component {
                                 value={this.state.orderAmount} min='0' 
                                 onChange={this.setOrderAmount}></input>
 
-                            <p className='name'> BTC</p>
+                            <div id='orderAmountUSD-grid'>
+                                <p className='name'> BTC</p>
 
-                            {/* order amount in USD */}
-                            <p id='amountUSD' className='value'>≈ {((this.state.orderType === orderTypes.MARKET_ORDER ? this.state.price : this.state.orderPrice) 
-                                                                    * this.state.orderAmount).toFixed(2)}</p>
+                                {/* order amount in USD */}
+                                <p id='amountUSD' className='value'>≈ {((this.state.orderType === orderTypes.MARKET_ORDER ? this.state.price : this.state.orderPrice) 
+                                                                        * this.state.orderAmount).toFixed(2)}</p>
 
-                            <p id='amountUSDUnit' className='name'> USD</p>
+                                <p id='amountUSDUnit' className='name'> USD</p>
+                            </div>
 
                             {/* order button */}
                             <button id='order-btn' onClick={this.submitOrder} className='green'>Make Order</button>
