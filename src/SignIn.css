@@ -64,7 +64,6 @@
     grid-column: span 2;
 
     border: 1px solid var(--theme);
-    border-radius: .3rem;
     background-color: var(--theme);
     color: var(--fg);
 }

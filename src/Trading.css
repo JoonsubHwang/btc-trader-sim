@@ -91,7 +91,6 @@
     grid-column: 1;
     background-color: var(--bg);
     border: 1px solid var(--accent);
-    border-radius: .3rem;
     padding: .2rem .8rem .1rem;
 }
 
@@ -130,7 +129,7 @@
 
     background-color: var(--bg);
     border: 1px solid var(--fg);
-    border-radius: .4rem;
+    border-radius: .3rem;
 }
 
 #menu-list > * {
@@ -189,43 +188,6 @@
     }
 }
 
-/* #buy-btn, 
-#sell-btn {
-    background: none;
-    border-radius: .5rem;
-
-    font-weight: 500;
-    padding: 0;
-
-    border: 1px solid var(--fg-darker);
-    color: var(--fg-darker);
-}
-
-#buy-btn.selected,
-#buy-btn.selected:hover {
-    color: var(--green);
-    border-color: var(--green);
-}
-
-#sell-btn.selected,
-#sell-btn.selected:hover {
-    color: var(--red);
-    border-color: var(--red);
-}
-
-#buy-btn:hover,
-#sell-btn:hover {
-    border-color: var(--fg);
-}
-
-#buy-btn:hover {
-    color: var(--red);
-}
-
-#sell-btn:hover {
-    color: var(--red);
-} */
-
 #order-form {
     grid-row: 1 / span 2;
     grid-column: 2;
@@ -277,7 +239,6 @@
     width: 100%;
     max-width: calc(var(--text-width) + 3rem);
 
-    border-radius: .3rem;
     background: none;
     color: var(--fg-darker);
 
@@ -342,28 +303,24 @@ input[type=number] {
     grid-column: 4;
 }
 
-#order-btn {
+#orderBtns-grid {
     grid-column: 1 / span 4;
 
     height: 2rem;
-    border: 1px solid;
-    border-radius: .3rem;
 
-    color: var(--fg);
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 2rem;
 }
 
-#order-btn.green {
+#buy-btn {
     border-color: var(--green);
     background-color: var(--green);
 }
 
-#order-btn.red {
+#sell-btn {
     border-color: var(--red);
     background-color: var(--red);
-}
-
-#order-btn:hover {
-    background-color: var(--bg);
 }
 
 
@@ -440,7 +397,6 @@ input[type=number] {
     width: 100%;
 
     border: 1px solid var(--theme);
-    border-radius: .3rem;
     background-color: var(--theme);
     color: var(--fg);
 
