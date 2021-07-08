@@ -164,7 +164,6 @@ class Trading extends React.Component {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify({
-                buy: this.state.buy,
                 orderType: this.state.orderType,
                 price: this.state.orderPrice,
                 amount: this.state.orderAmount
@@ -259,9 +258,6 @@ class Trading extends React.Component {
                     {/* txn-panel (transaction) */}
                     <div id='txn-panel' className='container framed'>
 
-                        {/* <button id='buy-btn'  className={'medium ' + (this.state.buy ? 'selected' : '')} onClick={this.setBuyOrSell}>BUY</button>
-                        <button id='sell-btn' className={'medium ' + (this.state.buy ? '' : 'selected')} onClick={this.setBuyOrSell}>SELL</button> */}
-
                         <form id='order-form'>
 
                             <label>Type</label>
@@ -290,9 +286,7 @@ class Trading extends React.Component {
 
                             {/* order amount */}
                             <input className='value' type='number' name='orderAmount' 
-                                step={((this.state.buy ? (this.state.balance.cash / this.state.orderPrice) : this.state.balance.BTC) * 0.1).toFixed(4)} 
                                 value={this.state.orderAmount} min='0' 
-                                max={this.state.buy ? this.state.balance.cash / this.state.orderPrice : this.state.balance.BTC} 
                                 onChange={this.setOrderAmount}></input>
 
                             <p className='name'> BTC</p>
@@ -304,7 +298,7 @@ class Trading extends React.Component {
                             <p id='amountUSDUnit' className='name'> USD</p>
 
                             {/* order button */}
-                            <button id='order-btn' onClick={this.submitOrder} className={this.state.buy ? 'green' : 'red'}>Make Order</button>
+                            <button id='order-btn' onClick={this.submitOrder} className='green'>Make Order</button>
 
                         </form>
 
