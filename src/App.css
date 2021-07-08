@@ -33,7 +33,11 @@ body {
 }
 
 * {
-    margin: 0;
+    margin: none;
+    padding: none;
+    border: none;
+    background: none;
+
     color: var(--fg);
 
     font-family: 'Rajdhani', sans-serif;
