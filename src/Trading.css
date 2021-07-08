@@ -179,29 +179,15 @@
 #txn-panel {
     grid-row: 3;
     grid-column: 1;
-
-    padding: .6rem;
-
-    /* grid */
-    display: grid;
-    grid-template-columns: 14% auto;
-    grid-template-rows: repeat(2, calc((100% - .4rem) / 2));
-    gap: .4rem .8rem;
 }
 @media (max-width: 900px)  and (orientation: portrait){
     #txn-panel {
         grid-row: 3;
         grid-column: 1 / span 2;
-        
-        padding: .4rem;
-
-        grid-template-columns: repeat(2, calc((100% - .4rem) / 2));
-        grid-template-rows: 2.5rem auto;
-        gap: 1rem .4rem;
     }
 }
 
-#buy-btn, 
+/* #buy-btn, 
 #sell-btn {
     background: none;
     border-radius: .5rem;
@@ -236,7 +222,7 @@
 
 #sell-btn:hover {
     color: var(--red);
-}
+} */
 
 #order-form {
     grid-row: 1 / span 2;
