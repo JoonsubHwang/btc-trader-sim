@@ -38,13 +38,11 @@ export default class SignIn extends React.Component {
                 // on successful sign in
                 if (result.email) {
                     this.props.setEmail(result.email);
-                    // TODO: call loadName from Trading
-                    // TODO: call loadBalance from Trading
                     this.props.toggleSignInPopup();
+                    // TODO: use popup to alert success
                 }
                 // on sign in fail
                 else if (result.invalid) {
-                    // TODO: display better
                     if (result.invalid.email) {
                         let emailFld = document.getElementsByName('email')[0];
                         emailFld.setCustomValidity(result.invalid.email);
@@ -59,10 +57,8 @@ export default class SignIn extends React.Component {
                     }
                 }
                 // on server error
-                // TODO: check status code?
-                else {
+                else
                     throw new Error(result.error);
-                }
             })
             .catch(err => {
                 alert(err); // TODO: display better
