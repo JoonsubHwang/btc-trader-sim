@@ -300,7 +300,10 @@ class Trading extends React.Component {
                             </div>
 
                             {/* order button */}
-                            <button id='order-btn' onClick={this.submitOrder} className='green'>Make Order</button>
+                            <div id='orderBtns-grid'>
+                                <button id='buy-btn'>Buy BTC</button>
+                                <button id='sell-btn'>Sell BTC</button>
+                            </div>
 
                         </form>
 
