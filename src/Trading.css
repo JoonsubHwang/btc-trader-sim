@@ -43,6 +43,11 @@
 
 /* price-panel */
 
+#price-panel,
+#menu-panel {
+    margin-top: .5rem;
+}
+
 #price-panel {
     grid-row: 1;
     grid-column: 1;
