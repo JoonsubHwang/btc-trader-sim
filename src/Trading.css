@@ -179,6 +179,8 @@
 #txn-panel {
     grid-row: 3;
     grid-column: 1;
+    
+    padding: 1.5rem;
 }
 @media (max-width: 900px)  and (orientation: portrait){
     #txn-panel {
