@@ -149,6 +149,10 @@
     color: var(--accent);
 }
 
+#menu-list > button {
+    box-shadow: none;
+}
+
 #menu-list > button:hover {
     color: var(--theme);
 }
