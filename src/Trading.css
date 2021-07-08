@@ -257,7 +257,7 @@
 
 #orderTypes-grid {
     --text-width: 6rem;
-    --gap: 2rem;
+    --gap: 1rem;
 
     grid-column: span 3;
     width: 100%;
