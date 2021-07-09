@@ -310,7 +310,7 @@ input[type=number] {
 
     display: grid;
     grid-template-columns: auto auto;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 #buy-btn {
@@ -386,7 +386,8 @@ input[type=number] {
 }
 @media (max-width: 900px)  and (orientation: portrait){
     #balance-panel-alt {
-        padding: 5% 20%;
+        padding: 20% 10%;
+        grid-template-columns: auto auto;
     }
 }
 
