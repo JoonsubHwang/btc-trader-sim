@@ -383,12 +383,7 @@ input[type=number] {
     display: grid;
     padding: 20%;
     place-items: center;
-}
-@media (max-width: 900px)  and (orientation: portrait){
-    #balance-panel-alt {
-        padding: 20% 10%;
-        grid-template-columns: auto auto;
-    }
+    gap: 2rem;
 }
 
 #balance-panel-alt > button {
