@@ -87,7 +87,7 @@ input {
 
 /* empty input */
 input:placeholder-shown {
-    border: none;
+    border-color: var(--fg-darker);
 }
 
 input[type]:focus {
