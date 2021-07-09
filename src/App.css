@@ -64,15 +64,10 @@ button {
 }
 
 input {
-    box-shadow: inset -2px -2px 5px 1px var(--bg-highlight),
-                inset  2px  2px 5px 1px var(--bg-shadow);
-}
-
-input {
     line-height: 1.2rem;
     padding: .4rem;
 
-    border: none;
+    border: 1px solid var(--fg-darker);
     border-radius: .2rem;
     background-color: var(--bg);
     color: var(--fg);
@@ -97,12 +92,12 @@ input:placeholder-shown {
 
 input[type]:focus {
     outline: none;
-    border: 1px solid var(--theme);
+    border-color: var(--theme);
 }
 
 input:invalid,
 :out-of-range {
-    border: 1px solid var(--red);
+    border-color: var(--red);
 }
 
 .small {
