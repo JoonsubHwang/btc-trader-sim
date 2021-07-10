@@ -63,6 +63,17 @@ button {
                  2px  2px 3px 1px var(--bg-shadow);
 }
 
+button:hover {
+    filter: brightness(130%) saturate(70%);
+}
+
+/* click */
+button:active {
+    filter: brightness(80%) saturate(120%);
+    box-shadow: inset  2px  2px 3px 1px var(--bg-shadow),
+                inset -2px -2px 3px 1px var(--bg-highlight);
+}
+
 input {
     padding: .2rem 1rem;
 
