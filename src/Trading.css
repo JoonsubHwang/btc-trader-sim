@@ -1,6 +1,6 @@
 :root {
     --pricePanelHeight: 2rem;
-    --chartHeight: 60%;
+    --chartHeight: 55%;
     --txnWidth: 70%; /* price width */
 
     --green: rgb(0, 133, 78);
@@ -8,18 +8,19 @@
 }
 @media (max-width: 900px)  and (orientation: portrait){
     :root { 
-        --chartHeight: 40%;
-        --txnHeight: 35%;
+        --chartHeight: 35%;
+        --txnHeight: 18rem;
         --txnWidth: 20rem; /* price width */
     }
 }
 
 #trading-main {
-    height: 98vh;
+    height: calc(100vh - 2rem);
     min-width: 300px;
     max-width: 900px;
     min-height: 600px;
     margin: auto;
+    margin-top: 1rem;
 }
 @media (min-width: 3000px) {
     #trading-main {
@@ -28,14 +29,19 @@
 }
 
 #trading-grid {
+    height: 100%;
+
+    --gap: 2rem;
     display: grid;
     grid-template-columns: var(--txnWidth) auto;
     grid-template-rows: var(--pricePanelHeight) var(--chartHeight) auto;
-    gap: 2rem;
+    gap: var(--gap);
 }
 @media (max-width: 900px)  and (orientation: portrait){
     #trading-grid {
-        grid-template-rows: var(--pricePanelHeight) var(--chartHeight) var(--txnHeight) auto;
+        --gap: 1rem;
+        grid-template-rows: var(--pricePanelHeight) var(--chartHeight) var(--txnHeight) 
+                            calc(100% - (var(--pricePanelHeight) + var(--chartHeight) + var(--txnHeight) + (3*var(--gap))));
     }
 }
 
@@ -43,14 +49,11 @@
 
 /* price-panel */
 
-#price-panel,
-#menu-panel {
-    margin-top: .5rem;
-}
-
 #price-panel {
     grid-row: 1;
     grid-column: 1;
+
+    margin-left: 1rem;
 }
 
 #price-heading {
@@ -78,13 +81,15 @@
 #menu-panel {
     grid-row: 1;
     grid-column: 2;
+
+    margin-right: 1rem;
 }
 
 #menu-grid {
     display: grid;
     grid-template-columns: auto 2.5rem;
     place-items: center right;
-    column-gap: .3rem;
+    gap: .5rem;
 }
 
 #orders-btn {
@@ -163,6 +168,8 @@
 #chart-panel { 
     grid-row: 2;
     grid-column: 1 / span 2;
+
+    padding: 1.5rem;
 }
 @media (max-width: 900px)  and (orientation: portrait){
     #chart-panel {
@@ -178,8 +185,6 @@
 #txn-panel {
     grid-row: 3;
     grid-column: 1;
-
-    padding: 1.5rem;
 }
 @media (max-width: 900px)  and (orientation: portrait){
     #txn-panel {
@@ -192,7 +197,6 @@
     grid-row: 1 / span 2;
     grid-column: 2;
 
-    width: 98%;
     height: 100%;
     margin: auto;
 
@@ -219,14 +223,13 @@
 
 #orderTypes-grid {
     --text-width: 6rem;
-    --gap: 1rem;
 
     grid-column: span 3;
     width: 100%;
+    margin: auto;
 
     display: grid;
-    gap: var(--gap);
-    grid-template-columns: repeat(3, calc((100% - (2 * var(--gap))) / 3));
+    grid-template-columns: repeat(3, 33.33%);
     place-items: center;
 
     border-radius: 2rem;
@@ -236,13 +239,32 @@
 
 .orderType-btn {
     min-height: 2rem;
-    width: 100%;
-    max-width: calc(var(--text-width) + 3rem);
+    width: calc(var(--text-width) + 3rem);
 
     background: none;
     color: var(--fg-darker);
 
     box-shadow: none;
+}
+
+/* leftmost */
+#orderType-0 {
+    margin-left: -25%;
+}
+/* rightmost */
+#orderType-2 {
+    margin-right: -25%;
+}
+@media (max-width: 900px)  and (orientation: portrait) {
+    .orderType-btn {
+        width: calc(var(--text-width) + 1rem);
+    }
+    #orderType-0 {
+        margin-left: 0;
+    }
+    #orderType-2 {
+        margin-right: 0;
+    }
 }
 
 .orderType-btn:hover {
@@ -257,8 +279,15 @@
 }
 
 #marketPrice {
+    padding: .2rem 1rem;
+    border: 1px solid var(--fg-darker);
+    border-radius: 2rem;
+
     text-align: right;
     font-style: italic;
+
+    box-shadow: -2px -2px 3px 1px var(--bg-highlight),
+                 2px  2px 3px 1px var(--bg-shadow);
 }
 
 .name {
@@ -332,8 +361,6 @@ input[type=number] {
 #balance-panel-alt {
     grid-row: 3;
     grid-column: 2;
-
-    padding: .6rem;
 }
 @media (max-width: 900px)  and (orientation: portrait){
     #balance-panel,
@@ -343,22 +370,28 @@ input[type=number] {
     }
 }
 
-#balance-panel > * {
-    margin: .5rem;
-}
-
 #balance-heading {
+    margin: 1rem 0 2rem;
+
     text-align: center;
     color: var(--accent);
 }
+@media (max-width: 900px)  and (orientation: portrait){
+    #balance-heading {
+        margin: 0 0 1rem;
+        margin: -.5rem 0 1.5rem;
+    }
+}
 
 #balance-grid {
+    height: calc((3*2rem) + (2*.5rem));
+    margin: auto;
+    max-width: 12rem;
+
     display: grid;
     grid-template-columns: 25% auto;
-    row-gap: .5rem;
-    max-width: 180px;
-    height: calc(100% - 4.5rem);
-    margin: auto;
+    grid-template-rows: repeat(3, 2rem);
+    row-gap: 1rem;
 }
 @media (min-width: 3000px) {
     #balance-grid {
@@ -367,11 +400,9 @@ input[type=number] {
 }
 @media (max-width: 900px)  and (orientation: portrait){
     #balance-grid {
-        max-width: 300px;
-    }
-    #BTCWallet-grid {
-        display: grid;
-        grid-template-columns: auto auto;
+        max-width: 150px;
+        
+    row-gap: .5rem;
     }
 }
 
@@ -379,9 +410,16 @@ input[type=number] {
     align-self: center;
 }
 
+#balance-grid > .name {
+    text-align: left;
+}
+
+.btcBalance {
+    margin-top: -.5rem;
+}
+
 #balance-panel-alt {
     display: grid;
-    padding: 20%;
     place-items: center;
     gap: 2rem;
 }
@@ -390,11 +428,10 @@ input[type=number] {
     display: block;
     margin: auto;
     padding: .3rem;
-    width: 100%;
+    width: calc(100% - 4rem);
+    height: calc(100% - 6rem);
 
-    border: 1px solid var(--theme);
-    background-color: var(--theme);
-    color: var(--fg);
+    color: var(--accent);
 
     text-align: center;
 }

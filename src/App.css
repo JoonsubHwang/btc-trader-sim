@@ -64,13 +64,15 @@ button {
 }
 
 input {
-    line-height: 1.2rem;
-    padding: .4rem;
+    padding: .2rem 1rem;
 
     border: 1px solid var(--fg-darker);
     border-radius: 2rem;
     background-color: var(--bg);
     color: var(--fg);
+    
+    box-shadow: -2px -2px 3px 1px var(--bg-highlight),
+                 2px  2px 3px 1px var(--bg-shadow);
 }
 
 /* remove arrows */
@@ -87,12 +89,11 @@ input {
 
 /* empty input */
 input:placeholder-shown {
-    border-color: var(--fg-darker);
+    border-color: var(--fg-darker) !important;
 }
 
 input[type]:focus {
-    outline: none;
-    border-color: var(--theme);
+    border-color: var(--theme) !important;
 }
 
 input:invalid,
@@ -122,8 +123,14 @@ input:invalid,
 }
 
 .framed {
+    padding: 2rem;
     border-radius: .5rem;
     background-color: var(--bg);
     box-shadow: -5px -5px 10px 1px var(--bg-highlight), 
                  5px  5px 10px 1px var(--bg-shadow);
+}
+@media (max-width: 900px)  and (orientation: portrait){
+    .framed { 
+        border-radius: 0;
+    }
 }

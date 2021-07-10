@@ -1,7 +1,4 @@
-#chart-main {
-    height: 96%;
-}
-
+#chart-main,
 #priceChart {
     height: 100%;
 }
