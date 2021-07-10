@@ -72,10 +72,6 @@
     color: var(--fg);
 }
 
-#signin-btn:hover {
-    background-color: var(--bg);
-}
-
 /* forgot password */
 #signin-form > a {
     grid-column: span 2;
