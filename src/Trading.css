@@ -40,8 +40,7 @@
 @media (max-width: 900px)  and (orientation: portrait){
     #trading-grid {
         --gap: 1rem;
-        grid-template-rows: var(--pricePanelHeight) var(--chartHeight) var(--txnHeight) 
-                            calc(100% - (var(--pricePanelHeight) + var(--chartHeight) + var(--txnHeight) + (3*var(--gap))));
+        grid-template-rows: var(--pricePanelHeight) var(--chartHeight) var(--txnHeight) 13.5rem;
     }
 }
 
@@ -384,30 +383,19 @@ input[type=number] {
 }
 
 #balance-grid {
-    height: calc((3*2rem) + (2*.5rem));
     margin: auto;
-    max-width: 12rem;
 
     display: grid;
-    grid-template-columns: 25% auto;
-    grid-template-rows: repeat(3, 2rem);
-    row-gap: 1rem;
-}
-@media (min-width: 3000px) {
-    #balance-grid {
-        max-width: 360px;
-    }
+    grid-template-columns: 3rem 7rem;
+    grid-template-rows: 2rem 2rem 1.5rem;
+    gap: 1rem;
+    place-content: center;
+    align-items: center;
 }
 @media (max-width: 900px)  and (orientation: portrait){
     #balance-grid {
-        max-width: 150px;
-        
-    row-gap: .5rem;
+        gap: .5rem;
     }
-}
-
-#balance-grid > * {
-    align-self: center;
 }
 
 #balance-grid > .name {
