@@ -227,7 +227,7 @@ class Trading extends React.Component {
     render() {
 
         return (
-            <div id='trading-main' className='container'>
+            <div id='trading-main'>
 
                 <div id='trading-grid'>
 
@@ -265,12 +265,12 @@ class Trading extends React.Component {
                     <SignIn setEmail={this.setEmail} toggleSignInPopup={this.toggleSignInPopup}></SignIn>
         
                     {/* chart-panel */}
-                    <div id='chart-panel' className='container framed'>
+                    <div id='chart-panel' className='framed'>
                         <Chart price={this.state.price}></Chart>
                     </div>
 
                     {/* txn-panel (transaction) */}
-                    <div id='txn-panel' className='container framed'>
+                    <div id='txn-panel' className='framed'>
 
                         <form id='order-form'>
 
@@ -278,8 +278,8 @@ class Trading extends React.Component {
 
                             <div id='orderTypes-grid'>
                                 {/* 3 order type buttons */}
-                                {Object.values(orderTypes).map(orderType => 
-                                    <button className={'orderType-btn' + (this.state.orderType === orderType  ? ' selected' : '')} 
+                                {Object.values(orderTypes).map((orderType, i) => 
+                                    <button id={'orderType-'+i} className={'orderType-btn' + (this.state.orderType === orderType  ? ' selected' : '')} 
                                         onClick={this.setOrderType} key={orderType}>
                                         {orderType}
                                     </button>
@@ -326,19 +326,19 @@ class Trading extends React.Component {
                     {/* balance-panel */}
                     {this.state.email ?
                     // signed in
-                        <div id='balance-panel' className='container framed'>
+                        <div id='balance-panel' className='framed'>
                             <h2 id='balance-heading' className='large'>Balance</h2>
                             <div id='balance-grid'>
                                 <p className='name'>Total</p>
                                 <p className='value'>{(this.state.balance.cash + (this.state.balance.BTC * this.state.price)).toFixed(0)} USD</p>
                                 <p className='name'>Cash</p>
                                 <p className='value'>{this.state.balance.cash.toFixed(0)} USD</p>
-                                <p className='name'>BTC</p>
-                                <p className='value'>{this.state.balance.BTC} BTC</p>
+                                <p className='name btcBalance'>BTC</p>
+                                <p className='value btcBalance'>{this.state.balance.BTC} BTC</p>
                             </div>
                         </div>
                     // not signed in
-                    :   <div id='balance-panel-alt' className='container framed'>
+                    :   <div id='balance-panel-alt' className='framed'>
                             <button onClick={this.toggleSignInPopup} type='button'>Sign In</button>
                             <button type='button'>Sign Up</button>
                         </div>}
