@@ -62,22 +62,14 @@ export default class SignUp extends React.Component {
 
         const form = document.querySelector('#signup-form');
 
-        let email = form.querySelector('input[name="email"]');
-        email.setCustomValidity();
-        email.checkValidity();
-        email.reportValidity();
-
-        let password = form.querySelector('input[name="password"]');
-        password.setCustomValidity();
-        password.checkValidity();
-        password.reportValidity();
-
-        let pwConfirm = form.querySelector('input[name="pwConfirm"]');
-        pwConfirm.setCustomValidity();
-        pwConfirm.checkValidity();
-        if (pwConfirm.value !== password.value)
-            pwConfirm.setCustomValidity('passwords don\'t match');
-        pwConfirm.reportValidity();
+        let fields = form.querySelectorAll('input');
+        fields.forEach((field, i) => {
+            field.setCustomValidity();
+            field.checkValidity();
+            if ((i === 3) && (fields[2].valiue !== field.value))
+                field.setCustomValidity('passwords don\'t match');
+            field.reportValidity();
+        });
     }
 
     render () {
@@ -91,6 +83,11 @@ export default class SignUp extends React.Component {
 
                         <p id='signup-heading' className='large'>Sign Up</p>
 
+                        <p>Name</p>
+
+                        <input name='name' onBlur={this.updateValidity} 
+                                type='text'  minLength={1} required={true} placeholder='Your name/nickname'></input>
+
                         <p>E-mail</p>
 
                         <input name='email' onBlur={this.updateValidity} 
@@ -101,7 +98,7 @@ export default class SignUp extends React.Component {
                         <input name='password' onBlur={this.updateValidity} 
                                 type='password' minLength={8} required={true} placeholder='8_characters_at_min'></input>
 
-                        <p>Confirm</p>
+                        <p></p>
 
                         <input name='pwConfirm' onBlur={this.updateValidity} 
                                 type='password' minLength={8} required={true} placeholder='Confirm password'></input>
