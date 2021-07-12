@@ -28,13 +28,13 @@
     box-shadow: none;
 }
 
-#close-btn {
+#signinClose-btn {
     margin: .5rem;
     margin-bottom: -2rem;
     float: right;
 }
 
-#close-btn:hover {
+#signinClose-btn:hover {
     fill: var(--theme);
 }
 
