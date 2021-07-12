@@ -1,7 +1,7 @@
 /* background */
-#signin-main {
-    --signin-width: 25rem;
-    --signin-height: 21rem;
+#signup-main {
+    --signup-width: 25rem;
+    --signup-height: 20rem;
 
     display: none;
     position: absolute;
@@ -11,45 +11,48 @@
     width: 100%;
     height: 100%;
 
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, .7);
 }
 
-#signin-popup {
+#signup-popup {
     position: absolute;
     z-index: 2;
-    top: calc((100% - var(--signin-height)) / 2);
-    left: calc((100% - var(--signin-width)) / 2);
-    width: var(--signin-width);
-    height: var(--signin-height);
-    border: 1px solid var(--theme);
+    top: calc(50% - (var(--signup-height) / 2) - 1rem);
+    left: calc((50% - (var(--signup-width)) / 2) - 1rem);
+
+    width: var(--signup-width);
+    height: var(--signup-height);
+    padding: 1rem;
+
+    border-radius: .5rem;
+    box-shadow: none;
 }
 
-#close-btn {
+#signupClose-btn {
     margin: .5rem;
     margin-bottom: -2rem;
     float: right;
 }
 
-#close-btn:hover {
+#signupClose-btn:hover {
     fill: var(--theme);
 }
 
-#signin-form {
-    margin: 1.5rem;
-    width: calc(100% - 3rem);
-    height: calc(100% - 3rem);
+#signup-form {
+    --margin: 2rem;
+    margin: calc(var(--margin) - 1rem) var(--margin) var(--margin);
+    width: calc(100% - (2 * var(--margin)));
+    height: calc(100% - (2 * var(--margin)));
 
     display: grid;
     grid-template-columns: 5rem auto;
     grid-template-rows: 3rem 1.7rem 1.7rem 2rem 1rem;
     gap: 2rem .5rem;
+
+    align-items: center;
 }
 
-#signin-form > input:valid {
-    border-color: var(--green) !important;
-}
-
-#signin-heading {
+#signup-heading {
     grid-column: span 2;
 
     width: 6rem;
@@ -59,22 +62,19 @@
     color: var(--accent);
 }
 
-#signin-btn {
+#signup-btn {
     grid-column: span 2;
 
-    background-color: var(--bg);
-    color: var(--accent);
-    border: 1px solid var(--accent);
-    border-radius: .3rem;
+    height: 2rem;
+
+    background-color: var(--theme);
+    color: var(--fg);
 }
 
-#signin-btn:hover {
-    background-color: var(--accent);
-    color: var(--bg);
-}
-
-#signin-form > a {
+/* forgot password */
+#signup-form > a {
     grid-column: span 2;
+
     text-align: center;
-    font-style: italic;
+    color: var(--fg-darker);
 }

@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Close } from '@material-ui/icons';
-import './SignIn.css';
+import './SignUp.css';
 
-export default class SignIn extends React.Component {
+export default class SignUp extends React.Component {
 
-    submitSignIn = (event) => {
+    submitSignUp = (event) => {
 
         event.preventDefault();
 
-        const form = document.querySelector('#signin-form');
+        const form = document.querySelector('#signup-form');
         let validity = true;
 
         form.querySelectorAll('input').forEach(input => {
@@ -38,13 +38,11 @@ export default class SignIn extends React.Component {
                 // on successful sign in
                 if (result.email) {
                     this.props.setEmail(result.email);
-                    // TODO: call loadName from Trading
-                    // TODO: call loadBalance from Trading
-                    this.props.toggleSignInPopup();
+                    this.props.toggleSignUpPopup();
+                    // TODO: use popup to alert success
                 }
                 // on sign in fail
                 else if (result.invalid) {
-                    // TODO: display better
                     if (result.invalid.email) {
                         let emailFld = document.getElementsByName('email')[0];
                         emailFld.setCustomValidity(result.invalid.email);
@@ -59,9 +57,8 @@ export default class SignIn extends React.Component {
                     }
                 }
                 // on server error
-                else {
+                else
                     throw new Error(result.error);
-                }
             })
             .catch(err => {
                 alert(err); // TODO: display better
@@ -71,14 +68,14 @@ export default class SignIn extends React.Component {
 
     render () {
         return (
-            <div id='signin-main'>
-                <div id='signin-popup' className='container framed'>
+            <div id='signup-main'>
+                <div id='signup-popup' className='container framed'>
 
-                    <Close id='close-btn' onClick={this.props.toggleSignInPopup}></Close>
+                    <Close id='signupClose-btn' onClick={this.props.toggleSignUpPopup}></Close>
 
-                    <form id='signin-form'>
+                    <form id='signup-form'>
 
-                        <p id='signin-heading' className='large'>Sign In</p>
+                        <p id='signup-heading' className='large'>Sign Up</p>
 
                         <p>E-mail</p>
 
@@ -88,7 +85,7 @@ export default class SignIn extends React.Component {
 
                         <input name='password' type='password' minLength={8} required={true} placeholder='8_characters_at_min'></input>
 
-                        <button id='signin-btn' onClick={this.submitSignIn}>Sign In</button>
+                        <button id='signup-btn' onClick={this.submitSignUp}>Sign Up</button>
 
                         <Link className='small' to='/not-implemented'>Forgot password?</Link>
 
