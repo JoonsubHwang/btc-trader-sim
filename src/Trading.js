@@ -250,12 +250,15 @@ class Trading extends React.Component {
                                 {this.state.email ?
                                     <div id='menu-list'>
                                         <p>{this.state.email}</p> {/* TODO: display name instead */}
-                                        <button onClick={this.signOut} type='button'>Sign Out</button>
+                                        <button onClick={() => { this.signOut(); this.toggleDropdown(); }} 
+                                                type='button'>Sign Out</button>
                                     </div>
                                     : 
                                     <div id='menu-list'>
-                                        <button onClick={this.toggleSignInPopup} type='button'>Sign In</button>
-                                        <button type='button'>Sign Up</button>
+                                        <button onClick={() => { this.toggleSignInPopup(); this.toggleDropdown(); }} 
+                                                type='button'>Sign In</button>
+                                        <button onClick={() => { this.toggleDropdown(); }} 
+                                                 type='button'>Sign Up</button>
                                     </div>}
                             </div>
                         </div>
