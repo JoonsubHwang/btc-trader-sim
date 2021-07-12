@@ -3,6 +3,7 @@ import { Menu } from '@material-ui/icons';
 
 import Chart from './Chart';
 import SignIn from './SignIn';
+import SignUp from './SignUp';
 import { CbProAPI } from './CbProAPI';
 import orderTypes from './orderTypes.js';
 import './Trading.css';
@@ -201,6 +202,10 @@ class Trading extends React.Component {
         document.querySelector('#signin-main').classList.toggle('visible');
     };
 
+    toggleSignUpPopup = () => {
+        document.querySelector('#signup-main').classList.toggle('visible');
+    };
+
     signOut = () => {
 
         fetch('/sign-out', { method: 'POST' })
@@ -257,7 +262,7 @@ class Trading extends React.Component {
                                     <div id='menu-list'>
                                         <button onClick={() => { this.toggleSignInPopup(); this.toggleDropdown(); }} 
                                                 type='button'>Sign In</button>
-                                        <button onClick={() => { this.toggleDropdown(); }} 
+                                        <button onClick={() => { this.toggleSignUpPopup(); this.toggleDropdown(); }} 
                                                  type='button'>Sign Up</button>
                                     </div>}
                             </div>
@@ -266,6 +271,8 @@ class Trading extends React.Component {
                     </div>
                     
                     <SignIn setEmail={this.setEmail} toggleSignInPopup={this.toggleSignInPopup}></SignIn>
+                    
+                    <SignUp setEmail={this.setEmail} toggleSignUpPopup={this.toggleSignUpPopup}></SignUp>
         
                     {/* chart-panel */}
                     <div id='chart-panel' className='framed'>
@@ -343,7 +350,7 @@ class Trading extends React.Component {
                     // not signed in
                     :   <div id='balance-panel-alt' className='framed'>
                             <button onClick={this.toggleSignInPopup} type='button'>Sign In</button>
-                            <button type='button'>Sign Up</button>
+                            <button onClick={this.toggleSignUpPopup} type='button'>Sign Up</button>
                         </div>}
 
                 </div>
