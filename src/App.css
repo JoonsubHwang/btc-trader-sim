@@ -59,6 +59,7 @@ h1, h2, h3, h4 {
 
 button {
     border-radius: .3rem;
+    background: var(--bg);
     box-shadow: -2px -2px 3px 1px var(--bg-highlight),
                  2px  2px 3px 1px var(--bg-shadow);
 }
