@@ -10,16 +10,9 @@ export default class SignIn extends React.Component {
         event.preventDefault();
 
         const form = document.querySelector('#signin-form');
-        let validity = true;
+        const invalids = form.querySelector(':invalid');
 
-        form.querySelectorAll('input').forEach(input => {
-            if (!input.checkValidity()) {
-                validity = false;
-                input.reportValidity();
-            }
-        });
-
-        if (validity) {
+        if (!invalids) {
 
             const formData = new FormData(form);
 
@@ -47,13 +40,11 @@ export default class SignIn extends React.Component {
                         let emailFld = document.getElementsByName('email')[0];
                         emailFld.setCustomValidity(result.invalid.email);
                         emailFld.reportValidity();
-                        emailFld.setCustomValidity(''); // TODO: remove and set onChange=check-again
                     }
                     if (result.invalid.password) {
                         let passwordFld = document.getElementsByName('password')[0];
                         passwordFld.setCustomValidity(result.invalid.password);
                         passwordFld.reportValidity();
-                        passwordFld.setCustomValidity(''); // TODO: remove and set onChange=check-again
                     }
                 }
                 // on server error
@@ -64,6 +55,13 @@ export default class SignIn extends React.Component {
                 alert(err); // TODO: display better
             });
         }
+    }
+
+    updateValidity = (event) => {
+        let field = event.target;
+        field.setCustomValidity('');
+        field.checkValidity();
+        field.reportValidity();
     }
 
     render () {
@@ -79,11 +77,11 @@ export default class SignIn extends React.Component {
 
                         <p>E-mail</p>
 
-                        <input name='email' type='email' required={true} placeholder='username@domain.com'></input>
+                        <input name='email' onBlur={this.updateValidity} type='email' required={true} placeholder='username@domain.com'></input>
 
                         <p>Password</p>
 
-                        <input name='password' type='password' minLength={8} required={true} placeholder='8_characters_at_min'></input>
+                        <input name='password' onBlur={this.updateValidity} type='password' minLength={8} required={true} placeholder='password'></input>
 
                         <button id='signin-btn' onClick={this.submitSignIn}>Sign In</button>
 

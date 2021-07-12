@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Close } from '@material-ui/icons';
 import './SignUp.css';
 
@@ -10,16 +9,9 @@ export default class SignUp extends React.Component {
         event.preventDefault();
 
         const form = document.querySelector('#signup-form');
-        let validity = true;
+        const invalids = form.querySelector(':invalid');
 
-        form.querySelectorAll('input').forEach(input => {
-            if (!input.checkValidity()) {
-                validity = false;
-                input.reportValidity();
-            }
-        });
-
-        if (validity) {
+        if (!invalids) {
 
             const formData = new FormData(form);
 
@@ -47,13 +39,11 @@ export default class SignUp extends React.Component {
                         let emailFld = document.getElementsByName('email')[0];
                         emailFld.setCustomValidity(result.invalid.email);
                         emailFld.reportValidity();
-                        emailFld.setCustomValidity(''); // TODO: remove and set onChange=check-again
                     }
                     if (result.invalid.password) {
                         let passwordFld = document.getElementsByName('password')[0];
                         passwordFld.setCustomValidity(result.invalid.password);
                         passwordFld.reportValidity();
-                        passwordFld.setCustomValidity(''); // TODO: remove and set onChange=check-again
                     }
                 }
                 // on server error
@@ -64,6 +54,13 @@ export default class SignUp extends React.Component {
                 alert(err); // TODO: display better
             });
         }
+    }
+
+    updateValidity = (event) => {
+        let field = event.target;
+        field.setCustomValidity('');
+        field.checkValidity();
+        field.reportValidity();
     }
 
     render () {
@@ -79,17 +76,17 @@ export default class SignUp extends React.Component {
 
                         <p>E-mail</p>
 
-                        <input name='email' type='email' required={true} placeholder='username@domain.com'></input>
+                        <input name='email' onBlur={this.updateValidity} type='email' required={true} placeholder='username@domain.com'></input>
 
                         <p>Password</p>
 
-                        <input name='password' type='password' minLength={8} required={true} placeholder='8_characters_at_min'></input>
+                        <input name='password' onBlur={this.updateValidity} type='password' minLength={8} required={true} placeholder='8_characters_at_min'></input>
 
                         <div></div>
 
-                        <input name='pwConfirm' type='password' minLength={8} required={true} placeholder='Confirm password'></input>
+                        <input name='pwConfirm' onChange={this.updateValidity} type='password' minLength={8} required={true} placeholder='Confirm password'></input>
 
-                        <button id='signup-btn' onClick={this.submitSignUp}>Sign Up</button>
+                        <button id='signup-btn' onBlur={this.submitSignUp}>Sign Up</button>
 
                     </form>
                 </div>
