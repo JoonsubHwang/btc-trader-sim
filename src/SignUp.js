@@ -56,11 +56,28 @@ export default class SignUp extends React.Component {
         }
     }
 
-    updateValidity = (event) => {
-        let field = event.target;
-        field.setCustomValidity('');
-        field.checkValidity();
-        field.reportValidity();
+    updateValidity = () => {
+
+        console.log('check')
+
+        const form = document.querySelector('#signup-form');
+
+        let email = form.querySelector('input[name="email"]');
+        email.setCustomValidity();
+        email.checkValidity();
+        email.reportValidity();
+
+        let password = form.querySelector('input[name="password"]');
+        password.setCustomValidity();
+        password.checkValidity();
+        password.reportValidity();
+
+        let pwConfirm = form.querySelector('input[name="pwConfirm"]');
+        pwConfirm.setCustomValidity();
+        pwConfirm.checkValidity();
+        if (pwConfirm.value !== password.value)
+            pwConfirm.setCustomValidity('passwords don\'t match');
+        pwConfirm.reportValidity();
     }
 
     render () {
@@ -76,15 +93,18 @@ export default class SignUp extends React.Component {
 
                         <p>E-mail</p>
 
-                        <input name='email' onBlur={this.updateValidity} type='email' required={true} placeholder='username@domain.com'></input>
+                        <input name='email' onBlur={this.updateValidity} 
+                                type='email' required={true} placeholder='username@domain.com'></input>
 
                         <p>Password</p>
 
-                        <input name='password' onBlur={this.updateValidity} type='password' minLength={8} required={true} placeholder='8_characters_at_min'></input>
+                        <input name='password' onBlur={this.updateValidity} 
+                                type='password' minLength={8} required={true} placeholder='8_characters_at_min'></input>
 
-                        <div></div>
+                        <p>Confirm</p>
 
-                        <input name='pwConfirm' onChange={this.updateValidity} type='password' minLength={8} required={true} placeholder='Confirm password'></input>
+                        <input name='pwConfirm' onBlur={this.updateValidity} 
+                                type='password' minLength={8} required={true} placeholder='Confirm password'></input>
 
                         <button id='signup-btn' onBlur={this.submitSignUp}>Sign Up</button>
 
