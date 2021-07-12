@@ -85,6 +85,10 @@ export default class SignUp extends React.Component {
 
                         <input name='password' type='password' minLength={8} required={true} placeholder='8_characters_at_min'></input>
 
+                        <div></div>
+
+                        <input name='pwConfirm' type='password' minLength={8} required={true} placeholder='Confirm password'></input>
+
                         <button id='signup-btn' onClick={this.submitSignUp}>Sign Up</button>
 
                     </form>
