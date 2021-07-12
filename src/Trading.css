@@ -341,12 +341,10 @@ input[type=number] {
 }
 
 #buy-btn {
-    border-color: var(--green);
     background-color: var(--green);
 }
 
 #sell-btn {
-    border-color: var(--red);
     background-color: var(--red);
 }
 
