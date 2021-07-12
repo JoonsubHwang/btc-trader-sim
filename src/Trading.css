@@ -236,6 +236,15 @@
     box-shadow: none;
 }
 
+.orderType-btn:active {
+    filter: none;
+    box-shadow: none;
+}
+
+.orderType-btn.selected:hover {
+    filter: none;
+}
+
 /* leftmost */
 #orderType-0 {
     margin-left: -25%;
