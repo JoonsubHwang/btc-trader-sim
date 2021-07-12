@@ -1,7 +1,7 @@
 /* background */
 #signup-main {
     --signup-width: 25rem;
-    --signup-height: 20rem;
+    --signup-height: 18.5rem;
 
     display: none;
     position: absolute;
@@ -46,7 +46,7 @@
 
     display: grid;
     grid-template-columns: 5rem auto;
-    grid-template-rows: 3rem 1.7rem 1.7rem 2rem 1rem;
+    grid-template-rows: 3rem 1.7rem 1.7rem 2rem;
     gap: 2rem .5rem;
 
     align-items: center;
@@ -69,12 +69,4 @@
 
     background-color: var(--theme);
     color: var(--fg);
-}
-
-/* forgot password */
-#signup-form > a {
-    grid-column: span 2;
-
-    text-align: center;
-    color: var(--fg-darker);
 }

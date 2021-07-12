@@ -87,8 +87,6 @@ export default class SignUp extends React.Component {
 
                         <button id='signup-btn' onClick={this.submitSignUp}>Sign Up</button>
 
-                        <Link className='small' to='/not-implemented'>Forgot password?</Link>
-
                     </form>
                 </div>
             </div>
