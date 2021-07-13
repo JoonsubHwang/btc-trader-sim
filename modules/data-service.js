@@ -77,6 +77,8 @@ exports.validateSignUp = async (signUpData) => {
         if (signUpData.email) {
             if (!(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/).test(signUpData.email))
                 invalid.email = 'Email is in invalid format.';
+            else if (await Accounts.findOne({ email: signUpData.email }).lean().exec())
+                invalid.email = 'Account with this email already exists.';
         }
         else 
             invalid.email = 'Please enter the email.';
@@ -98,6 +100,34 @@ exports.validateSignUp = async (signUpData) => {
         throw new Error('Failed to validate sign up data.');
     }
 };
+
+exports.createAccount= async (signUpData) => {
+
+    try {
+        // TODO: hash
+
+        // create new document in Accounts, Balances, Orderlists
+        await (new Accounts(signUpData)).save();
+        await new Balances({ 
+            email: signUpData.email,
+            cash: 0,
+            BTC: 0
+        }).save();
+        await new Orderlists({ 
+            email: signUpData.email,
+            pendings: [],
+            history: []
+        }).save();
+        
+        console.log('[data-service] Created a new account: ' + signUpData.email);
+
+        return;
+    } 
+    catch (err) {
+        console.error('[data-service] Failed to create a new account. ' + err);
+        throw new Error('Failed to create a new account. ' + err);
+    }
+}
 
 exports.loadBalance = async (email) => {
 
