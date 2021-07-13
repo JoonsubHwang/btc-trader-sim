@@ -100,7 +100,7 @@ app.post('/sign-up', (req, res) => {
         else {
             dataService.createAccount(signUpData)
             .then(() => {
-                signIn(req.body, signUpData);
+                signIn(req, signUpData);
                 res.send({ email: signUpData.email });
             })
             .catch(err => {
