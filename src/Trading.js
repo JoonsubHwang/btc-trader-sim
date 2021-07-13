@@ -22,6 +22,7 @@ class Trading extends React.Component {
         this.state = {
             // account
             email: null, // present if signed in
+            name: null,
             balance: {
                 cash: 0,
                 BTC: 0
@@ -254,7 +255,7 @@ class Trading extends React.Component {
                                 <Menu id='menu-btn' onClick={this.toggleDropdown}></Menu>
                                 {this.state.email ?
                                     <div id='menu-list'>
-                                        <p>{this.state.email}</p> {/* TODO: display name instead */}
+                                        <p>{this.state.name}</p>
                                         <button onClick={() => { this.signOut(); this.toggleDropdown(); }} 
                                                 type='button'>Sign Out</button>
                                     </div>
