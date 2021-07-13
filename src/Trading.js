@@ -303,7 +303,7 @@ class Trading extends React.Component {
                             {this.state.orderType === orderTypes.MARKET_ORDER ?
                                 <p id='marketPrice' className='value'>Market Price</p>
                                 : <input className='value' type='number' name='orderPrice' step={this.priceStep} value={this.state.orderPrice} min='0' 
-                                    onChange={this.setOrderPrice}></input>}
+                                    onChange={this.setOrderPrice} step={0.01} />}
 
                             <p className='name'> USD</p>
 
@@ -312,7 +312,7 @@ class Trading extends React.Component {
                             {/* order amount */}
                             <input className='value' type='number' name='orderAmount' 
                                 value={this.state.orderAmount} min='0' 
-                                onChange={this.setOrderAmount}></input>
+                                onChange={this.setOrderAmount} step={0.0001} />
 
                             <div id='orderAmountUSD-grid'>
                                 <p id='amountUnit' className='name'> BTC</p>
