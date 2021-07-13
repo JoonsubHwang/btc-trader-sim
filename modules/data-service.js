@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
+const bcrypt = require('bcryptjs')
 const accountSchema = require('./accountSchema.js');
 const balanceSchema = require('./balanceSchema');
 const orderlistSchema = require('./orderlistSchema');
-require('dotenv').config();
 
 
 
@@ -32,12 +33,13 @@ exports.validateSignIn = async (signInData) => {
 
     try {
 
-        if (signInData.email) { // TODO: apply hashing
+        if (signInData.email) {
 
-            result.account = await Accounts.findOne({ email: signInData.email }).lean().exec();
+            result.account = await findAccount(signInData.email);
 
             if (result.account) {
-                if (result.account.password == signInData.password) // TODO: apply hashing
+                // email and password matched: success
+                if (bcrypt.compare(signInData.password, result.account.password))
                     result.invalid = undefined;
                 else
                     result.invalid.password = 'Password is incorrect.';
@@ -61,7 +63,7 @@ exports.validateSignIn = async (signInData) => {
 
 exports.validateSignUp = async (signUpData) => {
 
-    let invalid;
+    let invalid = {};
 
     try {
 
@@ -77,7 +79,7 @@ exports.validateSignUp = async (signUpData) => {
         if (signUpData.email) {
             if (!(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/).test(signUpData.email))
                 invalid.email = 'Email is in invalid format.';
-            else if (await Accounts.findOne({ email: signUpData.email }).lean().exec())
+            else if (await findAccount(signUpData.email))
                 invalid.email = 'Account with this email already exists.';
         }
         else 
@@ -93,6 +95,10 @@ exports.validateSignUp = async (signUpData) => {
         else 
             invalid.password = 'Please enter the password.';
 
+        // if successfully validated
+        if (!invalid.name && !invalid.email && !invalid.password)
+            invalid = undefined;
+
         return invalid;
 
     } catch (err) {
@@ -104,7 +110,8 @@ exports.validateSignUp = async (signUpData) => {
 exports.createAccount= async (signUpData) => {
 
     try {
-        // TODO: hash
+        // encrypt password
+        signUpData.password = await bcrypt.hash(signUpData.password, 10);
 
         // create new document in Accounts, Balances, Orderlists
         await (new Accounts(signUpData)).save();
@@ -161,3 +168,7 @@ exports.loadOrderlist = async (email) => {
     }
 };
 
+async function findAccount(email) {
+    
+    return await Accounts.findOne({ email: email }).lean().exec();
+}
