@@ -19,33 +19,29 @@ export default class SignUp extends React.Component {
                 method: 'POST',
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify({
+                    name: formData.get('name'),
                     email: formData.get('email'),
                     password: formData.get('password')
                 }) 
             };
 
-            fetch('/sign-in', req)
+            fetch('/sign-up', req)
             .then(res => res.json())
             .then(result => {
-                // on successful sign in
+                // on successful sign up
                 if (result.email) {
+                    form.reset();
                     this.props.setEmail(result.email);
                     this.props.toggleSignUpPopup();
                     // TODO: use popup to alert success
                 }
-                // on sign in fail
-                else if (result.invalid) {
-                    if (result.invalid.email) {
-                        let emailFld = document.getElementsByName('email')[0];
-                        emailFld.setCustomValidity(result.invalid.email);
-                        emailFld.reportValidity();
+                // on sign up fail
+                else if (result.invalid)
+                    for (const field in result.invalid) {
+                        let input = form.querySelector(`input[name="${field}"]`);
+                        input.setCustomValidity(result.invalid[field]);
+                        input.reportValidity();
                     }
-                    if (result.invalid.password) {
-                        let passwordFld = document.getElementsByName('password')[0];
-                        passwordFld.setCustomValidity(result.invalid.password);
-                        passwordFld.reportValidity();
-                    }
-                }
                 // on server error
                 else
                     throw new Error(result.error);
