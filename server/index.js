@@ -29,6 +29,7 @@ app.use(sessions({
 app.post('/sign-in', (req, res) => {
 
     const signInData = req.body;
+
     dataService.validateSignIn(signInData)
     .then(result => {
         if (result.invalid)
@@ -85,6 +86,31 @@ app.post('/account-updates', (req, res) => {
     .catch(err => {
         console.error('[server] Failed to load account updates. ' + err);
         res.status(500).send({ error: 'Server had a problem loading account updates.' });
+    });
+});
+
+app.post('/sign-up', (req, res) => {
+
+    const signUpData = req.body;
+
+    dataService.validateSignUp(signUpData)
+    .then(result => {
+        if (result.invalid)
+            res.send({ invalid: result.invalid });
+        else {
+            dataService.createAccount(signUpData)
+            .then(() => {
+                signIn(req.body, signUpData);
+                res.send({ email: signUpData.email });
+            })
+            .catch(err => {
+                throw new Error('[server] Error creating account. ' + err);
+            });
+        }
+    })
+    .catch(err => {
+        console.error('[server] Error signing up. ' + err);
+        res.send({ error: 'Server had a problem signing up.' });
     });
 });
 
