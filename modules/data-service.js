@@ -59,6 +59,48 @@ exports.validateSignIn = async (signInData) => {
     return result;
 };
 
+exports.validateSignUp = async (signUpData) => {
+
+    let result = { invalid: {} };
+
+    try {
+
+        // validate name
+        if (signUpData.name) {
+            const nameFormat = /^\w+$/;
+            if (!nameFormat.test(signUpData.name))
+                result.invalid.name = 'Only letters, numbers, and underscore are allowed.';
+        }
+        else 
+            result.invalid.name = 'Please enter the name.';
+        
+        // validate email
+        if (signUpData.email) {
+            const emailFormat = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+            if (!emailFormat.test(signUpData.email))
+                result.invalid.email = 'Email is in invalid format.';
+        }
+        else 
+            result.invalid.email = 'Please enter the email.';
+
+        // validate password
+        if (signUpData.password) {
+            if (!(/^(?=.{8,})/).test(signUpData.password))
+                result.invalid.password = 'Must be at least 8 characters.';
+            else if (!(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/).test(signUpData.password))
+                result.invalid.password = 'Must contain lowercase, uppercase letter, and number.';
+        }
+        else 
+            result.invalid.password = 'Please enter the password.';
+        
+        return result;
+
+    } catch (err) {
+        console.error('[data-service] Failed to validate sign up data. ' + err);
+        throw new Error('Failed to validate sign up data.');
+    }
+};
+
 exports.loadBalance = async (email) => {
 
     try {
