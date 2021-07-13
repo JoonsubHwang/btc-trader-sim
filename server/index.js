@@ -56,9 +56,9 @@ app.post('/sign-out', (req, res) => {
     }
 });
 
-app.get('/email-signed-in', (req, res) => {
+app.get('/sign-in-data', (req, res) => {
     if (req.session.user)
-        res.send({ email: req.session.user.email });
+        res.send({ email: req.session.user.email, name: req.session.user.name });
     else
         res.status(204).send();
 });

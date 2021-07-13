@@ -31,7 +31,7 @@ export default class SignIn extends React.Component {
                 // on successful sign in
                 if (result.email) {
                     form.reset();
-                    this.props.setEmail(result.email);
+                    this.props.setEmailAndName(result.email, result.name);
                     this.props.toggleSignInPopup();
                     // TODO: use popup to alert success
                 }

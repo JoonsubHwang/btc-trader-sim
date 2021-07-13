@@ -85,9 +85,9 @@ class Trading extends React.Component {
         });
     }
 
-    setEmail = (email) => {
+    setEmailAndName = (email, name = null) => {
 
-        this.setState({ email: email });
+        this.setState({ email: email, name: name });
 
         if (email === null) {
             this.setState({
@@ -103,17 +103,17 @@ class Trading extends React.Component {
     // load email if signed in
     checkSignedIn = () => {
 
-        fetch('/email-signed-in', { method: 'GET' }).then(res => {
+        fetch('/sign-in-data', { method: 'GET' }).then(res => {
 
             // if signed in
             if (res.status !== 204)
                 res.json().then(res => 
                     // store email
-                    { this.setEmail(res.email); });
+                    { this.setEmailAndName(res.email, res.name); });
 
             // if not signed in
             else {
-                this.setEmail(null);
+                this.setEmailAndName(null);
             }
 
         }).catch(err => {
@@ -218,7 +218,7 @@ class Trading extends React.Component {
 
             // on success
             else
-                this.setEmail(null);
+                this.setEmailAndName(null);
         })
         .catch(err => {
             alert(err); // TODO: use popup
@@ -270,9 +270,9 @@ class Trading extends React.Component {
 
                     </div>
                     
-                    <SignIn setEmail={this.setEmail} toggleSignInPopup={this.toggleSignInPopup}></SignIn>
+                    <SignIn setEmailAndName={this.setEmailAndName} toggleSignInPopup={this.toggleSignInPopup}></SignIn>
                     
-                    <SignUp setEmail={this.setEmail} toggleSignUpPopup={this.toggleSignUpPopup}></SignUp>
+                    <SignUp setEmailAndName={this.setEmailAndName} toggleSignUpPopup={this.toggleSignUpPopup}></SignUp>
         
                     {/* chart-panel */}
                     <div id='chart-panel' className='framed'>
