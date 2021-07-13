@@ -61,39 +61,37 @@ exports.validateSignIn = async (signInData) => {
 
 exports.validateSignUp = async (signUpData) => {
 
-    let result = { invalid: {} };
+    let invalid;
 
     try {
 
         // validate name
         if (signUpData.name) {
-            const nameFormat = /^\w+$/;
-            if (!nameFormat.test(signUpData.name))
-                result.invalid.name = 'Only letters, numbers, and underscore are allowed.';
+            if (!(/^\w+$/).test(signUpData.name))
+                invalid.name = 'Only letters, numbers, and underscore are allowed.';
         }
         else 
-            result.invalid.name = 'Please enter the name.';
+            invalid.name = 'Please enter the name.';
         
         // validate email
         if (signUpData.email) {
-            const emailFormat = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-            if (!emailFormat.test(signUpData.email))
-                result.invalid.email = 'Email is in invalid format.';
+            if (!(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/).test(signUpData.email))
+                invalid.email = 'Email is in invalid format.';
         }
         else 
-            result.invalid.email = 'Please enter the email.';
+            invalid.email = 'Please enter the email.';
 
         // validate password
         if (signUpData.password) {
             if (!(/^(?=.{8,})/).test(signUpData.password))
-                result.invalid.password = 'Must be at least 8 characters.';
+                invalid.password = 'Must be at least 8 characters.';
             else if (!(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/).test(signUpData.password))
-                result.invalid.password = 'Must contain lowercase, uppercase letter, and number.';
+                invalid.password = 'Must contain lowercase, uppercase letter, and number.';
         }
         else 
-            result.invalid.password = 'Please enter the password.';
-        
-        return result;
+            invalid.password = 'Please enter the password.';
+
+        return invalid;
 
     } catch (err) {
         console.error('[data-service] Failed to validate sign up data. ' + err);

@@ -94,9 +94,9 @@ app.post('/sign-up', (req, res) => {
     const signUpData = req.body;
 
     dataService.validateSignUp(signUpData)
-    .then(result => {
-        if (result.invalid)
-            res.send({ invalid: result.invalid });
+    .then(invalid => {
+        if (invalid)
+            res.send({ invalid: invalid });
         else {
             dataService.createAccount(signUpData)
             .then(() => {
