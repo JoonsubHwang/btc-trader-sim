@@ -35,18 +35,12 @@ export default class SignIn extends React.Component {
                     // TODO: use popup to alert success
                 }
                 // on sign in fail
-                else if (result.invalid) {
-                    if (result.invalid.email) {
-                        let emailFld = document.getElementsByName('email')[0];
-                        emailFld.setCustomValidity(result.invalid.email);
-                        emailFld.reportValidity();
+                else if (result.invalid)
+                    for (const field in result.invalid) {
+                        let input = form.querySelector(`input[name="${field}"]`);
+                        input.setCustomValidity(result.invalid[field]);
+                        input.reportValidity();
                     }
-                    if (result.invalid.password) {
-                        let passwordFld = document.getElementsByName('password')[0];
-                        passwordFld.setCustomValidity(result.invalid.password);
-                        passwordFld.reportValidity();
-                    }
-                }
                 // on server error
                 else
                     throw new Error(result.error);
@@ -77,11 +71,11 @@ export default class SignIn extends React.Component {
 
                         <p>E-mail</p>
 
-                        <input name='email' onBlur={this.updateValidity} type='email' required={true} placeholder='username@domain.com'></input>
+                        <input name='email' onBlur={this.updateValidity} type='email' required={true} placeholder='username@domain.com' />
 
                         <p>Password</p>
 
-                        <input name='password' onBlur={this.updateValidity} type='password' minLength={8} required={true} placeholder='password'></input>
+                        <input name='password' onBlur={this.updateValidity} type='password' minLength={8} required={true} placeholder='password' />
 
                         <button id='signin-btn' onClick={this.submitSignIn}>Sign In</button>
 
