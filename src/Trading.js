@@ -55,10 +55,12 @@ class Trading extends React.Component {
 
     // update (main loop)
     update = () => {
-        this.checkSignedIn();
         this.updatePrice();
-        if (this.state.email)
-            this.updateAccountData();
+        this.checkSignedIn()
+        .then(() => {
+            if (this.state.email)
+                this.updateAccountData();
+        });
     }
 
 
@@ -102,19 +104,22 @@ class Trading extends React.Component {
     }
 
     // load email if signed in
-    checkSignedIn = () => {
+    checkSignedIn = async () => {
 
         fetch('/sign-in-data', { method: 'GET' }).then(res => {
 
             // if signed in
             if (res.status !== 204)
-                res.json().then(res => 
+                res.json().then(res => {
                     // store email
-                    { this.setEmailAndName(res.email, res.name); });
+                    this.setEmailAndName(res.email, res.name); 
+                    return;
+                });
 
             // if not signed in
             else {
                 this.setEmailAndName(null);
+                return;
             }
 
         }).catch(err => {
