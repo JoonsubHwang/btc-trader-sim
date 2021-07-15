@@ -207,6 +207,7 @@
 }
 
 #order-form > label {
+    grid-column: 1;
     justify-self: left;
 }
 
@@ -298,17 +299,24 @@
     text-align: left;
 }
 
+.input-grid {
+    grid-column: 2 / span 2;
+
+    display: grid;
+    align-items: center;
+    grid-template-columns: calc(100% - 3rem) 2.5rem;
+    gap: .5rem;
+}
+
 .value {
     text-align: right;
 }
 
 #order-form > .value {
     box-sizing: border-box;
-    grid-column: span 2;
 }
 
 input[type=number] {
-    width: 100%;
     text-align: right;
 }
 

@@ -305,25 +305,32 @@ class Trading extends React.Component {
                             <label htmlFor='orderPrice'>Price</label>
 
                             {/* order price */}
-                            {this.state.orderType === orderTypes.MARKET_ORDER ?
-                                <p id='marketPrice' className='value'>Market Price</p>
-                                : <input className='value' type='number' name='orderPrice' step={this.priceStep} value={this.state.orderPrice} min='0' 
-                                    onChange={this.setOrderPrice} step={0.01} />}
+                            <div className='input-grid'>
 
-                            <p className='name'> USD</p>
+                                {this.state.orderType === orderTypes.MARKET_ORDER ?
+                                    <p id='marketPrice' className='value'>Market Price</p>
+                                    : <input className='value' type='number' name='orderPrice' step={this.priceStep} value={this.state.orderPrice} min='0' 
+                                        onChange={this.setOrderPrice} step={0.01} />}
+
+                                <p className='name'> USD</p>
+
+                            </div>
 
                             <label htmlFor='orderAmount'>Amount</label>
 
                             {/* order amount */}
-                            <input className='value' type='number' name='orderAmount' 
-                                value={this.state.orderAmount} min='0' 
-                                onChange={this.setOrderAmount} step={0.0001} />
+                            <div className='input-grid'>
+                                <input className='value' type='number' name='orderAmount' 
+                                    value={this.state.orderAmount} min='0' 
+                                    onChange={this.setOrderAmount} step={0.0001} />
+
+                                <p id='amountUnit' className='name'> BTC</p>
+                            </div>
 
                             <div id='orderAmountUSD-grid'>
-                                <p id='amountUnit' className='name'> BTC</p>
 
                                 {/* order amount in USD */}
-                                <p id='amountUSD' className='value'>≈ {((this.state.orderType === orderTypes.MARKET_ORDER ? this.state.price : this.state.orderPrice) 
+                                <p id='amountUSD' className='value'>{((this.state.orderType === orderTypes.MARKET_ORDER ? this.state.price : this.state.orderPrice) 
                                                                         * this.state.orderAmount).toFixed(2)}</p>
 
                                 <p id='amountUSDUnit' className='name'> USD</p>
