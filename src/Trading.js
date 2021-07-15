@@ -309,7 +309,7 @@ class Trading extends React.Component {
 
                                 {this.state.orderType === orderTypes.MARKET_ORDER ?
                                     <p id='marketPrice' className='value'>Market Price</p>
-                                    : <input className='value' type='number' name='orderPrice' step={this.priceStep} value={this.state.orderPrice} min='0' 
+                                    : <input className='value' type='number' name='orderPrice' step={this.priceStep} value={this.state.orderPrice} 
                                         onChange={this.setOrderPrice} step={0.01} />}
 
                                 <p className='name'> USD</p>
