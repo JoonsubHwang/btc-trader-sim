@@ -1,7 +1,7 @@
 import React from 'react';
-const orderTypes = require('../orderTypes');
-const lvrgRatios = require('./lvrgRatios');
 import './Transaction.css';
+const orderTypes = require('./client-modules/orderTypes');
+const lvrgRatios = require('./client-modules/lvrgRatios');
 
 export default class Transaction extends React.Component {
     

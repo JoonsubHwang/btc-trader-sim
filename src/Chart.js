@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import './Chart.css';
-const CbProAPI = require('./CbProAPI');
+import CbProAPI from './client-modules/CbProAPI';
 
 // colors
 const fg = 'rgb(230, 230, 230)';

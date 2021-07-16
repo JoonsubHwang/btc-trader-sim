@@ -6,7 +6,7 @@ const endpoint = 'https://api.pro.coinbase.com';
 const productID = 'BTC-USD';
 const historyLength = 2; // hours
 
-module.exports.CbProAPI = class CbProAPI {
+exports = class CbProAPI {
 
     // returns 2-hour historic rates of BTC-USD
     static async loadHistory() {

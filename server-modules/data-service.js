@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
 const bcrypt = require('bcryptjs')
-const CbProAPI = require('./CbProAPI');
 const orderTypes = require('./orderTypes');
-const accountSchema = require('./accountSchema.js');
+const accountSchema = require('./accountSchema');
 const balanceSchema = require('./balanceSchema');
 const orderlistSchema = require('./orderlistSchema');
+const CbProAPI = require('./CbProAPI');
 
 
 
