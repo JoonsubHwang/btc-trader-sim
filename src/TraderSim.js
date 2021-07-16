@@ -7,9 +7,9 @@ import SignUp from './SignUp';
 import { CbProAPI } from './CbProAPI';
 import orderTypes from './orderTypes';
 import levRatios from './lvrgRatios';
-import './Trading.css';
+import './TraderSim.css';
 
-class Trading extends React.Component {
+class TraderSim extends React.Component {
 
     // constructor
     constructor(props) {
@@ -394,4 +394,4 @@ class Trading extends React.Component {
     };
 };
 
-export default Trading;
+export default TraderSim;
