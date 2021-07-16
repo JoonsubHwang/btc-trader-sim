@@ -22,6 +22,24 @@ app.use(sessions({
     activeDuration: 5 * (60 * 1000) // time extended by each request
 }));
 
+// error handler
+app.use((err, req, res, next) => {
+    if (err) {
+        console.error('[server] Error: ' + err.message);
+        res.status(500).send({ error: 'Server had an error processing the request.' });
+    }
+    else
+        next();
+});
+
+// throws error if not signed in
+ensureSignIn = (req, res, next) => {
+    if (req.session.user)
+        next();
+    else 
+        throw new Error('Client is not signed in.');
+}
+
 
 
 // routes
@@ -46,7 +64,7 @@ app.post('/sign-in', (req, res) => {
 
 });
 
-app.post('/sign-out', (req, res) => {
+app.post('/sign-out', ensureSignIn, (req, res) => {
     try {
         signOut(req);
         res.send();
@@ -63,7 +81,7 @@ app.get('/sign-in-data', (req, res) => {
         res.status(204).send();
 });
 
-app.post('/account-updates', (req, res) => {
+app.post('/account-updates', ensureSignIn, (req, res) => {
     
     const cashOld = req.body.cash;
     const email = req.session.user.email;
@@ -114,7 +132,7 @@ app.post('/sign-up', (req, res) => {
     });
 });
 
-app.use((req, res) => { // all GET routes handled by React
+app.use((req, res) => { // rest of GET routes handled by React
     res.sendFile(path.join(__dirname + '/../build/index.html'));
 });
 
