@@ -1,7 +1,6 @@
 import { Route, Switch } from 'react-router-dom';
 import React from 'react';
-import Homepage from './Homepage';
-import Trading from './Trading';
+import TraderSim from './TraderSim';
 import './App.css';
 
 
@@ -15,7 +14,7 @@ class App extends React.Component {
           <Switch>
 
             <Route exact path='/'>
-              <Trading></Trading>
+              <TraderSim></TraderSim>
             </Route>
 
             <Route render={() => (
