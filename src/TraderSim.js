@@ -6,7 +6,7 @@ import SignIn from './SignIn';
 import SignUp from './SignUp';
 import { CbProAPI } from './CbProAPI';
 import orderTypes from './orderTypes';
-import levRatios from './lvrgRatios';
+import lvrgRatios from './lvrgRatios';
 import './TraderSim.css';
 
 class TraderSim extends React.Component {
@@ -38,7 +38,7 @@ class TraderSim extends React.Component {
             orderPrice: 0,
             orderType: orderTypes.LIMIT_ORDER,
             orderAmount: 0, // BTC
-            leverage: levRatios[0] // multiplier (1.0)
+            leverage: lvrgRatios[0] // multiplier (1.0)
         }
     }
 
@@ -347,12 +347,12 @@ class TraderSim extends React.Component {
                             {/* leverage */}
                             <label>Leverage</label>
 
-                            <div id='levRatios-grid'>
+                            <div id='lvrgRatios-grid'>
                                 {/* 4 leverage levels */}
-                                {levRatios.map((levRatio, i) => 
-                                    <button id={'levRatio-'+i} className={(this.state.leverage == levRatio)  ? 'levRatio-btn selected' : 'levRatio-btn'} 
-                                        onClick={this.setLeverage} key={levRatio}>
-                                        {levRatio.toFixed(1)} ×
+                                {lvrgRatios.map((lvrgRatio, i) => 
+                                    <button id={'lvrgRatio-'+i} className={(this.state.leverage == lvrgRatio)  ? 'lvrgRatio-btn selected' : 'lvrgRatio-btn'} 
+                                        onClick={this.setLeverage} key={lvrgRatio}>
+                                        {lvrgRatio.toFixed(1)} ×
                                     </button>
                                 )}
                             </div>
