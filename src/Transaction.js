@@ -1,6 +1,6 @@
 import React from 'react';
-import orderTypes from './orderTypes';
-import lvrgRatios from './lvrgRatios';
+const orderTypes = require('../orderTypes');
+const lvrgRatios = require('./lvrgRatios');
 import './Transaction.css';
 
 export default class Transaction extends React.Component {
@@ -24,8 +24,8 @@ export default class Transaction extends React.Component {
 
                 <label>Type</label>
 
+                {/* 3 order type buttons */}
                 <div id='orderTypes-grid'>
-                    {/* 3 order type buttons */}
                     {Object.values(orderTypes).map((orderType, i) => 
                         <button id={'orderType-'+i} className={'orderType-btn' + (this.state.orderType === orderType  ? ' selected' : '')} 
                             onClick={this.setOrderType} key={orderType}>
@@ -68,9 +68,9 @@ export default class Transaction extends React.Component {
                     <p id='amountUSDUnit' className='name'> USD</p>
                 </div>
 
-                {/* leverage */}
                 <label>Leverage</label>
 
+                {/* leverage */}
                 <div id='lvrgRatios-grid'>
                     {/* 4 leverage levels */}
                     {lvrgRatios.map((lvrgRatio, i) => 
@@ -83,8 +83,8 @@ export default class Transaction extends React.Component {
 
                 {/* order button */}
                 <div id='orderBtns-grid'>
-                    <button id='buy-btn'>Buy BTC</button>
-                    <button id='sell-btn'>Sell BTC</button>
+                    <button id='buy-btn' onClick={this.submitOrder}>Buy BTC</button>
+                    <button id='sell-btn' onClick={this.submitOrder}>Sell BTC</button>
                 </div>
 
             </form>
@@ -108,8 +108,6 @@ export default class Transaction extends React.Component {
 
     setLeverage = (event) => {
         event.preventDefault();
-        console.log(event.target.innerText.substr(0,3))
-        console.log(this.state.leverage)
         this.setState({ leverage: event.target.innerText.substr(0,3) });
     };
 
@@ -117,20 +115,26 @@ export default class Transaction extends React.Component {
 
         event.preventDefault();
 
-        if (this.state.orderType === orderTypes.MARKET_ORDER)
-            this.setState(this.state.orderPrice, this.props.price);
+        const buy = (event.target.id === 'buy-btn') ?
+                    true
+                    : false;
+
+        // if (this.state.orderType === orderTypes.MARKET_ORDER)
+        //     this.setState(this.state.orderPrice, this.props.price);
 
         let req = {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify({
+                buy: buy,
                 orderType: this.state.orderType,
                 price: this.state.orderPrice,
-                amount: this.state.orderAmount
+                amount: this.state.orderAmount,
+                leverage: this.state.leverage
             })
         }
 
-        fetch('submit-order', req).then(res => {
+        fetch('order', req).then(res => {
             // TODO: handle redirect?
             // TODO: handle reject (invalid order)
         })

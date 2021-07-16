@@ -1,11 +1,10 @@
 import React from 'react';
 import { Menu } from '@material-ui/icons';
-
+const CbProAPI = require('./CbProAPI');
 import Chart from './Chart';
 import Transaction from './Transaction'
 import SignIn from './SignIn';
 import SignUp from './SignUp';
-import { CbProAPI } from './CbProAPI';
 import './TraderSim.css';
 
 class TraderSim extends React.Component {
