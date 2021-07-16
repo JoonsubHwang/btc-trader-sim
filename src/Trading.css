@@ -9,7 +9,7 @@
 @media (max-width: 900px)  and (orientation: portrait){
     :root { 
         --chartHeight: 35%;
-        --txnHeight: 18rem;
+        --txnHeight: 22rem;
         --txnWidth: 20rem; /* price width */
     }
 }
@@ -192,8 +192,8 @@
     /* grid */
     display: grid;
     grid-template-columns: 4rem repeat(3, calc((100% - 4rem - (.5rem * 3)) / 3));
-    grid-template-rows: 2rem 2rem 2rem 2rem;
-    gap: calc((100% - 8rem) / 3) .5rem;
+    grid-template-rows: 2rem 2rem 2rem 2rem 2rem;
+    gap: calc((100% - 10rem) / 4) .5rem;
 }
 @media (max-width: 900px)  and (orientation: portrait){
     #order-form {
@@ -211,7 +211,8 @@
     justify-self: left;
 }
 
-#orderTypes-grid {
+#orderTypes-grid,
+#levRatios-grid    {
     --text-width: 6rem;
 
     grid-column: span 3;
@@ -227,50 +228,76 @@
                 inset  2px  2px 5px 1px var(--bg-shadow);
 }
 
-.orderType-btn {
+#levRatios-grid {
+    --text-width: 3rem;
+    grid-template-columns: repeat(4, 25%);
+}
+
+.orderType-btn, 
+.levRatio-btn   {
     min-height: 2rem;
     width: calc(var(--text-width) + 3rem);
 
     background: none;
     color: var(--fg-darker);
+    border-radius: 2rem;
 
     box-shadow: none;
 }
 
-.orderType-btn:active {
+.orderType-btn:active, 
+.levRatio-btn:active   {
     filter: none;
     box-shadow: none;
 }
 
-.orderType-btn.selected:hover {
+.orderType-btn.selected:hover, 
+.levRatio-btn.selected:hover   {
     filter: none;
 }
 
 /* leftmost */
-#orderType-0 {
+#orderType-0   {
     margin-left: -25%;
 }
+#levRatio-0 {
+    margin-left: -30%;
+}
+#levRatio-1 {
+    margin-left: -10%;
+}
+#levRatio-2 {
+    margin-right: -10%;
+}
 /* rightmost */
-#orderType-2 {
+#orderType-2  {
     margin-right: -25%;
 }
+#levRatio-3 {
+    margin-right: -30%;
+}
 @media (max-width: 900px)  and (orientation: portrait) {
-    .orderType-btn {
+    .orderType-btn, 
+    .levRatio-btn   {
         width: calc(var(--text-width) + 1rem);
     }
-    #orderType-0 {
+    #orderType-0,
+    #levRatio-0   {
         margin-left: 0;
     }
-    #orderType-2 {
+    #orderType-2
+    #levRatio-3  {
         margin-right: 0;
     }
 }
 
-.orderType-btn:hover {
+.orderType-btn:hover,
+.levRatio-btn:hover   {
     color: var(--fg);
 }
 
-.orderType-btn.selected {
+.orderType-btn.selected,
+.levRatio-btn.selected   {
     background-color: var(--bg);
     color: var(--fg);
     box-shadow: 2px  2px 5px 1px var(--bg-shadow);

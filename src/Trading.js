@@ -5,7 +5,8 @@ import Chart from './Chart';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 import { CbProAPI } from './CbProAPI';
-import orderTypes from './orderTypes.js';
+import orderTypes from './orderTypes';
+import levRatios from './lvrgRatios';
 import './Trading.css';
 
 class Trading extends React.Component {
@@ -36,7 +37,8 @@ class Trading extends React.Component {
             // order
             orderPrice: 0,
             orderType: orderTypes.LIMIT_ORDER,
-            orderAmount: 0 // BTC
+            orderAmount: 0, // BTC
+            leverage: levRatios[0] // multiplier (1.0)
         }
     }
 
@@ -162,8 +164,7 @@ class Trading extends React.Component {
 
     setOrderType = (event) => {
         event.preventDefault();
-
-        this.setState({ orderType: event.target.innerHTML });
+        this.setState({ orderType: event.target.innerText });
     };
 
     setOrderPrice = (event) => {
@@ -172,6 +173,13 @@ class Trading extends React.Component {
 
     setOrderAmount = (event) => {
         this.setState({ orderAmount: event.target.value });
+    };
+
+    setLeverage = (event) => {
+        event.preventDefault();
+        console.log(event.target.innerText.substr(0,3))
+        console.log(this.state.leverage)
+        this.setState({ leverage: event.target.innerText.substr(0,3) });
     };
 
     submitOrder = (event) => {
@@ -334,6 +342,19 @@ class Trading extends React.Component {
                                                                         * this.state.orderAmount).toFixed(2)}</p>
 
                                 <p id='amountUSDUnit' className='name'> USD</p>
+                            </div>
+
+                            {/* leverage */}
+                            <label>Leverage</label>
+
+                            <div id='levRatios-grid'>
+                                {/* 4 leverage levels */}
+                                {levRatios.map((levRatio, i) => 
+                                    <button id={'levRatio-'+i} className={(this.state.leverage == levRatio)  ? 'levRatio-btn selected' : 'levRatio-btn'} 
+                                        onClick={this.setLeverage} key={levRatio}>
+                                        {levRatio.toFixed(1)} ×
+                                    </button>
+                                )}
                             </div>
 
                             {/* order button */}
