@@ -22,18 +22,6 @@ export default class Transaction extends React.Component {
 
             <form id='order-form'>
 
-                <label>Type</label>
-
-                {/* 3 order type buttons */}
-                <div id='orderTypes-grid'>
-                    {Object.values(orderTypes).map((orderType, i) => 
-                        <button id={'orderType-'+i} className={'orderType-btn' + (this.state.orderType === orderType  ? ' selected' : '')} 
-                            onClick={this.setOrderType} key={orderType}>
-                            {orderType}
-                        </button>
-                    )}
-                </div>
-
                 <label htmlFor='orderPrice'>Price</label>
 
                 {/* order price */}
@@ -66,19 +54,6 @@ export default class Transaction extends React.Component {
                                                             * this.state.orderAmount).toFixed(2)}</p>
 
                     <p id='amountUSDUnit' className='name'> USD</p>
-                </div>
-
-                <label>Leverage</label>
-
-                {/* leverage */}
-                <div id='lvrgRatios-grid'>
-                    {/* 4 leverage levels */}
-                    {lvrgRatios.map((lvrgRatio, i) => 
-                        <button id={'lvrgRatio-'+i} className={(this.state.leverage == lvrgRatio)  ? 'lvrgRatio-btn selected' : 'lvrgRatio-btn'} 
-                            onClick={this.setLeverage} key={lvrgRatio}>
-                            {lvrgRatio.toFixed(1)} ×
-                        </button>
-                    )}
                 </div>
 
                 {/* order button */}

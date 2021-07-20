@@ -14,13 +14,13 @@
     grid-column: 2;
 
     height: 100%;
-    margin: auto;
 
     /* grid */
     display: grid;
     grid-template-columns: 4rem repeat(3, calc((100% - 4rem - (.5rem * 3)) / 3));
-    grid-template-rows: 2rem 2rem 2rem 2rem 2rem;
-    gap: calc((100% - 10rem) / 4) .5rem;
+    grid-template-rows: repeat(3, 2rem);
+    gap: 2rem .5rem;
+    place-content: center;
 }
 @media (max-width: 900px)  and (orientation: portrait){
     #order-form {

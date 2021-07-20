@@ -1,6 +1,7 @@
 :root {
     --pricePanelHeight: 2rem;
-    --chartHeight: 55%;
+    --chartHeight: calc(100% - var(--pricePanelHeight) - var(--txnHeight) - 4rem);
+    --txnHeight: 14rem;
     --txnWidth: 70%; /* price width */
 
     --green: rgb(0, 133, 78);
@@ -8,8 +9,7 @@
 }
 @media (max-width: 900px)  and (orientation: portrait) {
     :root { 
-        --chartHeight: 35%;
-        --txnHeight: 22rem;
+        --chartHeight: 45%;
         --txnWidth: 20rem; /* price width */
     }
 }
