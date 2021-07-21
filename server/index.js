@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const sessions = require('client-sessions');
-const dataService = require('../modules/data-service');
+const dataService = require('../server-modules/data-service');
 
 
 
@@ -74,6 +74,31 @@ app.post('/sign-out', ensureSignIn, (req, res) => {
     }
 });
 
+app.post('/sign-up', (req, res) => {
+
+    const signUpData = req.body;
+
+    dataService.validateSignUp(signUpData)
+    .then(invalid => {
+        if (invalid)
+            res.send({ invalid: invalid });
+        else {
+            dataService.createAccount(signUpData)
+            .then(() => {
+                signIn(req, signUpData);
+                res.send({ email: signUpData.email });
+            })
+            .catch(err => {
+                throw new Error('[server] Error creating account. ' + err);
+            });
+        }
+    })
+    .catch(err => {
+        console.error('[server] Error signing up. ' + err);
+        res.send({ error: 'Server had a problem signing up.' });
+    });
+});
+
 app.get('/sign-in-data', (req, res) => {
     if (req.session.user)
         res.send({ email: req.session.user.email, name: req.session.user.name });
@@ -107,29 +132,17 @@ app.post('/account-updates', ensureSignIn, (req, res) => {
     });
 });
 
-app.post('/sign-up', (req, res) => {
-
-    const signUpData = req.body;
-
-    dataService.validateSignUp(signUpData)
+app.post('/order', (req, res) => {
+    let orderData = req.body;
+    orderData.email = req.session.user.email;
+    dataService.processOrder(orderData)
     .then(invalid => {
         if (invalid)
-            res.send({ invalid: invalid });
-        else {
-            dataService.createAccount(signUpData)
-            .then(() => {
-                signIn(req, signUpData);
-                res.send({ email: signUpData.email });
-            })
-            .catch(err => {
-                throw new Error('[server] Error creating account. ' + err);
-            });
-        }
+            res.send({ invalid: invalid});
+        else
+            res.send({});
     })
-    .catch(err => {
-        console.error('[server] Error signing up. ' + err);
-        res.send({ error: 'Server had a problem signing up.' });
-    });
+
 });
 
 app.use((req, res) => { // rest of GET routes handled by React
