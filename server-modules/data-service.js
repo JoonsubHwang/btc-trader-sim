@@ -111,6 +111,8 @@ exports.validateSignUp = async (signUpData) => {
 
 exports.createAccount= async (signUpData) => {
 
+    const initCash = 10000;
+
     try {
         // encrypt password
         signUpData.password = await bcrypt.hash(signUpData.password, 10);
@@ -119,7 +121,7 @@ exports.createAccount= async (signUpData) => {
         await (new Accounts(signUpData)).save();
         await new Balances({ 
             email: signUpData.email,
-            cash: 0,
+            cash: initCash,
             BTC: 0
         }).save();
         await new Orderlists({ 
