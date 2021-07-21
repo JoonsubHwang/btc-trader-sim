@@ -172,132 +172,39 @@ exports.loadOrderlist = async (email) => {
 
 exports.processOrder = async (orderData) => {
 
-    let result = { invalid: undefined };
+    try {
 
-    let account = await findAccount(orderData.email);
+        let invalid = undefined;
     
-    // validation
-    if (buy) {
-        if ((orderData.orderPrice * orderAmount) > account.balance.cash)
-            result.invalid = 'Insufficient cash.';
-    }
-    else { // sell and/or short
-        if ((orderData.orderPrice * (orderAmount - account.balance.BTC)) > account.balance.cash)
-            result.invalid = 'Insufficient cash.';
-    }
-
-    // load current price
-    const currentPrice = await CbProAPI.loadNewPrice();
-
-    // market order
-    if (orderData.orderType === orderTypes.MARKET_ORDER) {
+        let balance = await this.loadBalance(orderData.email);
+        
+        // validation
+        if (orderData.buy) { // buy
+            if ((orderData.orderPrice * orderData.orderAmount) > balance.cash)
+                invalid = 'Insufficient cash in balance.';
+        }
+        else { // sell
+            if (orderData.orderAmount > balance.BTC)
+                invalid = 'Insufficient BTC in balance.';
+        }
+    
+        // load current price
+        const currentPrice = await CbProAPI.loadNewPrice();
+        // set order price to current price
         orderData.orderPrice = currentPrice;
-        if (buy)
-            orderData.time = await buy(orderData);
+    
+        // buy or sell
+        // NOTE: orderType is ignored
+        if (orderData.buy)
+            await buy(orderData);
+            
         else {
-            // sell if user has any BTC
-            if (account.balance.BTC)
-                orderData.time = await sell(orderData);
-
-            // and/or short if user doens't have enough/any BTC to sell
-            if ((orderData.orderAmount - account.balance.BTC) > 0) {
-
-                // adjust orderData for short
-                orderData.orderAmount -= account.balance.BTC;
-                orderData.leverage *= account.balance.BTC;
-
-                orderData.time = await short(orderData);
-            }
-        }
-        await recordOrder(orderData);
-        console.log(orderData) // DEBUG
-    }
-    // limit order
-    else if (orderData.orderType === orderTypes.LIMIT_ORDER) {
-        // buy
-        if (buy) {
-            if (currentPrice <= orderData.orderPrice) { // immediate proccess
-                orderData.orderPrice = currentPrice;
-                orderData.time = await buy(orderData);
-                await recordOrder(orderData);
-                console.log(orderData) // DEBUG
-            }
-            else { // list order for pending
-                await postOrder(orderData);
-            }
-        }
-        else {
-            if (account.balance.BTC) {
-                if (currentPrice >= orderData.orderPrice) {
-                    orderData.orderPrice = currentPrice;
-                    orderData.time = await sell(orderData);
-                    await recordOrder(orderData);
-                    console.log(orderData) // DEBUG
-                }
-                else {
-                    await postOrder(orderData);
-                }
-            }
-            if ((orderData.orderAmount - account.balance.BTC) > 0) {
-                
-                orderData.orderPrice = currentPrice;
-
-                orderData.orderAmount -= account.balance.BTC;
-                orderData.leverage *= account.balance.BTC;
-
-                if (currentPrice >= orderData.orderPrice) {
-                    orderData.time = await short(orderData);
-                    await recordOrder(orderData);
-                    console.log(orderData) // DEBUG
-                }
-                else {
-                    await postOrder(orderData);
-                }
-            }
+            await sell(orderData);
         }
     }
-    // stop market
-    else if (orderData.orderType === orderTypes.STOP_MARKET) {
-        if (buy) {
-            if (currentPrice >= orderData.orderPrice) {
-                orderData.orderPrice = currentPrice;
-                orderData.time = await buy(orderData);
-                await recordOrder(orderData);
-                console.log(orderData) // DEBUG
-            }
-            else {
-                await postOrder(orderData);
-            }
-        }
-        else {
-            if (account.balance.BTC) {
-                if (currentPrice <= orderData.orderPrice) {
-                    orderData.orderPrice = currentPrice;
-                    orderData.time = await sell(orderData);
-                    await recordOrder(orderData);
-                    console.log(orderData) // DEBUG
-                }
-                else {
-                    await postOrder(orderData);
-                }
-            }
-            if ((orderData.orderAmount - account.balance.BTC) > 0) {
-                
-                orderData.orderPrice = currentPrice;
-
-                orderData.orderAmount -= account.balance.BTC;
-                orderData.leverage *= account.balance.BTC;
-
-                if (currentPrice <= orderData.orderPrice) {
-                    orderData.time = await sell(orderData);
-                    await recordOrder(orderData);
-                    console.log(orderData) // DEBUG
-                }
-                else {
-                    await postOrder(orderData);
-                }
-            }
-        }
+    catch (err) {
+        console.error('[data-service] Error while processing order. (' + err.message + ')');
+        throw new Error('Failed to process order.');
     }
 }
 
@@ -306,23 +213,27 @@ async function findAccount(email) {
     return await Accounts.findOne({ email: email }).lean().exec();
 }
 
-// immediately buy and return date processed
+// immediate process
 async function buy(orderData) {
-
+    // pay cash and buy BTC
+    await updateBalance(-(orderData.orderPrice * orderData.orderAmount), orderData.orderAmount);
+    // record order
+    await recordOrder(orderData);
 }
 
 async function sell(orderData) {
-    
+    // pay BTC and buy cash
+    await updateBalance((orderData.orderPrice * orderData.orderAmount), -orderData.orderAmount);
+    // record order
+    await recordOrder(orderData);
 }
 
-async function short(orderData) {
-    
+// updates user's balance
+async function updateBalance(updateCash, updateBTC) {
+
 }
 
-async function postOrder(orderData) {
-    
-}
-
+// add order to order history
 async function recordOrder(orderData) {
     
 }
