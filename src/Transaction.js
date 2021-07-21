@@ -109,8 +109,8 @@ export default class Transaction extends React.Component {
             body: JSON.stringify({
                 buy: buy,
                 orderType: this.state.orderType,
-                price: this.state.orderPrice,
-                amount: this.state.orderAmount
+                orderPrice: this.state.orderPrice,
+                orderAmount: this.state.orderAmount
             })
         }
 
