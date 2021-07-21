@@ -239,4 +239,15 @@ async function updateBalance(email, updateCash, updateBTC) {
 // add order to order history
 async function recordOrder(orderData) {
     
+    let record = {
+        buy: orderData.buy,
+        orderType: orderData.orderType,
+        orderPrice: orderData.orderPrice,
+        orderAmount: orderData.orderAmount,
+        orderTime: new Date()
+    }
+
+    let orderList = await Orderlists.findOne({ email: orderData.email }).lean().exec();
+    orderList.history += record;
+    orderList.save();
 }
