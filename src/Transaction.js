@@ -22,6 +22,18 @@ export default class Transaction extends React.Component {
 
             <form id='order-form'>
 
+                <label>Type</label>
+
+                {/* 3 order type buttons */}
+                <div id='orderTypes-grid'>
+                    {Object.values(orderTypes).map((orderType, i) => 
+                        <button id={'orderType-'+i} className={'orderType-btn' + (this.state.orderType === orderType  ? ' selected' : '')} 
+                            onClick={this.setOrderType} key={orderType}>
+                            {orderType}
+                        </button>
+                    )}
+                </div>
+
                 <label htmlFor='orderPrice'>Price</label>
 
                 {/* order price */}

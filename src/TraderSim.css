@@ -1,7 +1,7 @@
 :root {
     --pricePanelHeight: 2rem;
     --chartHeight: calc(100% - var(--pricePanelHeight) - var(--txnHeight) - 4rem);
-    --txnHeight: 14rem;
+    --txnHeight: 18rem;
     --txnWidth: 70%; /* price width */
 
     --green: rgb(0, 133, 78);
