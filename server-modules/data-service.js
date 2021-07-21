@@ -216,21 +216,24 @@ async function findAccount(email) {
 // immediate process
 async function buy(orderData) {
     // pay cash and buy BTC
-    await updateBalance(-(orderData.orderPrice * orderData.orderAmount), orderData.orderAmount);
+    await updateBalance(email, -(orderData.orderPrice * orderData.orderAmount), orderData.orderAmount);
     // record order
     await recordOrder(orderData);
 }
 
 async function sell(orderData) {
     // pay BTC and buy cash
-    await updateBalance((orderData.orderPrice * orderData.orderAmount), -orderData.orderAmount);
+    await updateBalance(email, (orderData.orderPrice * orderData.orderAmount), -orderData.orderAmount);
     // record order
     await recordOrder(orderData);
 }
 
 // updates user's balance
-async function updateBalance(updateCash, updateBTC) {
-
+async function updateBalance(email, updateCash, updateBTC) {
+    let balance = await this.loadBalance(email);
+    balance.cash += updateCash;
+    balance.BTC += updateBTC;
+    balance.save();
 }
 
 // add order to order history
