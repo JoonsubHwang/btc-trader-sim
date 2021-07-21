@@ -38,8 +38,7 @@
     justify-self: left;
 }
 
-#orderTypes-grid,
-#lvrgRatios-grid    {
+#orderTypes-grid {
     --text-width: 6rem;
 
     grid-column: span 3;
@@ -55,13 +54,7 @@
                 inset  2px  2px 5px 1px var(--bg-shadow);
 }
 
-#lvrgRatios-grid {
-    --text-width: 3rem;
-    grid-template-columns: repeat(4, 25%);
-}
-
-.orderType-btn, 
-.lvrgRatio-btn   {
+.orderType-btn {
     min-height: 2rem;
     width: calc(var(--text-width) + 3rem);
 
@@ -72,14 +65,12 @@
     box-shadow: none;
 }
 
-.orderType-btn:active, 
-.lvrgRatio-btn:active   {
+.orderType-btn:active {
     filter: none;
     box-shadow: none;
 }
 
-.orderType-btn.selected:hover, 
-.lvrgRatio-btn.selected:hover   {
+.orderType-btn.selected:hover {
     filter: none;
 }
 
@@ -87,44 +78,27 @@
 #orderType-0   {
     margin-left: -25%;
 }
-#lvrgRatio-0 {
-    margin-left: -30%;
-}
-#lvrgRatio-1 {
-    margin-left: -10%;
-}
-#lvrgRatio-2 {
-    margin-right: -10%;
-}
 /* rightmost */
 #orderType-2  {
     margin-right: -25%;
 }
-#lvrgRatio-3 {
-    margin-right: -30%;
-}
 @media (max-width: 900px)  and (orientation: portrait) {
-    .orderType-btn, 
-    .lvrgRatio-btn   {
+    .orderType-btn   {
         width: calc(var(--text-width) + 1rem);
     }
-    #orderType-0,
-    #lvrgRatio-0   {
+    #orderType-0   {
         margin-left: 0;
     }
-    #orderType-2
-    #lvrgRatio-3  {
+    #orderType-2  {
         margin-right: 0;
     }
 }
 
-.orderType-btn:hover,
-.lvrgRatio-btn:hover   {
+.orderType-btn:hover   {
     color: var(--fg);
 }
 
-.orderType-btn.selected,
-.lvrgRatio-btn.selected   {
+.orderType-btn.selected   {
     background-color: var(--bg);
     color: var(--fg);
     box-shadow: 2px  2px 5px 1px var(--bg-shadow);

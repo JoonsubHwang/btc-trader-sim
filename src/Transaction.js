@@ -12,8 +12,7 @@ export default class Transaction extends React.Component {
         this.state = {
             orderPrice: 0,
             orderType: orderTypes.LIMIT_ORDER,
-            orderAmount: 0, // BTC
-            leverage: lvrgRatios[0] // multiplier (1.0)
+            orderAmount: 0 // BTC
         }
     }
 
@@ -93,11 +92,6 @@ export default class Transaction extends React.Component {
         this.setState({ orderAmount: event.target.value });
     };
 
-    setLeverage = (event) => {
-        event.preventDefault();
-        this.setState({ leverage: event.target.innerText.substr(0,3) });
-    };
-
     submitOrder = (event) => {
 
         event.preventDefault();
@@ -116,8 +110,7 @@ export default class Transaction extends React.Component {
                 buy: buy,
                 orderType: this.state.orderType,
                 price: this.state.orderPrice,
-                amount: this.state.orderAmount,
-                leverage: this.state.leverage
+                amount: this.state.orderAmount
             })
         }
 
