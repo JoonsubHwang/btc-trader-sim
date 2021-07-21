@@ -174,7 +174,7 @@ exports.processOrder = async (orderData) => {
 
     try {
 
-        let invalid = undefined;
+        let invalid;
     
         let balance = await this.loadBalance(orderData.email);
         
@@ -187,19 +187,26 @@ exports.processOrder = async (orderData) => {
             if (orderData.orderAmount > balance.BTC)
                 invalid = 'Insufficient BTC in balance.';
         }
-    
-        // load current price
-        const currentPrice = await CbProAPI.loadNewPrice();
-        // set order price to current price
-        orderData.orderPrice = currentPrice;
-    
-        // buy or sell
-        // NOTE: orderType is ignored
-        if (orderData.buy)
-            await buy(orderData);
-            
+
+        if (invalid)
+            return invalid;
         else {
-            await sell(orderData);
+    
+            // load current price
+            const currentPrice = await CbProAPI.loadNewPrice();
+            // set order price to current price
+            orderData.orderPrice = currentPrice;
+        
+            // buy or sell
+            // NOTE: orderType is ignored
+            if (orderData.buy)
+                await buy(orderData);
+                
+            else {
+                await sell(orderData);
+            }
+
+            return;
         }
     }
     catch (err) {
