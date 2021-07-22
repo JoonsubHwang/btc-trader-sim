@@ -8,17 +8,17 @@ export default class PopupMsg extends React.Component {
         <div id='PopupMsg-main'>
             
             {/* success/error icon */}
-            {this.props.success ?
+            {this.props.popupMsg.success ?
             <CheckCircle id='success-icon'/>
             : <ErrorOutline id='error-icon'/>}
 
             <div>
                 {/* Success/Error */}
-                <p>{this.props.success ?
+                <p>{this.props.popupMsg.success ?
                 <span id='success'>Success </span>
                 : <span id='error'>Error </span>}
                 {/* message */}
-                {this.props.message}</p>
+                {this.props.popupMsg.message}</p>
             </div>
 
         </div>
