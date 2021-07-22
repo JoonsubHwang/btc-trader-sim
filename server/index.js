@@ -86,7 +86,7 @@ app.post('/sign-up', (req, res) => {
             dataService.createAccount(signUpData)
             .then(() => {
                 signIn(req, signUpData);
-                res.send({ email: signUpData.email });
+                res.send({ email: signUpData.email, name: signUpData.name });
             })
             .catch(err => {
                 throw new Error('[server] Error creating account. ' + err);
