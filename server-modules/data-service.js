@@ -180,13 +180,17 @@ exports.processOrder = async (orderData) => {
         let balance = await exports.loadBalance(orderData.email);
         
         // validation
-        if (orderData.buy) { // buy
-            if ((orderData.orderPrice * orderData.orderAmount) > balance.cash)
-                invalid = 'Insufficient cash in balance.';
-        }
-        else { // sell
-            if (orderData.orderAmount > balance.BTC)
-                invalid = 'Insufficient BTC in balance.';
+        if (orderData.orderAmount < 0.001)
+            invalid = 'Invalid order amount.';
+        else {
+            if (orderData.buy) { // buy
+                if ((orderData.orderPrice * orderData.orderAmount) > balance.cash)
+                    invalid = 'Insufficient cash in balance.';
+            }
+            else { // sell
+                if (orderData.orderAmount > balance.BTC)
+                    invalid = 'Insufficient BTC in balance.';
+            }
         }
 
         if (invalid)
