@@ -275,6 +275,12 @@ class TraderSim extends React.Component {
                 if (field.validationMessage != '')
                     field.setCustomValidity('');
             });
+        // focus on the first field on open
+        else {
+            window.setTimeout(() => {
+                signin.querySelector("input[name='email']").focus();
+            }, 0);
+        }
 
         // open/close
         signin.classList.toggle('visible');
@@ -290,6 +296,12 @@ class TraderSim extends React.Component {
                 if (field.validationMessage != '')
                     field.setCustomValidity('');
             });
+        // focus to the first field on open
+        else {
+            window.setTimeout(() => {
+                signup.querySelector("input[name='name']").focus();
+            }, 0);
+        }
 
         // open/close
         signup.classList.toggle('visible');
