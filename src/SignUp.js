@@ -1,6 +1,6 @@
 import React from 'react';
 import { Close } from '@material-ui/icons';
-import './SignUp.css';
+import './SignIn_SignUp.css';
 
 export default class SignUp extends React.Component {
 

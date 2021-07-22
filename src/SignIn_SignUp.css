@@ -1,7 +1,10 @@
 /* background */
-#signin-main {
+#signin-main,
+#signup-main {
     --signin-width: 25rem;
     --signin-height: 20rem;
+    --signup-width: 25rem;
+    --signup-height: 24.5rem;
 
     display: none;
     position: absolute;
@@ -14,31 +17,46 @@
     background-color: rgba(0, 0, 0, .7);
 }
 
-#signin-popup {
+#signin-popup,
+#signup-popup {
     position: absolute;
     z-index: 2;
-    top: calc(50% - (var(--signin-height) / 2) - 1rem);
-    left: calc((50% - (var(--signin-width)) / 2) - 1rem);
-
-    width: var(--signin-width);
-    height: var(--signin-height);
     padding: 1rem;
 
     border-radius: .5rem;
     box-shadow: none;
 }
 
-#signinClose-btn {
+#signin-popup {
+    top: calc(50% - (var(--signin-height) / 2) - 1rem);
+    left: calc((50% - (var(--signin-width)) / 2) - 1rem);
+
+    width: var(--signin-width);
+    height: var(--signin-height);
+}
+
+#signup-popup {
+    top: calc(50% - (var(--signup-height) / 2) - 1rem);
+    left: calc((50% - (var(--signup-width)) / 2) - 1rem);
+
+    width: var(--signup-width);
+    height: var(--signup-height);
+}
+
+#signinClose-btn,
+#signupClose-btn {
     margin: .5rem;
     margin-bottom: -2rem;
     float: right;
 }
 
-#signinClose-btn:hover {
+#signinClose-btn:hover,
+#signupClose-btn:hover {
     fill: var(--theme);
 }
 
-#signin-form {
+#signin-form,
+#signup-form {
     --margin: 2rem;
     margin: calc(var(--margin) - 1rem) var(--margin) var(--margin);
     width: calc(100% - (2 * var(--margin)));
@@ -46,13 +64,21 @@
 
     display: grid;
     grid-template-columns: 5rem auto;
-    grid-template-rows: 3rem 1.5rem 1.5rem 2rem 1rem;
     gap: 2rem .5rem;
 
     align-items: center;
 }
 
-#signin-heading {
+#signin-form {
+    grid-template-rows: 3rem 1.5rem 1.5rem 2rem 1rem;
+}
+
+#signup-form {
+    grid-template-rows: 3rem 1.7rem 1.7rem 1.7rem 1.7rem 2rem;
+}
+
+#signin-heading,
+#signup-heading {
     grid-column: span 2;
 
     width: 6rem;
@@ -62,13 +88,22 @@
     color: var(--accent);
 }
 
-#signin-btn {
+input[name='pwConfirm'] {
+    margin-top: -2rem;
+}
+
+#signin-btn,
+#signup-btn {
     grid-column: span 2;
 
     height: 2rem;
 
     background-color: var(--theme);
     color: var(--fg);
+}
+
+#signup-btn {
+    margin-top: -1rem;
 }
 
 /* forgot password */

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Close } from '@material-ui/icons';
-import './SignIn.css';
+import './SignIn_SignUp.css';
 
 export default class SignIn extends React.Component {
 
