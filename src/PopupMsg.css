@@ -1,0 +1,48 @@
+#PopupMsg-main {
+    --PopupMsg-width: 18rem;
+    --PopupMsg-height: 2.4rem;
+    --icon-size: 1.8rem;
+
+    position: absolute;
+    bottom: .5rem;
+    right: .5rem;
+    z-index: 3;
+
+    border-radius: .5rem;
+    background-color: rgba(0, 0, 0, 0.6);
+
+    width: var(--PopupMsg-width);
+    height: var(--PopupMsg-height);
+    padding: .8rem .9rem;
+    
+    display: grid;
+    grid-template-columns: var(--icon-size) calc(var(--PopupMsg-width) - var(--icon-size) - .6rem);
+    gap: .6rem;
+}
+
+#PopupMsg-main > svg {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    align-self: center;
+}
+
+#success-icon {
+    fill: var(--green);
+}
+#error-icon {
+    fill: var(--red);
+}
+
+#PopupMsg-main > div > p {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+#success {
+    color: var(--green);
+}
+#error {
+    color: var(--red);
+}
