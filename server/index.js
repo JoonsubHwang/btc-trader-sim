@@ -142,7 +142,10 @@ app.post('/order', (req, res) => {
         else
             res.send({});
     })
-
+    .catch(err => {
+        console.error('[server] Error processing order. ' + err);
+        res.send({ error: 'Server had a problem processing order.' });
+    });
 });
 
 app.use((req, res) => { // rest of GET routes handled by React
