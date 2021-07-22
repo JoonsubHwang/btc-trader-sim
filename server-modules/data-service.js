@@ -238,10 +238,13 @@ async function sell(orderData) {
 
 // updates user's balance
 async function updateBalance(email, updateCash, updateBTC) {
-    let balance = await exports.loadBalance(email);
-    balance.cash += updateCash;
-    balance.BTC += updateBTC;
-    balance.save();
+    await Balances.updateOne(
+        { email: email },
+        { $inc: {
+            cash: updateCash,
+            BTC: updateBTC
+        }}
+    );
 }
 
 // add order to order history
