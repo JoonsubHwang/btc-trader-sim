@@ -4,8 +4,9 @@ import Chart from './Chart';
 import Transaction from './Transaction'
 import SignIn from './SignIn';
 import SignUp from './SignUp';
-import './TraderSim.css';
+import PopupMsg from './PopupMsg';
 import CbProAPI from './client-modules/CbProAPI';
+import './TraderSim.css';
 
 class TraderSim extends React.Component {
 
@@ -30,7 +31,13 @@ class TraderSim extends React.Component {
 
             // price
             price: 0,
-            priceColor: 'white'
+            priceColor: 'white',
+
+            // popupMsg
+            popupMsg: {
+                success: false,
+                message: ''
+            }
         }
     }
 
@@ -40,12 +47,13 @@ class TraderSim extends React.Component {
 
         // load data
         this.update();
+        
         // set update timer
-        this.tUpdate = setInterval(this.update, this.iUpdate);
+        this.updateTimer = setInterval(this.update, this.iUpdate);
     }
 
     componentWillUnmount = () => {
-        clearInterval(this.tUpdate);
+        clearInterval(this.updateTimer);
     }
 
 
@@ -125,9 +133,10 @@ class TraderSim extends React.Component {
                         </div>}
                         
 
-                    {/* hiddle pop-ups */}
+                    {/* hidden pop-ups */}
                     <SignIn setEmailAndName={this.setEmailAndName} toggleSignInPopup={this.toggleSignInPopup}></SignIn>
                     <SignUp setEmailAndName={this.setEmailAndName} toggleSignUpPopup={this.toggleSignUpPopup}></SignUp>
+                    <PopupMsg popupMsg={this.state.popupMsg}></PopupMsg>
 
                 </div>
                 
@@ -239,6 +248,18 @@ class TraderSim extends React.Component {
             console.error('Error updating account data. (' + err.message + ')');
         });
     };
+
+    displayPopupMsg = (success, message) => {
+        // set success and message
+        this.setState({ popupMsg: { success: success, message: message }});
+        let popupMsg = document.querySelector('#PopupMsg-main');
+        // unhide
+        popupMsg.style.visibility = 'visible';
+        // hide after 3 sec
+        window.setTimeout(() => {
+            popupMsg.style.visibility = 'hidden';
+        }, 4000)
+    }
 
 
 
