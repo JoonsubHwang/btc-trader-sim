@@ -1,4 +1,4 @@
-// functions to communicate with Coinbase Pro API
+// functions to communicate with Coinbase Pro API (Documentation: https://docs.pro.coinbase.com)
 
 const minute = 60;
 const locale = 'en-US';
