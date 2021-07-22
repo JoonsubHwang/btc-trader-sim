@@ -49,9 +49,11 @@ class TraderSim extends React.Component {
         this.update();
         
         // display welcome message
-        this.displayPopupMsg(true, ('Welcome' + ((this.state.email) ? 
+        window.setTimeout(() => {
+            this.displayPopupMsg(true, ('Welcome' + ((this.state.email) ? 
                                             (', ' + this.state.name + '!') 
                                             : '! Please sign in to make orders.')));
+        }, 2000);
         
         // set update timer
         this.updateTimer = setInterval(this.update, this.iUpdate);
