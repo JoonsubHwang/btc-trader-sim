@@ -35,6 +35,9 @@ class TraderSim extends React.Component {
     }
 
     componentDidMount = () => {
+        
+        window.onkeydown = this.closePopupsOnEsc;
+
         // load data
         this.update();
         // set update timer
@@ -240,6 +243,23 @@ class TraderSim extends React.Component {
 
 
     // event handlers
+
+    closePopupsOnEsc = (event) => {
+        const key = event.which || event.keyCode;
+        if (key == 27) {
+            // dropdown
+            if (document.querySelector('#menu-list').classList.contains('visible'))
+                this.toggleDropdown();
+            // sign in
+            if (document.querySelector('#signin-main').classList.contains('visible'))
+                this.toggleSignInPopup();
+            // sign up
+            if (document.querySelector('#signup-main').classList.contains('visible'))
+                this.toggleSignUpPopup();
+            // TODO: pop-up message
+        }
+    }
+
 
     toggleDropdown = () => {
         document.querySelector('#menu-list').classList.toggle('visible');
