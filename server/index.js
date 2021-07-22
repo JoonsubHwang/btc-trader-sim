@@ -70,7 +70,7 @@ app.post('/sign-out', ensureSignIn, (req, res) => {
         res.send();
     } catch (err) {
         console.error('[server] Failed to sign out. ' + err);
-        res.status(500).send({ error: 'Server had a problem signing out.' });
+        res.status(500).send({ error: 'Server failed to sign out.' });
     }
 });
 
