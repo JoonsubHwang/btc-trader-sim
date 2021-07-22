@@ -1,7 +1,6 @@
 import React from 'react';
 import './Transaction.css';
 const orderTypes = require('./client-modules/orderTypes');
-const lvrgRatios = require('./client-modules/lvrgRatios');
 
 export default class Transaction extends React.Component {
     
@@ -52,8 +51,8 @@ export default class Transaction extends React.Component {
                 {/* order amount */}
                 <div className='input-grid'>
                     <input className='value' type='number' name='orderAmount' 
-                        value={this.state.orderAmount} min='0' 
-                        onChange={this.setOrderAmount} step={0.0001} />
+                        value={this.state.orderAmount} min='0.001' 
+                        onChange={this.setOrderAmount} />
 
                     <p id='amountUnit' className='name'> BTC</p>
                 </div>
