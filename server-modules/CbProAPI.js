@@ -1,12 +1,13 @@
 // functions to communicate with Coinbase Pro API
 
+const fetch = require('node-fetch');
 const minute = 60;
 const locale = 'en-US';
 const endpoint = 'https://api.pro.coinbase.com';
 const productID = 'BTC-USD';
 const historyLength = 2; // hours
 
-exports = class CbProAPI {
+module.exports = class CbProAPI {
 
     // returns 2-hour historic rates of BTC-USD
     static async loadHistory() {
