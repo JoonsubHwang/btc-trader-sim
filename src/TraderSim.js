@@ -35,7 +35,7 @@ class TraderSim extends React.Component {
     }
 
     componentDidMount = () => {
-        
+
         window.onkeydown = this.closePopupsOnEsc;
 
         // load data
@@ -266,11 +266,33 @@ class TraderSim extends React.Component {
     };
 
     toggleSignInPopup = () => {
-        document.querySelector('#signin-main').classList.toggle('visible');
+
+        let signin = document.querySelector('#signin-main');
+
+        // hide valiidation messages on close
+        if (signin.classList.contains('visible'))
+            (signin.querySelectorAll('input')).forEach(field => {
+                if (field.validationMessage != '')
+                    field.setCustomValidity('');
+            });
+
+        // open/close
+        signin.classList.toggle('visible');
     };
 
     toggleSignUpPopup = () => {
-        document.querySelector('#signup-main').classList.toggle('visible');
+
+        let signup = document.querySelector('#signup-main');
+
+        // hide valiidation messages on close
+        if (signup.classList.contains('visible'))
+            (signup.querySelectorAll('input')).forEach(field => {
+                if (field.validationMessage != '')
+                    field.setCustomValidity('');
+            });
+
+        // open/close
+        signup.classList.toggle('visible');
     };
 
     signOut = () => {
