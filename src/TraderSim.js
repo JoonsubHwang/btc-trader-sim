@@ -284,7 +284,6 @@ class TraderSim extends React.Component {
             // sign up
             if (document.querySelector('#signup-main').classList.contains('visible'))
                 this.toggleSignUpPopup();
-            // TODO: pop-up message
         }
     }
 
@@ -346,11 +345,13 @@ class TraderSim extends React.Component {
                 throw new Error(res.error);
 
             // on success
-            else
+            else {
                 this.setEmailAndName(null);
+                this.displayPopupMsg(true, 'Signed out.');
+            }
         })
         .catch(err => {
-            alert(err); // TODO: use popup
+            this.displayPopupMsg(false, err.message);
         });
     };
 };
