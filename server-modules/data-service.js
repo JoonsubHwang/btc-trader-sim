@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
 const bcrypt = require('bcryptjs')
-const orderTypes = require('./orderTypes');
 const accountSchema = require('./accountSchema');
 const balanceSchema = require('./balanceSchema');
 const orderlistSchema = require('./orderlistSchema');
@@ -178,7 +177,7 @@ exports.processOrder = async (orderData) => {
 
         let invalid;
     
-        let balance = await this.loadBalance(orderData.email);
+        let balance = await exports.loadBalance(orderData.email);
         
         // validation
         if (orderData.buy) { // buy
@@ -225,21 +224,21 @@ async function findAccount(email) {
 // immediate process
 async function buy(orderData) {
     // pay cash and buy BTC
-    await updateBalance(email, -(orderData.orderPrice * orderData.orderAmount), orderData.orderAmount);
+    await updateBalance(orderData.email, -(orderData.orderPrice * orderData.orderAmount), orderData.orderAmount);
     // record order
     await recordOrder(orderData);
 }
 
 async function sell(orderData) {
     // pay BTC and buy cash
-    await updateBalance(email, (orderData.orderPrice * orderData.orderAmount), -orderData.orderAmount);
+    await updateBalance(orderData.email, (orderData.orderPrice * orderData.orderAmount), -orderData.orderAmount);
     // record order
     await recordOrder(orderData);
 }
 
 // updates user's balance
 async function updateBalance(email, updateCash, updateBTC) {
-    let balance = await this.loadBalance(email);
+    let balance = await exports.loadBalance(email);
     balance.cash += updateCash;
     balance.BTC += updateBTC;
     balance.save();
