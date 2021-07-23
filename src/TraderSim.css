@@ -9,7 +9,7 @@
 }
 @media (max-width: 900px)  and (orientation: portrait) {
     :root { 
-        --chartHeight: 45%;
+        --chartHeight: 40%;
         --txnWidth: 20rem; /* price width */
     }
 }
