@@ -11,7 +11,7 @@ export default class Transaction extends React.Component {
         this.state = {
             orderPrice: 0,
             orderType: orderTypes.LIMIT_ORDER,
-            orderAmount: 0 // BTC
+            orderAmount: 0.001 // BTC
         }
     }
 
@@ -99,9 +99,6 @@ export default class Transaction extends React.Component {
                     true
                     : false;
 
-        // if (this.state.orderType === orderTypes.MARKET_ORDER)
-        //     this.setState(this.state.orderPrice, this.props.price);
-
         let req = {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
@@ -113,12 +110,18 @@ export default class Transaction extends React.Component {
             })
         }
 
-        fetch('order', req).then(res => {
-            // TODO: handle redirect?
-            // TODO: handle reject (invalid order)
+        fetch('order', req)
+        .then(res => res.json())
+        .then(res => {
+            if (res.error)
+                throw new Error(res.error);
+            else if (res.invalid)
+                this.props.displayPopupMsg(false, 'Invalid order: ' + res.invalid);
+            else
+                this.props.displayPopupMsg(true, 'Order is processed successfully.');
         })
         .catch(err => {
-            console.error(err);
+            this.props.displayPopupMsg(false, err.message);
         })
     };
 }
