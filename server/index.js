@@ -22,16 +22,6 @@ app.use(sessions({
     activeDuration: 5 * (60 * 1000) // time extended by each request
 }));
 
-// error handler
-app.use((err, req, res, next) => {
-    if (err) {
-        console.error('[server] Error: ' + err.message);
-        res.status(500).send({ error: 'Server had an error processing the request.' });
-    }
-    else
-        next();
-});
-
 // passes error if not signed in
 ensureSignIn = (req, res, next) => {
     if (req.session.user)
@@ -150,6 +140,18 @@ app.post('/order', (req, res) => {
 
 app.use((req, res) => { // rest of GET routes handled by React
     res.sendFile(path.join(__dirname + '/../build/index.html'));
+});
+
+
+
+// error handler
+app.use((err, req, res, next) => {
+    if (err) {
+        console.error('[server] Error: ' + err.message);
+        res.status(500).send({ error: 'Server had an error processing the request.' });
+    }
+    else
+        next();
 });
 
 
