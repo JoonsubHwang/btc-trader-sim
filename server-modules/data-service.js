@@ -261,7 +261,10 @@ async function recordOrder(orderData) {
         orderTime: new Date()
     }
 
-    let orderList = await Orderlists.findOne({ email: orderData.email }).lean().exec();
-    orderList.history += record;
-    orderList.save();
+    await Orderlists.updateOne(
+        { email: orderData.email },
+        { $push: {
+            history: record
+        }}
+    );
 }
