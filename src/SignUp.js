@@ -33,7 +33,7 @@ export default class SignUp extends React.Component {
                     form.reset();
                     this.props.setEmailAndName(result.email, result.name);
                     this.props.toggleSignUpPopup();
-                    // TODO: use popup to alert success
+                    this.props.displayPopupMsg(true, 'Sign up complete. Signed in as ' + result.name + '.');
                 }
                 // on sign up fail
                 else if (result.invalid)
@@ -47,7 +47,7 @@ export default class SignUp extends React.Component {
                     throw new Error(result.error);
             })
             .catch(err => {
-                alert(err); // TODO: display better
+                this.props.displayPopupMsg(false, err.message);
             });
         }
     }
