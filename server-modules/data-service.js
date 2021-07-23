@@ -178,6 +178,11 @@ exports.processOrder = async (orderData) => {
         let invalid;
     
         let balance = await exports.loadBalance(orderData.email);
+    
+        // load current price
+        const currentPrice = await CbProAPI.loadNewPrice();
+        // set order price to current price
+        orderData.orderPrice = currentPrice;
         
         // validation
         if (orderData.orderAmount < 0.001)
@@ -185,22 +190,16 @@ exports.processOrder = async (orderData) => {
         else {
             if (orderData.buy) { // buy
                 if ((orderData.orderPrice * orderData.orderAmount) > balance.cash)
-                    invalid = 'Insufficient cash in balance';
+                    invalid = 'Insufficient cash in balance.';
             }
-            else { // sell
+            else // sell
                 if (orderData.orderAmount > balance.BTC)
-                    invalid = 'Insufficient BTC in balance';
-            }
+                    invalid = 'Insufficient BTC in balance.';
         }
 
         if (invalid)
             return invalid;
         else {
-    
-            // load current price
-            const currentPrice = await CbProAPI.loadNewPrice();
-            // set order price to current price
-            orderData.orderPrice = currentPrice;
         
             // buy or sell
             // NOTE: orderType is ignored
