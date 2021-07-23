@@ -135,10 +135,6 @@
     text-decoration: none;
 }
 
-#menu-list > p {
-    color: var(--accent);
-}
-
 #menu-list > button {
     box-shadow: none;
 }
