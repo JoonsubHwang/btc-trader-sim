@@ -5,6 +5,7 @@ import Transaction from './Transaction'
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 import PopupMsg from './PopupMsg';
+import Orders from './Orders';
 import CbProAPI from './client-modules/CbProAPI';
 import './TraderSim.css';
 
@@ -85,7 +86,7 @@ class TraderSim extends React.Component {
                         <div id='menu-grid'>
                             
                             {this.state.email ?
-                                <button id='orders-btn'>Orders</button>
+                                <button id='orders-btn' onClick={this.toggleOrdersPopup}>Orders</button>
                                 : <div/>}
                             
                             <div id='dropdown-menu'>
@@ -144,6 +145,7 @@ class TraderSim extends React.Component {
                     <SignIn setEmailAndName={this.setEmailAndName} toggleSignInPopup={this.toggleSignInPopup} displayPopupMsg={this.displayPopupMsg}></SignIn>
                     <SignUp setEmailAndName={this.setEmailAndName} toggleSignUpPopup={this.toggleSignUpPopup} displayPopupMsg={this.displayPopupMsg}></SignUp>
                     <PopupMsg popupMsg={this.state.popupMsg}></PopupMsg>
+                    <Orders orderHistory={this.state.orderlist.history} toggleOrdersPopup={this.toggleOrdersPopup} />
 
                 </div>
                 
@@ -284,6 +286,9 @@ class TraderSim extends React.Component {
             // sign up
             if (document.querySelector('#signup-main').classList.contains('visible'))
                 this.toggleSignUpPopup();
+            // orders
+            if (document.querySelector('#orders-main').style.visibility === 'visible')
+                this.toggleOrdersPopup();
         }
     }
 
@@ -333,6 +338,14 @@ class TraderSim extends React.Component {
         // open/close
         signup.classList.toggle('visible');
     };
+
+    toggleOrdersPopup = () => {
+        let orders = document.querySelector('#orders-main');
+        if (orders.style.visibility === 'visible')
+            orders.style.visibility = 'hidden';
+        else
+            orders.style.visibility = 'visible';
+    }
 
     signOut = () => {
 
