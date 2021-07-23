@@ -54,7 +54,7 @@ app.post('/sign-in', (req, res) => {
             res.send({ invalid: result.invalid });
         else {
             signIn(req, result.account);
-            res.send({ email: result.account.email });
+            res.send({ email: result.account.email, name: signUpData.name });
         }
     })
     .catch(err => {
