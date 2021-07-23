@@ -185,11 +185,11 @@ exports.processOrder = async (orderData) => {
         else {
             if (orderData.buy) { // buy
                 if ((orderData.orderPrice * orderData.orderAmount) > balance.cash)
-                    invalid = 'Insufficient cash in balance.';
+                    invalid = 'Insufficient cash in balance';
             }
             else { // sell
                 if (orderData.orderAmount > balance.BTC)
-                    invalid = 'Insufficient BTC in balance.';
+                    invalid = 'Insufficient BTC in balance';
             }
         }
 
@@ -207,9 +207,8 @@ exports.processOrder = async (orderData) => {
             if (orderData.buy)
                 await buy(orderData);
                 
-            else {
+            else
                 await sell(orderData);
-            }
 
             return;
         }
