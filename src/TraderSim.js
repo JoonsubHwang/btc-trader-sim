@@ -116,7 +116,7 @@ class TraderSim extends React.Component {
 
 
                     {/* Transaction */}
-                    <Transaction price={this.state.price} email={this.state.email} balance={this.state.balance}></Transaction>
+                    <Transaction price={this.state.price} email={this.state.email} balance={this.state.balance} displayPopupMsg={this.displayPopupMsg}></Transaction>
 
 
                     {/* balance-panel */}
@@ -141,8 +141,8 @@ class TraderSim extends React.Component {
                         
 
                     {/* hidden pop-ups */}
-                    <SignIn setEmailAndName={this.setEmailAndName} toggleSignInPopup={this.toggleSignInPopup}></SignIn>
-                    <SignUp setEmailAndName={this.setEmailAndName} toggleSignUpPopup={this.toggleSignUpPopup}></SignUp>
+                    <SignIn setEmailAndName={this.setEmailAndName} toggleSignInPopup={this.toggleSignInPopup} displayPopupMsg={this.displayPopupMsg}></SignIn>
+                    <SignUp setEmailAndName={this.setEmailAndName} toggleSignUpPopup={this.toggleSignUpPopup} displayPopupMsg={this.displayPopupMsg}></SignUp>
                     <PopupMsg popupMsg={this.state.popupMsg}></PopupMsg>
 
                 </div>
