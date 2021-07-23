@@ -32,12 +32,12 @@ app.use((err, req, res, next) => {
         next();
 });
 
-// throws error if not signed in
+// passes error if not signed in
 ensureSignIn = (req, res, next) => {
     if (req.session.user)
         next();
     else 
-        throw new Error('Client is not signed in.');
+        next(new Error('Client is not signed in.'));
 }
 
 
