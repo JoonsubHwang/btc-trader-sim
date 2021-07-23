@@ -26,6 +26,11 @@
 
     border-radius: .5rem;
 }
+@media (max-width: 900px)  and (orientation: portrait) {
+    #orders-popup { 
+        padding: .5rem 0;
+    }
+}
 
 #ordersClose-btn {
     margin: .5rem;
