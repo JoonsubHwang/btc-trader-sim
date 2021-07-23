@@ -70,7 +70,9 @@ exports.validateSignUp = async (signUpData) => {
 
         // validate name
         if (signUpData.name) {
-            if (!(/^\w+$/).test(signUpData.name))
+            if (signUpData.name.length > 9)
+                invalid.name = 'Name must be 9 characters or shorter.'
+            else if (!(/^\w+$/).test(signUpData.name))
                 invalid.name = 'Only letters, numbers, and underscore are allowed.';
         }
         else 
@@ -88,7 +90,9 @@ exports.validateSignUp = async (signUpData) => {
 
         // validate password
         if (signUpData.password) {
-            if (!(/^(?=.{8,})/).test(signUpData.password))
+            if (signUpData.password.length > 30)
+                invalid.name = 'Password must be 30 characters or shorter.'
+            else if (signUpData.password.length < 8)
                 invalid.password = 'Must be at least 8 characters.';
             else if (!(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/).test(signUpData.password))
                 invalid.password = 'Must contain lowercase, uppercase letter, and number.';
