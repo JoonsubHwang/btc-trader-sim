@@ -88,6 +88,7 @@
     background-color: var(--bg);
     border: 1px solid var(--accent);
     padding: .2rem .8rem .1rem;
+    color: var(--accent);
 }
 
 #dropdown-menu {
