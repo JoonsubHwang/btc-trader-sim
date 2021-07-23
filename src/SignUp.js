@@ -82,7 +82,7 @@ export default class SignUp extends React.Component {
                         <p>Name</p>
 
                         <input name='name' onBlur={this.updateValidity} 
-                                type='text'  minLength={1} required={true} placeholder='Your name/nickname' />
+                                type='text'  minLength={1} maxLength={9} required={true} placeholder='name_or_nickname' />
 
                         <p>E-mail</p>
 
@@ -92,7 +92,7 @@ export default class SignUp extends React.Component {
                         <p>Password</p>
 
                         <input name='password' onBlur={this.updateValidity} 
-                                type='password' minLength={8} required={true} placeholder='8_characters_at_min' />
+                                type='password' minLength={8} maxLength={30} pattern={/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/} required={true} placeholder='UPPER_lower_123' />
 
                         <p></p>
 
