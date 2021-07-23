@@ -93,7 +93,6 @@ class TraderSim extends React.Component {
                                 <Menu id='menu-btn' onClick={this.toggleDropdown}></Menu>
                                 {this.state.email ?
                                     <div id='menu-list'>
-                                        <p>{this.state.name}</p>
                                         <button onClick={() => { this.signOut(); this.toggleDropdown(); }} 
                                                 type='button'>Sign Out</button>
                                     </div>
@@ -124,7 +123,7 @@ class TraderSim extends React.Component {
                     {this.state.email ?
                     // signed in
                         <div id='balance-panel' className='framed'>
-                            <h2 id='balance-heading' className='large'>Balance</h2>
+                            <h2 id='balance-heading' className='large'>{this.state.name}'s Balance</h2>
                             <div id='balance-grid'>
                                 <p className='name'>Total</p>
                                 <p className='value'>{(this.state.balance.cash + (this.state.balance.BTC * this.state.price)).toFixed(0)} USD</p>
