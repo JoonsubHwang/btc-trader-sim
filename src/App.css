@@ -113,6 +113,14 @@ input:invalid,
     border-color: var(--red);
 }
 
+.green {
+    color: var(--green);
+}
+
+.red {
+    color: var(--red);
+}
+
 .small {
     font-size: .8rem;
 }

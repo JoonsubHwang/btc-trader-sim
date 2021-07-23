@@ -65,14 +65,6 @@
     font-size: var(--pricePanelHeight);
 }
 
-#price-heading .green {
-    color: var(--green);
-}
-
-#price-heading .red {
-    color: var(--red);
-}
-
 
 
 /* menu-panel */
