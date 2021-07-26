@@ -7,10 +7,11 @@
     --green: rgb(0, 133, 78);
     --red: rgb(179, 52, 67);
 }
-@media (max-width: 900px)  and (orientation: portrait) {
+@media (max-width: 900px) and (orientation: portrait) {
     :root { 
         --chartHeight: 40%;
         --txnWidth: 20rem; /* price width */
+        --balanceHeight: 13.5rem;
     }
 }
 
@@ -40,7 +41,7 @@
 @media (max-width: 900px)  and (orientation: portrait){
     #traderSim-grid {
         --gap: 1rem;
-        grid-template-rows: var(--pricePanelHeight) var(--chartHeight) var(--txnHeight) 13.5rem;
+        grid-template-rows: var(--pricePanelHeight) var(--chartHeight) var(--txnHeight) var(--balanceHeight);
     }
 }
 
