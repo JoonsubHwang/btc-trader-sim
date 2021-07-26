@@ -55,6 +55,7 @@ class Chart extends Component {
         this.tooltipDx = -5; // pixels
         this.tooltipFontSize = 14;
         this.preZoomLevel = 0.5; // 50%
+        this.granularity = 1; // minute
 
         // states
         this.state = {
@@ -81,8 +82,9 @@ class Chart extends Component {
 
         try {
             // add new candle every minute
-            if ((this.props.price !== undefined) && this.chart.data[0] && (currentTime.getMinutes() !== this.chart.data[0].time.getMinutes())) {
-
+            if ((this.props.price !== undefined) && this.chart.data[0] 
+                && ((currentTime.getMinutes() === this.chart.data[0].time.getMinutes() + this.granularity)) || ((currentTime.getHours() === this.chart.data[0].time.getHours() + 1))) {
+                
                 // add new candle
                 this.chart.data.unshift({
                     time: currentTime,
