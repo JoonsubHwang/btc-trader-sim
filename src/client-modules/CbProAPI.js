@@ -4,7 +4,7 @@ const minute = 60;
 const locale = 'en-US';
 const endpoint = 'https://api.pro.coinbase.com';
 const productID = 'BTC-USD';
-const historyLength = 2; // hours
+const historyLength = 1.5; // hours
 
 export default class CbProAPI {
 
