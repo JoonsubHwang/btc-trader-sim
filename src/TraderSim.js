@@ -17,7 +17,9 @@ class TraderSim extends React.Component {
         super(props);
 
         // constants
+        this.updateTimer = undefined;
         this.iUpdate = 500; // interval for updating (ms)
+        this.poupMsgCloseTimer = undefined;
         this.priceStep = 100; // dolalrs
 
         this.state = {
@@ -49,7 +51,7 @@ class TraderSim extends React.Component {
         // load data
         this.update();
         
-        // display welcome message
+        // display welcome message after loading
         window.setTimeout(() => {
             this.displayPopupMsg(true, ('Welcome' + ((this.state.email) ? 
                                             (', ' + this.state.name + '!') 
@@ -258,13 +260,19 @@ class TraderSim extends React.Component {
     };
 
     displayPopupMsg = (success, message) => {
+
         // set success and message
         this.setState({ popupMsg: { success: success, message: message }});
         let popupMsg = document.querySelector('#PopupMsg-main');
+
         // unhide
         popupMsg.style.visibility = 'visible';
+
+        // remove previous hide timer
+        clearInterval(this.poupMsgCloseTimer);
+
         // hide after 3 sec
-        window.setTimeout(() => {
+        this.poupMsgCloseTimer = setTimeout(() => {
             popupMsg.style.visibility = 'hidden';
         }, 4000)
     }
