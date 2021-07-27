@@ -146,8 +146,7 @@ input[name='pwConfirm'] {
     -moz-animation: ascend-out .2s ease-in;
     -ms-animation: ascend-out .2s ease-in;
     -o-animation: ascend-out .2s ease-in;
-    animation: ascend-out .2s ease-in,
-                fade-out .4s ease-in;
+    animation: ascend-out .2s ease-in;
 }
 
 @-webkit-keyframes descend-in {
