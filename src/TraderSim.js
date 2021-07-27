@@ -334,7 +334,7 @@ class TraderSim extends React.Component {
             // hide (when animations finish)
             setTimeout(() => {
                 signinMain.classList.toggle('visible');
-            }, 200)
+            }, 200);
         }
         
         // on open
@@ -392,11 +392,30 @@ class TraderSim extends React.Component {
     };
 
     toggleOrdersPopup = () => {
-        let orders = document.querySelector('#orders-main');
-        if (orders.style.visibility === 'visible')
-            orders.style.visibility = 'hidden';
-        else
-            orders.style.visibility = 'visible';
+
+        let ordersMain = document.querySelector('#orders-main');
+        let ordersPopup = ordersMain.querySelector('#orders-popup');
+
+        if (ordersMain.style.visibility === 'visible') {
+            
+            ordersMain.classList.add('hide-ordersMain');
+            ordersMain.classList.remove('show-ordersMain');
+            ordersPopup.classList.add('hide-ordersPopup');
+            ordersPopup.classList.remove('show-ordersPopup');
+
+            setTimeout(() => {
+                ordersMain.style.visibility = 'hidden';
+            }, 200);
+        }
+        else {
+            
+            ordersMain.classList.add('show-ordersMain');
+            ordersMain.classList.remove('hide-ordersMain');
+            ordersPopup.classList.add('show-ordersPopup');
+            ordersPopup.classList.remove('hide-ordersPopup');
+
+            ordersMain.style.visibility = 'visible';
+        }
     }
 
     signOut = () => {
