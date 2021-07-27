@@ -61,6 +61,12 @@
     gap: .5rem;
 }
 
+#noOrder-msg {
+    font-style: italic;
+    text-align: center;
+}
+
+/* each order */
 #orders-frame > div {
     width: 26.5rem;
     padding: .2rem .5rem;
