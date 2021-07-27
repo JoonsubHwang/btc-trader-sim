@@ -92,7 +92,7 @@
     }
 }
 
-.ascend {
+.ascend-popup {
     -webkit-animation: ascend .8s ease-out;
     -moz-animation: ascend .8s ease-out;
     -ms-animation: ascend .8s ease-out;
@@ -141,10 +141,10 @@
     }
 }
 
-.descend {
-    -webkit-animation: descend .5s ease-out;
-    -moz-animation: descend .5s ease-out;
-    -ms-animation: descend .5s ease-out;
-    -o-animation: descend .5s ease-out;
-    animation: descend .5s ease-out;
+.descend-popup {
+    -webkit-animation: descend .4s ease-in;
+    -moz-animation: descend .4s ease-in;
+    -ms-animation: descend .4s ease-in;
+    -o-animation: descend .4s ease-in;
+    animation: descend .4s ease-in;
 }
