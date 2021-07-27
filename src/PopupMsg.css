@@ -52,11 +52,11 @@
 /* animations */
 
 .show-popupMsg {
-    -webkit-animation: ascend-in .8s ease-out;
-    -moz-animation: ascend-in .8s ease-out;
-    -ms-animation: ascend-in .8s ease-out;
-    -o-animation: ascend-in .8s ease-out;
-    animation: ascend-in .8s ease-out;
+    -webkit-animation: ascend-in .4s ease-out;
+    -moz-animation: ascend-in .4s ease-out;
+    -ms-animation: ascend-in .4s ease-out;
+    -o-animation: ascend-in .4s ease-out;
+    animation: ascend-in .4s ease-out;
 }
 
 .hide-popupMsg {
@@ -64,8 +64,7 @@
     -moz-animation: descend-out .4s ease-in;
     -ms-animation: descend-out .4s ease-in;
     -o-animation: descend-out .4s ease-in;
-    animation: descend-out .4s ease-in,
-                fade-out .4s ease-in;
+    animation: descend-out .4s ease-in;
 }
 
 @-webkit-keyframes ascend-in {
