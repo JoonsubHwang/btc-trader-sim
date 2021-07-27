@@ -51,19 +51,101 @@
 
 /* animations */
 
-.ascend-popup {
-    -webkit-animation: ascend .8s ease-out;
-    -moz-animation: ascend .8s ease-out;
-    -ms-animation: ascend .8s ease-out;
-    -o-animation: ascend .8s ease-out;
-    animation: ascend .8s ease-out;
+.show-popupMsg {
+    -webkit-animation: ascend-in .8s ease-out;
+    -moz-animation: ascend-in .8s ease-out;
+    -ms-animation: ascend-in .8s ease-out;
+    -o-animation: ascend-in .8s ease-out;
+    animation: ascend-in .8s ease-out;
 }
 
-.descend-popup {
-    -webkit-animation: descend .4s ease-in;
-    -moz-animation: descend .4s ease-in;
-    -ms-animation: descend .4s ease-in;
-    -o-animation: descend .4s ease-in;
-    animation: descend .4s ease-in,
+.hide-popupMsg {
+    -webkit-animation: descend-out .4s ease-in;
+    -moz-animation: descend-out .4s ease-in;
+    -ms-animation: descend-out .4s ease-in;
+    -o-animation: descend-out .4s ease-in;
+    animation: descend-out .4s ease-in,
                 fade-out .4s ease-in;
+}
+
+@-webkit-keyframes ascend-in {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+@-moz-keyframes ascend-in {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+@-o-keyframes ascend-in {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+@-ms-keyframes ascend-in {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+@keyframes ascend-in {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@-webkit-keyframes descend-out {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+@-moz-keyframes descend-out {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+@-o-keyframes descend-out {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+@-ms-keyframes descend-out {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+@keyframes descend-out {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100%);
+    }
 }
