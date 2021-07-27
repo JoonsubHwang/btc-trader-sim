@@ -325,11 +325,13 @@ class TraderSim extends React.Component {
                     field.setCustomValidity('');
             });
 
-            // trgger animation
+            // trgger animations
+            signinMain.classList.add('hide-signinupMain');
+            signinMain.classList.remove('show-signinupMain');
             signinPopup.classList.add('hide-signinupPopup');
             signinPopup.classList.remove('show-signinupPopup');
 
-            // hide (when animation finishes)
+            // hide (when animations finish)
             setTimeout(() => {
                 signinMain.classList.toggle('visible');
             }, 200)
@@ -337,14 +339,16 @@ class TraderSim extends React.Component {
         
         // on open
         else {
-            // trgger animation
+            // trgger animations
+            signinMain.classList.add('show-signinupMain');
+            signinMain.classList.remove('hide-signinupMain');
             signinPopup.classList.add('show-signinupPopup');
             signinPopup.classList.remove('hide-signinupPopup');
 
             // unhide
             signinMain.classList.toggle('visible');
 
-            // focus on the first field (when animation finishes)
+            // focus on the first field (when animations finish)
             window.setTimeout(() => {
                 signinMain.querySelector("input[name='email']").focus();
             }, 400);
@@ -356,35 +360,31 @@ class TraderSim extends React.Component {
         let signupMain = document.querySelector('#signup-main');
         let signupPopup = signupMain.querySelector('#signup-popup');
 
-        // on close
         if (signupMain.classList.contains('visible')) {
 
-            // hide valiidation messages
             (signupMain.querySelectorAll('input')).forEach(field => {
                 if (field.validationMessage != '')
                     field.setCustomValidity('');
             });
 
-            // trgger animation
+            signupMain.classList.add('hide-signinupMain');
+            signupMain.classList.remove('show-signinupMain');
             signupPopup.classList.add('hide-signinupPopup');
             signupPopup.classList.remove('show-signinupPopup');
 
-            // hide (when animation finishes)
             setTimeout(() => {
                 signupMain.classList.toggle('visible');
             }, 200)
         }
         
-        // on open
         else {
-            // trgger animation
+            signupMain.classList.add('show-signinupMain');
+            signupMain.classList.remove('hide-signinupMain');
             signupPopup.classList.add('show-signinupPopup');
             signupPopup.classList.remove('hide-signinupPopup');
 
-            // unhide
             signupMain.classList.toggle('visible');
 
-            // focus on the first field (when animation finishes)
             window.setTimeout(() => {
                 signupMain.querySelector("input[name='name']").focus();
             }, 400);

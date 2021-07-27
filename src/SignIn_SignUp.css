@@ -117,6 +117,22 @@ input[name='pwConfirm'] {
 
 /* animations */
 
+.show-signinupMain {
+    -webkit-animation: fade-in .4s ease-out;
+    -moz-animation: fade-in .4s ease-out;
+    -ms-animation: fade-in .4s ease-out;
+    -o-animation: fade-in .4s ease-out;
+    animation: fade-in .4s ease-out;
+}
+
+.hide-signinupMain {
+    -webkit-animation: fade-out .2s ease-in;
+    -moz-animation: fade-out .2s ease-in;
+    -ms-animation: fade-out .2s ease-in;
+    -o-animation: fade-out .2s ease-in;
+    animation: fade-out .2s ease-in;
+}
+
 .show-signinupPopup {
     -webkit-animation: descend-in .4s ease-out;
     -moz-animation: descend-in .4s ease-out;
