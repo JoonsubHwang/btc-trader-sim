@@ -75,18 +75,18 @@
 }
 
 /* Firefox */
-* {
+#orders-frame {
     scrollbar-width: thin;
     scrollbar-color: var(--fg-darker) var(--bg);
 }
 /* Chrome, Edge, Safari */
-::-webkit-scrollbar {
+#orders-frame::-webkit-scrollbar {
     width: .5rem;
 }
-::-webkit-scrollbar-track {
+#orders-frame::-webkit-scrollbar-track {
     background-color: var(--bg);
 }
-::-webkit-scrollbar-thumb {
+#orders-frame::-webkit-scrollbar-thumb {
     background-color: var(--fg-darker);
     border-radius: 2rem;
 }
