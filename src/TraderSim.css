@@ -130,6 +130,22 @@
     border-radius: .3rem;
 }
 
+.show-menulist {
+    -webkit-animation: descend-in .4s ease-out;
+    -moz-animation: descend-in .4s ease-out;
+    -ms-animation: descend-in .4s ease-out;
+    -o-animation: descend-in .4s ease-out;
+    animation: descend-in .4s ease-out;
+}
+
+.hide-menulist {
+    -webkit-animation: ascend-out .2s ease-in;
+    -moz-animation: ascend-out .2s ease-in;
+    -ms-animation: ascend-out .2s ease-in;
+    -o-animation: ascend-out .2s ease-in;
+    animation: ascend-out .2s ease-in;
+}
+
 #menu-list > * {
     display: block;
     margin: .5rem auto;

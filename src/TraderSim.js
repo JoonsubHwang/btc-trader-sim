@@ -308,7 +308,21 @@ class TraderSim extends React.Component {
 
 
     toggleDropdown = () => {
-        document.querySelector('#menu-list').classList.toggle('visible');
+        
+        let menuList = document.querySelector('#menu-list');
+
+        if (menuList.classList.contains('visible')) {
+            menuList.classList.add('hide-menulist');
+            menuList.classList.remove('show-menulist');
+            setTimeout(() => {
+                menuList.classList.toggle('visible');
+            }, 200);
+        }
+        else {
+            menuList.classList.add('show-menulist');
+            menuList.classList.remove('hide-menulist');
+            menuList.classList.toggle('visible');
+        }
     };
 
     toggleSignInPopup = () => {
