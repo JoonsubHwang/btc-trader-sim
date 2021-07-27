@@ -168,44 +168,85 @@ input:invalid,
 
 
 
-@-webkit-keyframes moveY {
+@-webkit-keyframes ascend {
     0% {
-        transform: translateY(var(--yFrom));
+        transform: translateY(100%);
     }
     100% {
-        transform: translateY(var(--yTo));
+        transform: translateY(0);
     }
 }
-@-moz-keyframes moveY {
+@-moz-keyframes ascend {
     0% {
-        transform: translateY(var(--yFrom));
+        transform: translateY(100%);
     }
     100% {
-        transform: translateY(var(--yTo));
+        transform: translateY(0);
     }
 }
-@-o-keyframes moveY {
+@-o-keyframes ascend {
     0% {
-        transform: translateY(var(--yFrom));
+        transform: translateY(100%);
     }
     100% {
-        transform: translateY(var(--yTo));
+        transform: translateY(0);
     }
 }
-@-ms-keyframes moveY {
+@-ms-keyframes ascend {
     0% {
-        transform: translateY(var(--yFrom));
+        transform: translateY(100%);
     }
     100% {
-        transform: translateY(var(--yTo));
+        transform: translateY(0);
     }
 }
-@keyframes moveY {
+@keyframes ascend {
     0% {
-        transform: translateY(var(--yFrom));
+        transform: translateY(100%);
     }
     100% {
-        transform: translateY(var(--yTo));
+        transform: translateY(0);
+    }
+}
+
+@-webkit-keyframes descend {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+@-moz-keyframes descend {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+@-o-keyframes descend {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+@-ms-keyframes descend {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+@keyframes descend {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100%);
     }
 }
 

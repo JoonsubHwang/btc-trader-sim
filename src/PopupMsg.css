@@ -52,25 +52,18 @@
 /* animations */
 
 .ascend-popup {
-    /* variables for moveY */
-    --yFrom: 3rem;
-    --yTo: 0;
-
-    -webkit-animation: moveY .8s ease-out;
-    -moz-animation: moveY .8s ease-out;
-    -ms-animation: moveY .8s ease-out;
-    -o-animation: moveY .8s ease-out;
-    animation: moveY .8s ease-out;
+    -webkit-animation: ascend .8s ease-out;
+    -moz-animation: ascend .8s ease-out;
+    -ms-animation: ascend .8s ease-out;
+    -o-animation: ascend .8s ease-out;
+    animation: ascend .8s ease-out;
 }
 
 .descend-popup {
-    --yFrom: 0;
-    --yTo: 3rem;
-
-    -webkit-animation: moveY .4s ease-in;
-    -moz-animation: moveY .4s ease-in;
-    -ms-animation: moveY .4s ease-in;
-    -o-animation: moveY .4s ease-in;
-    animation: moveY .4s ease-in,
+    -webkit-animation: descend .4s ease-in;
+    -moz-animation: descend .4s ease-in;
+    -ms-animation: descend .4s ease-in;
+    -o-animation: descend .4s ease-in;
+    animation: descend .4s ease-in,
                 fade-out .4s ease-in;
 }
