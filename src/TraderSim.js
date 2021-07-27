@@ -313,44 +313,82 @@ class TraderSim extends React.Component {
 
     toggleSignInPopup = () => {
 
-        let signin = document.querySelector('#signin-main');
+        let signinMain = document.querySelector('#signin-main');
+        let signinPopup = signinMain.querySelector('#signin-popup');
 
-        // hide valiidation messages on close
-        if (signin.classList.contains('visible'))
-            (signin.querySelectorAll('input')).forEach(field => {
+        // on close
+        if (signinMain.classList.contains('visible')) {
+
+            // hide valiidation messages
+            (signinMain.querySelectorAll('input')).forEach(field => {
                 if (field.validationMessage != '')
                     field.setCustomValidity('');
             });
-        // focus on the first field on open
-        else {
-            window.setTimeout(() => {
-                signin.querySelector("input[name='email']").focus();
-            }, 0);
-        }
 
-        // open/close
-        signin.classList.toggle('visible');
+            // trgger animation
+            signinPopup.classList.add('hide-signinupPopup');
+            signinPopup.classList.remove('show-signinupPopup');
+
+            // hide (when animation finishes)
+            setTimeout(() => {
+                signinMain.classList.toggle('visible');
+            }, 200)
+        }
+        
+        // on open
+        else {
+            // trgger animation
+            signinPopup.classList.add('show-signinupPopup');
+            signinPopup.classList.remove('hide-signinupPopup');
+
+            // unhide
+            signinMain.classList.toggle('visible');
+
+            // focus on the first field (when animation finishes)
+            window.setTimeout(() => {
+                signinMain.querySelector("input[name='email']").focus();
+            }, 400);
+        }
     };
 
     toggleSignUpPopup = () => {
 
-        let signup = document.querySelector('#signup-main');
+        let signupMain = document.querySelector('#signup-main');
+        let signupPopup = signupMain.querySelector('#signup-popup');
 
-        // hide valiidation messages on close
-        if (signup.classList.contains('visible'))
-            (signup.querySelectorAll('input')).forEach(field => {
+        // on close
+        if (signupMain.classList.contains('visible')) {
+
+            // hide valiidation messages
+            (signupMain.querySelectorAll('input')).forEach(field => {
                 if (field.validationMessage != '')
                     field.setCustomValidity('');
             });
-        // focus to the first field on open
-        else {
-            window.setTimeout(() => {
-                signup.querySelector("input[name='name']").focus();
-            }, 0);
-        }
 
-        // open/close
-        signup.classList.toggle('visible');
+            // trgger animation
+            signupPopup.classList.add('hide-signinupPopup');
+            signupPopup.classList.remove('show-signinupPopup');
+
+            // hide (when animation finishes)
+            setTimeout(() => {
+                signupMain.classList.toggle('visible');
+            }, 200)
+        }
+        
+        // on open
+        else {
+            // trgger animation
+            signupPopup.classList.add('show-signinupPopup');
+            signupPopup.classList.remove('hide-signinupPopup');
+
+            // unhide
+            signupMain.classList.toggle('visible');
+
+            // focus on the first field (when animation finishes)
+            window.setTimeout(() => {
+                signupMain.querySelector("input[name='name']").focus();
+            }, 400);
+        }
     };
 
     toggleOrdersPopup = () => {

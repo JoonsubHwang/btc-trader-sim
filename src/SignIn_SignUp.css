@@ -113,3 +113,105 @@ input[name='pwConfirm'] {
     text-align: center;
     color: var(--fg-darker);
 }
+
+
+/* animations */
+
+.show-signinupPopup {
+    -webkit-animation: descend-in .4s ease-out;
+    -moz-animation: descend-in .4s ease-out;
+    -ms-animation: descend-in .4s ease-out;
+    -o-animation: descend-in .4s ease-out;
+    animation: descend-in .4s ease-out;
+}
+
+.hide-signinupPopup {
+    -webkit-animation: ascend-out .2s ease-in;
+    -moz-animation: ascend-out .2s ease-in;
+    -ms-animation: ascend-out .2s ease-in;
+    -o-animation: ascend-out .2s ease-in;
+    animation: ascend-out .2s ease-in,
+                fade-out .4s ease-in;
+}
+
+@-webkit-keyframes descend-in {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+@-moz-keyframes descend-in {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+@-o-keyframes descend-in {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+@-ms-keyframes descend-in {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+@keyframes descend-in {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@-webkit-keyframes ascend-out {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+@-moz-keyframes ascend-out {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+@-o-keyframes ascend-out {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+@-ms-keyframes ascend-out {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+@keyframes ascend-out {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
