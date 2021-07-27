@@ -1,0 +1,17 @@
+- hide scrollbar
+- fix hiding valiidation messages ( toggleSignIn/UpPopup() )
+
+				
+
+- add animations
+
+=============== 27 Tue
+
+- sign in as guest?
+
+- chart
+	add live cursor?
+
+=============== 28 Wed
+
+
