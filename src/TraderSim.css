@@ -19,13 +19,18 @@
     height: calc(100vh - 2rem);
     min-width: 300px;
     max-width: 900px;
-    min-height: 600px;
+    min-height: calc(600px - 2rem);
     margin: auto;
     margin-top: 1rem;
 }
 @media (min-width: 3000px) {
     #traderSim-main {
         max-width: 2000px;
+    }
+}
+@media (max-width: 900px) and (orientation: portrait) {
+    #traderSim-main {
+        min-height: calc(var(--pricePanelHeight) + var(--chartHeight) + var(--txnHeight) + var(--balanceHeight) + 3rem - 2rem);
     }
 }
 
