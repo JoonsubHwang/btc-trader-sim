@@ -290,7 +290,7 @@ class TraderSim extends React.Component {
 
     closePopupsOnEsc = (event) => {
         const key = event.which || event.keyCode;
-        if (key == 27) {
+        if (key === 27) {
             // dropdown
             if (document.querySelector('#menu-list').classList.contains('visible'))
                 this.toggleDropdown();
