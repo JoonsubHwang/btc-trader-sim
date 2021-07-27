@@ -267,16 +267,16 @@ class TraderSim extends React.Component {
 
         // unhide
         popupMsg.style.visibility = 'visible';
-        popupMsg.classList.add('show-popup');
-        popupMsg.classList.remove('hide-popup');
+        popupMsg.classList.add('show-popupMsg');
+        popupMsg.classList.remove('hide-popupMsg');
 
         // remove previous hide timer
         clearInterval(this.poupMsgCloseTimer);
 
         // start hiding after 3 sec
         this.poupMsgCloseTimer = setTimeout(() => {
-            popupMsg.classList.add('hide-popup');
-            popupMsg.classList.remove('show-popup');
+            popupMsg.classList.add('hide-popupMsg');
+            popupMsg.classList.remove('show-popupMsg');
             // completely hide when descend animation finishes
             this.poupMsgCloseTimer = setTimeout(() => {
                 popupMsg.style.visibility = 'hidden';
