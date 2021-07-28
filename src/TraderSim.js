@@ -146,7 +146,7 @@ class TraderSim extends React.Component {
                     <SignIn setEmailAndName={this.setEmailAndName} toggleSignInPopup={this.toggleSignInPopup} displayPopupMsg={this.displayPopupMsg}></SignIn>
                     <SignUp setEmailAndName={this.setEmailAndName} toggleSignUpPopup={this.toggleSignUpPopup} displayPopupMsg={this.displayPopupMsg}></SignUp>
                     <PopupMsg popupMsg={this.state.popupMsg}></PopupMsg>
-                    <Orders orderHistory={this.state.orderHistory.history} toggleOrdersPopup={this.toggleOrdersPopup} />
+                    <Orders orderHistory={this.state.orderHistory} toggleOrdersPopup={this.toggleOrdersPopup} />
 
                 </div>
                 
