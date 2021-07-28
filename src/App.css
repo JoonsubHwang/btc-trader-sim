@@ -120,6 +120,10 @@ input:invalid,
     border-color: var(--red);
 }
 
+.icon {
+    font-size: 2rem !important;
+}
+
 .green {
     color: var(--green);
 }

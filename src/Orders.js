@@ -8,7 +8,7 @@ export default class Orders extends React.Component {
         <div id='orders-main'>
             <div id='orders-popup'>
 
-                <Close id='ordersClose-btn' onClick={this.props.toggleOrdersPopup}></Close>
+                <Close id='ordersClose-btn' className='icon' onClick={this.props.toggleOrdersPopup}></Close>
 
                 <div id='orders-content'>
 

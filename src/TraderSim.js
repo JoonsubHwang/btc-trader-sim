@@ -92,7 +92,7 @@ class TraderSim extends React.Component {
                                 : <div/>}
                             
                             <div id='dropdown-menu'>
-                                <Menu id='menu-btn' onClick={this.toggleDropdown}></Menu>
+                                <Menu id='menu-btn' className='icon' onClick={this.toggleDropdown}></Menu>
                                 {this.state.email ?
                                     <div id='menu-list'>
                                         <button onClick={() => { this.signOut(); this.toggleDropdown(); }} 

@@ -64,7 +64,7 @@ export default class SignIn extends React.Component {
             <div id='signin-main'>
                 <div id='signin-popup' className='container framed'>
 
-                    <Close id='signinClose-btn' onClick={this.props.toggleSignInPopup}></Close>
+                    <Close id='signinClose-btn' className='icon' onClick={this.props.toggleSignInPopup}></Close>
 
                     <form id='signin-form'>
 
