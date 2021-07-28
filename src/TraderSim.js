@@ -335,7 +335,7 @@ class TraderSim extends React.Component {
 
             // hide valiidation messages
             (signinMain.querySelectorAll('input')).forEach(field => {
-                if (field.validationMessage != '')
+                if (field.validationMessage !== '')
                     field.setCustomValidity('');
             });
 
@@ -381,7 +381,7 @@ class TraderSim extends React.Component {
         if (signupMain.style.visibility === 'visible') {
 
             (signupMain.querySelectorAll('input')).forEach(field => {
-                if (field.validationMessage != '')
+                if (field.validationMessage !== '')
                     field.setCustomValidity('');
             });
 
