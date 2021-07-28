@@ -15,10 +15,26 @@
     width: var(--PopupMsg-width);
     height: var(--PopupMsg-height);
     padding: .8rem .9rem;
+    overflow: hidden;
     
     display: grid;
     grid-template-columns: var(--icon-size) calc(var(--PopupMsg-width) - var(--icon-size) - .6rem);
     gap: .6rem;
+
+    -webkit-transition: height .4s ease-out;
+    -moz-transition: height .4s ease-out;
+    -o-transition: height .4s ease-out;
+    -ms-transition: height .4s ease-out;
+    transition: height .4s ease-out;
+}
+#PopupMsg-main:hover {
+    height: calc(2 * var(--PopupMsg-height));
+
+    -webkit-transition: height .4s ease-out;
+    -moz-transition: height .4s ease-out;
+    -o-transition: height .4s ease-out;
+    -ms-transition: height .4s ease-out;
+    transition: height .4s ease-out;
 }
 
 #PopupMsg-main > svg {
