@@ -4,7 +4,7 @@
     --icon-size: 1.8rem;
 
     visibility: hidden;
-    position: absolute;
+    position: sticky;
     bottom: .5rem;
     right: .5rem;
     z-index: 3;
