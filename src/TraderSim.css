@@ -103,10 +103,6 @@
     grid-column: 2;
 }
 
-.visible {
-    display: block !important;
-}
-
 #menu-btn {
     font-size: 2rem;
     display: flex;
@@ -121,7 +117,7 @@
     position: absolute;
     top: calc(var(--pricePanelHeight) + .4rem);
     right: 0;
-    display: none;
+    visibility: hidden;
     min-width: 8rem;
     z-index: 1;
 

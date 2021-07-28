@@ -292,13 +292,13 @@ class TraderSim extends React.Component {
         const key = event.which || event.keyCode;
         if (key === 27) {
             // dropdown
-            if (document.querySelector('#menu-list').classList.contains('visible'))
+            if (document.querySelector('#menu-list').style.visibility === 'visible')
                 this.toggleDropdown();
             // sign in
-            if (document.querySelector('#signin-main').classList.contains('visible'))
+            if (document.querySelector('#signin-main').style.visibility === 'visible')
                 this.toggleSignInPopup();
             // sign up
-            if (document.querySelector('#signup-main').classList.contains('visible'))
+            if (document.querySelector('#signup-main').style.visibility === 'visible')
                 this.toggleSignUpPopup();
             // orders
             if (document.querySelector('#orders-main').style.visibility === 'visible')
@@ -311,17 +311,17 @@ class TraderSim extends React.Component {
         
         let menuList = document.querySelector('#menu-list');
 
-        if (menuList.classList.contains('visible')) {
+        if (menuList.style.visibility === 'visible') {
             menuList.classList.add('hide-menulist');
             menuList.classList.remove('show-menulist');
             setTimeout(() => {
-                menuList.classList.toggle('visible');
+                menuList.style.visibility = 'hidden';
             }, 200);
         }
         else {
             menuList.classList.add('show-menulist');
             menuList.classList.remove('hide-menulist');
-            menuList.classList.toggle('visible');
+            menuList.style.visibility = 'visible';
         }
     };
 
@@ -331,7 +331,7 @@ class TraderSim extends React.Component {
         let signinPopup = signinMain.querySelector('#signin-popup');
 
         // on close
-        if (signinMain.classList.contains('visible')) {
+        if (signinMain.style.visibility === 'visible') {
 
             // hide valiidation messages
             (signinMain.querySelectorAll('input')).forEach(field => {
@@ -347,7 +347,7 @@ class TraderSim extends React.Component {
 
             // hide (when animations finish)
             setTimeout(() => {
-                signinMain.classList.toggle('visible');
+                signinMain.style.visibility = 'hidden';
             }, 200);
         }
         
@@ -360,7 +360,7 @@ class TraderSim extends React.Component {
             signinPopup.classList.remove('hide-signinupPopup');
 
             // unhide
-            signinMain.classList.toggle('visible');
+            signinMain.style.visibility = 'visible';
 
             // focus on the first field (when animations finish)
             window.setTimeout(() => {
@@ -374,7 +374,7 @@ class TraderSim extends React.Component {
         let signupMain = document.querySelector('#signup-main');
         let signupPopup = signupMain.querySelector('#signup-popup');
 
-        if (signupMain.classList.contains('visible')) {
+        if (signupMain.style.visibility === 'visible') {
 
             (signupMain.querySelectorAll('input')).forEach(field => {
                 if (field.validationMessage != '')
@@ -387,7 +387,7 @@ class TraderSim extends React.Component {
             signupPopup.classList.remove('show-signinupPopup');
 
             setTimeout(() => {
-                signupMain.classList.toggle('visible');
+                signupMain.style.visibility = 'hidden';
             }, 200)
         }
         
@@ -397,7 +397,7 @@ class TraderSim extends React.Component {
             signupPopup.classList.add('show-signinupPopup');
             signupPopup.classList.remove('hide-signinupPopup');
 
-            signupMain.classList.toggle('visible');
+            signupMain.style.visibility = 'visible';
 
             window.setTimeout(() => {
                 signupMain.querySelector("input[name='name']").focus();

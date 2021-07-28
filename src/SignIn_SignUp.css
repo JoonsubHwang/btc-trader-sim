@@ -6,7 +6,7 @@
     --signup-width: 25rem;
     --signup-height: 24.5rem;
 
-    display: none;
+    visibility: hidden;
     position: absolute;
     top: 0;
     left: 0;
