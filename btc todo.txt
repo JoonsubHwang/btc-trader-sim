@@ -1,17 +1,28 @@
-- hide scrollbar
-- fix hiding valiidation messages ( toggleSignIn/UpPopup() )
+- add order type animation
+
+- sort orderHistory in dataService
+
+- increase size of close icons
 
 				
 
-- add animations
-
-=============== 27 Tue
+=============== 28 Wed
 
 - sign in as guest?
+
+- trim popupMsg length
+
+- fix hiding valiidation messages ( toggleSignIn/UpPopup() )
+
+- fix bottom/right attributes in small screens 
 
 - chart
 	add live cursor?
 
-=============== 28 Wed
+=============== 29 Thu
+
+- add comments
+
+=============== 30 Fri
 
 

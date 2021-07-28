@@ -105,11 +105,11 @@ app.post('/account-updates', ensureSignIn, (req, res) => {
     .then(balance => {
         // if there's a change
         if (balance.cash !== cashOld)
-            dataService.loadOrderlist(email)
-            .then(orderlist => {
+            dataService.loadOrderHistory(email)
+            .then(orderHistory => {
                 res.send({
                     balance: balance,
-                    orderlist: orderlist
+                    orderHistory: orderHistory
                 });
             });
         // if there's no change

@@ -30,7 +30,7 @@ class TraderSim extends React.Component {
                 cash: 0,
                 BTC: 0
             },
-            orderlist: {},
+            orderHistory: {},
 
             // price
             price: 0,
@@ -146,7 +146,7 @@ class TraderSim extends React.Component {
                     <SignIn setEmailAndName={this.setEmailAndName} toggleSignInPopup={this.toggleSignInPopup} displayPopupMsg={this.displayPopupMsg}></SignIn>
                     <SignUp setEmailAndName={this.setEmailAndName} toggleSignUpPopup={this.toggleSignUpPopup} displayPopupMsg={this.displayPopupMsg}></SignUp>
                     <PopupMsg popupMsg={this.state.popupMsg}></PopupMsg>
-                    <Orders orderHistory={this.state.orderlist.history} toggleOrdersPopup={this.toggleOrdersPopup} />
+                    <Orders orderHistory={this.state.orderHistory.history} toggleOrdersPopup={this.toggleOrdersPopup} />
 
                 </div>
                 
@@ -201,7 +201,7 @@ class TraderSim extends React.Component {
                     cash: 0,
                     BTC: 0
                 },
-                orderlist: {}
+                orderHistory: {}
             });
         }
     }
@@ -230,7 +230,7 @@ class TraderSim extends React.Component {
         });
     };
 
-    // update balance and orderlist
+    // update balance and orderHistory
     updateAccountData = () => {
 
         const req = {
@@ -246,7 +246,7 @@ class TraderSim extends React.Component {
             if (res.balance) {
                 // update data 
                 this.setState( { balance: res.balance });
-                this.setState( { orderlist: res.orderlist });
+                this.setState( { orderHistory: res.orderHistory });
             }
             // on server error
             else if (res.error)
