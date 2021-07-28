@@ -79,8 +79,68 @@ export default class Transaction extends React.Component {
     // event handlers
 
     setOrderType = (event) => {
+        
         event.preventDefault();
-        this.setState({ orderType: event.target.innerText });
+        
+        let selected = event.target;
+        let current = document.querySelector('.orderType-btn.selected');
+
+        if (selected !== current) {
+            
+            // hide current button's text
+            current.style.color = 'var(--bg)';
+            // temporarily display selected button over current (for text)
+            selected.style.zIndex = '1';
+
+            // add animation class depending on origin and destination positions
+            // [LIMIT_ORDER]    [MARKET_ORDER]    [STOP_MARKET]
+            switch (current.innerText) {
+                
+                case orderTypes.LIMIT_ORDER :
+
+                    if (selected.innerText === orderTypes.MARKET_ORDER)
+                        current.classList.add('moveR1');
+                    else // STOP_MARKET
+                        current.classList.add('moveR2');
+
+                break;
+
+                case orderTypes.MARKET_ORDER :
+
+                    if (selected.innerText === orderTypes.LIMIT_ORDER)
+                        current.classList.add('moveL1');
+                    else // STOP_MARKET
+                        current.classList.add('moveR1');
+
+                break;
+                
+                case orderTypes.STOP_MARKET :
+
+                    if (selected.innerText === orderTypes.LIMIT_ORDER)
+                        current.classList.add('moveL2');
+                    else // MARKET_ORDER
+                        current.classList.add('moveL1');
+
+                break;
+            }
+            
+            // when animation finishes
+            setTimeout(() => {
+                // remove animation class
+                current.classList = 'orderType-btn';
+                // select selected type
+                this.setState({ orderType: selected.innerText });
+                // reset z-index of selected
+                selected.style.zIndex = 'auto';
+
+                // fade-in previous(current) button's text
+                current.classList.add('text-fadein');
+                setTimeout(() => {
+                    current.classList.remove('text-fadein');
+                    current.style.color = 'var(--fg)';
+                }, 4000);
+            }, 400);
+        }
     };
 
     setOrderPrice = (event) => {

@@ -55,6 +55,8 @@
 }
 
 .orderType-btn {
+    --interval: 150%;
+
     min-height: 2rem;
     width: calc(var(--text-width) + 3rem);
 
@@ -63,6 +65,11 @@
     border-radius: 2rem;
 
     box-shadow: none;
+}
+@media (max-width: 900px) and (orientation: portrait) {
+    .orderType-btn {
+        --interval: 100%;
+    }
 }
 
 .orderType-btn:active {
@@ -182,4 +189,67 @@ input[type=number] {
 
 #sell-btn {
     background-color: var(--red);
+}
+
+
+
+/* animations */
+
+.text-fadein {
+    animation: text-fadein 4s ease;
+}
+
+.moveR1 {
+    animation: moveR1 .4s ease;
+}
+.moveR2 {
+    animation: moveR2 .4s ease;
+}
+.moveL1 {
+    animation: moveL1 .4s ease;
+}
+.moveL2 {
+    animation: moveL2 .4s ease;
+}
+
+@keyframes text-fadein {
+    0% {
+        color: var(--bg);
+    }
+    100% {
+        color: var(--fg);
+    }
+}
+
+@keyframes moveR1 {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(var(--interval));
+    }
+}
+@keyframes moveR2 {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(2 * var(--interval)));
+    }
+}
+@keyframes moveL1 {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-1 * var(--interval)));
+    }
+}
+@keyframes moveL2 {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-2 * var(--interval)));
+    }
 }
