@@ -162,13 +162,11 @@ exports.loadBalance = async (email) => {
 exports.loadOrderHistory = async (email) => {
 
     try {
-        const orderHistory =  await Orderlists.findOne({ email: email }).lean().exec();
+        let orderHistory =  (await Orderlists.findOne({ email: email }).lean().exec()).history;
 
-        if (orderHistory) {
-            // sort by orderTime
-            orderHistory.history.sort((a, b) => (a.orderTime > b.orderTime) ? a : b );
-            return orderHistory;
-        }
+        if (orderHistory)
+            // ordered by most recent
+            return orderHistory.reverse();
         else
             throw new Error('Orderlist not found with email: ' + email);
         
