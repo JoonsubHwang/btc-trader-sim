@@ -353,6 +353,10 @@ class TraderSim extends React.Component {
         
         // on open
         else {
+            // close dropdown menu
+            if (document.querySelector('#menu-list').style.visibility === 'visible')
+                this.toggleDropdown();
+
             // trgger animations
             signinMain.classList.add('show-signinupMain');
             signinMain.classList.remove('hide-signinupMain');
@@ -392,6 +396,9 @@ class TraderSim extends React.Component {
         }
         
         else {
+            if (document.querySelector('#menu-list').style.visibility === 'visible')
+                this.toggleDropdown();
+
             signupMain.classList.add('show-signinupMain');
             signupMain.classList.remove('hide-signinupMain');
             signupPopup.classList.add('show-signinupPopup');
@@ -422,6 +429,8 @@ class TraderSim extends React.Component {
             }, 200);
         }
         else {
+            if (document.querySelector('#menu-list').style.visibility === 'visible')
+                this.toggleDropdown();
             
             ordersMain.classList.add('show-ordersMain');
             ordersMain.classList.remove('hide-ordersMain');
