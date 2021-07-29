@@ -135,9 +135,9 @@ class TraderSim extends React.Component {
                             <h2 id='balance-heading' className='large'>{this.state.name}'s Balance</h2>
                             <div id='balance-grid'>
                                 <p className='name'>Total</p>
-                                <p className='value'>{(this.state.balance.cash + (this.state.balance.BTC * this.state.price)).toFixed(0)} USD</p>
+                                <p className='value'>{(this.state.balance.cash + (this.state.balance.BTC * this.state.price)).toFixed(2)} USD</p>
                                 <p className='name'>Cash</p>
-                                <p className='value'>{this.state.balance.cash.toFixed(0)} USD</p>
+                                <p className='value'>{this.state.balance.cash.toFixed(2)} USD</p>
                                 <p className='name btcBalance'>BTC</p>
                                 <p className='value btcBalance'>{this.state.balance.BTC} BTC</p>
                             </div>
@@ -182,7 +182,6 @@ class TraderSim extends React.Component {
                 priceValue.classList.add('flash-green');
             else if (newPrice < this.state.price) // decrease
                 priceValue.classList.add('flash-red');
-
 
             // store new price
             this.setState({ 
