@@ -22,11 +22,11 @@
     grid-template-columns: var(--icon-size) calc(var(--PopupMsg-width) - var(--icon-size) - .6rem);
     gap: .6rem;
 
-    -webkit-transition: all .4s ease-out;
-    -moz-transition: all .4s ease-out;
-    -o-transition: all .4s ease-out;
-    -ms-transition: all .4s ease-out;
-    transition: all .4s ease-out;
+    -webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -o-transition: all .4s ease;
+    -ms-transition: all .4s ease;
+    transition: all .4s ease;
 }
 #PopupMsg-main:hover {
     top: calc(100vh - 2 * var(--PopupMsg-height) - 2rem);
@@ -64,11 +64,11 @@
 /* animations */
 
 .show-popupMsg {
-    -webkit-animation: ascend-in .4s ease-out;
-    -moz-animation: ascend-in .4s ease-out;
-    -ms-animation: ascend-in .4s ease-out;
-    -o-animation: ascend-in .4s ease-out;
-    animation: ascend-in .4s ease-out;
+    -webkit-animation: ascend-in .4s ease;
+    -moz-animation: ascend-in .4s ease;
+    -ms-animation: ascend-in .4s ease;
+    -o-animation: ascend-in .4s ease;
+    animation: ascend-in .4s ease;
 }
 
 .hide-popupMsg {
