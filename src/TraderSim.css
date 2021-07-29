@@ -116,7 +116,7 @@
     position: absolute;
     top: calc(var(--pricePanelHeight) + .4rem);
     right: 0;
-    visibility: hidden;
+    display: none;
     min-width: 8rem;
     z-index: 1;
 

@@ -3,8 +3,8 @@
     --orders-width: 29.5rem;
     --orders-height: 70vh;
 
-    visibility: hidden;
-    position: absolute;
+    display: none;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 1;
@@ -15,7 +15,7 @@
 }
 
 #orders-popup {
-    position: absolute;
+    position: fixed;
     z-index: 2;
     top: calc(50% - (var(--orders-height) / 2));
     left: 0;

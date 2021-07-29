@@ -74,6 +74,12 @@ class TraderSim extends React.Component {
         return (
             <div id='traderSim-main'>
 
+            {/* hidden pop-ups */}
+            <SignIn setEmailAndName={this.setEmailAndName} toggleSignInPopup={this.toggleSignInPopup} displayPopupMsg={this.displayPopupMsg}></SignIn>
+            <SignUp setEmailAndName={this.setEmailAndName} toggleSignUpPopup={this.toggleSignUpPopup} displayPopupMsg={this.displayPopupMsg}></SignUp>
+            <PopupMsg popupMsg={this.state.popupMsg}></PopupMsg>
+            <Orders orderHistory={this.state.orderHistory} toggleOrdersPopup={this.toggleOrdersPopup} />
+
                 <div id='traderSim-grid'>
 
                     {/* price-panel */}
@@ -141,13 +147,6 @@ class TraderSim extends React.Component {
                             <button onClick={this.toggleSignUpPopup} type='button'>Sign Up</button>
                         </div>}
                         
-
-                    {/* hidden pop-ups */}
-                    <SignIn setEmailAndName={this.setEmailAndName} toggleSignInPopup={this.toggleSignInPopup} displayPopupMsg={this.displayPopupMsg}></SignIn>
-                    <SignUp setEmailAndName={this.setEmailAndName} toggleSignUpPopup={this.toggleSignUpPopup} displayPopupMsg={this.displayPopupMsg}></SignUp>
-                    <PopupMsg popupMsg={this.state.popupMsg}></PopupMsg>
-                    <Orders orderHistory={this.state.orderHistory} toggleOrdersPopup={this.toggleOrdersPopup} />
-
                 </div>
                 
             </div>
@@ -266,7 +265,7 @@ class TraderSim extends React.Component {
         let popupMsg = document.querySelector('#PopupMsg-main');
 
         // unhide
-        popupMsg.style.visibility = 'visible';
+        popupMsg.style.display ='grid';
         popupMsg.classList.add('show-popupMsg');
         popupMsg.classList.remove('hide-popupMsg');
 
@@ -279,7 +278,7 @@ class TraderSim extends React.Component {
             popupMsg.classList.remove('show-popupMsg');
             // completely hide when descend animation finishes
             this.poupMsgCloseTimer = setTimeout(() => {
-                popupMsg.style.visibility = 'hidden';
+                popupMsg.style.display ='none';
             }, 400)
         }, 3000)
     }
@@ -292,16 +291,16 @@ class TraderSim extends React.Component {
         const key = event.which || event.keyCode;
         if (key === 27) {
             // dropdown
-            if (document.querySelector('#menu-list').style.visibility === 'visible')
+            if (document.querySelector('#menu-list').style.display === 'block')
                 this.toggleDropdown();
             // sign in
-            if (document.querySelector('#signin-main').style.visibility === 'visible')
+            if (document.querySelector('#signin-main').style.display === 'block')
                 this.toggleSignInPopup();
             // sign up
-            if (document.querySelector('#signup-main').style.visibility === 'visible')
+            if (document.querySelector('#signup-main').style.display === 'block')
                 this.toggleSignUpPopup();
             // orders
-            if (document.querySelector('#orders-main').style.visibility === 'visible')
+            if (document.querySelector('#orders-main').style.display === 'block')
                 this.toggleOrdersPopup();
         }
     }
@@ -311,17 +310,17 @@ class TraderSim extends React.Component {
         
         let menuList = document.querySelector('#menu-list');
 
-        if (menuList.style.visibility === 'visible') {
+        if (menuList.style.display === 'block') {
             menuList.classList.add('hide-menulist');
             menuList.classList.remove('show-menulist');
             setTimeout(() => {
-                menuList.style.visibility = 'hidden';
+                menuList.style.display ='none';
             }, 200);
         }
         else {
             menuList.classList.add('show-menulist');
             menuList.classList.remove('hide-menulist');
-            menuList.style.visibility = 'visible';
+            menuList.style.display ='block';
         }
     };
 
@@ -329,15 +328,13 @@ class TraderSim extends React.Component {
 
         let signinMain = document.querySelector('#signin-main');
         let signinPopup = signinMain.querySelector('#signin-popup');
+        // let signinForm = signinPopup.querySelector('#signin-form');
 
         // on close
-        if (signinMain.style.visibility === 'visible') {
+        if (signinMain.style.display === 'block') {
 
-            // hide valiidation messages
-            (signinMain.querySelectorAll('input')).forEach(field => {
-                if (field.validationMessage !== '')
-                    field.setCustomValidity('');
-            });
+            // FIXME to hide valiidation messages
+            // signinForm.noValidate = true;
 
             // trgger animations
             signinMain.classList.add('hide-signinupMain');
@@ -347,14 +344,16 @@ class TraderSim extends React.Component {
 
             // hide (when animations finish)
             setTimeout(() => {
-                signinMain.style.visibility = 'hidden';
+                console.log(signinMain.style.display)
+                signinMain.style.display ='none';
+                console.log(signinMain.style.display)
             }, 200);
         }
         
         // on open
         else {
             // close dropdown menu
-            if (document.querySelector('#menu-list').style.visibility === 'visible')
+            if (document.querySelector('#menu-list').style.display === 'block')
                 this.toggleDropdown();
 
             // trgger animations
@@ -364,26 +363,28 @@ class TraderSim extends React.Component {
             signinPopup.classList.remove('hide-signinupPopup');
 
             // unhide
-            signinMain.style.visibility = 'visible';
+            signinMain.style.display ='block';
 
             // focus on the first field (when animations finish)
             window.setTimeout(() => {
                 signinMain.querySelector("input[name='email']").focus();
+                // FIXME turn validation back on
+                // signinForm.noValidate = false;
             }, 400);
         }
     };
 
-    toggleSignUpPopup = () => {
+    toggleSignUpPopup = (event) => {
+
+        event.preventDefault();
 
         let signupMain = document.querySelector('#signup-main');
         let signupPopup = signupMain.querySelector('#signup-popup');
+        // let signupForm = signupPopup.querySelector('#signup-form');
 
-        if (signupMain.style.visibility === 'visible') {
+        if (signupMain.style.display === 'block') {
 
-            (signupMain.querySelectorAll('input')).forEach(field => {
-                if (field.validationMessage !== '')
-                    field.setCustomValidity('');
-            });
+            // FIXME signupForm.noValidate = true;
 
             signupMain.classList.add('hide-signinupMain');
             signupMain.classList.remove('show-signinupMain');
@@ -391,12 +392,12 @@ class TraderSim extends React.Component {
             signupPopup.classList.remove('show-signinupPopup');
 
             setTimeout(() => {
-                signupMain.style.visibility = 'hidden';
+                signupMain.style.display ='none';
             }, 200)
         }
         
         else {
-            if (document.querySelector('#menu-list').style.visibility === 'visible')
+            if (document.querySelector('#menu-list').style.display === 'block')
                 this.toggleDropdown();
 
             signupMain.classList.add('show-signinupMain');
@@ -404,10 +405,11 @@ class TraderSim extends React.Component {
             signupPopup.classList.add('show-signinupPopup');
             signupPopup.classList.remove('hide-signinupPopup');
 
-            signupMain.style.visibility = 'visible';
+            signupMain.style.display ='block';
 
             window.setTimeout(() => {
                 signupMain.querySelector("input[name='name']").focus();
+                // FIXME signupForm.noValidate = false;
             }, 400);
         }
     };
@@ -417,7 +419,7 @@ class TraderSim extends React.Component {
         let ordersMain = document.querySelector('#orders-main');
         let ordersPopup = ordersMain.querySelector('#orders-popup');
 
-        if (ordersMain.style.visibility === 'visible') {
+        if (ordersMain.style.display === 'block') {
             
             ordersMain.classList.add('hide-ordersMain');
             ordersMain.classList.remove('show-ordersMain');
@@ -425,11 +427,11 @@ class TraderSim extends React.Component {
             ordersPopup.classList.remove('show-ordersPopup');
 
             setTimeout(() => {
-                ordersMain.style.visibility = 'hidden';
+                ordersMain.style.display ='none';
             }, 200);
         }
         else {
-            if (document.querySelector('#menu-list').style.visibility === 'visible')
+            if (document.querySelector('#menu-list').style.display === 'block')
                 this.toggleDropdown();
             
             ordersMain.classList.add('show-ordersMain');
@@ -437,7 +439,7 @@ class TraderSim extends React.Component {
             ordersPopup.classList.add('show-ordersPopup');
             ordersPopup.classList.remove('hide-ordersPopup');
 
-            ordersMain.style.visibility = 'visible';
+            ordersMain.style.display ='block';
         }
     }
 
