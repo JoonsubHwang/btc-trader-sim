@@ -176,9 +176,25 @@ export default class Transaction extends React.Component {
             if (res.error)
                 throw new Error(res.error);
             else if (res.invalid)
+                // validation error message
                 this.props.displayPopupMsg(false, 'Invalid order: ' + res.invalid);
-            else
-                this.props.displayPopupMsg(true, 'Order is processed successfully.');
+            else {
+                // success message
+                this.props.displayPopupMsg(true, 'Order processed.');
+
+                let transactionMain = document.querySelector('#transaction-main');
+
+                // success animation
+                if (buy)
+                    transactionMain.classList.add('flash-buy');
+                else
+                    transactionMain.classList.add('flash-sell');
+
+                setTimeout(() => {
+                    transactionMain.classList.remove('flash-buy');
+                    transactionMain.classList.remove('flash-sell');
+                }, 800);
+            }
         })
         .catch(err => {
             this.props.displayPopupMsg(false, err.message);

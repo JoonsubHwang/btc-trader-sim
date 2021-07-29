@@ -212,6 +212,14 @@ input[type=number] {
     animation: moveL2 .4s ease;
 }
 
+.flash-buy {
+    animation: flash-buy .8s linear;
+}
+
+.flash-sell {
+    animation: flash-sell .8s linear;
+}
+
 @-webkit-keyframes text-fadein {
     0% {
         color: var(--bg);
@@ -354,5 +362,57 @@ input[type=number] {
 @keyframes moveL2 {
     100% {
         transform: translateX(calc(-2 * var(--interval)));
+    }
+}
+
+@-webkit-keyframes flash-buy {
+    15% {
+        box-shadow: 0 0 .7rem .5rem var(--green);
+    }
+}
+@-moz-keyframes flash-buy {
+    15% {
+        box-shadow: 0 0 .7rem .5rem var(--green);
+    }
+}
+@-o-keyframes flash-buy {
+    15% {
+        box-shadow: 0 0 .7rem .5rem var(--green);
+    }
+}
+@-ms-keyframes flash-buy {
+    15% {
+        box-shadow: 0 0 .7rem .5rem var(--green);
+    }
+}
+@keyframes flash-buy {
+    15% {
+        box-shadow: 0 0 .7rem .5rem var(--green);
+    }
+}
+
+@-webkit-keyframes flash-sell {
+    15% {
+        box-shadow: 0 0 .7rem .5rem var(--red);
+    }
+}
+@-moz-keyframes flash-sell {
+    15% {
+        box-shadow: 0 0 .7rem .5rem var(--red);
+    }
+}
+@-o-keyframes flash-sell {
+    15% {
+        box-shadow: 0 0 .7rem .5rem var(--red);
+    }
+}
+@-ms-keyframes flash-sell {
+    15% {
+        box-shadow: 0 0 .7rem .5rem var(--red);
+    }
+}
+@keyframes flash-sell {
+    15% {
+        box-shadow: 0 0 .7rem .5rem var(--red);
     }
 }
