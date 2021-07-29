@@ -225,7 +225,7 @@ input:invalid,
 
 @-webkit-keyframes descend-in {
     0% {
-        transform: translateY(-100%);
+        transform: translateY(-200%);
     }
     100% {
         transform: none;
@@ -233,7 +233,7 @@ input:invalid,
 }
 @-moz-keyframes descend-in {
     0% {
-        transform: translateY(-100%);
+        transform: translateY(-200%);
     }
     100% {
         transform: none;
@@ -241,7 +241,7 @@ input:invalid,
 }
 @-o-keyframes descend-in {
     0% {
-        transform: translateY(-100%);
+        transform: translateY(-200%);
     }
     100% {
         transform: none;
@@ -249,7 +249,7 @@ input:invalid,
 }
 @-ms-keyframes descend-in {
     0% {
-        transform: translateY(-100%);
+        transform: translateY(-200%);
     }
     100% {
         transform: none;
@@ -257,7 +257,7 @@ input:invalid,
 }
 @keyframes descend-in {
     0% {
-        transform: translateY(-100%);
+        transform: translateY(-200%);
     }
     100% {
         transform: none;
@@ -269,7 +269,7 @@ input:invalid,
         transform: none;
     }
     100% {
-        transform: translateY(-100%);
+        transform: translateY(-200%);
     }
 }
 @-moz-keyframes ascend-out {
@@ -277,7 +277,7 @@ input:invalid,
         transform: none;
     }
     100% {
-        transform: translateY(-100%);
+        transform: translateY(-200%);
     }
 }
 @-o-keyframes ascend-out {
@@ -285,7 +285,7 @@ input:invalid,
         transform: none;
     }
     100% {
-        transform: translateY(-100%);
+        transform: translateY(-200%);
     }
 }
 @-ms-keyframes ascend-out {
@@ -293,7 +293,7 @@ input:invalid,
         transform: none;
     }
     100% {
-        transform: translateY(-100%);
+        transform: translateY(-200%);
     }
 }
 @keyframes ascend-out {
@@ -301,6 +301,6 @@ input:invalid,
         transform: none;
     }
     100% {
-        transform: translateY(-100%);
+        transform: translateY(-200%);
     }
 }
