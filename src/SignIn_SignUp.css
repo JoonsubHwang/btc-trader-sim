@@ -118,33 +118,33 @@ input[name='pwConfirm'] {
 /* animations */
 
 .show-signinupMain {
-    -webkit-animation: fade-in .8s ease;
-    -moz-animation: fade-in .8s ease;
-    -ms-animation: fade-in .8s ease;
-    -o-animation: fade-in .8s ease;
-    animation: fade-in .8s ease;
+    -webkit-animation: fade-in .8s ease-in-out;
+    -moz-animation: fade-in .8s ease-in-out;
+    -ms-animation: fade-in .8s ease-in-out;
+    -o-animation: fade-in .8s ease-in-out;
+    animation: fade-in .8s ease-in-out;
 }
 
 .hide-signinupMain {
-    -webkit-animation: fade-out .4s ease;
-    -moz-animation: fade-out .4s ease;
-    -ms-animation: fade-out .4s ease;
-    -o-animation: fade-out .4s ease;
-    animation: fade-out .4s ease;
+    -webkit-animation: fade-out .4s ease-in-out;
+    -moz-animation: fade-out .4s ease-in-out;
+    -ms-animation: fade-out .4s ease-in-out;
+    -o-animation: fade-out .4s ease-in-out;
+    animation: fade-out .4s ease-in-out;
 }
 
 .show-signinupPopup {
-    -webkit-animation: descend-in .8s ease;
-    -moz-animation: descend-in .8s ease;
-    -ms-animation: descend-in .8s ease;
-    -o-animation: descend-in .8s ease;
-    animation: descend-in .8s ease;
+    -webkit-animation: descend-in .8s ease-in-out;
+    -moz-animation: descend-in .8s ease-in-out;
+    -ms-animation: descend-in .8s ease-in-out;
+    -o-animation: descend-in .8s ease-in-out;
+    animation: descend-in .8s ease-in-out;
 }
 
 .hide-signinupPopup {
-    -webkit-animation: ascend-out .4s ease;
-    -moz-animation: ascend-out .4s ease;
-    -ms-animation: ascend-out .4s ease;
-    -o-animation: ascend-out .4s ease;
-    animation: ascend-out .4s ease;
+    -webkit-animation: ascend-out .4s ease-in-out;
+    -moz-animation: ascend-out .4s ease-in-out;
+    -ms-animation: ascend-out .4s ease-in-out;
+    -o-animation: ascend-out .4s ease-in-out;
+    animation: ascend-out .4s ease-in-out;
 }
