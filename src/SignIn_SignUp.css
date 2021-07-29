@@ -2,9 +2,9 @@
 #signin-main,
 #signup-main {
     --signin-width: 25rem;
-    --signin-height: 20rem;
+    --signin-height: 21.5rem;
     --signup-width: 25rem;
-    --signup-height: 24.5rem;
+    --signup-height: 26.5rem;
 
     display: none;
     position: fixed;
