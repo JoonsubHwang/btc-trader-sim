@@ -147,6 +147,8 @@ exports.loadBalance = async (email) => {
 
     try {
         const balance = await Balances.findOne({ email: email }).lean().exec();
+        balance.cash = new Number(balance.cash.toFixed(2));
+        balance.BTC = new Number(balance.BTC.toFixed(3));
 
         if (balance)
             return balance;
@@ -186,7 +188,7 @@ exports.processOrder = async (orderData) => {
     
         // load current price
         const currentPrice = await CbProAPI.loadNewPrice();
-        // set order price to current price
+        // set order price to current price (orderType is ignored)
         orderData.orderPrice = currentPrice;
         
         // validation
@@ -210,7 +212,6 @@ exports.processOrder = async (orderData) => {
             // NOTE: orderType is ignored
             if (orderData.buy)
                 await buy(orderData);
-                
             else
                 await sell(orderData);
 
