@@ -123,8 +123,12 @@ app.post('/account-updates', ensureSignIn, (req, res) => {
 });
 
 app.post('/order', (req, res) => {
+
     let orderData = req.body;
     orderData.email = req.session.user.email;
+    orderData.orderPrice = new Number(orderData.orderPrice);
+    orderData.orderAmount = new Number(orderData.orderAmount);
+
     dataService.processOrder(orderData)
     .then(invalid => {
         if (invalid)
