@@ -95,7 +95,7 @@ input {
                  2px  2px 3px 1px var(--bg-shadow);
 }
 
-/* remove arrows */
+/* remove input arrows */
     /* Chrome, Safari, Edge, Opera */
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {
