@@ -333,8 +333,8 @@ class TraderSim extends React.Component {
         // on close
         if (signinMain.style.display === 'block') {
 
-            // FIXME to hide valiidation messages
-            // signinForm.noValidate = true;
+            // to hide valiidation messages
+            // FIXME signinForm.noValidate = true;
 
             // trgger animations
             signinMain.classList.add('hide-signinupMain');
@@ -372,9 +372,7 @@ class TraderSim extends React.Component {
         }
     };
 
-    toggleSignUpPopup = (event) => {
-
-        event.preventDefault();
+    toggleSignUpPopup = () => {
 
         let signupMain = document.querySelector('#signup-main');
         let signupPopup = signupMain.querySelector('#signup-popup');
@@ -384,14 +382,14 @@ class TraderSim extends React.Component {
 
             // FIXME signupForm.noValidate = true;
 
+            setTimeout(() => {
+                signupMain.style.display ='none';
+            }, 400)
+
             signupMain.classList.add('hide-signinupMain');
             signupMain.classList.remove('show-signinupMain');
             signupPopup.classList.add('hide-signinupPopup');
             signupPopup.classList.remove('show-signinupPopup');
-
-            setTimeout(() => {
-                signupMain.style.display ='none';
-            }, 400)
         }
         
         else {
