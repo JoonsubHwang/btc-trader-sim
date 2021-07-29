@@ -105,7 +105,7 @@ module.exports = class CbProAPI {
             let res = await fetch(path);
             let data = (await res.json());
 
-            return data.price;
+            return new Number(data.price);
         }
         catch(err) {
             console.error('[CbProAPI] ' + err);
