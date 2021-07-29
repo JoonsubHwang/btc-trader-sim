@@ -256,6 +256,22 @@
 
 /* animations */
 
+.flash-green {
+    -webkit-animation: flash-green .5s linear;
+    -moz-animation: flash-green .5s linear;
+    -ms-animation: flash-green .5s linear;
+    -o-animation: flash-greent .5s linear;
+    animation: flash-green .5s linear;
+}
+
+.flash-red {
+    -webkit-animation: flash-red .5s linear;
+    -moz-animation: flash-red .5s linear;
+    -ms-animation: flash-red .5s linear;
+    -o-animation: flash-red .5s linear;
+    animation: flash-red .5s linear;
+}
+
 .show-background {
     -webkit-animation: fade-in .8s ease-in-out;
     -moz-animation: fade-in .8s ease-in-out;
@@ -270,6 +286,58 @@
     -ms-animation: fade-out .4s ease-in-out;
     -o-animation: fade-out .4s ease-in-out;
     animation: fade-out .4s ease-in-out;
+}
+
+@-webkit-keyframes flash-green {
+    0% {
+        color: var(--green);
+    }
+}
+@-moz-keyframes flash-green {
+    0% {
+        color: var(--green);
+    }
+}
+@-o-keyframes flash-green {
+    0% {
+        color: var(--green);
+    }
+}
+@-ms-keyframes flash-green {
+    0% {
+        color: var(--green);
+    }
+}
+@keyframes flash-green {
+    0% {
+        color: var(--green);
+    }
+}
+
+@-webkit-keyframes flash-red {
+    0% {
+        color: var(--red);
+    }
+}
+@-moz-keyframes flash-red {
+    0% {
+        color: var(--red);
+    }
+}
+@-o-keyframes flash-red {
+    0% {
+        color: var(--red);
+    }
+}
+@-ms-keyframes flash-red {
+    0% {
+        color: var(--red);
+    }
+}
+@keyframes flash-red {
+    0% {
+        color: var(--red);
+    }
 }
 
 @-webkit-keyframes fade-in {
@@ -328,79 +396,49 @@
     0% {
         transform: translateY(-200%);
     }
-    100% {
-        transform: none;
-    }
 }
 @-moz-keyframes descend-in {
     0% {
         transform: translateY(-200%);
-    }
-    100% {
-        transform: none;
     }
 }
 @-o-keyframes descend-in {
     0% {
         transform: translateY(-200%);
     }
-    100% {
-        transform: none;
-    }
 }
 @-ms-keyframes descend-in {
     0% {
         transform: translateY(-200%);
-    }
-    100% {
-        transform: none;
     }
 }
 @keyframes descend-in {
     0% {
         transform: translateY(-200%);
     }
-    100% {
-        transform: none;
-    }
 }
 
 @-webkit-keyframes ascend-out {
-    0% {
-        transform: none;
-    }
     100% {
         transform: translateY(-200%);
     }
 }
 @-moz-keyframes ascend-out {
-    0% {
-        transform: none;
-    }
     100% {
         transform: translateY(-200%);
     }
 }
 @-o-keyframes ascend-out {
-    0% {
-        transform: none;
-    }
     100% {
         transform: translateY(-200%);
     }
 }
 @-ms-keyframes ascend-out {
-    0% {
-        transform: none;
-    }
     100% {
         transform: translateY(-200%);
     }
 }
 @keyframes ascend-out {
-    0% {
-        transform: none;
-    }
     100% {
         transform: translateY(-200%);
     }
