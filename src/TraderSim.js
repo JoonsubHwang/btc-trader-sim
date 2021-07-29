@@ -344,9 +344,7 @@ class TraderSim extends React.Component {
 
             // hide (when animations finish)
             setTimeout(() => {
-                console.log(signinMain.style.display)
                 signinMain.style.display ='none';
-                console.log(signinMain.style.display)
             }, 200);
         }
         
