@@ -345,7 +345,7 @@ class TraderSim extends React.Component {
             // hide (when animations finish)
             setTimeout(() => {
                 signinMain.style.display ='none';
-            }, 200);
+            }, 400);
         }
         
         // on open
@@ -368,7 +368,7 @@ class TraderSim extends React.Component {
                 signinMain.querySelector("input[name='email']").focus();
                 // FIXME turn validation back on
                 // signinForm.noValidate = false;
-            }, 400);
+            }, 800);
         }
     };
 
@@ -391,7 +391,7 @@ class TraderSim extends React.Component {
 
             setTimeout(() => {
                 signupMain.style.display ='none';
-            }, 200)
+            }, 400)
         }
         
         else {
@@ -408,7 +408,7 @@ class TraderSim extends React.Component {
             window.setTimeout(() => {
                 signupMain.querySelector("input[name='name']").focus();
                 // FIXME signupForm.noValidate = false;
-            }, 400);
+            }, 800);
         }
     };
 
@@ -426,7 +426,7 @@ class TraderSim extends React.Component {
 
             setTimeout(() => {
                 ordersMain.style.display ='none';
-            }, 200);
+            }, 400);
         }
         else {
             if (document.querySelector('#menu-list').style.display === 'block')

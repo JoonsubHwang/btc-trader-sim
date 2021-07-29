@@ -101,35 +101,35 @@
 /* animations */
 
 .show-ordersMain {
-    -webkit-animation: fade-in .4s ease;
-    -moz-animation: fade-in .4s ease;
-    -ms-animation: fade-in .4s ease;
-    -o-animation: fade-in .4s ease;
-    animation: fade-in .4s ease;
+    -webkit-animation: fade-in .8s ease;
+    -moz-animation: fade-in .8s ease;
+    -ms-animation: fade-in .8s ease;
+    -o-animation: fade-in .8s ease;
+    animation: fade-in .8s ease;
 }
 
 .hide-ordersMain {
-    -webkit-animation: fade-out .2s ease;
-    -moz-animation: fade-out .2s ease;
-    -ms-animation: fade-out .2s ease;
-    -o-animation: fade-out .2s ease;
-    animation: fade-out .2s ease;
+    -webkit-animation: fade-out .4s ease;
+    -moz-animation: fade-out .4s ease;
+    -ms-animation: fade-out .4s ease;
+    -o-animation: fade-out .4s ease;
+    animation: fade-out .4s ease;
 }
 
 .show-ordersPopup {
-    -webkit-animation: slideR-in .4s ease;
-    -moz-animation: slideR-in .4s ease;
-    -ms-animation: slideR-in .4s ease;
-    -o-animation: slideR-in .4s ease;
-    animation: slideR-in .4s ease;
+    -webkit-animation: slideR-in .8s ease;
+    -moz-animation: slideR-in .8s ease;
+    -ms-animation: slideR-in .8s ease;
+    -o-animation: slideR-in .8s ease;
+    animation: slideR-in .8s ease;
 }
 
 .hide-ordersPopup {
-    -webkit-animation: slideL-out .2s ease;
-    -moz-animation: slideL-out .2s ease;
-    -ms-animation: slideL-out .2s ease;
-    -o-animation: slideL-out .2s ease;
-    animation: slideL-out .2s ease;
+    -webkit-animation: slideL-out .4s ease;
+    -moz-animation: slideL-out .4s ease;
+    -ms-animation: slideL-out .4s ease;
+    -o-animation: slideL-out .4s ease;
+    animation: slideL-out .4s ease;
 }
 
 @-webkit-keyframes slideR-in {
