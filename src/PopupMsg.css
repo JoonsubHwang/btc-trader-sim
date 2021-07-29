@@ -19,7 +19,7 @@
     
     /* set when appearing */
     /* display: grid; */
-    grid-template-columns: var(--icon-size) calc(var(--PopupMsg-width) - var(--icon-size) - .6rem);
+    grid-template-columns: var(--icon-size) calc(var(--PopupMsg-width) - var(--icon-size) - .6rem - 1.8rem);
     gap: .6rem;
 
     -webkit-transition: all .4s ease;
