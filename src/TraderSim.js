@@ -34,7 +34,6 @@ class TraderSim extends React.Component {
 
             // price
             price: 0,
-            priceColor: 'white',
 
             // popupMsg
             popupMsg: {
@@ -84,7 +83,9 @@ class TraderSim extends React.Component {
 
                     {/* price-panel */}
                     <div id='price-panel'>
-                        <h1 id='price-heading'>BTC-USD <span className={this.state.priceColor}>${Number(this.state.price).toFixed(2)}</span></h1>
+                        <h1 id='price-heading'>
+                            BTC-USD <span id='priceValue'>${Number(this.state.price).toFixed(2)}</span>
+                            </h1>
                     </div>
 
 
@@ -172,13 +173,16 @@ class TraderSim extends React.Component {
     updatePrice = () => {
         CbProAPI.loadNewPrice().then(newPrice => {
 
+            let priceValue = document.querySelector('#priceValue');
+            // clear classes
+            priceValue.classList = [];
+
             // change color of price when it's changed
-            if (newPrice > this.state.price)
-                this.setState({ priceColor: 'green' });
-            else if (newPrice < this.state.price)
-                this.setState({ priceColor: 'red' });
-            else 
-                this.setState({ priceColor: 'white' });
+            if (newPrice > this.state.price) // increase
+                priceValue.classList.add('flash-green');
+            else if (newPrice < this.state.price) // decrease
+                priceValue.classList.add('flash-red');
+
 
             // store new price
             this.setState({ 
