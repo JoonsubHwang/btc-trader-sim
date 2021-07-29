@@ -70,6 +70,8 @@ button {
     background: var(--bg);
     box-shadow: -2px -2px 3px 1px var(--bg-highlight),
                  2px  2px 3px 1px var(--bg-shadow);
+
+    transition: filter .2s ease-in-out;
 }
 
 button:hover {
