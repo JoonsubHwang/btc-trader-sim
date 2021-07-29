@@ -212,6 +212,38 @@ input[type=number] {
     animation: moveL2 .4s ease;
 }
 
+@-webkit-keyframes text-fadein {
+    0% {
+        color: var(--bg);
+    }
+    100% {
+        color: var(--fg);
+    }
+}
+@-moz-keyframes text-fadein {
+    0% {
+        color: var(--bg);
+    }
+    100% {
+        color: var(--fg);
+    }
+}
+@-o-keyframes text-fadein {
+    0% {
+        color: var(--bg);
+    }
+    100% {
+        color: var(--fg);
+    }
+}
+@-ms-keyframes text-fadein {
+    0% {
+        color: var(--bg);
+    }
+    100% {
+        color: var(--fg);
+    }
+}
 @keyframes text-fadein {
     0% {
         color: var(--bg);
@@ -221,34 +253,105 @@ input[type=number] {
     }
 }
 
-@keyframes moveR1 {
-    0% {
-        transform: translateX(0);
-    }
+@-webkit-keyframes moveR1 {
     100% {
         transform: translateX(var(--interval));
     }
 }
-@keyframes moveR2 {
-    0% {
-        transform: translateX(0);
+@-moz-keyframes moveR1 {
+    100% {
+        transform: translateX(var(--interval));
     }
+}
+@-o-keyframes moveR1 {
+    100% {
+        transform: translateX(var(--interval));
+    }
+}
+@-ms-keyframes moveR1 {
+    100% {
+        transform: translateX(var(--interval));
+    }
+}
+@keyframes moveR1 {
+    100% {
+        transform: translateX(var(--interval));
+    }
+}
+
+@-webkit-keyframes moveR2 {
     100% {
         transform: translateX(calc(2 * var(--interval)));
     }
 }
-@keyframes moveL1 {
-    0% {
-        transform: translateX(0);
+@-moz-keyframes moveR2 {
+    100% {
+        transform: translateX(calc(2 * var(--interval)));
     }
+}
+@-o-keyframes moveR2 {
+    100% {
+        transform: translateX(calc(2 * var(--interval)));
+    }
+}
+@-ms-keyframes moveR2 {
+    100% {
+        transform: translateX(calc(2 * var(--interval)));
+    }
+}
+@keyframes moveR2 {
+    100% {
+        transform: translateX(calc(2 * var(--interval)));
+    }
+}
+
+@-webkit-keyframes moveL1 {
     100% {
         transform: translateX(calc(-1 * var(--interval)));
     }
 }
-@keyframes moveL2 {
-    0% {
-        transform: translateX(0);
+@-moz-keyframes moveL1 {
+    100% {
+        transform: translateX(calc(-1 * var(--interval)));
     }
+}
+@-o-keyframes moveL1 {
+    100% {
+        transform: translateX(calc(-1 * var(--interval)));
+    }
+}
+@-ms-keyframes moveL1 {
+    100% {
+        transform: translateX(calc(-1 * var(--interval)));
+    }
+}
+@keyframes moveL1 {
+    100% {
+        transform: translateX(calc(-1 * var(--interval)));
+    }
+}
+
+@-webkit-keyframes moveL2 {
+    100% {
+        transform: translateX(calc(-2 * var(--interval)));
+    }
+}
+@-moz-keyframes moveL2 {
+    100% {
+        transform: translateX(calc(-2 * var(--interval)));
+    }
+}
+@-o-keyframes moveL2 {
+    100% {
+        transform: translateX(calc(-2 * var(--interval)));
+    }
+}
+@-ms-keyframes moveL2 {
+    100% {
+        transform: translateX(calc(-2 * var(--interval)));
+    }
+}
+@keyframes moveL2 {
     100% {
         transform: translateX(calc(-2 * var(--interval)));
     }
