@@ -337,8 +337,8 @@ class TraderSim extends React.Component {
             // FIXME signinForm.noValidate = true;
 
             // trgger animations
-            signinMain.classList.add('hide-signinupMain');
-            signinMain.classList.remove('show-signinupMain');
+            signinMain.classList.add('hide-background');
+            signinMain.classList.remove('show-background');
             signinPopup.classList.add('hide-signinupPopup');
             signinPopup.classList.remove('show-signinupPopup');
 
@@ -355,8 +355,8 @@ class TraderSim extends React.Component {
                 this.toggleDropdown();
 
             // trgger animations
-            signinMain.classList.add('show-signinupMain');
-            signinMain.classList.remove('hide-signinupMain');
+            signinMain.classList.add('show-background');
+            signinMain.classList.remove('hide-background');
             signinPopup.classList.add('show-signinupPopup');
             signinPopup.classList.remove('hide-signinupPopup');
 
@@ -386,8 +386,8 @@ class TraderSim extends React.Component {
                 signupMain.style.display ='none';
             }, 400)
 
-            signupMain.classList.add('hide-signinupMain');
-            signupMain.classList.remove('show-signinupMain');
+            signupMain.classList.add('hide-background');
+            signupMain.classList.remove('show-background');
             signupPopup.classList.add('hide-signinupPopup');
             signupPopup.classList.remove('show-signinupPopup');
         }
@@ -396,8 +396,8 @@ class TraderSim extends React.Component {
             if (document.querySelector('#menu-list').style.display === 'block')
                 this.toggleDropdown();
 
-            signupMain.classList.add('show-signinupMain');
-            signupMain.classList.remove('hide-signinupMain');
+            signupMain.classList.add('show-background');
+            signupMain.classList.remove('hide-background');
             signupPopup.classList.add('show-signinupPopup');
             signupPopup.classList.remove('hide-signinupPopup');
 
@@ -417,8 +417,8 @@ class TraderSim extends React.Component {
 
         if (ordersMain.style.display === 'block') {
             
-            ordersMain.classList.add('hide-ordersMain');
-            ordersMain.classList.remove('show-ordersMain');
+            ordersMain.classList.add('hide-background');
+            ordersMain.classList.remove('show-background');
             ordersPopup.classList.add('hide-ordersPopup');
             ordersPopup.classList.remove('show-ordersPopup');
 
@@ -430,8 +430,8 @@ class TraderSim extends React.Component {
             if (document.querySelector('#menu-list').style.display === 'block')
                 this.toggleDropdown();
             
-            ordersMain.classList.add('show-ordersMain');
-            ordersMain.classList.remove('hide-ordersMain');
+            ordersMain.classList.add('show-background');
+            ordersMain.classList.remove('hide-background');
             ordersPopup.classList.add('show-ordersPopup');
             ordersPopup.classList.remove('hide-ordersPopup');
 

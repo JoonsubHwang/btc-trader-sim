@@ -171,6 +171,22 @@ input:invalid,
 
 /* animations */
 
+.show-background {
+    -webkit-animation: fade-in .8s ease-in-out;
+    -moz-animation: fade-in .8s ease-in-out;
+    -ms-animation: fade-in .8s ease-in-out;
+    -o-animation: fade-in .8s ease-in-out;
+    animation: fade-in .8s ease-in-out;
+}
+
+.hide-background {
+    -webkit-animation: fade-out .4s ease-in-out;
+    -moz-animation: fade-out .4s ease-in-out;
+    -ms-animation: fade-out .4s ease-in-out;
+    -o-animation: fade-out .4s ease-in-out;
+    animation: fade-out .4s ease-in-out;
+}
+
 @-webkit-keyframes fade-in {
     0% {
         background: none;
