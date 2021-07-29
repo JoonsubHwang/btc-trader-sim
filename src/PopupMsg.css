@@ -16,11 +16,6 @@
     height: var(--PopupMsg-height);
     padding: .8rem .9rem;
     overflow: hidden;
-    
-    /* set when appearing */
-    /* display: grid; */
-    grid-template-columns: var(--icon-size) calc(var(--PopupMsg-width) - var(--icon-size) - .6rem - 1.8rem);
-    gap: .6rem;
 
     -webkit-transition: all .4s ease;
     -moz-transition: all .4s ease;
@@ -33,7 +28,13 @@
     height: calc(2 * var(--PopupMsg-height));
 }
 
-#PopupMsg-main > svg {
+#PopupMsg-grid {
+    display: grid;
+    grid-template-columns: var(--icon-size) calc(var(--PopupMsg-width) - var(--icon-size) - .6rem - 1.8rem);
+    gap: .6rem;
+}
+
+#PopupMsg-grid > svg {
     width: var(--icon-size);
     height: var(--icon-size);
     align-self: center;
@@ -46,7 +47,7 @@
     fill: var(--red);
 }
 
-#PopupMsg-main > div > p {
+#PopupMsg-grid > div > p {
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 3;
