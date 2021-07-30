@@ -4,11 +4,11 @@ const minute = 60;
 const locale = 'en-US';
 const endpoint = 'https://api.pro.coinbase.com';
 const productID = 'BTC-USD';
-const historyLength = 1.5; // hours
+const historyLength = 2; // hours
 
 export default class CbProAPI {
 
-    // returns 2-hour historic rates of BTC-USD
+    // returns historic rates of BTC-USD
     static async loadHistory() {
 
         let currentTime = new Date();
