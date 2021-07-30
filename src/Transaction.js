@@ -89,6 +89,8 @@ export default class Transaction extends React.Component {
             
             // hide current button's text
             current.style.color = 'var(--bg)';
+            // instantly unhide selected button's text in case it's fading in
+            selected.style.color = 'var(--fg)';
             // temporarily display selected button over current (for text)
             selected.style.zIndex = '1';
 
