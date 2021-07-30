@@ -44,7 +44,7 @@ export default class CbProAPI {
                 };
             })
 
-            return data;
+            return data.slice(0, (historyLength * 60)).reverse();
         }
         catch(err) {
             console.error('[CbProAPI] ' + err);
