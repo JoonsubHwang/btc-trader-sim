@@ -85,21 +85,30 @@ class Chart extends Component {
             if ((this.props.price !== undefined) && this.chart.data[0] 
                 && ((currentTime.getMinutes() === this.chart.data[0].time.getMinutes() + this.granularity) || ((currentTime.getHours() === this.chart.data[0].time.getHours() + 1)))) {
                 
-                // add new candle
-                this.chart.data.unshift({
-                    time: currentTime,
-                    low: this.props.price,
-                    high: this.props.price,
-                    open: this.props.price,
-                    close: this.props.price
-                    // no volume
-                });
+                // unshift existing candles' data
+                for (let i = this.chart.data.length - 1; i > 0; --i) {
+                    this.chart.data[i].time = this.chart.data[i-1].time;
+                    this.chart.data[i].low = this.chart.data[i-1].low;
+                    this.chart.data[i].high = this.chart.data[i-1].high;
+                    this.chart.data[i].open = this.chart.data[i-1].open;
+                    this.chart.data[i].close = this.chart.data[i-1].close;
+                    this.chart.data[i].openVolume = this.chart.data[i-1].openVolume;
+                    this.chart.data[i].valueVolume = this.chart.data[i-1].valueVolume;
+                    this.chart.data[i].highVolume = this.chart.data[i-1].highVolume;
+                }
 
-                // remove the oldest candle
-                this.chart.data.pop();
+                // insert new candle data
+                this.chart.data[0].time = currentTime;
+                this.chart.data[0].low = this.props.price;
+                this.chart.data[0].high = this.props.price;
+                this.chart.data[0].open = this.props.price;
+                this.chart.data[0].close = this.props.price;
+                this.chart.data[0].openVolume = 0;
+                this.chart.data[0].valueVolume = 0;
+                this.chart.data[0].highVolume = 0;
 
                 // update chart
-                this.chart.invalidateData();
+                this.chart.validateData();
             }
             else {
                 // update current candle when price changes
