@@ -289,53 +289,83 @@
 }
 
 @-webkit-keyframes flash-green {
-    0% {
+    15% {
+        color: var(--green);
+    }
+    75% {
         color: var(--green);
     }
 }
 @-moz-keyframes flash-green {
-    0% {
+    15% {
+        color: var(--green);
+    }
+    75% {
         color: var(--green);
     }
 }
 @-o-keyframes flash-green {
-    0% {
+    15% {
+        color: var(--green);
+    }
+    75% {
         color: var(--green);
     }
 }
 @-ms-keyframes flash-green {
-    0% {
+    15% {
+        color: var(--green);
+    }
+    75% {
         color: var(--green);
     }
 }
 @keyframes flash-green {
-    0% {
+    15% {
+        color: var(--green);
+    }
+    75% {
         color: var(--green);
     }
 }
 
 @-webkit-keyframes flash-red {
-    0% {
+    15% {
+        color: var(--red);
+    }
+    75% {
         color: var(--red);
     }
 }
 @-moz-keyframes flash-red {
-    0% {
+    15% {
+        color: var(--red);
+    }
+    75% {
         color: var(--red);
     }
 }
 @-o-keyframes flash-red {
-    0% {
+    15% {
+        color: var(--red);
+    }
+    75% {
         color: var(--red);
     }
 }
 @-ms-keyframes flash-red {
-    0% {
+    15% {
+        color: var(--red);
+    }
+    75% {
         color: var(--red);
     }
 }
 @keyframes flash-red {
-    0% {
+    15% {
+        color: var(--red);
+    }
+    75% {
         color: var(--red);
     }
 }
