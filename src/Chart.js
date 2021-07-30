@@ -82,52 +82,37 @@ class Chart extends Component {
 
         try {
             // add new candle every minute
-            if ((this.props.price !== undefined) && this.chart.data[0] 
-                && ((currentTime.getMinutes() === this.chart.data[0].time.getMinutes() + this.granularity) || ((currentTime.getHours() === this.chart.data[0].time.getHours() + 1)))) {
+            if ((this.props.price !== undefined) && this.chart.data[this.chart.data.length - 1] 
+                && ((currentTime.getMinutes() === this.chart.data[this.chart.data.length - 1].time.getMinutes() + this.granularity) || ((currentTime.getHours() === this.chart.data[this.chart.data.length - 1].time.getHours() + 1)))) {
                 
-                // unshift existing candles' data
-                for (let i = this.chart.data.length - 1; i > 0; --i) {
-                    this.chart.data[i].time = this.chart.data[i-1].time;
-                    this.chart.data[i].low = this.chart.data[i-1].low;
-                    this.chart.data[i].high = this.chart.data[i-1].high;
-                    this.chart.data[i].open = this.chart.data[i-1].open;
-                    this.chart.data[i].close = this.chart.data[i-1].close;
-                    this.chart.data[i].openVolume = this.chart.data[i-1].openVolume;
-                    this.chart.data[i].valueVolume = this.chart.data[i-1].valueVolume;
-                    this.chart.data[i].highVolume = this.chart.data[i-1].highVolume;
-                }
-
-                // insert new candle data
-                this.chart.data[0].time = currentTime;
-                this.chart.data[0].low = this.props.price;
-                this.chart.data[0].high = this.props.price;
-                this.chart.data[0].open = this.props.price;
-                this.chart.data[0].close = this.props.price;
-                this.chart.data[0].openVolume = 0;
-                this.chart.data[0].valueVolume = 0;
-                this.chart.data[0].highVolume = 0;
-
-                // update chart
-                this.chart.validateData();
+                this.chart.addData({
+                    time: currentTime,
+                    low: this.props.price,
+                    high: this.props.price,
+                    open: this.props.price,
+                    close:this.props.price
+                }, 1); // also remove the oldest candle
             }
+
+            // when price changes
             else {
-                // update current candle when price changes
+                // update current candle
                 if (oldProps.price !== this.props.price) {
 
                     // update close
-                    this.chart.data[0].close = this.props.price;
+                    this.chart.data[this.chart.data.length - 1].close = this.props.price;
 
                     // update low and high
-                    if (this.props.price < this.chart.data[0].low)
-                        this.chart.data[0].low = this.props.price;
-                    else if (this.props.price > this.chart.data[0].high)
-                        this.chart.data[0].high = this.props.price;
+                    if (this.props.price < this.chart.data[this.chart.data.length - 1].low)
+                        this.chart.data[this.chart.data.length - 1].low = this.props.price;
+                    else if (this.props.price > this.chart.data[this.chart.data.length - 1].high)
+                        this.chart.data[this.chart.data.length - 1].high = this.props.price;
 
                     // update chart
                     this.chart.invalidateRawData();
                 }
 
-                // update last minute's candle at 30 seconds (to get the volume)
+                // load and update last minute's volume at 30 seconds
                 if (currentTime.getSeconds() === 30) {
 
                     // request last minute's candle
